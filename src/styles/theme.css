@@ -1,0 +1,161 @@
+/* Palette base */
+:root {
+    --brand: #6a4dff;
+    --brand-2: #00d1ff;
+}
+
+/* Sfondi e tipografia */
+body {
+    background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(106, 77, 255, 0.08), transparent 60%),
+        radial-gradient(1200px 600px at 110% 10%, rgba(0, 209, 255, 0.08), transparent 60%),
+        #0b0f1a;
+    color: #e6e8ee;
+}
+
+.navbar {
+    backdrop-filter: saturate(1.2) blur(6px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Card hover */
+.card {
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    border-color: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.04);
+    color: #e6e8ee;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    border-color: rgba(255, 255, 255, 0.18);
+}
+
+/* Bottoni primari */
+.btn-primary {
+    background: linear-gradient(135deg, var(--brand), var(--brand-2));
+    border: none;
+    color: #ffffff;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    filter: brightness(1.05);
+    color: #ffffff;
+    background: linear-gradient(135deg, var(--brand), var(--brand-2));
+    border: none;
+}
+
+/* Tabelle */
+.table {
+    color: #dfe2ea;
+}
+
+.table thead th {
+    border-bottom-color: rgba(255, 255, 255, 0.15);
+}
+
+.table td,
+.table th {
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Form controls */
+.form-control,
+.form-select {
+    background: rgba(255, 255, 255, 0.95) !important;
+    color: #212529 !important;
+    border: 1px solid rgba(0, 0, 0, 0.2) !important;
+}
+
+.form-control:focus,
+.form-select:focus {
+    background: #ffffff !important;
+    color: #212529 !important;
+    border-color: var(--brand) !important;
+    box-shadow: 0 0 0 0.2rem rgba(106, 77, 255, 0.25) !important;
+}
+
+.form-control::placeholder {
+    color: #6c757d !important;
+}
+
+/* Opzioni del select */
+.form-select option {
+    background: #ffffff;
+    color: #212529;
+}
+
+/* Input number per carrello */
+input[type="number"].form-control {
+    font-weight: 600 !important;
+    text-align: center !important;
+}
+
+/* Textarea specifiche */
+textarea.form-control {
+    background: rgba(255, 255, 255, 0.95) !important;
+    color: #212529 !important;
+}
+
+/* Input nel modal admin */
+.modal .form-control,
+.modal .form-select {
+    background: #ffffff !important;
+    color: #212529 !important;
+    border: 1px solid #ced4da !important;
+}
+
+/* Footer */
+.site-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    background:
+        radial-gradient(800px 300px at 0% 0%, rgba(106, 77, 255, 0.08), transparent 60%),
+        radial-gradient(800px 300px at 100% 0%, rgba(0, 209, 255, 0.08), transparent 60%),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.05));
+}
+
+.footer-logo {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--brand, #6a4dff), var(--brand-2, #00d1ff));
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.footer-link {
+    color: #e6e8ee;
+    opacity: 0.85;
+    text-decoration: none;
+}
+
+.footer-link:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+.social-pill {
+    width: 34px;
+    height: 34px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #e6e8ee;
+    background: transparent;
+    font-weight: 600;
+    font-size: 0.8rem;
+    transition: transform .15s ease, background .15s ease, border-color .15s ease;
+}
+
+.social-pill:hover {
+    transform: translateY(-1px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.35);
+}

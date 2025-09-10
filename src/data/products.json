@@ -1,0 +1,14 @@
+[
+  { "id": 1,  "title": "T-Shirt Basic",            "price": 19.90, "category": "men's clothing",   "description": "T-shirt in cotone 100% a vestibilità regolare.",         "imageFile": "tshirt.svg" },
+  { "id": 2,  "title": "Giacca Leggera",           "price": 59.90, "category": "men's clothing",   "description": "Giacca antivento leggera per la mezza stagione.",        "imageFile": "jacket.svg" },
+  { "id": 3,  "title": "Sneakers Urban",           "price": 79.00, "category": "men's clothing",   "description": "Sneakers comode per tutti i giorni.",                    "imageFile": "sneakers.svg" },
+  { "id": 4,  "title": "Abito Elegante",           "price": 89.00, "category": "women's clothing", "description": "Abito midi elegante per cerimonie e serate.",            "imageFile": "dress.svg" },
+  { "id": 5,  "title": "Borsa Tracolla",           "price": 45.00, "category": "women's clothing", "description": "Borsa a tracolla capiente in eco-pelle.",                "imageFile": "bag.svg" },
+  { "id": 6,  "title": "Anello Minimal",           "price": 29.00, "category": "jewelery",         "description": "Anello minimalista in acciaio inox.",                    "imageFile": "ring.svg" },
+  { "id": 7,  "title": "Orecchini Perla",          "price": 24.90, "category": "jewelery",         "description": "Orecchini con perle sintetiche, chiusura a farfalla.",   "imageFile": "earrings.svg" },
+  { "id": 8,  "title": "Orologio Classico",        "price": 129.0, "category": "jewelery",         "description": "Orologio da polso con cinturino in pelle.",              "imageFile": "watch.svg" },
+  { "id": 9,  "title": "Cuffie Over-Ear",          "price": 59.00, "category": "electronics",      "description": "Cuffie comode con buon isolamento acustico.",            "imageFile": "headphones.svg" },
+  { "id":10,  "title": "Laptop 14\"",              "price": 799.0, "category": "electronics",      "description": "Portatile 14\" leggero e silenzioso per lavoro/studio.", "imageFile": "laptop.svg" },
+  { "id":11,  "title": "Smartphone 6.1\"",         "price": 499.0, "category": "electronics",      "description": "Display 6.1\" e fotocamera doppia.",                      "imageFile": "phone.svg" },
+  { "id":12,  "title": "Fotocamera Compatta",      "price": 349.0, "category": "electronics",      "description": "Compatta con ottiche versatili per viaggi.",             "imageFile": "camera.svg" }
+]
