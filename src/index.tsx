@@ -8,16 +8,19 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import { CartProvider } from './context/CartContext';
 import { ToastProvider } from './context/ToastContext';
+import { AuthProvider } from './context/AuthContext';
 
 const rootEl = document.getElementById('root');
 if (!rootEl) throw new Error('Elemento #root non trovato');
 
 createRoot(rootEl).render(
-    <ToastProvider>
-        <CartProvider>
-            <BrowserRouter>
-                <App />
-            </BrowserRouter>
-        </CartProvider>
-    </ToastProvider>
+  <ToastProvider>
+    <AuthProvider>
+      <CartProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </CartProvider>
+    </AuthProvider>
+  </ToastProvider>
 );

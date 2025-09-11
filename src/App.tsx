@@ -1,79 +1,159 @@
 import React from 'react';
-import { Container, Navbar, Nav, Badge } from 'react-bootstrap';
-import { Routes, Route, NavLink, Link } from 'react-router-dom';
+import { Container, Navbar, Nav, Badge, Dropdown } from 'react-bootstrap';
+import { Routes, Route, NavLink, Link, useLocation } from 'react-router-dom';
+import { User, LogOut, Shield } from 'lucide-react';
 
 import { useCart } from './context/CartContext';
+import { useAuth } from './context/AuthContext';
 
 import Home from './pages/Home';
 import ProductDetail from './pages/ProductDetail';
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
+import Login from './pages/Login';
+import Register from './pages/Register';
 
 import MiniCart from './components/MiniCart';
 import Footer from './components/Footer';
 import AdminPanel from './pages/AdminPanel';
+import ProtectedRoute from './components/ProtectedRoute';
 
 export default function App() {
     const { count } = useCart();
+    const { isAuthenticated, user, logout, isAdmin } = useAuth();
     const [showCart, setShowCart] = React.useState(false);
+    const location = useLocation();
+
+
+    const isAuthPage = ['/login', '/register'].includes(location.pathname);
+
+    const handleLogout = () => {
+        logout();
+        setShowCart(false);
+    };
 
     return (
         <>
-            <Navbar bg="dark" data-bs-theme="dark" expand="md">
-                <Container>
-                    <Link to="/" className="navbar-brand">Manuzon-shopp</Link>
+            {!isAuthPage && (
+                <Navbar bg="dark" data-bs-theme="dark" expand="md">
+                    <Container>
+                        <Link to="/" className="navbar-brand">Manuzon-shopp</Link>
 
-                    <Navbar.Toggle />
-                    <Navbar.Collapse>
-                        <Nav className="ms-auto align-items-center gap-2">
-                            <NavLink
-                                to="/"
-                                end
-                                className={({ isActive }) => 'nav-link' + (isActive ? ' active' : '')}
-                            >
-                                Home
-                            </NavLink>
+                        <Navbar.Toggle />
+                        <Navbar.Collapse>
+                            <Nav className="ms-auto align-items-center gap-2">
+                                <NavLink
+                                    to="/"
+                                    end
+                                    className={({ isActive }) => 'nav-link' + (isActive ? ' active' : '')}
+                                >
+                                    Home
+                                </NavLink>
 
-                            <NavLink
-                                to="/cart"
-                                className={({ isActive }) => 'nav-link' + (isActive ? ' active' : '')}
-                            >
-                                Carrello
-                            </NavLink>
+                                <NavLink
+                                    to="/cart"
+                                    className={({ isActive }) => 'nav-link' + (isActive ? ' active' : '')}
+                                >
+                                    Carrello
+                                </NavLink>
 
-                            <NavLink
-                                to="/checkout"
-                                className={({ isActive }) => 'nav-link' + (isActive ? ' active' : '')}
-                            >
-                                Checkout
-                            </NavLink>
+                                <NavLink
+                                    to="/checkout"
+                                    className={({ isActive }) => 'nav-link' + (isActive ? ' active' : '')}
+                                >
+                                    Checkout
+                                </NavLink>
 
-                            {/* Button per mini-carrello */}
-                            <button
-                                type="button"
-                                className="btn btn-outline-light d-flex align-items-center gap-1"
-                                onClick={() => setShowCart(true)}
-                            >
-                                🛒 <span>Carrello</span> <Badge bg="primary">{count}</Badge>
-                            </button>
-                        </Nav>
-                    </Navbar.Collapse>
-                </Container>
-            </Navbar>
+                                {/* Admin link per admin */}
+                                {isAuthenticated && isAdmin && (
+                                    <NavLink
+                                        to="/admin"
+                                        className={({ isActive }) => 'nav-link d-flex align-items-center gap-1' + (isActive ? ' active' : '')}
+                                    >
+                                        <Shield size={16} />
+                                        Admin
+                                    </NavLink>
+                                )}
+
+                                {/* User menu */}
+                                {isAuthenticated ? (
+                                    <Dropdown align="end">
+                                        <Dropdown.Toggle
+                                            variant="outline-light"
+                                            id="user-dropdown"
+                                            className="d-flex align-items-center gap-2"
+                                        >
+                                            <User size={18} />
+                                            <span className="d-none d-md-inline">
+                                                {user?.firstName}
+                                            </span>
+                                        </Dropdown.Toggle>
+
+                                        <Dropdown.Menu>
+                                            <Dropdown.Header>
+                                                <div className="fw-semibold">{user?.firstName} {user?.lastName}</div>
+                                                <div className="small text-muted">{user?.email}</div>
+                                            </Dropdown.Header>
+                                            <Dropdown.Divider />
+                                            <Dropdown.Item onClick={handleLogout}>
+                                                <LogOut size={16} className="me-2" />
+                                                Logout
+                                            </Dropdown.Item>
+                                        </Dropdown.Menu>
+                                    </Dropdown>
+                                ) : (
+                                    <div className="d-flex align-items-center gap-2">
+                                        <Link to="/login" className="btn btn-outline-light btn-sm">
+                                            Accedi
+                                        </Link>
+                                        <Link to="/register" className="btn btn-primary btn-sm">
+                                            Registrati
+                                        </Link>
+                                    </div>
+                                )}
+
+                                {/* Button carrello */}
+                                <button
+                                    type="button"
+                                    className="btn btn-outline-light d-flex align-items-center gap-1"
+                                    onClick={() => setShowCart(true)}
+                                >
+                                    🛒 <span>Carrello</span> <Badge bg="primary">{count}</Badge>
+                                </button>
+                            </Nav>
+                        </Navbar.Collapse>
+                    </Container>
+                </Navbar>
+            )}
 
             <main>
-                <Container className="py-4">
+                {!isAuthPage && <Container className="py-4">
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/product/:id" element={<ProductDetail />} />
                         <Route path="/cart" element={<Cart />} />
-                        <Route path="/checkout" element={<Checkout />} />
-                        <Route path="/admin" element={<AdminPanel />} />
+                        <Route path="/checkout" element={
+                            <ProtectedRoute>
+                                <Checkout />
+                            </ProtectedRoute>
+                        } />
+                        <Route path="/admin" element={
+                            <ProtectedRoute requireAdmin>
+                                <AdminPanel />
+                            </ProtectedRoute>
+                        } />
                     </Routes>
-                </Container>
+                </Container>}
+
+                {isAuthPage && (
+                    <Routes>
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/register" element={<Register />} />
+                    </Routes>
+                )}
             </main>
 
-            <Footer />
+            {!isAuthPage && <Footer />}
 
             {/* Mini-carrello */}
             <MiniCart show={showCart} onHide={() => setShowCart(false)} />
