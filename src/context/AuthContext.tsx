@@ -75,22 +75,22 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const login = async (credentials: LoginCredentials): Promise<void> => {
     setLoading(true);
-    
-    
+
+
     await new Promise(resolve => setTimeout(resolve, 800));
-    
+
     // Mock autenticazione - da sostituire con API reale
     const mockUser = MOCK_USERS.find(
       u => u.email === credentials.email && u.password === credentials.password
     );
-    
+
     if (!mockUser) {
       setLoading(false);
       throw new Error('Email o password non corretti');
     }
-    
+
     const { password, ...userWithoutPassword } = mockUser;
-    
+
     setUser(userWithoutPassword);
     localStorage.setItem(STORAGE_KEY, JSON.stringify(userWithoutPassword));
     setLoading(false);
@@ -98,17 +98,17 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const register = async (data: RegisterData): Promise<void> => {
     setLoading(true);
-    
+
     // Simula chiamata API con delay
     await new Promise(resolve => setTimeout(resolve, 1000));
-    
+
     // Mock registrazione,sostituire con API
     const existingUser = MOCK_USERS.find(u => u.email === data.email);
     if (existingUser) {
       setLoading(false);
       throw new Error('Email già registrata');
     }
-    
+
     const newUser: User = {
       id: Date.now(),
       email: data.email,
@@ -116,9 +116,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       lastName: data.lastName,
       role: 'user'
     };
-    
+
     setUser(newUser);
     localStorage.setItem(STORAGE_KEY, JSON.stringify(newUser));
+
+    const res = await fetch("http://127.0.0.1:1880/utente", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({...newUser})
+    });
+    console.log('res:::', res)
     setLoading(false);
   };
 
