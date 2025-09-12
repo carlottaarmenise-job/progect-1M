@@ -9,6 +9,7 @@ import App from './App';
 import { CartProvider } from './context/CartContext';
 import { ToastProvider } from './context/ToastContext';
 import { AuthProvider } from './context/AuthContext';
+import { ProductProvider } from './context/ProductContext';
 
 const rootEl = document.getElementById('root');
 if (!rootEl) throw new Error('Elemento #root non trovato');
@@ -17,9 +18,11 @@ createRoot(rootEl).render(
   <ToastProvider>
     <AuthProvider>
       <CartProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
+        <ProductProvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </ProductProvider>
       </CartProvider>
     </AuthProvider>
   </ToastProvider>
