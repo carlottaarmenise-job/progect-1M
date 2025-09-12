@@ -46814,6 +46814,7 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _s = $RefreshSig$(), _s1 = $RefreshSig$();
 const CartContext = /*#__PURE__*/ (0, _react.createContext)(undefined);
+const API_BASE = 'http://127.0.0.1:1880';
 function cartReducer(state, action) {
     switch(action.type){
         case 'ADD':
@@ -46821,12 +46822,14 @@ function cartReducer(state, action) {
                 const qty = Math.max(1, action.qty ?? 1);
                 const existing = state.items.find((i)=>i.product.id === action.product.id);
                 if (existing) return {
+                    ...state,
                     items: state.items.map((i)=>i.product.id === action.product.id ? {
                             ...i,
                             qty: i.qty + qty
                         } : i)
                 };
                 return {
+                    ...state,
                     items: [
                         ...state.items,
                         {
@@ -46838,15 +46841,18 @@ function cartReducer(state, action) {
             }
         case 'REMOVE':
             return {
+                ...state,
                 items: state.items.filter((i)=>i.product.id !== action.productId)
             };
         case 'SET_QTY':
             {
                 const qty = Math.max(0, action.qty);
                 if (qty === 0) return {
+                    ...state,
                     items: state.items.filter((i)=>i.product.id !== action.productId)
                 };
                 return {
+                    ...state,
                     items: state.items.map((i)=>i.product.id === action.productId ? {
                             ...i,
                             qty
@@ -46855,7 +46861,18 @@ function cartReducer(state, action) {
             }
         case 'CLEAR':
             return {
+                ...state,
                 items: []
+            };
+        case 'SET_LOADING':
+            return {
+                ...state,
+                loading: action.loading
+            };
+        case 'LOAD_FROM_API':
+            return {
+                ...state,
+                items: action.items
             };
         default:
             return state;
@@ -46866,27 +46883,81 @@ function loadInitialState() {
     try {
         const raw = localStorage.getItem(STORAGE_KEY);
         if (!raw) return {
-            items: []
+            items: [],
+            loading: false
         };
         const parsed = JSON.parse(raw);
         if (!Array.isArray(parsed.items)) return {
-            items: []
+            items: [],
+            loading: false
         };
-        return parsed;
+        return {
+            items: parsed.items,
+            loading: false
+        };
     } catch  {
         return {
-            items: []
+            items: [],
+            loading: false
         };
     }
 }
 function CartProvider({ children }) {
     _s();
     const [state, dispatch] = (0, _react.useReducer)(cartReducer, undefined, loadInitialState);
-    // Persistenza su localStorage
+    const syncWithAPI = async (items)=>{
+        try {
+            await fetch(`${API_BASE}/carrello`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    items
+                })
+            });
+        } catch (error) {
+            console.error('Sync error:', error);
+        }
+    };
+    const loadFromAPI = async ()=>{
+        dispatch({
+            type: 'SET_LOADING',
+            loading: true
+        });
+        try {
+            const response = await fetch(`${API_BASE}/carrello`);
+            if (response.ok) {
+                const data = await response.json();
+                const apiItems = data.cart || [];
+                dispatch({
+                    type: 'LOAD_FROM_API',
+                    items: apiItems
+                });
+                localStorage.setItem(STORAGE_KEY, JSON.stringify({
+                    items: apiItems
+                }));
+            }
+        } catch (error) {
+            console.error('Load from API error:', error);
+        } finally{
+            dispatch({
+                type: 'SET_LOADING',
+                loading: false
+            });
+        }
+    };
     (0, _react.useEffect)(()=>{
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        loadFromAPI();
+    }, []);
+    (0, _react.useEffect)(()=>{
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({
+            items: state.items
+        }));
+        if (!state.loading) syncWithAPI(state.items);
     }, [
-        state
+        state.items,
+        state.loading
     ]);
     const value = (0, _react.useMemo)(()=>{
         const count = state.items.reduce((sum, i)=>sum + i.qty, 0);
@@ -46895,37 +46966,48 @@ function CartProvider({ children }) {
             items: state.items,
             count,
             total,
-            addToCart: (product, qty)=>dispatch({
+            loading: state.loading,
+            addToCart: async (product, qty)=>{
+                dispatch({
                     type: 'ADD',
                     product,
                     qty
-                }),
-            removeFromCart: (productId)=>dispatch({
+                });
+            },
+            removeFromCart: async (productId)=>{
+                dispatch({
                     type: 'REMOVE',
                     productId
-                }),
-            setQty: (productId, qty)=>dispatch({
+                });
+            },
+            setQty: async (productId, qty)=>{
+                dispatch({
                     type: 'SET_QTY',
                     productId,
                     qty
-                }),
-            clearCart: ()=>dispatch({
+                });
+            },
+            clearCart: async ()=>{
+                dispatch({
                     type: 'CLEAR'
-                })
+                });
+            },
+            syncFromAPI: loadFromAPI
         };
     }, [
-        state.items
+        state.items,
+        state.loading
     ]);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(CartContext.Provider, {
         value: value,
         children: children
     }, void 0, false, {
         fileName: "src/context/CartContext.tsx",
-        lineNumber: 97,
+        lineNumber: 156,
         columnNumber: 12
     }, this);
 }
-_s(CartProvider, "5Z47KIzJg19LmnoHY98e3HcvkCs=");
+_s(CartProvider, "N6ktEdR7KGQkQujjQe+ugJfhxus=");
 _c = CartProvider;
 function useCart() {
     _s1();
