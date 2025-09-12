@@ -22,7 +22,6 @@ let cache: Product[] | null = null;
 function mapProduct(p: RawProduct): Product {
   const resolvedImage = `https://picsum.photos/300/300?random=${p.id}`;
   console.log(`Mapping product ${p.id}: ${p.image} -> ${resolvedImage}`);
-  
   return {
     id: p.id,
     name: p.name,

@@ -38,13 +38,13 @@ export default function Cart() {
                                 <div className="ratio ratio-1x1 bg-light">
                                     <img
                                         src={product.image}
-                                        alt={product.title}
+                                        alt={product.name}
                                         style={{ objectFit: 'contain', width: '100%', height: '100%' }}
                                     />
                                 </div>
                             </td>
                             <td>
-                                <div className="fw-semibold small">{product.title}</div>
+                                <div className="fw-semibold small">{product.name}</div>
                                 <div className="text-secondary small">{product.category}</div>
                             </td>
                             <td>€ {product.price.toFixed(2)}</td>

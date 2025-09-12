@@ -54,13 +54,13 @@ export default function ProductDetail() {
                         <div className="ratio ratio-4x3 bg-light rounded p-3 d-flex align-items-center justify-content-center">
                             <img
                                 src={product.image}
-                                alt={product.title}
+                                alt={product.name}
                                 style={{ objectFit: 'contain', maxHeight: '100%', maxWidth: '100%' }}
                             />
                         </div>
                     </Col>
                     <Col md={6}>
-                        <h1 className="h4">{product.title}</h1>
+                        <h1 className="h4">{product.name}</h1>
                         <div className="mb-2 text-secondary">{product.category}</div>
                         <div className="h4 mb-3">€ {product.price.toFixed(2)}</div>
                         <p>{product.description}</p>

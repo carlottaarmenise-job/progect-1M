@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-
+import { config } from '../config';
 export interface Product {
   id: number;
   name: string;
@@ -36,8 +36,6 @@ interface ProductContextValue {
 
 const ProductContext = createContext<ProductContextValue | undefined>(undefined);
 
-const API_BASE = 'http://127.0.0.1:1880';
-
 export function ProductProvider({ children }: { children: React.ReactNode }) {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(false);
@@ -46,7 +44,7 @@ export function ProductProvider({ children }: { children: React.ReactNode }) {
   const fetchProducts = async (filters?: ProductFilters): Promise<void> => {
     setLoading(true);
     setError(null);
-    
+
     try {
       const queryParams = new URLSearchParams();
       if (filters?.category) queryParams.append('category', filters.category);
@@ -55,8 +53,8 @@ export function ProductProvider({ children }: { children: React.ReactNode }) {
       if (filters?.search) queryParams.append('search', filters.search);
       if (filters?.featured !== undefined) queryParams.append('featured', filters.featured.toString());
 
-      const url = `${API_BASE}/prodotti${queryParams.toString() ? `?${queryParams.toString()}` : ''}`;
-      
+      const url = `${config.API_BASE}/prodotti${queryParams.toString() ? `?${queryParams.toString()}` : ''}`;
+
       const response = await fetch(url, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' }
@@ -81,7 +79,7 @@ export function ProductProvider({ children }: { children: React.ReactNode }) {
     setError(null);
 
     try {
-      const response = await fetch(`${API_BASE}/prodotti`, {
+      const response = await fetch(`${config.API_BASE}/prodotti`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(productData)
@@ -106,7 +104,7 @@ export function ProductProvider({ children }: { children: React.ReactNode }) {
     setError(null);
 
     try {
-      const response = await fetch(`${API_BASE}/prodotti/${id}`, {
+      const response = await fetch(`${config.API_BASE}/prodotti/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(productData)
@@ -131,7 +129,7 @@ export function ProductProvider({ children }: { children: React.ReactNode }) {
     setError(null);
 
     try {
-      const response = await fetch(`${API_BASE}/prodotti/${id}`, {
+      const response = await fetch(`${config.API_BASE}/prodotti/${id}`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' }
       });
@@ -164,11 +162,7 @@ export function ProductProvider({ children }: { children: React.ReactNode }) {
     getProductById
   };
 
-  return (
-    <ProductContext.Provider value={value}>
-      {children}
-    </ProductContext.Provider>
-  );
+  return <ProductContext.Provider value={value}>{children}</ProductContext.Provider>;
 }
 
 export function useProducts() {

@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
+import { config } from 'src/config';
 
 export interface Category {
   id: number;
@@ -27,7 +28,6 @@ interface CategoryContextValue {
 
 const CategoryContext = createContext<CategoryContextValue | undefined>(undefined);
 
-const API_BASE = 'http://127.0.0.1:1880';
 
 export function CategoryProvider({ children }: { children: React.ReactNode }) {
   const [categories, setCategories] = useState<Category[]>([]);
@@ -39,7 +39,7 @@ export function CategoryProvider({ children }: { children: React.ReactNode }) {
     setError(null);
     
     try {
-      const response = await fetch(`${API_BASE}/categorie`, {
+      const response = await fetch(`${config.API_BASE}/categorie`, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' }
       });
@@ -63,7 +63,7 @@ export function CategoryProvider({ children }: { children: React.ReactNode }) {
     setError(null);
 
     try {
-      const response = await fetch(`${API_BASE}/categorie`, {
+      const response = await fetch(`${config.API_BASE}/categorie`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(categoryData)
@@ -88,7 +88,7 @@ export function CategoryProvider({ children }: { children: React.ReactNode }) {
     setError(null);
 
     try {
-      const response = await fetch(`${API_BASE}/categorie/${id}`, {
+      const response = await fetch(`${config.API_BASE}/categorie/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(categoryData)
@@ -113,7 +113,7 @@ export function CategoryProvider({ children }: { children: React.ReactNode }) {
     setError(null);
 
     try {
-      const response = await fetch(`${API_BASE}/categorie/${id}`, {
+      const response = await fetch(`${config.API_BASE}/categorie/${id}`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' }
       });

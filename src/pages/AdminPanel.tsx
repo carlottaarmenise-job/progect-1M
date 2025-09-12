@@ -3,9 +3,10 @@ import { Plus, Edit3, Trash2, Save, X } from 'lucide-react';
 import { Product } from '../types';
 import { getProducts, saveProducts } from '../data/api';
 import { useToast } from '../context/ToastContext';
+import { useProducts } from 'src/context/ProductContext';
 
 interface ProductFormData {
-    title: string;
+    name: string;
     category: "men's clothing" | "women's clothing" | "jewelery" | "electronics";
     price: number;
     originalPrice?: number;
@@ -21,8 +22,9 @@ const AdminPanel: React.FC = () => {
     const [showForm, setShowForm] = useState(false);
     const [editingProduct, setEditingProduct] = useState<Product | null>(null);
     const [loading, setLoading] = useState(true);
+    const {createProduct} = useProducts()
     const [formData, setFormData] = useState<ProductFormData>({
-        title: '',
+        name: '',
         category: "men's clothing",
         price: 0,
         originalPrice: undefined,
@@ -55,7 +57,7 @@ const AdminPanel: React.FC = () => {
 
     const resetForm = () => {
         setFormData({
-            title: '',
+            name: '',
             category: "men's clothing",
             price: 0,
             originalPrice: undefined,
@@ -111,7 +113,7 @@ const AdminPanel: React.FC = () => {
     const handleEdit = (product: Product) => {
         setEditingProduct(product);
         setFormData({
-            title: product.title,
+            name: product.name,
             category: product.category as any,
             price: product.price,
             originalPrice: product.originalPrice,
@@ -128,7 +130,7 @@ const AdminPanel: React.FC = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        if (!formData.title.trim() || !formData.description.trim() || formData.price <= 0) {
+        if (!formData.name.trim() || !formData.description.trim() || formData.price <= 0) {
             showToast('Compila tutti i campi obbligatori', 'warning');
             return;
         }
@@ -141,7 +143,7 @@ const AdminPanel: React.FC = () => {
         try {
             const newProduct: Product = {
                 id: editingProduct ? editingProduct.id : Date.now(),
-                title: formData.title,
+                name: formData.name,
                 category: formData.category,
                 price: formData.price,
                 originalPrice: formData.isSale ? formData.originalPrice : undefined,
@@ -167,7 +169,7 @@ const AdminPanel: React.FC = () => {
                 updatedProducts = [...products, newProduct];
                 showToast('Prodotto aggiunto con successo!', 'success');
             }
-
+            createProduct(updatedProducts)
             setProducts(updatedProducts);
             saveProducts(updatedProducts);
             resetForm();
@@ -306,14 +308,14 @@ const AdminPanel: React.FC = () => {
                                                 <td>
                                                     <img
                                                         src={product.image}
-                                                        alt={product.title}
+                                                        alt={product.name}
                                                         className="rounded"
                                                         style={{ width: '50px', height: '50px', objectFit: 'cover' }}
                                                     />
                                                 </td>
                                                 <td>
                                                     <div>
-                                                        <strong>{product.title}</strong>
+                                                        <strong>{product.name}</strong>
                                                         <br />
                                                         <small className="text-muted">{product.description?.substring(0, 50)}...</small>
                                                     </div>
@@ -420,8 +422,8 @@ const AdminPanel: React.FC = () => {
                                                 <input
                                                     type="text"
                                                     className="form-control"
-                                                    value={formData.title}
-                                                    onChange={(e) => setFormData(prev => ({ ...prev, title: e.target.value }))}
+                                                    value={formData.name}
+                                                    onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
                                                     required
                                                 />
                                             </div>
@@ -565,6 +567,7 @@ const AdminPanel: React.FC = () => {
                                 >
                                     Annulla
                                 </button>
+                                {/*aggiorna o salva prodotto */}
                                 <button
                                     type="submit"
                                     className="btn btn-primary"

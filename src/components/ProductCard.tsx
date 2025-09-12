@@ -21,13 +21,13 @@ export default function ProductCard({ product }: Props) {
             <div className="ratio ratio-4x3 bg-light">
                 <img
                     src={product.image}
-                    alt={product.title}
+                    alt={product.name}
                     style={{ objectFit: 'contain', width: '100%', height: '100%' }}
                 />
             </div>
             <Card.Body className="d-flex flex-column">
-                <Card.Title className="fs-6 text-truncate" title={product.title}>
-                    {product.title}
+                <Card.Title className="fs-6 text-truncate" title={product.name}>
+                    {product.name}
                 </Card.Title>
                 <div className="fw-bold mb-2">€ {product.price.toFixed(2)}</div>
                 <div className="mt-auto d-flex gap-2">

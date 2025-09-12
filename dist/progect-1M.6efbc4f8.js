@@ -688,36 +688,43 @@ var _appDefault = parcelHelpers.interopDefault(_app);
 var _cartContext = require("./context/CartContext");
 var _toastContext = require("./context/ToastContext");
 var _authContext = require("./context/AuthContext");
+var _productContext = require("./context/ProductContext");
 const rootEl = document.getElementById('root');
 if (!rootEl) throw new Error('Elemento #root non trovato');
-(0, _client.createRoot)(rootEl).render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _toastContext.ToastProvider), {
-    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _authContext.AuthProvider), {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cartContext.CartProvider), {
-            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.BrowserRouter), {
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _appDefault.default), {}, void 0, false, {
+(0, _client.createRoot)(rootEl).render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.BrowserRouter), {
+    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _toastContext.ToastProvider), {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _authContext.AuthProvider), {
+            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cartContext.CartProvider), {
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productContext.ProductProvider), {
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _appDefault.default), {}, void 0, false, {
+                        fileName: "src/index.tsx",
+                        lineNumber: 23,
+                        columnNumber: 13
+                    }, undefined)
+                }, void 0, false, {
                     fileName: "src/index.tsx",
-                    lineNumber: 21,
-                    columnNumber: 11
+                    lineNumber: 22,
+                    columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/index.tsx",
-                lineNumber: 20,
-                columnNumber: 9
+                lineNumber: 21,
+                columnNumber: 7
             }, undefined)
         }, void 0, false, {
             fileName: "src/index.tsx",
-            lineNumber: 19,
-            columnNumber: 7
+            lineNumber: 20,
+            columnNumber: 5
         }, undefined)
     }, void 0, false, {
         fileName: "src/index.tsx",
-        lineNumber: 18,
-        columnNumber: 5
+        lineNumber: 19,
+        columnNumber: 3
     }, undefined)
 }, void 0, false, {
     fileName: "src/index.tsx",
-    lineNumber: 17,
-    columnNumber: 3
+    lineNumber: 18,
+    columnNumber: 1
 }, undefined));
 
   $parcel$ReactRefreshHelpers$1d45.postlude(module);
@@ -46812,9 +46819,9 @@ parcelHelpers.export(exports, "useCart", ()=>useCart);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+var _config = require("src/config");
 var _s = $RefreshSig$(), _s1 = $RefreshSig$();
 const CartContext = /*#__PURE__*/ (0, _react.createContext)(undefined);
-const API_BASE = 'http://127.0.0.1:1880';
 function cartReducer(state, action) {
     switch(action.type){
         case 'ADD':
@@ -46907,7 +46914,7 @@ function CartProvider({ children }) {
     const [state, dispatch] = (0, _react.useReducer)(cartReducer, undefined, loadInitialState);
     const syncWithAPI = async (items)=>{
         try {
-            await fetch(`${API_BASE}/carrello`, {
+            await fetch(`${(0, _config.config).API_BASE}/carrello`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -46926,7 +46933,7 @@ function CartProvider({ children }) {
             loading: true
         });
         try {
-            const response = await fetch(`${API_BASE}/carrello`);
+            const response = await fetch(`${(0, _config.config).API_BASE}/carrello`);
             if (response.ok) {
                 const data = await response.json();
                 const apiItems = data.cart || [];
@@ -47024,7 +47031,7 @@ $RefreshReg$(_c, "CartProvider");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"7h6Pi":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","src/config":"fCip8"}],"7h6Pi":[function(require,module,exports,__globalThis) {
 "use strict";
 var Refresh = require("7422ead32dcc1e6b");
 function debounce(func, delay) {
@@ -49302,6 +49309,14 @@ function $da9882e673ac146b$var$ErrorOverlay() {
     return null;
 }
 
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"fCip8":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "config", ()=>config);
+const config = {
+    API_BASE: 'http://127.0.0.1:1880'
+};
+
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"3zDyC":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$a100 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$a100.init();
@@ -49519,7 +49534,7 @@ function Home() {
         data
     ]);
     const filtered = (0, _react.useMemo)(()=>{
-        let list = data.filter((p)=>p.title.toLowerCase().includes(qDebounced.toLowerCase()) || p.category.toLowerCase().includes(qDebounced.toLowerCase()));
+        let list = data.filter((p)=>p?.name.toLowerCase().includes(qDebounced.toLowerCase()) || p?.category.toLowerCase().includes(qDebounced.toLowerCase()));
         if (category !== 'all') list = list.filter((p)=>p.category === category);
         if (sort === 'price-asc') list = [
             ...list
@@ -49775,7 +49790,7 @@ function ProductCard({ product }) {
                 className: "ratio ratio-4x3 bg-light",
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                     src: product.image,
-                    alt: product.title,
+                    alt: product.name,
                     style: {
                         objectFit: 'contain',
                         width: '100%',
@@ -49796,8 +49811,8 @@ function ProductCard({ product }) {
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Title, {
                         className: "fs-6 text-truncate",
-                        title: product.title,
-                        children: product.title
+                        title: product.name,
+                        children: product.name
                     }, void 0, false, {
                         fileName: "src/components/ProductCard.tsx",
                         lineNumber: 29,
@@ -50366,7 +50381,7 @@ function ProductDetail() {
                             className: "ratio ratio-4x3 bg-light rounded p-3 d-flex align-items-center justify-content-center",
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                                 src: product.image,
-                                alt: product.title,
+                                alt: product.name,
                                 style: {
                                     objectFit: 'contain',
                                     maxHeight: '100%',
@@ -50392,7 +50407,7 @@ function ProductDetail() {
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
                                 className: "h4",
-                                children: product.title
+                                children: product.name
                             }, void 0, false, {
                                 fileName: "src/pages/ProductDetail.tsx",
                                 lineNumber: 63,
@@ -50667,7 +50682,7 @@ function Cart() {
                                             className: "ratio ratio-1x1 bg-light",
                                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                                                 src: product.image,
-                                                alt: product.title,
+                                                alt: product.name,
                                                 style: {
                                                     objectFit: 'contain',
                                                     width: '100%',
@@ -50692,7 +50707,7 @@ function Cart() {
                                         children: [
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                                 className: "fw-semibold small",
-                                                children: product.title
+                                                children: product.name
                                             }, void 0, false, {
                                                 fileName: "src/pages/Cart.tsx",
                                                 lineNumber: 47,
@@ -51250,9 +51265,9 @@ function Checkout() {
                                                 children: [
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                                         className: "small text-truncate me-2",
-                                                        title: product.title,
+                                                        title: product.name,
                                                         children: [
-                                                            product.title,
+                                                            product.name,
                                                             " \xd7 ",
                                                             qty
                                                         ]
@@ -52633,7 +52648,7 @@ function MiniCart({ show, onHide }) {
                                             className: "bg-light rounded d-flex align-items-center justify-content-center",
                                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                                                 src: product.image,
-                                                alt: product.title,
+                                                alt: product.name,
                                                 style: {
                                                     maxWidth: '100%',
                                                     maxHeight: '100%',
@@ -52654,8 +52669,8 @@ function MiniCart({ show, onHide }) {
                                             children: [
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                                     className: "small fw-semibold text-truncate",
-                                                    title: product.title,
-                                                    children: product.title
+                                                    title: product.name,
+                                                    children: product.name
                                                 }, void 0, false, {
                                                     fileName: "src/components/MiniCart.tsx",
                                                     lineNumber: 45,
@@ -53309,6 +53324,7 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _lucideReact = require("lucide-react");
 var _api = require("../data/api");
 var _toastContext = require("../context/ToastContext");
+var _productContext = require("src/context/ProductContext");
 var _s = $RefreshSig$();
 const AdminPanel = ()=>{
     _s();
@@ -53316,8 +53332,9 @@ const AdminPanel = ()=>{
     const [showForm, setShowForm] = (0, _react.useState)(false);
     const [editingProduct, setEditingProduct] = (0, _react.useState)(null);
     const [loading, setLoading] = (0, _react.useState)(true);
+    const { createProduct } = (0, _productContext.useProducts)();
     const [formData, setFormData] = (0, _react.useState)({
-        title: '',
+        name: '',
         category: "men's clothing",
         price: 0,
         originalPrice: undefined,
@@ -53348,7 +53365,7 @@ const AdminPanel = ()=>{
     };
     const resetForm = ()=>{
         setFormData({
-            title: '',
+            name: '',
             category: "men's clothing",
             price: 0,
             originalPrice: undefined,
@@ -53414,7 +53431,7 @@ const AdminPanel = ()=>{
     const handleEdit = (product)=>{
         setEditingProduct(product);
         setFormData({
-            title: product.title,
+            name: product.name,
             category: product.category,
             price: product.price,
             originalPrice: product.originalPrice,
@@ -53431,7 +53448,7 @@ const AdminPanel = ()=>{
     };
     const handleSubmit = async (e)=>{
         e.preventDefault();
-        if (!formData.title.trim() || !formData.description.trim() || formData.price <= 0) {
+        if (!formData.name.trim() || !formData.description.trim() || formData.price <= 0) {
             showToast('Compila tutti i campi obbligatori', 'warning');
             return;
         }
@@ -53442,7 +53459,7 @@ const AdminPanel = ()=>{
         try {
             const newProduct = {
                 id: editingProduct ? editingProduct.id : Date.now(),
-                title: formData.title,
+                name: formData.name,
                 category: formData.category,
                 price: formData.price,
                 originalPrice: formData.isSale ? formData.originalPrice : undefined,
@@ -53468,6 +53485,7 @@ const AdminPanel = ()=>{
                 ];
                 showToast('Prodotto aggiunto con successo!', 'success');
             }
+            createProduct(updatedProducts);
             setProducts(updatedProducts);
             (0, _api.saveProducts)(updatedProducts);
             resetForm();
@@ -53506,22 +53524,22 @@ const AdminPanel = ()=>{
                     children: "Caricamento..."
                 }, void 0, false, {
                     fileName: "src/pages/AdminPanel.tsx",
-                    lineNumber: 207,
+                    lineNumber: 209,
                     columnNumber: 25
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/pages/AdminPanel.tsx",
-                lineNumber: 206,
+                lineNumber: 208,
                 columnNumber: 21
             }, undefined)
         }, void 0, false, {
             fileName: "src/pages/AdminPanel.tsx",
-            lineNumber: 205,
+            lineNumber: 207,
             columnNumber: 17
         }, undefined)
     }, void 0, false, {
         fileName: "src/pages/AdminPanel.tsx",
-        lineNumber: 204,
+        lineNumber: 206,
         columnNumber: 13
     }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -53546,7 +53564,7 @@ const AdminPanel = ()=>{
                                             children: "Pannello Amministratore"
                                         }, void 0, false, {
                                             fileName: "src/pages/AdminPanel.tsx",
-                                            lineNumber: 221,
+                                            lineNumber: 223,
                                             columnNumber: 29
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -53554,13 +53572,13 @@ const AdminPanel = ()=>{
                                             children: "Gestisci il catalogo prodotti"
                                         }, void 0, false, {
                                             fileName: "src/pages/AdminPanel.tsx",
-                                            lineNumber: 222,
+                                            lineNumber: 224,
                                             columnNumber: 29
                                         }, undefined)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/pages/AdminPanel.tsx",
-                                    lineNumber: 220,
+                                    lineNumber: 222,
                                     columnNumber: 25
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -53572,20 +53590,20 @@ const AdminPanel = ()=>{
                                             size: 20
                                         }, void 0, false, {
                                             fileName: "src/pages/AdminPanel.tsx",
-                                            lineNumber: 228,
+                                            lineNumber: 230,
                                             columnNumber: 29
                                         }, undefined),
                                         "Aggiungi Prodotto"
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/pages/AdminPanel.tsx",
-                                    lineNumber: 224,
+                                    lineNumber: 226,
                                     columnNumber: 25
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/pages/AdminPanel.tsx",
-                            lineNumber: 219,
+                            lineNumber: 221,
                             columnNumber: 21
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -53607,7 +53625,7 @@ const AdminPanel = ()=>{
                                                             children: "Totale Prodotti"
                                                         }, void 0, false, {
                                                             fileName: "src/pages/AdminPanel.tsx",
-                                                            lineNumber: 240,
+                                                            lineNumber: 242,
                                                             columnNumber: 45
                                                         }, undefined),
                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
@@ -53615,33 +53633,33 @@ const AdminPanel = ()=>{
                                                             children: products.length
                                                         }, void 0, false, {
                                                             fileName: "src/pages/AdminPanel.tsx",
-                                                            lineNumber: 241,
+                                                            lineNumber: 243,
                                                             columnNumber: 45
                                                         }, undefined)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                    lineNumber: 239,
+                                                    lineNumber: 241,
                                                     columnNumber: 41
                                                 }, undefined)
                                             }, void 0, false, {
                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                lineNumber: 238,
+                                                lineNumber: 240,
                                                 columnNumber: 37
                                             }, undefined)
                                         }, void 0, false, {
                                             fileName: "src/pages/AdminPanel.tsx",
-                                            lineNumber: 237,
+                                            lineNumber: 239,
                                             columnNumber: 33
                                         }, undefined)
                                     }, void 0, false, {
                                         fileName: "src/pages/AdminPanel.tsx",
-                                        lineNumber: 236,
+                                        lineNumber: 238,
                                         columnNumber: 29
                                     }, undefined)
                                 }, void 0, false, {
                                     fileName: "src/pages/AdminPanel.tsx",
-                                    lineNumber: 235,
+                                    lineNumber: 237,
                                     columnNumber: 25
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -53660,7 +53678,7 @@ const AdminPanel = ()=>{
                                                             children: "Nuovi Arrivi"
                                                         }, void 0, false, {
                                                             fileName: "src/pages/AdminPanel.tsx",
-                                                            lineNumber: 252,
+                                                            lineNumber: 254,
                                                             columnNumber: 45
                                                         }, undefined),
                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
@@ -53668,33 +53686,33 @@ const AdminPanel = ()=>{
                                                             children: products.filter((p)=>p.isNew).length
                                                         }, void 0, false, {
                                                             fileName: "src/pages/AdminPanel.tsx",
-                                                            lineNumber: 253,
+                                                            lineNumber: 255,
                                                             columnNumber: 45
                                                         }, undefined)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                    lineNumber: 251,
+                                                    lineNumber: 253,
                                                     columnNumber: 41
                                                 }, undefined)
                                             }, void 0, false, {
                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                lineNumber: 250,
+                                                lineNumber: 252,
                                                 columnNumber: 37
                                             }, undefined)
                                         }, void 0, false, {
                                             fileName: "src/pages/AdminPanel.tsx",
-                                            lineNumber: 249,
+                                            lineNumber: 251,
                                             columnNumber: 33
                                         }, undefined)
                                     }, void 0, false, {
                                         fileName: "src/pages/AdminPanel.tsx",
-                                        lineNumber: 248,
+                                        lineNumber: 250,
                                         columnNumber: 29
                                     }, undefined)
                                 }, void 0, false, {
                                     fileName: "src/pages/AdminPanel.tsx",
-                                    lineNumber: 247,
+                                    lineNumber: 249,
                                     columnNumber: 25
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -53713,7 +53731,7 @@ const AdminPanel = ()=>{
                                                             children: "In Offerta"
                                                         }, void 0, false, {
                                                             fileName: "src/pages/AdminPanel.tsx",
-                                                            lineNumber: 264,
+                                                            lineNumber: 266,
                                                             columnNumber: 45
                                                         }, undefined),
                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
@@ -53721,33 +53739,33 @@ const AdminPanel = ()=>{
                                                             children: products.filter((p)=>p.isSale).length
                                                         }, void 0, false, {
                                                             fileName: "src/pages/AdminPanel.tsx",
-                                                            lineNumber: 265,
+                                                            lineNumber: 267,
                                                             columnNumber: 45
                                                         }, undefined)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                    lineNumber: 263,
+                                                    lineNumber: 265,
                                                     columnNumber: 41
                                                 }, undefined)
                                             }, void 0, false, {
                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                lineNumber: 262,
+                                                lineNumber: 264,
                                                 columnNumber: 37
                                             }, undefined)
                                         }, void 0, false, {
                                             fileName: "src/pages/AdminPanel.tsx",
-                                            lineNumber: 261,
+                                            lineNumber: 263,
                                             columnNumber: 33
                                         }, undefined)
                                     }, void 0, false, {
                                         fileName: "src/pages/AdminPanel.tsx",
-                                        lineNumber: 260,
+                                        lineNumber: 262,
                                         columnNumber: 29
                                     }, undefined)
                                 }, void 0, false, {
                                     fileName: "src/pages/AdminPanel.tsx",
-                                    lineNumber: 259,
+                                    lineNumber: 261,
                                     columnNumber: 25
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -53766,7 +53784,7 @@ const AdminPanel = ()=>{
                                                             children: "Categorie"
                                                         }, void 0, false, {
                                                             fileName: "src/pages/AdminPanel.tsx",
-                                                            lineNumber: 276,
+                                                            lineNumber: 278,
                                                             columnNumber: 45
                                                         }, undefined),
                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
@@ -53774,39 +53792,39 @@ const AdminPanel = ()=>{
                                                             children: new Set(products.map((p)=>p.category)).size
                                                         }, void 0, false, {
                                                             fileName: "src/pages/AdminPanel.tsx",
-                                                            lineNumber: 277,
+                                                            lineNumber: 279,
                                                             columnNumber: 45
                                                         }, undefined)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                    lineNumber: 275,
+                                                    lineNumber: 277,
                                                     columnNumber: 41
                                                 }, undefined)
                                             }, void 0, false, {
                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                lineNumber: 274,
+                                                lineNumber: 276,
                                                 columnNumber: 37
                                             }, undefined)
                                         }, void 0, false, {
                                             fileName: "src/pages/AdminPanel.tsx",
-                                            lineNumber: 273,
+                                            lineNumber: 275,
                                             columnNumber: 33
                                         }, undefined)
                                     }, void 0, false, {
                                         fileName: "src/pages/AdminPanel.tsx",
-                                        lineNumber: 272,
+                                        lineNumber: 274,
                                         columnNumber: 29
                                     }, undefined)
                                 }, void 0, false, {
                                     fileName: "src/pages/AdminPanel.tsx",
-                                    lineNumber: 271,
+                                    lineNumber: 273,
                                     columnNumber: 25
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/pages/AdminPanel.tsx",
-                            lineNumber: 234,
+                            lineNumber: 236,
                             columnNumber: 21
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -53819,12 +53837,12 @@ const AdminPanel = ()=>{
                                         children: "Elenco Prodotti"
                                     }, void 0, false, {
                                         fileName: "src/pages/AdminPanel.tsx",
-                                        lineNumber: 288,
+                                        lineNumber: 290,
                                         columnNumber: 29
                                     }, undefined)
                                 }, void 0, false, {
                                     fileName: "src/pages/AdminPanel.tsx",
-                                    lineNumber: 287,
+                                    lineNumber: 289,
                                     columnNumber: 25
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -53842,53 +53860,53 @@ const AdminPanel = ()=>{
                                                                 children: "Immagine"
                                                             }, void 0, false, {
                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                lineNumber: 295,
+                                                                lineNumber: 297,
                                                                 columnNumber: 45
                                                             }, undefined),
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
                                                                 children: "Nome"
                                                             }, void 0, false, {
                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                lineNumber: 296,
+                                                                lineNumber: 298,
                                                                 columnNumber: 45
                                                             }, undefined),
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
                                                                 children: "Categoria"
                                                             }, void 0, false, {
                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                lineNumber: 297,
+                                                                lineNumber: 299,
                                                                 columnNumber: 45
                                                             }, undefined),
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
                                                                 children: "Prezzo"
                                                             }, void 0, false, {
                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                lineNumber: 298,
+                                                                lineNumber: 300,
                                                                 columnNumber: 45
                                                             }, undefined),
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
                                                                 children: "Status"
                                                             }, void 0, false, {
                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                lineNumber: 299,
+                                                                lineNumber: 301,
                                                                 columnNumber: 45
                                                             }, undefined),
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
                                                                 children: "Azioni"
                                                             }, void 0, false, {
                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                lineNumber: 300,
+                                                                lineNumber: 302,
                                                                 columnNumber: 45
                                                             }, undefined)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "src/pages/AdminPanel.tsx",
-                                                        lineNumber: 294,
+                                                        lineNumber: 296,
                                                         columnNumber: 41
                                                     }, undefined)
                                                 }, void 0, false, {
                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                    lineNumber: 293,
+                                                    lineNumber: 295,
                                                     columnNumber: 37
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tbody", {
@@ -53897,7 +53915,7 @@ const AdminPanel = ()=>{
                                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
                                                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                                                                         src: product.image,
-                                                                        alt: product.title,
+                                                                        alt: product.name,
                                                                         className: "rounded",
                                                                         style: {
                                                                             width: '50px',
@@ -53906,27 +53924,27 @@ const AdminPanel = ()=>{
                                                                         }
                                                                     }, void 0, false, {
                                                                         fileName: "src/pages/AdminPanel.tsx",
-                                                                        lineNumber: 307,
+                                                                        lineNumber: 309,
                                                                         columnNumber: 53
                                                                     }, undefined)
                                                                 }, void 0, false, {
                                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                                    lineNumber: 306,
+                                                                    lineNumber: 308,
                                                                     columnNumber: 49
                                                                 }, undefined),
                                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
                                                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                                                         children: [
                                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
-                                                                                children: product.title
+                                                                                children: product.name
                                                                             }, void 0, false, {
                                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                                lineNumber: 316,
+                                                                                lineNumber: 318,
                                                                                 columnNumber: 57
                                                                             }, undefined),
                                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                                lineNumber: 317,
+                                                                                lineNumber: 319,
                                                                                 columnNumber: 57
                                                                             }, undefined),
                                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("small", {
@@ -53937,18 +53955,18 @@ const AdminPanel = ()=>{
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                                lineNumber: 318,
+                                                                                lineNumber: 320,
                                                                                 columnNumber: 57
                                                                             }, undefined)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "src/pages/AdminPanel.tsx",
-                                                                        lineNumber: 315,
+                                                                        lineNumber: 317,
                                                                         columnNumber: 53
                                                                     }, undefined)
                                                                 }, void 0, false, {
                                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                                    lineNumber: 314,
+                                                                    lineNumber: 316,
                                                                     columnNumber: 49
                                                                 }, undefined),
                                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
@@ -53957,12 +53975,12 @@ const AdminPanel = ()=>{
                                                                         children: product.category
                                                                     }, void 0, false, {
                                                                         fileName: "src/pages/AdminPanel.tsx",
-                                                                        lineNumber: 322,
+                                                                        lineNumber: 324,
                                                                         columnNumber: 53
                                                                     }, undefined)
                                                                 }, void 0, false, {
                                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                                    lineNumber: 321,
+                                                                    lineNumber: 323,
                                                                     columnNumber: 49
                                                                 }, undefined),
                                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
@@ -53975,7 +53993,7 @@ const AdminPanel = ()=>{
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                                lineNumber: 328,
+                                                                                lineNumber: 330,
                                                                                 columnNumber: 57
                                                                             }, undefined),
                                                                             product.originalPrice && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -53987,23 +54005,23 @@ const AdminPanel = ()=>{
                                                                                     ]
                                                                                 }, void 0, true, {
                                                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                                                    lineNumber: 331,
+                                                                                    lineNumber: 333,
                                                                                     columnNumber: 65
                                                                                 }, undefined)
                                                                             }, void 0, false, {
                                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                                lineNumber: 330,
+                                                                                lineNumber: 332,
                                                                                 columnNumber: 61
                                                                             }, undefined)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "src/pages/AdminPanel.tsx",
-                                                                        lineNumber: 327,
+                                                                        lineNumber: 329,
                                                                         columnNumber: 53
                                                                     }, undefined)
                                                                 }, void 0, false, {
                                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                                    lineNumber: 326,
+                                                                    lineNumber: 328,
                                                                     columnNumber: 49
                                                                 }, undefined),
                                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
@@ -54015,7 +54033,7 @@ const AdminPanel = ()=>{
                                                                                 children: "Nuovo"
                                                                             }, void 0, false, {
                                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                                lineNumber: 340,
+                                                                                lineNumber: 342,
                                                                                 columnNumber: 75
                                                                             }, undefined),
                                                                             product.isSale && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -54023,18 +54041,18 @@ const AdminPanel = ()=>{
                                                                                 children: "Offerta"
                                                                             }, void 0, false, {
                                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                                lineNumber: 341,
+                                                                                lineNumber: 343,
                                                                                 columnNumber: 76
                                                                             }, undefined)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "src/pages/AdminPanel.tsx",
-                                                                        lineNumber: 339,
+                                                                        lineNumber: 341,
                                                                         columnNumber: 53
                                                                     }, undefined)
                                                                 }, void 0, false, {
                                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                                    lineNumber: 338,
+                                                                    lineNumber: 340,
                                                                     columnNumber: 49
                                                                 }, undefined),
                                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
@@ -54050,12 +54068,12 @@ const AdminPanel = ()=>{
                                                                                     size: 16
                                                                                 }, void 0, false, {
                                                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                                                    lineNumber: 351,
+                                                                                    lineNumber: 353,
                                                                                     columnNumber: 61
                                                                                 }, undefined)
                                                                             }, void 0, false, {
                                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                                lineNumber: 346,
+                                                                                lineNumber: 348,
                                                                                 columnNumber: 57
                                                                             }, undefined),
                                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -54066,67 +54084,67 @@ const AdminPanel = ()=>{
                                                                                     size: 16
                                                                                 }, void 0, false, {
                                                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                                                    lineNumber: 358,
+                                                                                    lineNumber: 360,
                                                                                     columnNumber: 61
                                                                                 }, undefined)
                                                                             }, void 0, false, {
                                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                                lineNumber: 353,
+                                                                                lineNumber: 355,
                                                                                 columnNumber: 57
                                                                             }, undefined)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "src/pages/AdminPanel.tsx",
-                                                                        lineNumber: 345,
+                                                                        lineNumber: 347,
                                                                         columnNumber: 53
                                                                     }, undefined)
                                                                 }, void 0, false, {
                                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                                    lineNumber: 344,
+                                                                    lineNumber: 346,
                                                                     columnNumber: 49
                                                                 }, undefined)
                                                             ]
                                                         }, product.id, true, {
                                                             fileName: "src/pages/AdminPanel.tsx",
-                                                            lineNumber: 305,
+                                                            lineNumber: 307,
                                                             columnNumber: 45
                                                         }, undefined))
                                                 }, void 0, false, {
                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                    lineNumber: 303,
+                                                    lineNumber: 305,
                                                     columnNumber: 37
                                                 }, undefined)
                                             ]
                                         }, void 0, true, {
                                             fileName: "src/pages/AdminPanel.tsx",
-                                            lineNumber: 292,
+                                            lineNumber: 294,
                                             columnNumber: 33
                                         }, undefined)
                                     }, void 0, false, {
                                         fileName: "src/pages/AdminPanel.tsx",
-                                        lineNumber: 291,
+                                        lineNumber: 293,
                                         columnNumber: 29
                                     }, undefined)
                                 }, void 0, false, {
                                     fileName: "src/pages/AdminPanel.tsx",
-                                    lineNumber: 290,
+                                    lineNumber: 292,
                                     columnNumber: 25
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/pages/AdminPanel.tsx",
-                            lineNumber: 286,
+                            lineNumber: 288,
                             columnNumber: 21
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/pages/AdminPanel.tsx",
-                    lineNumber: 217,
+                    lineNumber: 219,
                     columnNumber: 17
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/pages/AdminPanel.tsx",
-                lineNumber: 216,
+                lineNumber: 218,
                 columnNumber: 13
             }, undefined),
             showForm && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -54147,7 +54165,7 @@ const AdminPanel = ()=>{
                                         children: editingProduct ? 'Modifica Prodotto' : 'Aggiungi Nuovo Prodotto'
                                     }, void 0, false, {
                                         fileName: "src/pages/AdminPanel.tsx",
-                                        lineNumber: 378,
+                                        lineNumber: 380,
                                         columnNumber: 33
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -54156,13 +54174,13 @@ const AdminPanel = ()=>{
                                         onClick: resetForm
                                     }, void 0, false, {
                                         fileName: "src/pages/AdminPanel.tsx",
-                                        lineNumber: 381,
+                                        lineNumber: 383,
                                         columnNumber: 33
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/pages/AdminPanel.tsx",
-                                lineNumber: 377,
+                                lineNumber: 379,
                                 columnNumber: 29
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -54181,7 +54199,7 @@ const AdminPanel = ()=>{
                                                             children: "Immagine Prodotto *"
                                                         }, void 0, false, {
                                                             fileName: "src/pages/AdminPanel.tsx",
-                                                            lineNumber: 392,
+                                                            lineNumber: 394,
                                                             columnNumber: 45
                                                         }, undefined),
                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -54199,12 +54217,12 @@ const AdminPanel = ()=>{
                                                                         }
                                                                     }, void 0, false, {
                                                                         fileName: "src/pages/AdminPanel.tsx",
-                                                                        lineNumber: 396,
+                                                                        lineNumber: 398,
                                                                         columnNumber: 57
                                                                     }, undefined)
                                                                 }, void 0, false, {
                                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                                    lineNumber: 395,
+                                                                    lineNumber: 397,
                                                                     columnNumber: 53
                                                                 }, undefined),
                                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -54214,7 +54232,7 @@ const AdminPanel = ()=>{
                                                                     onChange: handleImageUpload
                                                                 }, void 0, false, {
                                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                                    lineNumber: 404,
+                                                                    lineNumber: 406,
                                                                     columnNumber: 49
                                                                 }, undefined),
                                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("small", {
@@ -54222,19 +54240,19 @@ const AdminPanel = ()=>{
                                                                     children: "Formati supportati: JPG, PNG, GIF. Max 5MB"
                                                                 }, void 0, false, {
                                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                                    lineNumber: 410,
+                                                                    lineNumber: 412,
                                                                     columnNumber: 49
                                                                 }, undefined)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "src/pages/AdminPanel.tsx",
-                                                            lineNumber: 393,
+                                                            lineNumber: 395,
                                                             columnNumber: 45
                                                         }, undefined)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                    lineNumber: 391,
+                                                    lineNumber: 393,
                                                     columnNumber: 41
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -54248,27 +54266,27 @@ const AdminPanel = ()=>{
                                                                     children: "Nome Prodotto *"
                                                                 }, void 0, false, {
                                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                                    lineNumber: 419,
+                                                                    lineNumber: 421,
                                                                     columnNumber: 49
                                                                 }, undefined),
                                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                                                                     type: "text",
                                                                     className: "form-control",
-                                                                    value: formData.title,
+                                                                    value: formData.name,
                                                                     onChange: (e)=>setFormData((prev)=>({
                                                                                 ...prev,
-                                                                                title: e.target.value
+                                                                                name: e.target.value
                                                                             })),
                                                                     required: true
                                                                 }, void 0, false, {
                                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                                    lineNumber: 420,
+                                                                    lineNumber: 422,
                                                                     columnNumber: 49
                                                                 }, undefined)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "src/pages/AdminPanel.tsx",
-                                                            lineNumber: 418,
+                                                            lineNumber: 420,
                                                             columnNumber: 45
                                                         }, undefined),
                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -54279,7 +54297,7 @@ const AdminPanel = ()=>{
                                                                     children: "Categoria *"
                                                                 }, void 0, false, {
                                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                                    lineNumber: 430,
+                                                                    lineNumber: 432,
                                                                     columnNumber: 49
                                                                 }, undefined),
                                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("select", {
@@ -54295,7 +54313,7 @@ const AdminPanel = ()=>{
                                                                             children: "Men's Clothing"
                                                                         }, void 0, false, {
                                                                             fileName: "src/pages/AdminPanel.tsx",
-                                                                            lineNumber: 436,
+                                                                            lineNumber: 438,
                                                                             columnNumber: 53
                                                                         }, undefined),
                                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
@@ -54303,7 +54321,7 @@ const AdminPanel = ()=>{
                                                                             children: "Women's Clothing"
                                                                         }, void 0, false, {
                                                                             fileName: "src/pages/AdminPanel.tsx",
-                                                                            lineNumber: 437,
+                                                                            lineNumber: 439,
                                                                             columnNumber: 53
                                                                         }, undefined),
                                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
@@ -54311,7 +54329,7 @@ const AdminPanel = ()=>{
                                                                             children: "Jewelery"
                                                                         }, void 0, false, {
                                                                             fileName: "src/pages/AdminPanel.tsx",
-                                                                            lineNumber: 438,
+                                                                            lineNumber: 440,
                                                                             columnNumber: 53
                                                                         }, undefined),
                                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
@@ -54319,19 +54337,19 @@ const AdminPanel = ()=>{
                                                                             children: "Electronics"
                                                                         }, void 0, false, {
                                                                             fileName: "src/pages/AdminPanel.tsx",
-                                                                            lineNumber: 439,
+                                                                            lineNumber: 441,
                                                                             columnNumber: 53
                                                                         }, undefined)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                                    lineNumber: 431,
+                                                                    lineNumber: 433,
                                                                     columnNumber: 49
                                                                 }, undefined)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "src/pages/AdminPanel.tsx",
-                                                            lineNumber: 429,
+                                                            lineNumber: 431,
                                                             columnNumber: 45
                                                         }, undefined),
                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -54347,7 +54365,7 @@ const AdminPanel = ()=>{
                                                                                 children: "Prezzo *"
                                                                             }, void 0, false, {
                                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                                lineNumber: 446,
+                                                                                lineNumber: 448,
                                                                                 columnNumber: 57
                                                                             }, undefined),
                                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -54358,7 +54376,7 @@ const AdminPanel = ()=>{
                                                                                         children: "\u20AC"
                                                                                     }, void 0, false, {
                                                                                         fileName: "src/pages/AdminPanel.tsx",
-                                                                                        lineNumber: 448,
+                                                                                        lineNumber: 450,
                                                                                         columnNumber: 61
                                                                                     }, undefined),
                                                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -54374,24 +54392,24 @@ const AdminPanel = ()=>{
                                                                                         required: true
                                                                                     }, void 0, false, {
                                                                                         fileName: "src/pages/AdminPanel.tsx",
-                                                                                        lineNumber: 449,
+                                                                                        lineNumber: 451,
                                                                                         columnNumber: 61
                                                                                     }, undefined)
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                                lineNumber: 447,
+                                                                                lineNumber: 449,
                                                                                 columnNumber: 57
                                                                             }, undefined)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "src/pages/AdminPanel.tsx",
-                                                                        lineNumber: 445,
+                                                                        lineNumber: 447,
                                                                         columnNumber: 53
                                                                     }, undefined)
                                                                 }, void 0, false, {
                                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                                    lineNumber: 444,
+                                                                    lineNumber: 446,
                                                                     columnNumber: 49
                                                                 }, undefined),
                                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -54404,7 +54422,7 @@ const AdminPanel = ()=>{
                                                                                 children: "Prezzo Originale"
                                                                             }, void 0, false, {
                                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                                lineNumber: 463,
+                                                                                lineNumber: 465,
                                                                                 columnNumber: 57
                                                                             }, undefined),
                                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -54415,7 +54433,7 @@ const AdminPanel = ()=>{
                                                                                         children: "\u20AC"
                                                                                     }, void 0, false, {
                                                                                         fileName: "src/pages/AdminPanel.tsx",
-                                                                                        lineNumber: 465,
+                                                                                        lineNumber: 467,
                                                                                         columnNumber: 61
                                                                                     }, undefined),
                                                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -54431,42 +54449,42 @@ const AdminPanel = ()=>{
                                                                                         disabled: !formData.isSale
                                                                                     }, void 0, false, {
                                                                                         fileName: "src/pages/AdminPanel.tsx",
-                                                                                        lineNumber: 466,
+                                                                                        lineNumber: 468,
                                                                                         columnNumber: 61
                                                                                     }, undefined)
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                                lineNumber: 464,
+                                                                                lineNumber: 466,
                                                                                 columnNumber: 57
                                                                             }, undefined)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "src/pages/AdminPanel.tsx",
-                                                                        lineNumber: 462,
+                                                                        lineNumber: 464,
                                                                         columnNumber: 53
                                                                     }, undefined)
                                                                 }, void 0, false, {
                                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                                    lineNumber: 461,
+                                                                    lineNumber: 463,
                                                                     columnNumber: 49
                                                                 }, undefined)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "src/pages/AdminPanel.tsx",
-                                                            lineNumber: 443,
+                                                            lineNumber: 445,
                                                             columnNumber: 45
                                                         }, undefined)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                    lineNumber: 417,
+                                                    lineNumber: 419,
                                                     columnNumber: 41
                                                 }, undefined)
                                             ]
                                         }, void 0, true, {
                                             fileName: "src/pages/AdminPanel.tsx",
-                                            lineNumber: 389,
+                                            lineNumber: 391,
                                             columnNumber: 37
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -54477,7 +54495,7 @@ const AdminPanel = ()=>{
                                                     children: "Descrizione *"
                                                 }, void 0, false, {
                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                    lineNumber: 484,
+                                                    lineNumber: 486,
                                                     columnNumber: 41
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("textarea", {
@@ -54491,13 +54509,13 @@ const AdminPanel = ()=>{
                                                     required: true
                                                 }, void 0, false, {
                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                    lineNumber: 485,
+                                                    lineNumber: 487,
                                                     columnNumber: 41
                                                 }, undefined)
                                             ]
                                         }, void 0, true, {
                                             fileName: "src/pages/AdminPanel.tsx",
-                                            lineNumber: 483,
+                                            lineNumber: 485,
                                             columnNumber: 37
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -54508,7 +54526,7 @@ const AdminPanel = ()=>{
                                                     children: "Colori Disponibili"
                                                 }, void 0, false, {
                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                    lineNumber: 496,
+                                                    lineNumber: 498,
                                                     columnNumber: 41
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -54524,7 +54542,7 @@ const AdminPanel = ()=>{
                                                                         onChange: (e)=>handleColorChange(index, e.target.value)
                                                                     }, void 0, false, {
                                                                         fileName: "src/pages/AdminPanel.tsx",
-                                                                        lineNumber: 500,
+                                                                        lineNumber: 502,
                                                                         columnNumber: 53
                                                                     }, undefined),
                                                                     formData.colors.length > 1 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -54535,18 +54553,18 @@ const AdminPanel = ()=>{
                                                                             size: 16
                                                                         }, void 0, false, {
                                                                             fileName: "src/pages/AdminPanel.tsx",
-                                                                            lineNumber: 512,
+                                                                            lineNumber: 514,
                                                                             columnNumber: 61
                                                                         }, undefined)
                                                                     }, void 0, false, {
                                                                         fileName: "src/pages/AdminPanel.tsx",
-                                                                        lineNumber: 507,
+                                                                        lineNumber: 509,
                                                                         columnNumber: 57
                                                                     }, undefined)
                                                                 ]
                                                             }, index, true, {
                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                lineNumber: 499,
+                                                                lineNumber: 501,
                                                                 columnNumber: 49
                                                             }, undefined)),
                                                         formData.colors.length < 5 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -54557,24 +54575,24 @@ const AdminPanel = ()=>{
                                                                 size: 16
                                                             }, void 0, false, {
                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                lineNumber: 523,
+                                                                lineNumber: 525,
                                                                 columnNumber: 53
                                                             }, undefined)
                                                         }, void 0, false, {
                                                             fileName: "src/pages/AdminPanel.tsx",
-                                                            lineNumber: 518,
+                                                            lineNumber: 520,
                                                             columnNumber: 49
                                                         }, undefined)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                    lineNumber: 497,
+                                                    lineNumber: 499,
                                                     columnNumber: 41
                                                 }, undefined)
                                             ]
                                         }, void 0, true, {
                                             fileName: "src/pages/AdminPanel.tsx",
-                                            lineNumber: 495,
+                                            lineNumber: 497,
                                             columnNumber: 37
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -54595,7 +54613,7 @@ const AdminPanel = ()=>{
                                                                         }))
                                                             }, void 0, false, {
                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                lineNumber: 533,
+                                                                lineNumber: 535,
                                                                 columnNumber: 49
                                                             }, undefined),
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -54603,18 +54621,18 @@ const AdminPanel = ()=>{
                                                                 children: "Nuovo Arrivo"
                                                             }, void 0, false, {
                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                lineNumber: 539,
+                                                                lineNumber: 541,
                                                                 columnNumber: 49
                                                             }, undefined)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "src/pages/AdminPanel.tsx",
-                                                        lineNumber: 532,
+                                                        lineNumber: 534,
                                                         columnNumber: 45
                                                     }, undefined)
                                                 }, void 0, false, {
                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                    lineNumber: 531,
+                                                    lineNumber: 533,
                                                     columnNumber: 41
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -54632,7 +54650,7 @@ const AdminPanel = ()=>{
                                                                         }))
                                                             }, void 0, false, {
                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                lineNumber: 546,
+                                                                lineNumber: 548,
                                                                 columnNumber: 49
                                                             }, undefined),
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -54640,35 +54658,35 @@ const AdminPanel = ()=>{
                                                                 children: "In Offerta"
                                                             }, void 0, false, {
                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                lineNumber: 552,
+                                                                lineNumber: 554,
                                                                 columnNumber: 49
                                                             }, undefined)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "src/pages/AdminPanel.tsx",
-                                                        lineNumber: 545,
+                                                        lineNumber: 547,
                                                         columnNumber: 45
                                                     }, undefined)
                                                 }, void 0, false, {
                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                    lineNumber: 544,
+                                                    lineNumber: 546,
                                                     columnNumber: 41
                                                 }, undefined)
                                             ]
                                         }, void 0, true, {
                                             fileName: "src/pages/AdminPanel.tsx",
-                                            lineNumber: 530,
+                                            lineNumber: 532,
                                             columnNumber: 37
                                         }, undefined)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/pages/AdminPanel.tsx",
-                                    lineNumber: 388,
+                                    lineNumber: 390,
                                     columnNumber: 33
                                 }, undefined)
                             }, void 0, false, {
                                 fileName: "src/pages/AdminPanel.tsx",
-                                lineNumber: 387,
+                                lineNumber: 389,
                                 columnNumber: 29
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -54681,7 +54699,7 @@ const AdminPanel = ()=>{
                                         children: "Annulla"
                                     }, void 0, false, {
                                         fileName: "src/pages/AdminPanel.tsx",
-                                        lineNumber: 561,
+                                        lineNumber: 563,
                                         columnNumber: 33
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -54694,7 +54712,7 @@ const AdminPanel = ()=>{
                                                 size: 16
                                             }, void 0, false, {
                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                lineNumber: 573,
+                                                lineNumber: 576,
                                                 columnNumber: 37
                                             }, undefined),
                                             editingProduct ? 'Aggiorna' : 'Salva',
@@ -54702,40 +54720,41 @@ const AdminPanel = ()=>{
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/pages/AdminPanel.tsx",
-                                        lineNumber: 568,
+                                        lineNumber: 571,
                                         columnNumber: 33
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/pages/AdminPanel.tsx",
-                                lineNumber: 560,
+                                lineNumber: 562,
                                 columnNumber: 29
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/pages/AdminPanel.tsx",
-                        lineNumber: 376,
+                        lineNumber: 378,
                         columnNumber: 25
                     }, undefined)
                 }, void 0, false, {
                     fileName: "src/pages/AdminPanel.tsx",
-                    lineNumber: 375,
+                    lineNumber: 377,
                     columnNumber: 21
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/pages/AdminPanel.tsx",
-                lineNumber: 374,
+                lineNumber: 376,
                 columnNumber: 17
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/pages/AdminPanel.tsx",
-        lineNumber: 215,
+        lineNumber: 217,
         columnNumber: 9
     }, undefined);
 };
-_s(AdminPanel, "thG6u4X8DcnxYk8lxBzLLxN0Fuo=", false, function() {
+_s(AdminPanel, "44EifxcmLYdbkSM5TBbZX82T4gU=", false, function() {
     return [
+        (0, _productContext.useProducts),
         (0, _toastContext.useToast)
     ];
 });
@@ -54749,7 +54768,160 @@ $RefreshReg$(_c, "AdminPanel");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","lucide-react":"2I7qR","../data/api":"kkQ0o","../context/ToastContext":"6VmKk","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"gcCCq":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","lucide-react":"2I7qR","../data/api":"kkQ0o","../context/ToastContext":"6VmKk","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","src/context/ProductContext":"1wA0o"}],"1wA0o":[function(require,module,exports,__globalThis) {
+var $parcel$ReactRefreshHelpers$75dd = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+$parcel$ReactRefreshHelpers$75dd.init();
+var prevRefreshReg = globalThis.$RefreshReg$;
+var prevRefreshSig = globalThis.$RefreshSig$;
+$parcel$ReactRefreshHelpers$75dd.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "ProductProvider", ()=>ProductProvider);
+parcelHelpers.export(exports, "useProducts", ()=>useProducts);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _config = require("../config");
+var _s = $RefreshSig$(), _s1 = $RefreshSig$();
+const ProductContext = /*#__PURE__*/ (0, _react.createContext)(undefined);
+function ProductProvider({ children }) {
+    _s();
+    const [products, setProducts] = (0, _react.useState)([]);
+    const [loading, setLoading] = (0, _react.useState)(false);
+    const [error, setError] = (0, _react.useState)(null);
+    const fetchProducts = async (filters)=>{
+        setLoading(true);
+        setError(null);
+        try {
+            const queryParams = new URLSearchParams();
+            if (filters?.category) queryParams.append('category', filters.category);
+            if (filters?.minPrice) queryParams.append('minPrice', filters.minPrice.toString());
+            if (filters?.maxPrice) queryParams.append('maxPrice', filters.maxPrice.toString());
+            if (filters?.search) queryParams.append('search', filters.search);
+            if (filters?.featured !== undefined) queryParams.append('featured', filters.featured.toString());
+            const url = `${(0, _config.config).API_BASE}/prodotti${queryParams.toString() ? `?${queryParams.toString()}` : ''}`;
+            const response = await fetch(url, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            if (!response.ok) throw new Error(`Errore nel caricamento prodotti: ${response.statusText}`);
+            const data = await response.json();
+            setProducts(Array.isArray(data) ? data : data.products || []);
+        } catch (err) {
+            setError(err instanceof Error ? err.message : 'Errore sconosciuto');
+            console.error('Errore fetchProducts:', err);
+        } finally{
+            setLoading(false);
+        }
+    };
+    const createProduct = async (productData)=>{
+        setLoading(true);
+        setError(null);
+        try {
+            const response = await fetch(`${(0, _config.config).API_BASE}/prodotti`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(productData)
+            });
+            if (!response.ok) throw new Error(`Errore nella creazione prodotto: ${response.statusText}`);
+            const newProduct = await response.json();
+            setProducts((prev)=>[
+                    ...prev,
+                    newProduct
+                ]);
+        } catch (err) {
+            setError(err instanceof Error ? err.message : 'Errore nella creazione');
+            throw err;
+        } finally{
+            setLoading(false);
+        }
+    };
+    const updateProduct = async (id, productData)=>{
+        setLoading(true);
+        setError(null);
+        try {
+            const response = await fetch(`${(0, _config.config).API_BASE}/prodotti/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(productData)
+            });
+            if (!response.ok) throw new Error(`Errore nell'aggiornamento prodotto: ${response.statusText}`);
+            const updatedProduct = await response.json();
+            setProducts((prev)=>prev.map((p)=>p.id === id ? updatedProduct : p));
+        } catch (err) {
+            setError(err instanceof Error ? err.message : 'Errore nell\'aggiornamento');
+            throw err;
+        } finally{
+            setLoading(false);
+        }
+    };
+    const deleteProduct = async (id)=>{
+        setLoading(true);
+        setError(null);
+        try {
+            const response = await fetch(`${(0, _config.config).API_BASE}/prodotti/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            if (!response.ok) throw new Error(`Errore nell'eliminazione prodotto: ${response.statusText}`);
+            setProducts((prev)=>prev.filter((p)=>p.id !== id));
+        } catch (err) {
+            setError(err instanceof Error ? err.message : 'Errore nell\'eliminazione');
+            throw err;
+        } finally{
+            setLoading(false);
+        }
+    };
+    const getProductById = (id)=>{
+        return products.find((p)=>p.id === id);
+    };
+    const value = {
+        products,
+        loading,
+        error,
+        fetchProducts,
+        createProduct,
+        updateProduct,
+        deleteProduct,
+        getProductById
+    };
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(ProductContext.Provider, {
+        value: value,
+        children: children
+    }, void 0, false, {
+        fileName: "src/context/ProductContext.tsx",
+        lineNumber: 165,
+        columnNumber: 10
+    }, this);
+}
+_s(ProductProvider, "4pp/Wokgy1JhresYl42x3zheQDI=");
+_c = ProductProvider;
+function useProducts() {
+    _s1();
+    const context = (0, _react.useContext)(ProductContext);
+    if (!context) throw new Error('useProducts deve essere usato dentro ProductProvider');
+    return context;
+}
+_s1(useProducts, "b9L3QQ+jgeyIrH0NfHrJ8nn7VMU=");
+var _c;
+$RefreshReg$(_c, "ProductProvider");
+
+  $parcel$ReactRefreshHelpers$75dd.postlude(module);
+} finally {
+  globalThis.$RefreshReg$ = prevRefreshReg;
+  globalThis.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","../config":"fCip8","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"gcCCq":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$539f = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$539f.init();
 var prevRefreshReg = globalThis.$RefreshReg$;

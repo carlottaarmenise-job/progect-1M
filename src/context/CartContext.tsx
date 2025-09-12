@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useMemo, useReducer } from 'react';
 import type { CartItem, Product } from '../types';
+import { config } from 'src/config';
 
 type CartState = {
     items: CartItem[];
@@ -28,7 +29,6 @@ type CartContextValue = {
 
 const CartContext = createContext<CartContextValue | undefined>(undefined);
 
-const API_BASE = 'http://127.0.0.1:1880';
 
 function cartReducer(state: CartState, action: CartAction): CartState {
     switch (action.type) {
@@ -90,7 +90,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
     const syncWithAPI = async (items: CartItem[]) => {
         try {
-            await fetch(`${API_BASE}/carrello`, {
+            await fetch(`${config.API_BASE}/carrello`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ items })
@@ -103,7 +103,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     const loadFromAPI = async () => {
         dispatch({ type: 'SET_LOADING', loading: true });
         try {
-            const response = await fetch(`${API_BASE}/carrello`);
+            const response = await fetch(`${config.API_BASE}/carrello`);
             if (response.ok) {
                 const data = await response.json();
                 const apiItems = data.cart || [];

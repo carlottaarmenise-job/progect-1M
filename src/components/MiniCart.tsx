@@ -36,14 +36,14 @@ export default function MiniCart({ show, onHide }: Props) {
                                     >
                                         <img
                                             src={product.image}
-                                            alt={product.title}
+                                            alt={product.name}
                                             style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }}
                                         />
                                     </div>
 
                                     <div className="flex-grow-1">
-                                        <div className="small fw-semibold text-truncate" title={product.title}>
-                                            {product.title}
+                                        <div className="small fw-semibold text-truncate" title={product.name}>
+                                            {product.name}
                                         </div>
                                         <div className="small text-secondary">€ {product.price.toFixed(2)}</div>
 

@@ -95,8 +95,8 @@ export default function Checkout() {
                         <Card.Body>
                             {items.map(({ product, qty }) => (
                                 <div key={product.id} className="d-flex justify-content-between align-items-center mb-2">
-                                    <div className="small text-truncate me-2" title={product.title}>
-                                        {product.title} × {qty}
+                                    <div className="small text-truncate me-2" title={product.name}>
+                                        {product.name} × {qty}
                                     </div>
                                     <div className="small">€ {(qty * product.price).toFixed(2)}</div>
                                 </div>

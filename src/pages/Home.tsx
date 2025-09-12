@@ -52,8 +52,8 @@ export default function Home() {
 
     const filtered = useMemo(() => {
         let list = data.filter(p =>
-            p.title.toLowerCase().includes(qDebounced.toLowerCase()) ||
-            p.category.toLowerCase().includes(qDebounced.toLowerCase())
+            p?.name.toLowerCase().includes(qDebounced.toLowerCase()) ||
+            p?.category.toLowerCase().includes(qDebounced.toLowerCase())
         );
         if (category !== 'all') list = list.filter(p => p.category === category);
         if (sort === 'price-asc') list = [...list].sort((a, b) => a.price - b.price);
