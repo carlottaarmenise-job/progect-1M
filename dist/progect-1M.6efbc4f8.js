@@ -49305,6 +49305,16 @@ function AuthProvider({ children }) {
         };
         setUser(newUser);
         localStorage.setItem(STORAGE_KEY, JSON.stringify(newUser));
+        const res = await fetch("http://127.0.0.1:1880/utente", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                ...newUser
+            })
+        });
+        console.log('res:::', res);
         setLoading(false);
     };
     const logout = ()=>{
@@ -49325,7 +49335,7 @@ function AuthProvider({ children }) {
         children: children
     }, void 0, false, {
         fileName: "src/context/AuthContext.tsx",
-        lineNumber: 141,
+        lineNumber: 148,
         columnNumber: 5
     }, this);
 }

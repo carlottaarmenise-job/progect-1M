@@ -1,15 +1,20 @@
 export type Product = {
     id: number;
-    title: string;
+    name: string;
+    description: string;
     price: number;
     category: string;
-    description: string;
-    image: string;
-
+    categoryId: number;
+    image?: string;
+    stock: number;
+    featured?: boolean;
+    tags?: string[];
+    createdAt?: string;
+    updatedAt?: string;
+    
     originalPrice?: number;
     rating?: number;
     reviews?: number;
-    imageFile: string;
     colors?: string[];
     isNew?: boolean;
     isSale?: boolean;
@@ -20,15 +25,16 @@ export type CartItem = {
     qty: number;
 };
 
-// Tipo per i dati raw 
 export type RawProduct = {
     id: number;
-    title: string;
+    name: string;
     price: number;
     category: string;
+    categoryId: number;
     description: string;
-    imageFile: string;
-
+    image?: string;
+    stock: number;
+    
     originalPrice?: number;
     rating?: number;
     reviews?: number;
