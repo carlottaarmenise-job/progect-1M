@@ -49968,12 +49968,12 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "getProducts", ()=>getProducts);
 parcelHelpers.export(exports, "getProductById", ()=>getProductById);
-// Funzione per invalidare la cache quando l'admin modifica i prodotti
+// invalida la cache quando l'admin modifica i prodotti
 parcelHelpers.export(exports, "invalidateCache", ()=>invalidateCache);
-// Funzione per salvare prodotti modificati dall'admin
+//  salva prodotti modificati dall'admin
 parcelHelpers.export(exports, "saveProducts", ()=>saveProducts);
 var _product = require("./product");
-// Path relativi alle immagini in public/assets/
+// path relativi alle immagini
 const imageMap = {
     'tshirt.jpg': '/assets/tshirt.jpg',
     'jacket.jpg': '/assets/jacket.jpg',
@@ -49990,18 +49990,19 @@ const imageMap = {
 };
 let cache = null;
 function mapProduct(p) {
-    // Per ora usiamo placeholder, poi risolveremo le immagini reali
     const resolvedImage = `https://picsum.photos/300/300?random=${p.id}`;
-    console.log(`Mapping product ${p.id}: ${p.imageFile} -> ${resolvedImage}`);
+    console.log(`Mapping product ${p.id}: ${p.image} -> ${resolvedImage}`);
     return {
         id: p.id,
-        title: p.title,
+        name: p.name,
         price: p.price,
         category: p.category,
+        categoryId: p.categoryId,
         description: p.description,
         image: resolvedImage,
-        imageFile: p.imageFile,
-        // Proprietà opzionali con valori di default
+        stock: p.stock,
+        featured: false,
+        tags: [],
         originalPrice: p.originalPrice,
         rating: p.rating || 0,
         reviews: p.reviews || 0,
@@ -50012,7 +50013,7 @@ function mapProduct(p) {
         isSale: p.isSale || false
     };
 }
-// Carica prodotti dall'AdminPanel se esistono, altrimenti usa quelli di default
+// Carica prodotti dall'AdminPanel se esistono
 function loadProducts() {
     try {
         const adminProducts = localStorage.getItem('admin:products');
@@ -50041,7 +50042,7 @@ function invalidateCache() {
 }
 function saveProducts(products) {
     localStorage.setItem('admin:products', JSON.stringify(products));
-    invalidateCache(); // Invalida la cache per forzare il reload
+    invalidateCache();
 }
 
 },{"./product":"cps21","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"cps21":[function(require,module,exports,__globalThis) {
@@ -50051,11 +50052,13 @@ parcelHelpers.export(exports, "RAW_PRODUCTS", ()=>RAW_PRODUCTS);
 const RAW_PRODUCTS = [
     {
         id: 1,
-        title: "T-Shirt Basic",
+        name: "T-Shirt Basic",
         price: 19.90,
         category: "men's clothing",
+        categoryId: 1,
         description: "T-shirt in cotone 100% a vestibilit\xe0 regolare.",
-        imageFile: "tshirt.jpg",
+        image: "tshirt.jpg",
+        stock: 50,
         colors: [
             "#000000",
             "#ffffff",
@@ -50065,11 +50068,13 @@ const RAW_PRODUCTS = [
     },
     {
         id: 2,
-        title: "Giacca Leggera",
+        name: "Giacca Leggera",
         price: 59.90,
         category: "men's clothing",
+        categoryId: 1,
         description: "Giacca antivento leggera per la mezza stagione.",
-        imageFile: "jacket.jpg",
+        image: "jacket.jpg",
+        stock: 25,
         colors: [
             "#000080",
             "#8B4513"
@@ -50079,11 +50084,13 @@ const RAW_PRODUCTS = [
     },
     {
         id: 3,
-        title: "Sneakers Urban",
+        name: "Sneakers Urban",
         price: 79.00,
         category: "men's clothing",
+        categoryId: 1,
         description: "Sneakers comode per tutti i giorni.",
-        imageFile: "sneakers.jpg",
+        image: "sneakers.jpg",
+        stock: 30,
         colors: [
             "#ffffff",
             "#000000"
@@ -50093,11 +50100,13 @@ const RAW_PRODUCTS = [
     },
     {
         id: 4,
-        title: "Abito Elegante",
+        name: "Abito Elegante",
         price: 89.00,
         category: "women's clothing",
+        categoryId: 2,
         description: "Abito midi elegante per cerimonie e serate.",
-        imageFile: "dress.jpg",
+        image: "dress.jpg",
+        stock: 15,
         colors: [
             "#000000",
             "#8B008B",
@@ -50107,11 +50116,13 @@ const RAW_PRODUCTS = [
     },
     {
         id: 5,
-        title: "Borsa Tracolla",
+        name: "Borsa Tracolla",
         price: 45.00,
         category: "women's clothing",
+        categoryId: 2,
         description: "Borsa a tracolla capiente in eco-pelle.",
-        imageFile: "bag.jpg",
+        image: "bag.jpg",
+        stock: 20,
         colors: [
             "#8B4513",
             "#000000"
@@ -50121,11 +50132,13 @@ const RAW_PRODUCTS = [
     },
     {
         id: 6,
-        title: "Anello Minimal",
+        name: "Anello Minimal",
         price: 29.00,
         category: "jewelery",
+        categoryId: 3,
         description: "Anello minimalista in acciaio inox.",
-        imageFile: "ring.jpg",
+        image: "ring.jpg",
+        stock: 100,
         colors: [
             "#C0C0C0",
             "#FFD700"
@@ -50133,11 +50146,13 @@ const RAW_PRODUCTS = [
     },
     {
         id: 7,
-        title: "Orecchini Perla",
+        name: "Orecchini Perla",
         price: 24.90,
         category: "jewelery",
+        categoryId: 3,
         description: "Orecchini con perle sintetiche, chiusura a farfalla.",
-        imageFile: "earrings.jpg",
+        image: "earrings.jpg",
+        stock: 80,
         colors: [
             "#FFFAF0",
             "#FFB6C1"
@@ -50145,11 +50160,13 @@ const RAW_PRODUCTS = [
     },
     {
         id: 8,
-        title: "Orologio Classico",
+        name: "Orologio Classico",
         price: 129.0,
         category: "jewelery",
+        categoryId: 3,
         description: "Orologio da polso con cinturino in pelle.",
-        imageFile: "watch.jpg",
+        image: "watch.jpg",
+        stock: 40,
         colors: [
             "#8B4513",
             "#000000"
@@ -50159,11 +50176,13 @@ const RAW_PRODUCTS = [
     },
     {
         id: 9,
-        title: "Cuffie Over-Ear",
+        name: "Cuffie Over-Ear",
         price: 59.00,
         category: "electronics",
+        categoryId: 4,
         description: "Cuffie comode con buon isolamento acustico.",
-        imageFile: "headphones.jpg",
+        image: "headphones.jpg",
+        stock: 60,
         colors: [
             "#000000",
             "#ffffff"
@@ -50173,11 +50192,13 @@ const RAW_PRODUCTS = [
     },
     {
         id: 10,
-        title: "Laptop 14\"",
+        name: "Laptop 14\"",
         price: 799.0,
         category: "electronics",
+        categoryId: 4,
         description: "Portatile 14\" leggero e silenzioso per lavoro/studio.",
-        imageFile: "laptop.jpg",
+        image: "laptop.jpg",
+        stock: 10,
         colors: [
             "#708090",
             "#000000"
@@ -50185,11 +50206,13 @@ const RAW_PRODUCTS = [
     },
     {
         id: 11,
-        title: "Smartphone 6.1\"",
+        name: "Smartphone 6.1\"",
         price: 499.0,
         category: "electronics",
+        categoryId: 4,
         description: "Display 6.1\" e fotocamera doppia.",
-        imageFile: "phone.jpg",
+        image: "phone.jpg",
+        stock: 35,
         colors: [
             "#000000",
             "#ffffff",
@@ -50201,11 +50224,13 @@ const RAW_PRODUCTS = [
     },
     {
         id: 12,
-        title: "Fotocamera Compatta",
+        name: "Fotocamera Compatta",
         price: 349.0,
         category: "electronics",
+        categoryId: 4,
         description: "Compatta con ottiche versatili per viaggi.",
-        imageFile: "camera.jpg",
+        image: "camera.jpg",
+        stock: 22,
         colors: [
             "#000000",
             "#C0C0C0"

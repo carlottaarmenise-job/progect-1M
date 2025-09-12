@@ -1,7 +1,7 @@
 import type { Product, RawProduct } from '../types';
 import { RAW_PRODUCTS } from './product';
 
-// Path relativi alle immagini in public/assets/
+// path relativi alle immagini
 const imageMap: { [key: string]: string } = {
   'tshirt.jpg': '/assets/tshirt.jpg',
   'jacket.jpg': '/assets/jacket.jpg',
@@ -20,19 +20,20 @@ const imageMap: { [key: string]: string } = {
 let cache: Product[] | null = null;
 
 function mapProduct(p: RawProduct): Product {
-  // Per ora usiamo placeholder, poi risolveremo le immagini reali
   const resolvedImage = `https://picsum.photos/300/300?random=${p.id}`;
-  console.log(`Mapping product ${p.id}: ${p.imageFile} -> ${resolvedImage}`);
+  console.log(`Mapping product ${p.id}: ${p.image} -> ${resolvedImage}`);
   
   return {
     id: p.id,
-    title: p.title,
+    name: p.name,
     price: p.price,
     category: p.category,
+    categoryId: p.categoryId,
     description: p.description,
     image: resolvedImage,
-    imageFile: p.imageFile,
-    // Proprietà opzionali con valori di default
+    stock: p.stock,
+    featured: false,
+    tags: [],
     originalPrice: p.originalPrice,
     rating: p.rating || 0,
     reviews: p.reviews || 0,
@@ -42,7 +43,7 @@ function mapProduct(p: RawProduct): Product {
   };
 }
 
-// Carica prodotti dall'AdminPanel se esistono, altrimenti usa quelli di default
+// Carica prodotti dall'AdminPanel se esistono
 function loadProducts(): RawProduct[] {
   try {
     const adminProducts = localStorage.getItem('admin:products');
@@ -71,13 +72,13 @@ export async function getProductById(id: number): Promise<Product | null> {
   return list.find(p => p.id === id) ?? null;
 }
 
-// Funzione per invalidare la cache quando l'admin modifica i prodotti
+// invalida la cache quando l'admin modifica i prodotti
 export function invalidateCache(): void {
   cache = null;
 }
 
-// Funzione per salvare prodotti modificati dall'admin
+//  salva prodotti modificati dall'admin
 export function saveProducts(products: Product[]): void {
   localStorage.setItem('admin:products', JSON.stringify(products));
-  invalidateCache(); // Invalida la cache per forzare il reload
+  invalidateCache(); 
 }
