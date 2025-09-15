@@ -1,0 +1,974 @@
+[
+    {
+        "id": "6560bab65fc2abf1",
+        "type": "tab",
+        "label": "Ecommerce Manu",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "http-in-create",
+        "type": "http in",
+        "z": "6560bab65fc2abf1",
+        "name": "Create User",
+        "url": "/utente",
+        "method": "post",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 180,
+        "y": 240,
+        "wires": [
+            [
+                "8f270a65eb9dd2e9"
+            ]
+        ]
+    },
+    {
+        "id": "fn-create",
+        "type": "function",
+        "z": "6560bab65fc2abf1",
+        "name": "Create Logic",
+        "func": "let users = global.get(\"users\") || [];\nlet user = msg.payload;\nuser.id = Date.now();\nusers.push(user);\nglobal.set(\"users\", users);\nmsg.payload = {status: \"created\", user};\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 830,
+        "y": 240,
+        "wires": [
+            [
+                "http-response"
+            ]
+        ]
+    },
+    {
+        "id": "http-in-read",
+        "type": "http in",
+        "z": "6560bab65fc2abf1",
+        "name": "Read User(s)",
+        "url": "/utenti",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 180,
+        "y": 320,
+        "wires": [
+            [
+                "ffc592a504a29d7f"
+            ]
+        ]
+    },
+    {
+        "id": "fn-read",
+        "type": "function",
+        "z": "6560bab65fc2abf1",
+        "name": "Read Logic",
+        "func": "let users = global.get(\"users\") || [];\nmsg.payload = {\n    status: \"success\", \n    users: users,\n    count: users.length\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 830,
+        "y": 320,
+        "wires": [
+            [
+                "http-response"
+            ]
+        ]
+    },
+    {
+        "id": "http-in-update",
+        "type": "http in",
+        "z": "6560bab65fc2abf1",
+        "name": "Update User",
+        "url": "/utente",
+        "method": "put",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 180,
+        "y": 400,
+        "wires": [
+            [
+                "026a957d3c969bc7"
+            ]
+        ]
+    },
+    {
+        "id": "fn-update",
+        "type": "function",
+        "z": "6560bab65fc2abf1",
+        "name": "Update Logic",
+        "func": "let users = global.get(\"users\") || [];\nlet userId = msg.req.params.id || msg.payload.id;\nlet userIndex = users.findIndex(user => user.id == userId);\n\nif (userIndex === -1) {\n    msg.payload = {\n        status: \"error\", \n        message: \"User not found\"\n    };\n    msg.statusCode = 404;\n} else {\n    let updatedUser = { ...users[userIndex], ...msg.payload, id: users[userIndex].id };\n    users[userIndex] = updatedUser;\n    \n    global.set(\"users\", users);\n    \n    msg.payload = {\n        status: \"updated\", \n        user: updatedUser\n    };\n    msg.statusCode = 200;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 830,
+        "y": 400,
+        "wires": [
+            [
+                "http-response"
+            ]
+        ]
+    },
+    {
+        "id": "http-in-delete",
+        "type": "http in",
+        "z": "6560bab65fc2abf1",
+        "name": "Delete User",
+        "url": "/utente",
+        "method": "delete",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 180,
+        "y": 480,
+        "wires": [
+            [
+                "a78bb7c507ef51b2"
+            ]
+        ]
+    },
+    {
+        "id": "fn-delete",
+        "type": "function",
+        "z": "6560bab65fc2abf1",
+        "name": "Delete Logic",
+        "func": "let users = global.get(\"users\") || [];\nlet userId = msg.req.params.id || msg.payload.id;\nlet userIndex = users.findIndex(user => user.id == userId);\n\nif (userIndex === -1) {\n    msg.payload = {\n        status: \"error\", \n        message: \"User not found\"\n    };\n    msg.statusCode = 404;\n} else {\n    let deletedUser = users.splice(userIndex, 1)[0];\n    \n    global.set(\"users\", users);\n    \n    msg.payload = {\n        status: \"deleted\", \n        user: deletedUser\n    };\n    msg.statusCode = 200;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 830,
+        "y": 480,
+        "wires": [
+            [
+                "http-response"
+            ]
+        ]
+    },
+    {
+        "id": "http-response",
+        "type": "http response",
+        "z": "6560bab65fc2abf1",
+        "name": "Response",
+        "statusCode": "",
+        "headers": {},
+        "x": 1180,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "eca7511695fbe434",
+        "type": "http in",
+        "z": "6560bab65fc2abf1",
+        "name": "Products Create",
+        "url": "/prodotti",
+        "method": "post",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 180,
+        "y": 640,
+        "wires": [
+            [
+                "b980b7c72820ebd7"
+            ]
+        ]
+    },
+    {
+        "id": "74395f1c451eb185",
+        "type": "http in",
+        "z": "6560bab65fc2abf1",
+        "name": "Products Read",
+        "url": "/prodotti",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 180,
+        "y": 720,
+        "wires": [
+            [
+                "5b929c879bed62fe"
+            ]
+        ]
+    },
+    {
+        "id": "ee623335cf2c5e70",
+        "type": "function",
+        "z": "6560bab65fc2abf1",
+        "name": "Create logic",
+        "func": "let products = global.get(\"products\") || [];\n\nlet product = msg.payload;\nproduct.id = Date.now();\nproducts.push(product);\nglobal.set(\"products\", products);\n\nmsg.payload = { status: \"created\", product };\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 830,
+        "y": 640,
+        "wires": [
+            [
+                "fa36f871695456da"
+            ]
+        ]
+    },
+    {
+        "id": "06a5756cc889b179",
+        "type": "function",
+        "z": "6560bab65fc2abf1",
+        "name": "Read logic",
+        "func": "let products = global.get(\"products\") || [];\nmsg.payload = {\n    status: \"success\", \n    products: products,\n    count: products.length\n};\nreturn msg;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 830,
+        "y": 720,
+        "wires": [
+            [
+                "fa36f871695456da"
+            ]
+        ]
+    },
+    {
+        "id": "50b2fd8f67045040",
+        "type": "http in",
+        "z": "6560bab65fc2abf1",
+        "name": "Products Update",
+        "url": "/prodotti",
+        "method": "put",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 180,
+        "y": 800,
+        "wires": [
+            [
+                "6a4c19250ce70e13"
+            ]
+        ]
+    },
+    {
+        "id": "2a41d584cb8aedc7",
+        "type": "http in",
+        "z": "6560bab65fc2abf1",
+        "name": "Delete Products",
+        "url": "/prodotti",
+        "method": "delete",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 180,
+        "y": 880,
+        "wires": [
+            [
+                "f778e8834f8ac1e4"
+            ]
+        ]
+    },
+    {
+        "id": "5f241cb67eb55576",
+        "type": "function",
+        "z": "6560bab65fc2abf1",
+        "name": "Update Logic",
+        "func": "let products = global.get(\"products\") || [];\nlet productId = msg.req.params.id || msg.payload.id;\nlet productIndex = products.findIndex(product => product.id == productId);\n\nif (productIndex === -1) {\n    msg.payload = {\n        status: \"error\", \n        message: \"Product not found\"\n    };\n    msg.statusCode = 404;\n} else {\n    let updatedProduct = { ...products[productIndex], ...msg.payload, id: products[productIndex].id };\n    products[productIndex] = updatedProduct;\n    global.set(\"products\", products);\n    msg.payload = {\n        status: \"updated\", \n        product: updatedProduct\n    };\n    msg.statusCode = 200;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 830,
+        "y": 800,
+        "wires": [
+            [
+                "fa36f871695456da"
+            ]
+        ]
+    },
+    {
+        "id": "5079b17e58df81f3",
+        "type": "function",
+        "z": "6560bab65fc2abf1",
+        "name": "Delete Logic",
+        "func": "let products = global.get(\"products\") || [];\nlet productId = msg.req.params.id || msg.payload.id;\nlet productIndex = products.findIndex(product => product.id == productId);\n\nif (productIndex === -1) {\n    msg.payload = {\n        status: \"error\", \n        message: \"Product not found\"\n    };\n    msg.statusCode = 404;\n} else {\n    let deletedProduct = products.splice(productIndex, 1)[0];\n    global.set(\"products\", products);\n    msg.payload = {\n        status: \"deleted\", \n        product: deletedProduct\n    };\n    msg.statusCode = 200;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 830,
+        "y": 880,
+        "wires": [
+            [
+                "fa36f871695456da"
+            ]
+        ]
+    },
+    {
+        "id": "fa36f871695456da",
+        "type": "http response",
+        "z": "6560bab65fc2abf1",
+        "name": "Response",
+        "statusCode": "",
+        "headers": {},
+        "x": 1200,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "45fcfebe8da66b9b",
+        "type": "comment",
+        "z": "6560bab65fc2abf1",
+        "name": "PRODOTTI",
+        "info": "",
+        "x": 330,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "1d52763f97c34235",
+        "type": "comment",
+        "z": "6560bab65fc2abf1",
+        "name": "CATEGORIE",
+        "info": "",
+        "x": 310,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "649e8ad92c08d577",
+        "type": "http in",
+        "z": "6560bab65fc2abf1",
+        "name": "Create Categories",
+        "url": "/categorie",
+        "method": "post",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 190,
+        "y": 1160,
+        "wires": [
+            [
+                "a52c6b5a8a40cc92"
+            ]
+        ]
+    },
+    {
+        "id": "8128fd810ae89784",
+        "type": "http in",
+        "z": "6560bab65fc2abf1",
+        "name": "Categories Read",
+        "url": "/categorie",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 180,
+        "y": 1240,
+        "wires": [
+            [
+                "c72c14a0341c1a86"
+            ]
+        ]
+    },
+    {
+        "id": "3ac524d896934f7b",
+        "type": "http in",
+        "z": "6560bab65fc2abf1",
+        "name": "Categories Update",
+        "url": "/categorie",
+        "method": "put",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 190,
+        "y": 1320,
+        "wires": [
+            [
+                "0964f297869c6544"
+            ]
+        ]
+    },
+    {
+        "id": "e746b1addeda6a15",
+        "type": "http in",
+        "z": "6560bab65fc2abf1",
+        "name": "Delete Categories",
+        "url": "/categorie",
+        "method": "delete",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 190,
+        "y": 1400,
+        "wires": [
+            [
+                "13403bdf3a6992d5"
+            ]
+        ]
+    },
+    {
+        "id": "1b3249e28d4ed36a",
+        "type": "function",
+        "z": "6560bab65fc2abf1",
+        "name": "Create Category Logic",
+        "func": "let categories = global.get(\"categories\") || [];\nlet category = msg.payload;\ncategory.id = Date.now();\ncategories.push(category);\nglobal.set(\"categories\", categories);\nmsg.payload = { status: \"created\", category };\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 860,
+        "y": 1160,
+        "wires": [
+            [
+                "e214a88dc1bd404b"
+            ]
+        ]
+    },
+    {
+        "id": "652b9a60c354d4af",
+        "type": "function",
+        "z": "6560bab65fc2abf1",
+        "name": "Read Categories Logic",
+        "func": "let categories = global.get(\"categories\") || [];\nmsg.payload = {\n    status: \"success\",\n    categories: categories,\n    count: categories.length\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 860,
+        "y": 1240,
+        "wires": [
+            [
+                "e214a88dc1bd404b"
+            ]
+        ]
+    },
+    {
+        "id": "97e5370b51a61091",
+        "type": "function",
+        "z": "6560bab65fc2abf1",
+        "name": "Categories Update Logic",
+        "func": "let categories = global.get(\"categories\") || [];\nlet categoryId = msg.req.params.id || msg.payload.id;\nlet categoryIndex = categories.findIndex(category => category.id == categoryId);\n\nif (categoryIndex === -1) {\n    msg.payload = {\n        status: \"error\", \n        message: \"Category not found\"\n    };\n    msg.statusCode = 404;\n} else {\n    let updatedCategory = { ...categories[categoryIndex], ...msg.payload, id: categories[categoryIndex].id };\n    categories[categoryIndex] = updatedCategory;\n    global.set(\"categories\", categories);\n    msg.payload = {\n        status: \"updated\", \n        category: updatedCategory\n    };\n    msg.statusCode = 200;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 870,
+        "y": 1320,
+        "wires": [
+            [
+                "e214a88dc1bd404b"
+            ]
+        ]
+    },
+    {
+        "id": "600804806126d520",
+        "type": "function",
+        "z": "6560bab65fc2abf1",
+        "name": "Delete Logic",
+        "func": "let categories = global.get(\"categories\") || [];\nlet categoryId = msg.req.params.id || msg.payload.id;\nlet categoryIndex = categories.findIndex(category => category.id == categoryId);\n\nif (categoryIndex === -1) {\n    msg.payload = {\n        status: \"error\", \n        message: \"Category not found\"\n    };\n    msg.statusCode = 404;\n} else {\n    let deletedCategory = categories.splice(categoryIndex, 1)[0];\n    global.set(\"categories\", categories);\n    msg.payload = {\n        status: \"deleted\", \n        category: deletedCategory\n    };\n    msg.statusCode = 200;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 830,
+        "y": 1400,
+        "wires": [
+            [
+                "e214a88dc1bd404b"
+            ]
+        ]
+    },
+    {
+        "id": "da30c9468c59e93d",
+        "type": "comment",
+        "z": "6560bab65fc2abf1",
+        "name": "CARRELLO",
+        "info": "",
+        "x": 310,
+        "y": 1540,
+        "wires": []
+    },
+    {
+        "id": "379381285a0973e7",
+        "type": "http in",
+        "z": "6560bab65fc2abf1",
+        "name": "Create Cart",
+        "url": "/carrello",
+        "method": "post",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 190,
+        "y": 1660,
+        "wires": [
+            [
+                "59ce3b10664abbe2"
+            ]
+        ]
+    },
+    {
+        "id": "8a85ea147ed0d488",
+        "type": "http in",
+        "z": "6560bab65fc2abf1",
+        "name": "Cart Read",
+        "url": "/carrello",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 180,
+        "y": 1740,
+        "wires": [
+            [
+                "7f91142baad8e492"
+            ]
+        ]
+    },
+    {
+        "id": "d88e5b705d18523b",
+        "type": "http in",
+        "z": "6560bab65fc2abf1",
+        "name": "Update Cart",
+        "url": "/carrello",
+        "method": "put",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 190,
+        "y": 1820,
+        "wires": [
+            [
+                "33bfeffd595ee80d"
+            ]
+        ]
+    },
+    {
+        "id": "8bfc5b8767aef7be",
+        "type": "http in",
+        "z": "6560bab65fc2abf1",
+        "name": "Delete Cart",
+        "url": "/carrello",
+        "method": "delete",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 190,
+        "y": 1900,
+        "wires": [
+            [
+                "d826a3a25b6d8250"
+            ]
+        ]
+    },
+    {
+        "id": "4671f5aa1c7e4363",
+        "type": "function",
+        "z": "6560bab65fc2abf1",
+        "name": "Create item logic",
+        "func": "let cart = global.get(\"cart\") || [];\nlet cartItem = msg.payload;\ncartItem.id = Date.now();\ncart.push(cartItem);\nglobal.set(\"cart\", cart);\nmsg.payload = {status: \"created\", cartItem};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 1660,
+        "wires": [
+            [
+                "9d98b163c1f85a91"
+            ]
+        ]
+    },
+    {
+        "id": "c590f52dfea79b8f",
+        "type": "function",
+        "z": "6560bab65fc2abf1",
+        "name": "Get cart Logic",
+        "func": "let cart = global.get(\"cart\") || [];\nmsg.payload = {\n    status: \"success\", \n    cart: cart,\n    count: cart.length\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 1740,
+        "wires": [
+            [
+                "9d98b163c1f85a91"
+            ]
+        ]
+    },
+    {
+        "id": "dbc538b19ff73579",
+        "type": "function",
+        "z": "6560bab65fc2abf1",
+        "name": "Update Cart Logic",
+        "func": "let cart = global.get(\"cart\") || [];\nlet cartItemId = msg.req.params.id || msg.payload.id;\nlet cartIndex = cart.findIndex(item => item.id == cartItemId);\n\nif (cartIndex === -1) {\n    msg.payload = {\n        status: \"error\",\n        message: \"Cart item not found\"\n    };\n    msg.statusCode = 404;\n} else {\n    let updatedItem = { ...cart[cartIndex], ...msg.payload, id: cart[cartIndex].id };\n    cart[cartIndex] = updatedItem;\n    global.set(\"cart\", cart);\n    msg.payload = {\n        status: \"updated\",\n        cartItem: updatedItem\n    };\n    msg.statusCode = 200;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 1820,
+        "wires": [
+            [
+                "9d98b163c1f85a91"
+            ]
+        ]
+    },
+    {
+        "id": "a243996d97e6f36e",
+        "type": "function",
+        "z": "6560bab65fc2abf1",
+        "name": "Delete Logic",
+        "func": "let cart = global.get(\"cart\") || [];\nlet cartItemId = msg.req.params.id || msg.payload.id;\nlet cartIndex = cart.findIndex(item => item.id == cartItemId);\n\nif (cartIndex === -1) {\n    msg.payload = {\n        status: \"error\", \n        message: \"Cart item not found\"\n    };\n    msg.statusCode = 404;\n} else {\n    let deletedItem = cart.splice(cartIndex, 1)[0];\n    global.set(\"cart\", cart);\n    msg.payload = {\n        status: \"deleted\", \n        cartItem: deletedItem\n    };\n    msg.statusCode = 200;\n}\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 1900,
+        "wires": [
+            [
+                "9d98b163c1f85a91"
+            ]
+        ]
+    },
+    {
+        "id": "e214a88dc1bd404b",
+        "type": "http response",
+        "z": "6560bab65fc2abf1",
+        "name": "Response",
+        "statusCode": "",
+        "headers": {},
+        "x": 1200,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "9d98b163c1f85a91",
+        "type": "http response",
+        "z": "6560bab65fc2abf1",
+        "name": "Response",
+        "statusCode": "",
+        "headers": {},
+        "x": 1240,
+        "y": 1760,
+        "wires": []
+    },
+    {
+        "id": "8f270a65eb9dd2e9",
+        "type": "debug",
+        "z": "6560bab65fc2abf1",
+        "name": "Create User",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 440,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "093509e43402e27c",
+        "type": "comment",
+        "z": "6560bab65fc2abf1",
+        "name": "UTENTE",
+        "info": "",
+        "x": 320,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "ffc592a504a29d7f",
+        "type": "debug",
+        "z": "6560bab65fc2abf1",
+        "name": "Read User",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 430,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "026a957d3c969bc7",
+        "type": "debug",
+        "z": "6560bab65fc2abf1",
+        "name": "Update User",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 440,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "a78bb7c507ef51b2",
+        "type": "debug",
+        "z": "6560bab65fc2abf1",
+        "name": "Delete User",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 440,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "b980b7c72820ebd7",
+        "type": "debug",
+        "z": "6560bab65fc2abf1",
+        "name": "Products Create",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 450,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "5b929c879bed62fe",
+        "type": "debug",
+        "z": "6560bab65fc2abf1",
+        "name": "Product read",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 440,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "6a4c19250ce70e13",
+        "type": "debug",
+        "z": "6560bab65fc2abf1",
+        "name": "Product Update",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 450,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "f778e8834f8ac1e4",
+        "type": "debug",
+        "z": "6560bab65fc2abf1",
+        "name": "Delete Products",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 450,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "a52c6b5a8a40cc92",
+        "type": "debug",
+        "z": "6560bab65fc2abf1",
+        "name": "Create categories",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "c72c14a0341c1a86",
+        "type": "debug",
+        "z": "6560bab65fc2abf1",
+        "name": "Categories Read",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 470,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "0964f297869c6544",
+        "type": "debug",
+        "z": "6560bab65fc2abf1",
+        "name": "Categories Update",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 1320,
+        "wires": []
+    },
+    {
+        "id": "13403bdf3a6992d5",
+        "type": "debug",
+        "z": "6560bab65fc2abf1",
+        "name": "Delete Categories",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 1400,
+        "wires": []
+    },
+    {
+        "id": "59ce3b10664abbe2",
+        "type": "debug",
+        "z": "6560bab65fc2abf1",
+        "name": "Create Cart",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 460,
+        "y": 1660,
+        "wires": []
+    },
+    {
+        "id": "7f91142baad8e492",
+        "type": "debug",
+        "z": "6560bab65fc2abf1",
+        "name": "Cart Read",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 450,
+        "y": 1740,
+        "wires": []
+    },
+    {
+        "id": "33bfeffd595ee80d",
+        "type": "debug",
+        "z": "6560bab65fc2abf1",
+        "name": "Update Cart",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 460,
+        "y": 1820,
+        "wires": []
+    },
+    {
+        "id": "d826a3a25b6d8250",
+        "type": "debug",
+        "z": "6560bab65fc2abf1",
+        "name": "Delete Cart",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 460,
+        "y": 1900,
+        "wires": []
+    }
+]
