@@ -16,19 +16,21 @@ const rootEl = document.getElementById('root');
 if (!rootEl) throw new Error('Elemento #root non trovato');
 
 createRoot(rootEl).render(
- <BrowserRouter>
-  <ToastProvider>
-    <AuthProvider>
-      <CartProvider>
-        <ProductProvider>
-          <CategoryProvider>
-            <OrderProvider>
-              <App />
-            </OrderProvider>
-          </CategoryProvider>
-        </ProductProvider>
-      </CartProvider>
-    </AuthProvider>
-  </ToastProvider>
-</BrowserRouter>
+  <BrowserRouter>
+    <ToastProvider>
+      <AuthProvider>
+        <CartProvider>
+          <ProductProvider>
+            <CategoryProvider>
+              <OrderProvider>
+                <BrowserRouter>
+                  <App />
+                </BrowserRouter>
+              </OrderProvider>
+            </CategoryProvider>
+          </ProductProvider>
+        </CartProvider>
+      </AuthProvider>
+    </ToastProvider>
+  </BrowserRouter>
 );
