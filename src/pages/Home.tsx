@@ -51,7 +51,7 @@ export default function Home() {
     // Carica le categorie 
     useEffect(() => {
         fetchCategories();
-    }, [fetchCategories]);
+    }, []);
 
     const categories = useMemo(() => {
         const activeCategories = dynamicCategories
