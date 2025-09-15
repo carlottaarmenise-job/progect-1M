@@ -29,34 +29,33 @@ type CartContextValue = {
 
 const CartContext = createContext<CartContextValue | undefined>(undefined);
 
-
 function cartReducer(state: CartState, action: CartAction): CartState {
     switch (action.type) {
         case 'ADD': {
             const qty = Math.max(1, action.qty ?? 1);
-            const existing = state.items.find(i => i.product.id === action.product.id);
+            const existing = state.items.find(i => i.product?.id === action.product.id);
             if (existing) {
                 return {
                     ...state,
                     items: state.items.map(i =>
-                        i.product.id === action.product.id ? { ...i, qty: i.qty + qty } : i
+                        i.product?.id === action.product.id ? { ...i, qty: i.qty + qty } : i
                     ),
                 };
             }
             return { ...state, items: [...state.items, { product: action.product, qty }] };
         }
         case 'REMOVE': {
-            return { ...state, items: state.items.filter(i => i.product.id !== action.productId) };
+            return { ...state, items: state.items.filter(i => i.product?.id !== action.productId) };
         }
         case 'SET_QTY': {
             const qty = Math.max(0, action.qty);
             if (qty === 0) {
-                return { ...state, items: state.items.filter(i => i.product.id !== action.productId) };
+                return { ...state, items: state.items.filter(i => i.product?.id !== action.productId) };
             }
             return {
                 ...state,
                 items: state.items.map(i =>
-                    i.product.id === action.productId ? { ...i, qty } : i
+                    i.product?.id === action.productId ? { ...i, qty } : i
                 ),
             };
         }
@@ -65,7 +64,7 @@ function cartReducer(state: CartState, action: CartAction): CartState {
         case 'SET_LOADING':
             return { ...state, loading: action.loading };
         case 'LOAD_FROM_API':
-            return { ...state, items: action.items };
+            return { ...state, items: action.items.filter(item => item.product) }; // Filtra elementi invalidi
         default:
             return state;
     }
@@ -79,7 +78,9 @@ function loadInitialState(): CartState {
         if (!raw) return { items: [], loading: false };
         const parsed: CartState = JSON.parse(raw);
         if (!Array.isArray(parsed.items)) return { items: [], loading: false };
-        return { items: parsed.items, loading: false };
+        // Filtra elementi con product valido
+        const validItems = parsed.items.filter(item => item.product && typeof item.product.price === 'number');
+        return { items: validItems, loading: false };
     } catch {
         return { items: [], loading: false };
     }
@@ -129,11 +130,14 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     }, [state.items, state.loading]);
 
     const value = useMemo<CartContextValue>(() => {
-        const count = state.items.reduce((sum, i) => sum + i.qty, 0);
-        const total = state.items.reduce((sum, i) => sum + i.qty * i.product.price, 0);
+        // Filtra elementi validi prima dei calcoli
+        const validItems = state.items.filter(item => item.product && typeof item.product.price === 'number');
+        
+        const count = validItems.reduce((sum, i) => sum + i.qty, 0);
+        const total = validItems.reduce((sum, i) => sum + i.qty * i.product.price, 0);
         
         return {
-            items: state.items,
+            items: validItems,
             count,
             total,
             loading: state.loading,

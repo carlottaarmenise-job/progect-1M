@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState, useCallback } from 'react';
 import { config } from 'src/config';
 
 export interface Category {
@@ -28,13 +28,14 @@ interface CategoryContextValue {
 
 const CategoryContext = createContext<CategoryContextValue | undefined>(undefined);
 
-
 export function CategoryProvider({ children }: { children: React.ReactNode }) {
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchCategories = async (): Promise<void> => {
+  const fetchCategories = useCallback(async (): Promise<void> => {
+    if (loading) return;
+    
     setLoading(true);
     setError(null);
     
@@ -49,14 +50,21 @@ export function CategoryProvider({ children }: { children: React.ReactNode }) {
       }
 
       const data = await response.json();
-      setCategories(Array.isArray(data) ? data : data.categories || []);
+      setCategories(Array.isArray(data) ? data : []);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Errore sconosciuto');
       console.error('Errore fetchCategories:', err);
+      // Fallback con array vuoto invece di bloccare l'app
+      setCategories([]);
     } finally {
       setLoading(false);
     }
-  };
+  }, [loading]);
+
+  // Carica le categorie solo una volta al mount
+  useEffect(() => {
+    fetchCategories();
+  }, []); // Dipendenze vuote per caricare solo una volta
 
   const createCategory = async (categoryData: Omit<Category, 'id' | 'createdAt' | 'updatedAt'>): Promise<void> => {
     setLoading(true);

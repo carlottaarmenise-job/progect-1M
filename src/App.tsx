@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Navbar, Nav, Badge, Dropdown } from 'react-bootstrap';
 import { Routes, Route, NavLink, Link, useLocation } from 'react-router-dom';
-import { User, LogOut, Shield } from 'lucide-react';
+import { User, LogOut, Shield, Settings } from 'lucide-react';
 
 import { useCart } from './context/CartContext';
 import { useAuth } from './context/AuthContext';
@@ -12,6 +12,7 @@ import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import UserDashboard from './pages/UserDashboard';
 
 import MiniCart from './components/MiniCart';
 import Footer from './components/Footer';
@@ -23,7 +24,6 @@ export default function App() {
     const { isAuthenticated, user, logout, isAdmin } = useAuth();
     const [showCart, setShowCart] = React.useState(false);
     const location = useLocation();
-
 
     const isAuthPage = ['/login', '/register'].includes(location.pathname);
 
@@ -95,6 +95,11 @@ export default function App() {
                                                 <div className="small text-muted">{user?.email}</div>
                                             </Dropdown.Header>
                                             <Dropdown.Divider />
+                                            <Dropdown.Item as={Link} to="/dashboard">
+                                                <Settings size={16} className="me-2" />
+                                                Dashboard
+                                            </Dropdown.Item>
+                                            <Dropdown.Divider />
                                             <Dropdown.Item onClick={handleLogout}>
                                                 <LogOut size={16} className="me-2" />
                                                 Logout
@@ -135,6 +140,11 @@ export default function App() {
                         <Route path="/checkout" element={
                             <ProtectedRoute>
                                 <Checkout />
+                            </ProtectedRoute>
+                        } />
+                        <Route path="/dashboard" element={
+                            <ProtectedRoute>
+                                <UserDashboard />
                             </ProtectedRoute>
                         } />
                         <Route path="/admin" element={

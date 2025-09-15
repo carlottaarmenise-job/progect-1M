@@ -4,10 +4,14 @@ import ProductCard from '../components/ProductCard';
 import type { Product } from '../types';
 import { useSearchParams } from 'react-router-dom';
 import { getProducts } from '../data/api';
+import { useCategories } from '../context/CategoryContext';
 
 export default function Home() {
     const [data, setData] = useState<Product[]>([]);
     const [loading, setLoading] = useState(true);
+
+    // Usa il CategoryContext per le categorie dinamiche
+    const { categories: dynamicCategories, fetchCategories } = useCategories();
 
     const [searchParams, setSearchParams] = useSearchParams();
     const qParam = searchParams.get('q') ?? '';
@@ -33,7 +37,7 @@ export default function Home() {
         setSearchParams(next, { replace: true });
     }, [q, category, sort]);
 
-    //carica prodotti dalla API locale
+    // Carica prodotti dalla API locale
     useEffect(() => {
         let cancelled = false;
         setLoading(true);
@@ -44,22 +48,42 @@ export default function Home() {
         return () => { cancelled = true; };
     }, []);
 
-    const categories = useMemo(() => {
-        const set = new Set<string>();
-        data.forEach(p => set.add(p.category));
-        return ['all', ...Array.from(set)];
-    }, [data]);
+    // Carica le categorie 
+    useEffect(() => {
+        fetchCategories();
+    }, [fetchCategories]);
 
+    const categories = useMemo(() => {
+        const activeCategories = dynamicCategories
+            .filter(cat => cat.active)
+            .sort((a, b) => (a.sortOrder || 0) - (b.sortOrder || 0))
+            .map(cat => cat.slug);
+
+        return ['all', ...activeCategories];
+    }, [dynamicCategories]);
+
+    // Filtra per slug delle categorie 
     const filtered = useMemo(() => {
         let list = data.filter(p =>
             p?.name.toLowerCase().includes(qDebounced.toLowerCase()) ||
             p?.category.toLowerCase().includes(qDebounced.toLowerCase())
         );
-        if (category !== 'all') list = list.filter(p => p.category === category);
+
+        if (category !== 'all') {
+            // Trova la categoria  corrispondente
+            const selectedCategory = dynamicCategories.find(cat => cat.slug === category);
+            if (selectedCategory) {
+                list = list.filter(p =>
+                    p.category.toLowerCase() === selectedCategory.name.toLowerCase() ||
+                    p.categoryId === selectedCategory.id
+                );
+            }
+        }
+
         if (sort === 'price-asc') list = [...list].sort((a, b) => a.price - b.price);
         if (sort === 'price-desc') list = [...list].sort((a, b) => b.price - a.price);
         return list;
-    }, [data, qDebounced, category, sort]);
+    }, [data, qDebounced, category, sort, dynamicCategories]);
 
     useEffect(() => {
         if (orderSuccess) {
@@ -71,6 +95,13 @@ export default function Home() {
             return () => clearTimeout(t);
         }
     }, [orderSuccess, searchParams, setSearchParams]);
+
+    // ottiene il nome visualizzato della categoria
+    const getCategoryDisplayName = (categorySlug: string) => {
+        if (categorySlug === 'all') return 'Tutte le categorie';
+        const category = dynamicCategories.find(cat => cat.slug === categorySlug);
+        return category ? category.name : categorySlug;
+    };
 
     return (
         <>
@@ -92,7 +123,9 @@ export default function Home() {
                         title="Categoria"
                     >
                         {categories.map(c => (
-                            <option key={c} value={c}>{c === 'all' ? 'Tutte le categorie' : c}</option>
+                            <option key={c} value={c}>
+                                {getCategoryDisplayName(c)}
+                            </option>
                         ))}
                     </Form.Select>
                     <Form.Select

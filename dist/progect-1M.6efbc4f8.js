@@ -679,6 +679,7 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _bootstrapMinCss = require("bootstrap/dist/css/bootstrap.min.css");
 var _bootstrapBundleMinJs = require("bootstrap/dist/js/bootstrap.bundle.min.js");
 var _themeCss = require("./styles/theme.css");
+var _orderContext = require("./context/OrderContext");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _client = require("react-dom/client");
@@ -689,6 +690,7 @@ var _cartContext = require("./context/CartContext");
 var _toastContext = require("./context/ToastContext");
 var _authContext = require("./context/AuthContext");
 var _productContext = require("./context/ProductContext");
+var _categoryContext = require("./context/CategoryContext");
 const rootEl = document.getElementById('root');
 if (!rootEl) throw new Error('Elemento #root non trovato');
 (0, _client.createRoot)(rootEl).render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.BrowserRouter), {
@@ -696,35 +698,47 @@ if (!rootEl) throw new Error('Elemento #root non trovato');
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _authContext.AuthProvider), {
             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cartContext.CartProvider), {
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productContext.ProductProvider), {
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _appDefault.default), {}, void 0, false, {
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _categoryContext.CategoryProvider), {
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _orderContext.OrderProvider), {
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _appDefault.default), {}, void 0, false, {
+                                fileName: "src/index.tsx",
+                                lineNumber: 26,
+                                columnNumber: 15
+                            }, undefined)
+                        }, void 0, false, {
+                            fileName: "src/index.tsx",
+                            lineNumber: 25,
+                            columnNumber: 13
+                        }, undefined)
+                    }, void 0, false, {
                         fileName: "src/index.tsx",
-                        lineNumber: 23,
-                        columnNumber: 13
+                        lineNumber: 24,
+                        columnNumber: 11
                     }, undefined)
                 }, void 0, false, {
                     fileName: "src/index.tsx",
-                    lineNumber: 22,
+                    lineNumber: 23,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/index.tsx",
-                lineNumber: 21,
+                lineNumber: 22,
                 columnNumber: 7
             }, undefined)
         }, void 0, false, {
             fileName: "src/index.tsx",
-            lineNumber: 20,
+            lineNumber: 21,
             columnNumber: 5
         }, undefined)
     }, void 0, false, {
         fileName: "src/index.tsx",
-        lineNumber: 19,
+        lineNumber: 20,
         columnNumber: 3
     }, undefined)
 }, void 0, false, {
     fileName: "src/index.tsx",
-    lineNumber: 18,
-    columnNumber: 1
+    lineNumber: 19,
+    columnNumber: 2
 }, undefined));
 
   $parcel$ReactRefreshHelpers$1d45.postlude(module);
@@ -732,7 +746,7 @@ if (!rootEl) throw new Error('Elemento #root non trovato');
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","bootstrap/dist/css/bootstrap.min.css":"i5LP7","bootstrap/dist/js/bootstrap.bundle.min.js":"joWv1","./styles/theme.css":"N2vNb","react":"jMk1U","react-dom/client":"hrvwu","react-router-dom":"61z4w","./App":"3VLq5","./context/CartContext":"kAdVl","./context/ToastContext":"6VmKk","./context/AuthContext":"3zDyC","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"dVPUn":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","bootstrap/dist/css/bootstrap.min.css":"i5LP7","bootstrap/dist/js/bootstrap.bundle.min.js":"joWv1","./styles/theme.css":"N2vNb","react":"jMk1U","react-dom/client":"hrvwu","react-router-dom":"61z4w","./App":"3VLq5","./context/CartContext":"kAdVl","./context/ToastContext":"6VmKk","./context/AuthContext":"3zDyC","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","./context/ProductContext":"1wA0o","./context/CategoryContext":"4AzgB","./context/OrderContext":"a2oZv"}],"dVPUn":[function(require,module,exports,__globalThis) {
 'use strict';
 module.exports = require("ee51401569654d91");
 
@@ -26410,6 +26424,8 @@ var _login = require("./pages/Login");
 var _loginDefault = parcelHelpers.interopDefault(_login);
 var _register = require("./pages/Register");
 var _registerDefault = parcelHelpers.interopDefault(_register);
+var _userDashboard = require("./pages/UserDashboard");
+var _userDashboardDefault = parcelHelpers.interopDefault(_userDashboard);
 var _miniCart = require("./components/MiniCart");
 var _miniCartDefault = parcelHelpers.interopDefault(_miniCart);
 var _footer = require("./components/Footer");
@@ -26570,9 +26586,10 @@ function App() {
                                                         columnNumber: 45
                                                     }, this),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Dropdown).Item, {
-                                                        onClick: handleLogout,
+                                                        as: (0, _reactRouterDom.Link),
+                                                        to: "/dashboard",
                                                         children: [
-                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _lucideReact.LogOut), {
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _lucideReact.Settings), {
                                                                 size: 16,
                                                                 className: "me-2"
                                                             }, void 0, false, {
@@ -26580,11 +26597,34 @@ function App() {
                                                                 lineNumber: 99,
                                                                 columnNumber: 49
                                                             }, this),
-                                                            "Logout"
+                                                            "Dashboard"
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "src/App.tsx",
                                                         lineNumber: 98,
+                                                        columnNumber: 45
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Dropdown).Divider, {}, void 0, false, {
+                                                        fileName: "src/App.tsx",
+                                                        lineNumber: 102,
+                                                        columnNumber: 45
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Dropdown).Item, {
+                                                        onClick: handleLogout,
+                                                        children: [
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _lucideReact.LogOut), {
+                                                                size: 16,
+                                                                className: "me-2"
+                                                            }, void 0, false, {
+                                                                fileName: "src/App.tsx",
+                                                                lineNumber: 104,
+                                                                columnNumber: 49
+                                                            }, this),
+                                                            "Logout"
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "src/App.tsx",
+                                                        lineNumber: 103,
                                                         columnNumber: 45
                                                     }, this)
                                                 ]
@@ -26607,7 +26647,7 @@ function App() {
                                                 children: "Accedi"
                                             }, void 0, false, {
                                                 fileName: "src/App.tsx",
-                                                lineNumber: 106,
+                                                lineNumber: 111,
                                                 columnNumber: 41
                                             }, this),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -26616,13 +26656,13 @@ function App() {
                                                 children: "Registrati"
                                             }, void 0, false, {
                                                 fileName: "src/App.tsx",
-                                                lineNumber: 109,
+                                                lineNumber: 114,
                                                 columnNumber: 41
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/App.tsx",
-                                        lineNumber: 105,
+                                        lineNumber: 110,
                                         columnNumber: 37
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -26635,7 +26675,7 @@ function App() {
                                                 children: "Carrello"
                                             }, void 0, false, {
                                                 fileName: "src/App.tsx",
-                                                lineNumber: 121,
+                                                lineNumber: 126,
                                                 columnNumber: 40
                                             }, this),
                                             " ",
@@ -26644,13 +26684,13 @@ function App() {
                                                 children: count
                                             }, void 0, false, {
                                                 fileName: "src/App.tsx",
-                                                lineNumber: 121,
+                                                lineNumber: 126,
                                                 columnNumber: 62
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/App.tsx",
-                                        lineNumber: 116,
+                                        lineNumber: 121,
                                         columnNumber: 33
                                     }, this)
                                 ]
@@ -26685,61 +26725,42 @@ function App() {
                                     path: "/",
                                     element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _homeDefault.default), {}, void 0, false, {
                                         fileName: "src/App.tsx",
-                                        lineNumber: 132,
+                                        lineNumber: 137,
                                         columnNumber: 50
                                     }, void 0)
                                 }, void 0, false, {
                                     fileName: "src/App.tsx",
-                                    lineNumber: 132,
+                                    lineNumber: 137,
                                     columnNumber: 25
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
                                     path: "/product/:id",
                                     element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productDetailDefault.default), {}, void 0, false, {
                                         fileName: "src/App.tsx",
-                                        lineNumber: 133,
+                                        lineNumber: 138,
                                         columnNumber: 61
                                     }, void 0)
                                 }, void 0, false, {
                                     fileName: "src/App.tsx",
-                                    lineNumber: 133,
+                                    lineNumber: 138,
                                     columnNumber: 25
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
                                     path: "/cart",
                                     element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cartDefault.default), {}, void 0, false, {
                                         fileName: "src/App.tsx",
-                                        lineNumber: 134,
+                                        lineNumber: 139,
                                         columnNumber: 54
                                     }, void 0)
                                 }, void 0, false, {
                                     fileName: "src/App.tsx",
-                                    lineNumber: 134,
+                                    lineNumber: 139,
                                     columnNumber: 25
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
                                     path: "/checkout",
                                     element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _protectedRouteDefault.default), {
                                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _checkoutDefault.default), {}, void 0, false, {
-                                            fileName: "src/App.tsx",
-                                            lineNumber: 137,
-                                            columnNumber: 33
-                                        }, void 0)
-                                    }, void 0, false, {
-                                        fileName: "src/App.tsx",
-                                        lineNumber: 136,
-                                        columnNumber: 29
-                                    }, void 0)
-                                }, void 0, false, {
-                                    fileName: "src/App.tsx",
-                                    lineNumber: 135,
-                                    columnNumber: 25
-                                }, this),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                                    path: "/admin",
-                                    element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _protectedRouteDefault.default), {
-                                        requireAdmin: true,
-                                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _adminPanelDefault.default), {}, void 0, false, {
                                             fileName: "src/App.tsx",
                                             lineNumber: 142,
                                             columnNumber: 33
@@ -26753,16 +26774,53 @@ function App() {
                                     fileName: "src/App.tsx",
                                     lineNumber: 140,
                                     columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                                    path: "/dashboard",
+                                    element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _protectedRouteDefault.default), {
+                                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _userDashboardDefault.default), {}, void 0, false, {
+                                            fileName: "src/App.tsx",
+                                            lineNumber: 147,
+                                            columnNumber: 33
+                                        }, void 0)
+                                    }, void 0, false, {
+                                        fileName: "src/App.tsx",
+                                        lineNumber: 146,
+                                        columnNumber: 29
+                                    }, void 0)
+                                }, void 0, false, {
+                                    fileName: "src/App.tsx",
+                                    lineNumber: 145,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                                    path: "/admin",
+                                    element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _protectedRouteDefault.default), {
+                                        requireAdmin: true,
+                                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _adminPanelDefault.default), {}, void 0, false, {
+                                            fileName: "src/App.tsx",
+                                            lineNumber: 152,
+                                            columnNumber: 33
+                                        }, void 0)
+                                    }, void 0, false, {
+                                        fileName: "src/App.tsx",
+                                        lineNumber: 151,
+                                        columnNumber: 29
+                                    }, void 0)
+                                }, void 0, false, {
+                                    fileName: "src/App.tsx",
+                                    lineNumber: 150,
+                                    columnNumber: 25
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "src/App.tsx",
-                            lineNumber: 131,
+                            lineNumber: 136,
                             columnNumber: 21
                         }, this)
                     }, void 0, false, {
                         fileName: "src/App.tsx",
-                        lineNumber: 130,
+                        lineNumber: 135,
                         columnNumber: 33
                     }, this),
                     isAuthPage && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Routes), {
@@ -26771,41 +26829,41 @@ function App() {
                                 path: "/login",
                                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginDefault.default), {}, void 0, false, {
                                     fileName: "src/App.tsx",
-                                    lineNumber: 150,
+                                    lineNumber: 160,
                                     columnNumber: 55
                                 }, void 0)
                             }, void 0, false, {
                                 fileName: "src/App.tsx",
-                                lineNumber: 150,
+                                lineNumber: 160,
                                 columnNumber: 25
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
                                 path: "/register",
                                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _registerDefault.default), {}, void 0, false, {
                                     fileName: "src/App.tsx",
-                                    lineNumber: 151,
+                                    lineNumber: 161,
                                     columnNumber: 58
                                 }, void 0)
                             }, void 0, false, {
                                 fileName: "src/App.tsx",
-                                lineNumber: 151,
+                                lineNumber: 161,
                                 columnNumber: 25
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/App.tsx",
-                        lineNumber: 149,
+                        lineNumber: 159,
                         columnNumber: 21
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/App.tsx",
-                lineNumber: 129,
+                lineNumber: 134,
                 columnNumber: 13
             }, this),
             !isAuthPage && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _footerDefault.default), {}, void 0, false, {
                 fileName: "src/App.tsx",
-                lineNumber: 156,
+                lineNumber: 166,
                 columnNumber: 29
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _miniCartDefault.default), {
@@ -26813,7 +26871,7 @@ function App() {
                 onHide: ()=>setShowCart(false)
             }, void 0, false, {
                 fileName: "src/App.tsx",
-                lineNumber: 159,
+                lineNumber: 169,
                 columnNumber: 13
             }, this)
         ]
@@ -26835,7 +26893,7 @@ $RefreshReg$(_c, "App");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","react-bootstrap":"ctEhb","react-router-dom":"61z4w","lucide-react":"2I7qR","./context/CartContext":"kAdVl","./context/AuthContext":"3zDyC","./pages/Home":"6H9aU","./pages/ProductDetail":"6ooNF","./pages/Cart":"eE3JG","./pages/Checkout":"iRVZj","./pages/Login":"coNDf","./pages/Register":"20zLP","./components/MiniCart":"ifkwk","./components/Footer":"h30z4","./pages/AdminPanel":"9e9D3","./components/ProtectedRoute":"gcCCq","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"ctEhb":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","react-bootstrap":"ctEhb","react-router-dom":"61z4w","lucide-react":"2I7qR","./context/CartContext":"kAdVl","./context/AuthContext":"3zDyC","./pages/Home":"6H9aU","./pages/ProductDetail":"6ooNF","./pages/Cart":"eE3JG","./pages/Checkout":"iRVZj","./pages/Login":"coNDf","./pages/Register":"20zLP","./components/MiniCart":"ifkwk","./components/Footer":"h30z4","./pages/AdminPanel":"9e9D3","./components/ProtectedRoute":"gcCCq","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","./pages/UserDashboard":"3X1z6"}],"ctEhb":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Accordion", ()=>(0, _accordionDefault.default));
@@ -27173,7 +27231,7 @@ var _toggleButtonGroupDefault = parcelHelpers.interopDefault(_toggleButtonGroup)
 var _tooltip = require("./Tooltip");
 var _tooltipDefault = parcelHelpers.interopDefault(_tooltip);
 
-},{"./Accordion":false,"./AccordionContext":false,"./AccordionCollapse":false,"./AccordionButton":false,"./AccordionBody":false,"./AccordionHeader":false,"./AccordionItem":false,"./Alert":"aR4Gi","./AlertHeading":false,"./AlertLink":false,"./Anchor":false,"./Badge":"1IG0h","./Breadcrumb":"gV9xe","./BreadcrumbItem":false,"./Button":"kNKIo","./ButtonGroup":false,"./ButtonToolbar":false,"./Card":"56ajS","./CardBody":false,"./CardFooter":false,"./CardGroup":false,"./CardHeader":false,"./CardImg":false,"./CardImgOverlay":false,"./CardLink":false,"./CardSubtitle":false,"./CardText":false,"./CardTitle":false,"./Carousel":false,"./CarouselCaption":false,"./CarouselItem":false,"./CloseButton":false,"./Col":"6x0qd","./Collapse":false,"./Container":"2GCvr","./Dropdown":"hUXGf","./DropdownButton":false,"./DropdownDivider":false,"./DropdownHeader":false,"./DropdownItem":false,"./DropdownItemText":false,"./DropdownMenu":false,"./DropdownToggle":false,"./Fade":false,"./Figure":false,"./FigureCaption":false,"./FigureImage":false,"./Form":"6LPqw","./FormControl":false,"./FormCheck":false,"./FormFloating":false,"./FloatingLabel":false,"./FormGroup":false,"./FormLabel":false,"./FormText":false,"./FormSelect":false,"./Image":false,"./InputGroup":false,"./ListGroup":false,"./ListGroupItem":false,"./Modal":false,"./ModalBody":false,"./ModalDialog":false,"./ModalFooter":false,"./ModalHeader":false,"./ModalTitle":false,"./Nav":"8jrcb","./Navbar":"2Lmwo","./NavbarBrand":false,"./NavbarCollapse":false,"./NavbarOffcanvas":false,"./NavbarText":false,"./NavbarToggle":false,"./NavDropdown":false,"./NavItem":false,"./NavLink":false,"./Offcanvas":"hb6XP","./OffcanvasBody":false,"./OffcanvasHeader":false,"./OffcanvasTitle":false,"./OffcanvasToggling":false,"./Overlay":false,"./OverlayTrigger":false,"./PageItem":false,"./Pagination":false,"./Placeholder":"4r9kr","./PlaceholderButton":false,"./Popover":false,"./PopoverBody":false,"./PopoverHeader":false,"./ProgressBar":false,"./Ratio":false,"./Row":"2DPD4","./Spinner":"4p9zi","./SplitButton":false,"./SSRProvider":false,"./Stack":false,"./Tab":false,"./TabContainer":false,"./TabContent":false,"./Table":"9NRQ4","./TabPane":false,"./Tabs":false,"./ThemeProvider":false,"./Toast":"dQMwR","./ToastBody":false,"./ToastContainer":"ilZsS","./ToastHeader":false,"./ToggleButton":false,"./ToggleButtonGroup":false,"./Tooltip":false,"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"aR4Gi":[function(require,module,exports,__globalThis) {
+},{"./Accordion":false,"./AccordionContext":false,"./AccordionCollapse":false,"./AccordionButton":false,"./AccordionBody":false,"./AccordionHeader":false,"./AccordionItem":false,"./Alert":"aR4Gi","./AlertHeading":false,"./AlertLink":false,"./Anchor":false,"./Badge":"1IG0h","./Breadcrumb":"gV9xe","./BreadcrumbItem":false,"./Button":"kNKIo","./ButtonGroup":false,"./ButtonToolbar":false,"./Card":"56ajS","./CardBody":false,"./CardFooter":false,"./CardGroup":false,"./CardHeader":false,"./CardImg":false,"./CardImgOverlay":false,"./CardLink":false,"./CardSubtitle":false,"./CardText":false,"./CardTitle":false,"./Carousel":false,"./CarouselCaption":false,"./CarouselItem":false,"./CloseButton":false,"./Col":"6x0qd","./Collapse":false,"./Container":"2GCvr","./Dropdown":"hUXGf","./DropdownButton":false,"./DropdownDivider":false,"./DropdownHeader":false,"./DropdownItem":false,"./DropdownItemText":false,"./DropdownMenu":false,"./DropdownToggle":false,"./Fade":false,"./Figure":false,"./FigureCaption":false,"./FigureImage":false,"./Form":"6LPqw","./FormControl":false,"./FormCheck":false,"./FormFloating":false,"./FloatingLabel":false,"./FormGroup":false,"./FormLabel":false,"./FormText":false,"./FormSelect":false,"./Image":false,"./InputGroup":false,"./ListGroup":false,"./ListGroupItem":false,"./Modal":"dj8kw","./ModalBody":false,"./ModalDialog":false,"./ModalFooter":false,"./ModalHeader":false,"./ModalTitle":false,"./Nav":"8jrcb","./Navbar":"2Lmwo","./NavbarBrand":false,"./NavbarCollapse":false,"./NavbarOffcanvas":false,"./NavbarText":false,"./NavbarToggle":false,"./NavDropdown":false,"./NavItem":false,"./NavLink":false,"./Offcanvas":"hb6XP","./OffcanvasBody":false,"./OffcanvasHeader":false,"./OffcanvasTitle":false,"./OffcanvasToggling":false,"./Overlay":false,"./OverlayTrigger":false,"./PageItem":false,"./Pagination":false,"./Placeholder":"4r9kr","./PlaceholderButton":false,"./Popover":false,"./PopoverBody":false,"./PopoverHeader":false,"./ProgressBar":false,"./Ratio":false,"./Row":"2DPD4","./Spinner":"4p9zi","./SplitButton":false,"./SSRProvider":false,"./Stack":false,"./Tab":false,"./TabContainer":false,"./TabContent":false,"./Table":"9NRQ4","./TabPane":false,"./Tabs":false,"./ThemeProvider":false,"./Toast":"dQMwR","./ToastBody":false,"./ToastContainer":"ilZsS","./ToastHeader":false,"./ToggleButton":false,"./ToggleButtonGroup":false,"./Tooltip":false,"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"aR4Gi":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -35121,7 +35179,1256 @@ const FloatingLabel = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, className, ch
 FloatingLabel.displayName = 'FloatingLabel';
 exports.default = FloatingLabel;
 
-},{"classnames":"Egwmr","react":"jMk1U","./FormGroup":"8rawe","./ThemeProvider":"gulxC","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"8jrcb":[function(require,module,exports,__globalThis) {
+},{"classnames":"Egwmr","react":"jMk1U","./FormGroup":"8rawe","./ThemeProvider":"gulxC","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"dj8kw":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _classnames = require("classnames");
+var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
+var _addEventListener = require("dom-helpers/addEventListener");
+var _addEventListenerDefault = parcelHelpers.interopDefault(_addEventListener);
+var _canUseDOM = require("dom-helpers/canUseDOM");
+var _canUseDOMDefault = parcelHelpers.interopDefault(_canUseDOM);
+var _ownerDocument = require("dom-helpers/ownerDocument");
+var _ownerDocumentDefault = parcelHelpers.interopDefault(_ownerDocument);
+var _removeEventListener = require("dom-helpers/removeEventListener");
+var _removeEventListenerDefault = parcelHelpers.interopDefault(_removeEventListener);
+var _scrollbarSize = require("dom-helpers/scrollbarSize");
+var _scrollbarSizeDefault = parcelHelpers.interopDefault(_scrollbarSize);
+var _useCallbackRef = require("@restart/hooks/useCallbackRef");
+var _useCallbackRefDefault = parcelHelpers.interopDefault(_useCallbackRef);
+var _useEventCallback = require("@restart/hooks/useEventCallback");
+var _useEventCallbackDefault = parcelHelpers.interopDefault(_useEventCallback);
+var _useMergedRefs = require("@restart/hooks/useMergedRefs");
+var _useMergedRefsDefault = parcelHelpers.interopDefault(_useMergedRefs);
+var _useWillUnmount = require("@restart/hooks/useWillUnmount");
+var _useWillUnmountDefault = parcelHelpers.interopDefault(_useWillUnmount);
+var _transitionEnd = require("dom-helpers/transitionEnd");
+var _transitionEndDefault = parcelHelpers.interopDefault(_transitionEnd);
+var _react = require("react");
+var _modal = require("@restart/ui/Modal");
+var _modalDefault = parcelHelpers.interopDefault(_modal);
+var _bootstrapModalManager = require("./BootstrapModalManager");
+var _fade = require("./Fade");
+var _fadeDefault = parcelHelpers.interopDefault(_fade);
+var _modalBody = require("./ModalBody");
+var _modalBodyDefault = parcelHelpers.interopDefault(_modalBody);
+var _modalContext = require("./ModalContext");
+var _modalContextDefault = parcelHelpers.interopDefault(_modalContext);
+var _modalDialog = require("./ModalDialog");
+var _modalDialogDefault = parcelHelpers.interopDefault(_modalDialog);
+var _modalFooter = require("./ModalFooter");
+var _modalFooterDefault = parcelHelpers.interopDefault(_modalFooter);
+var _modalHeader = require("./ModalHeader");
+var _modalHeaderDefault = parcelHelpers.interopDefault(_modalHeader);
+var _modalTitle = require("./ModalTitle");
+var _modalTitleDefault = parcelHelpers.interopDefault(_modalTitle);
+var _themeProvider = require("./ThemeProvider");
+var _jsxRuntime = require("react/jsx-runtime");
+"use client";
+function DialogTransition(props) {
+    return /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _fadeDefault.default), {
+        ...props,
+        timeout: null
+    });
+}
+function BackdropTransition(props) {
+    return /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _fadeDefault.default), {
+        ...props,
+        timeout: null
+    });
+}
+const Modal = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, className, style, dialogClassName, contentClassName, children, dialogAs: Dialog = (0, _modalDialogDefault.default), 'data-bs-theme': dataBsTheme, 'aria-labelledby': ariaLabelledby, 'aria-describedby': ariaDescribedby, 'aria-label': ariaLabel, /* BaseModal props */ show = false, animation = true, backdrop = true, keyboard = true, onEscapeKeyDown, onShow, onHide, container, autoFocus = true, enforceFocus = true, restoreFocus = true, restoreFocusOptions, onEntered, onExit, onExiting, onEnter, onEntering, onExited, backdropClassName, manager: propsManager, ...props }, ref)=>{
+    const [modalStyle, setStyle] = (0, _react.useState)({});
+    const [animateStaticModal, setAnimateStaticModal] = (0, _react.useState)(false);
+    const waitingForMouseUpRef = (0, _react.useRef)(false);
+    const ignoreBackdropClickRef = (0, _react.useRef)(false);
+    const removeStaticModalAnimationRef = (0, _react.useRef)(null);
+    const [modal, setModalRef] = (0, _useCallbackRefDefault.default)();
+    const mergedRef = (0, _useMergedRefsDefault.default)(ref, setModalRef);
+    const handleHide = (0, _useEventCallbackDefault.default)(onHide);
+    const isRTL = (0, _themeProvider.useIsRTL)();
+    bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, 'modal');
+    const modalContext = (0, _react.useMemo)(()=>({
+            onHide: handleHide
+        }), [
+        handleHide
+    ]);
+    function getModalManager() {
+        if (propsManager) return propsManager;
+        return (0, _bootstrapModalManager.getSharedManager)({
+            isRTL
+        });
+    }
+    function updateDialogStyle(node) {
+        if (!(0, _canUseDOMDefault.default)) return;
+        const containerIsOverflowing = getModalManager().getScrollbarWidth() > 0;
+        const modalIsOverflowing = node.scrollHeight > (0, _ownerDocumentDefault.default)(node).documentElement.clientHeight;
+        setStyle({
+            paddingRight: containerIsOverflowing && !modalIsOverflowing ? (0, _scrollbarSizeDefault.default)() : undefined,
+            paddingLeft: !containerIsOverflowing && modalIsOverflowing ? (0, _scrollbarSizeDefault.default)() : undefined
+        });
+    }
+    const handleWindowResize = (0, _useEventCallbackDefault.default)(()=>{
+        if (modal) updateDialogStyle(modal.dialog);
+    });
+    (0, _useWillUnmountDefault.default)(()=>{
+        (0, _removeEventListenerDefault.default)(window, 'resize', handleWindowResize);
+        removeStaticModalAnimationRef.current == null || removeStaticModalAnimationRef.current();
+    });
+    // We prevent the modal from closing during a drag by detecting where the
+    // click originates from. If it starts in the modal and then ends outside
+    // don't close.
+    const handleDialogMouseDown = ()=>{
+        waitingForMouseUpRef.current = true;
+    };
+    const handleMouseUp = (e)=>{
+        if (waitingForMouseUpRef.current && modal && e.target === modal.dialog) ignoreBackdropClickRef.current = true;
+        waitingForMouseUpRef.current = false;
+    };
+    const handleStaticModalAnimation = ()=>{
+        setAnimateStaticModal(true);
+        removeStaticModalAnimationRef.current = (0, _transitionEndDefault.default)(modal.dialog, ()=>{
+            setAnimateStaticModal(false);
+        });
+    };
+    const handleStaticBackdropClick = (e)=>{
+        if (e.target !== e.currentTarget) return;
+        handleStaticModalAnimation();
+    };
+    const handleClick = (e)=>{
+        if (backdrop === 'static') {
+            handleStaticBackdropClick(e);
+            return;
+        }
+        if (ignoreBackdropClickRef.current || e.target !== e.currentTarget) {
+            ignoreBackdropClickRef.current = false;
+            return;
+        }
+        onHide == null || onHide();
+    };
+    const handleEscapeKeyDown = (e)=>{
+        if (keyboard) onEscapeKeyDown == null || onEscapeKeyDown(e);
+        else {
+            // Call preventDefault to stop modal from closing in @restart/ui.
+            e.preventDefault();
+            if (backdrop === 'static') // Play static modal animation.
+            handleStaticModalAnimation();
+        }
+    };
+    const handleEnter = (node, isAppearing)=>{
+        if (node) updateDialogStyle(node);
+        onEnter == null || onEnter(node, isAppearing);
+    };
+    const handleExit = (node)=>{
+        removeStaticModalAnimationRef.current == null || removeStaticModalAnimationRef.current();
+        onExit == null || onExit(node);
+    };
+    const handleEntering = (node, isAppearing)=>{
+        onEntering == null || onEntering(node, isAppearing);
+        // FIXME: This should work even when animation is disabled.
+        (0, _addEventListenerDefault.default)(window, 'resize', handleWindowResize);
+    };
+    const handleExited = (node)=>{
+        if (node) node.style.display = ''; // RHL removes it sometimes
+        onExited == null || onExited(node);
+        // FIXME: This should work even when animation is disabled.
+        (0, _removeEventListenerDefault.default)(window, 'resize', handleWindowResize);
+    };
+    const renderBackdrop = (0, _react.useCallback)((backdropProps)=>/*#__PURE__*/ (0, _jsxRuntime.jsx)("div", {
+            ...backdropProps,
+            className: (0, _classnamesDefault.default)(`${bsPrefix}-backdrop`, backdropClassName, !animation && 'show')
+        }), [
+        animation,
+        backdropClassName,
+        bsPrefix
+    ]);
+    const baseModalStyle = {
+        ...style,
+        ...modalStyle
+    };
+    // If `display` is not set to block, autoFocus inside the modal fails
+    // https://github.com/react-bootstrap/react-bootstrap/issues/5102
+    baseModalStyle.display = 'block';
+    const renderDialog = (dialogProps)=>/*#__PURE__*/ (0, _jsxRuntime.jsx)("div", {
+            role: "dialog",
+            ...dialogProps,
+            style: baseModalStyle,
+            className: (0, _classnamesDefault.default)(className, bsPrefix, animateStaticModal && `${bsPrefix}-static`, !animation && 'show'),
+            onClick: backdrop ? handleClick : undefined,
+            onMouseUp: handleMouseUp,
+            "data-bs-theme": dataBsTheme,
+            "aria-label": ariaLabel,
+            "aria-labelledby": ariaLabelledby,
+            "aria-describedby": ariaDescribedby,
+            children: /*#__PURE__*/ (0, _jsxRuntime.jsx)(Dialog, {
+                ...props,
+                onMouseDown: handleDialogMouseDown,
+                className: dialogClassName,
+                contentClassName: contentClassName,
+                children: children
+            })
+        });
+    return /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _modalContextDefault.default).Provider, {
+        value: modalContext,
+        children: /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _modalDefault.default), {
+            show: show,
+            ref: mergedRef,
+            backdrop: backdrop,
+            container: container,
+            keyboard: true // Always set true - see handleEscapeKeyDown
+            ,
+            autoFocus: autoFocus,
+            enforceFocus: enforceFocus,
+            restoreFocus: restoreFocus,
+            restoreFocusOptions: restoreFocusOptions,
+            onEscapeKeyDown: handleEscapeKeyDown,
+            onShow: onShow,
+            onHide: onHide,
+            onEnter: handleEnter,
+            onEntering: handleEntering,
+            onEntered: onEntered,
+            onExit: handleExit,
+            onExiting: onExiting,
+            onExited: handleExited,
+            manager: getModalManager(),
+            transition: animation ? DialogTransition : undefined,
+            backdropTransition: animation ? BackdropTransition : undefined,
+            renderBackdrop: renderBackdrop,
+            renderDialog: renderDialog
+        })
+    });
+});
+Modal.displayName = 'Modal';
+exports.default = Object.assign(Modal, {
+    Body: (0, _modalBodyDefault.default),
+    Header: (0, _modalHeaderDefault.default),
+    Title: (0, _modalTitleDefault.default),
+    Footer: (0, _modalFooterDefault.default),
+    Dialog: (0, _modalDialogDefault.default),
+    TRANSITION_DURATION: 300,
+    BACKDROP_TRANSITION_DURATION: 150
+});
+
+},{"classnames":"Egwmr","dom-helpers/addEventListener":"btM1W","dom-helpers/canUseDOM":"4KYBx","dom-helpers/ownerDocument":"isOL7","dom-helpers/removeEventListener":"iZl0A","dom-helpers/scrollbarSize":"kqqPe","@restart/hooks/useCallbackRef":"k6f5l","@restart/hooks/useEventCallback":"2uLwi","@restart/hooks/useMergedRefs":"jojtD","@restart/hooks/useWillUnmount":"WJkBK","dom-helpers/transitionEnd":"5CVci","react":"jMk1U","@restart/ui/Modal":"f80sk","./BootstrapModalManager":"fkD02","./Fade":"kNoMh","./ModalBody":"41WTP","./ModalContext":"4BNBH","./ModalDialog":"kTPSa","./ModalFooter":"56jld","./ModalHeader":"a71mO","./ModalTitle":"41L2a","./ThemeProvider":"gulxC","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"kqqPe":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>scrollbarSize);
+var _canUseDOM = require("./canUseDOM");
+var _canUseDOMDefault = parcelHelpers.interopDefault(_canUseDOM);
+var size;
+function scrollbarSize(recalc) {
+    if (!size && size !== 0 || recalc) {
+        if (0, _canUseDOMDefault.default) {
+            var scrollDiv = document.createElement('div');
+            scrollDiv.style.position = 'absolute';
+            scrollDiv.style.top = '-9999px';
+            scrollDiv.style.width = '50px';
+            scrollDiv.style.height = '50px';
+            scrollDiv.style.overflow = 'scroll';
+            document.body.appendChild(scrollDiv);
+            size = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+            document.body.removeChild(scrollDiv);
+        }
+    }
+    return size;
+}
+
+},{"./canUseDOM":"4KYBx","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"k6f5l":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>useCallbackRef);
+var _react = require("react");
+function useCallbackRef() {
+    return (0, _react.useState)(null);
+}
+
+},{"react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"WJkBK":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>useWillUnmount);
+var _useUpdatedRef = require("./useUpdatedRef");
+var _useUpdatedRefDefault = parcelHelpers.interopDefault(_useUpdatedRef);
+var _react = require("react");
+function useWillUnmount(fn) {
+    const onUnmount = (0, _useUpdatedRefDefault.default)(fn);
+    (0, _react.useEffect)(()=>()=>onUnmount.current(), []);
+}
+
+},{"./useUpdatedRef":"aAS1r","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"aAS1r":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>useUpdatedRef);
+var _react = require("react");
+function useUpdatedRef(value) {
+    const valueRef = (0, _react.useRef)(value);
+    valueRef.current = value;
+    return valueRef;
+}
+
+},{"react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"f80sk":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+/* eslint-disable @typescript-eslint/no-use-before-define, react/prop-types */ var _activeElement = require("dom-helpers/activeElement");
+var _activeElementDefault = parcelHelpers.interopDefault(_activeElement);
+var _contains = require("dom-helpers/contains");
+var _containsDefault = parcelHelpers.interopDefault(_contains);
+var _canUseDOM = require("dom-helpers/canUseDOM");
+var _canUseDOMDefault = parcelHelpers.interopDefault(_canUseDOM);
+var _listen = require("dom-helpers/listen");
+var _listenDefault = parcelHelpers.interopDefault(_listen);
+var _react = require("react");
+var _reactDom = require("react-dom");
+var _reactDomDefault = parcelHelpers.interopDefault(_reactDom);
+var _useMounted = require("@restart/hooks/useMounted");
+var _useMountedDefault = parcelHelpers.interopDefault(_useMounted);
+var _useWillUnmount = require("@restart/hooks/useWillUnmount");
+var _useWillUnmountDefault = parcelHelpers.interopDefault(_useWillUnmount);
+var _usePrevious = require("@restart/hooks/usePrevious");
+var _usePreviousDefault = parcelHelpers.interopDefault(_usePrevious);
+var _useEventCallback = require("@restart/hooks/useEventCallback");
+var _useEventCallbackDefault = parcelHelpers.interopDefault(_useEventCallback);
+var _modalManager = require("./ModalManager");
+var _modalManagerDefault = parcelHelpers.interopDefault(_modalManager);
+var _useWaitForDOMRef = require("./useWaitForDOMRef");
+var _useWaitForDOMRefDefault = parcelHelpers.interopDefault(_useWaitForDOMRef);
+var _useWindow = require("./useWindow");
+var _useWindowDefault = parcelHelpers.interopDefault(_useWindow);
+var _imperativeTransition = require("./ImperativeTransition");
+var _utils = require("./utils");
+var _jsxRuntime = require("react/jsx-runtime");
+const _excluded = [
+    "show",
+    "role",
+    "className",
+    "style",
+    "children",
+    "backdrop",
+    "keyboard",
+    "onBackdropClick",
+    "onEscapeKeyDown",
+    "transition",
+    "runTransition",
+    "backdropTransition",
+    "runBackdropTransition",
+    "autoFocus",
+    "enforceFocus",
+    "restoreFocus",
+    "restoreFocusOptions",
+    "renderDialog",
+    "renderBackdrop",
+    "manager",
+    "container",
+    "onShow",
+    "onHide",
+    "onExit",
+    "onExited",
+    "onExiting",
+    "onEnter",
+    "onEntering",
+    "onEntered"
+];
+function _objectWithoutPropertiesLoose(r, e) {
+    if (null == r) return {};
+    var t = {};
+    for(var n in r)if (({}).hasOwnProperty.call(r, n)) {
+        if (e.indexOf(n) >= 0) continue;
+        t[n] = r[n];
+    }
+    return t;
+}
+let manager;
+/*
+  Modal props are split into a version with and without index signature so that you can fully use them in another projects
+  This is due to Typescript not playing well with index signatures e.g. when using Omit
+*/ function getManager(window) {
+    if (!manager) manager = new (0, _modalManagerDefault.default)({
+        ownerDocument: window == null ? void 0 : window.document
+    });
+    return manager;
+}
+function useModalManager(provided) {
+    const window = (0, _useWindowDefault.default)();
+    const modalManager = provided || getManager(window);
+    const modal = (0, _react.useRef)({
+        dialog: null,
+        backdrop: null
+    });
+    return Object.assign(modal.current, {
+        add: ()=>modalManager.add(modal.current),
+        remove: ()=>modalManager.remove(modal.current),
+        isTopModal: ()=>modalManager.isTopModal(modal.current),
+        setDialogRef: (0, _react.useCallback)((ref)=>{
+            modal.current.dialog = ref;
+        }, []),
+        setBackdropRef: (0, _react.useCallback)((ref)=>{
+            modal.current.backdrop = ref;
+        }, [])
+    });
+}
+const Modal = /*#__PURE__*/ (0, _react.forwardRef)((_ref, ref)=>{
+    let { show = false, role = 'dialog', className, style, children, backdrop = true, keyboard = true, onBackdropClick, onEscapeKeyDown, transition, runTransition, backdropTransition, runBackdropTransition, autoFocus = true, enforceFocus = true, restoreFocus = true, restoreFocusOptions, renderDialog, renderBackdrop = (props)=>/*#__PURE__*/ (0, _jsxRuntime.jsx)("div", Object.assign({}, props)), manager: providedManager, container: containerRef, onShow, onHide = ()=>{}, onExit, onExited, onExiting, onEnter, onEntering, onEntered } = _ref, rest = _objectWithoutPropertiesLoose(_ref, _excluded);
+    const ownerWindow = (0, _useWindowDefault.default)();
+    const container = (0, _useWaitForDOMRefDefault.default)(containerRef);
+    const modal = useModalManager(providedManager);
+    const isMounted = (0, _useMountedDefault.default)();
+    const prevShow = (0, _usePreviousDefault.default)(show);
+    const [exited, setExited] = (0, _react.useState)(!show);
+    const lastFocusRef = (0, _react.useRef)(null);
+    (0, _react.useImperativeHandle)(ref, ()=>modal, [
+        modal
+    ]);
+    if ((0, _canUseDOMDefault.default) && !prevShow && show) lastFocusRef.current = (0, _activeElementDefault.default)(ownerWindow == null ? void 0 : ownerWindow.document);
+    // TODO: I think this needs to be in an effect
+    if (show && exited) setExited(false);
+    const handleShow = (0, _useEventCallbackDefault.default)(()=>{
+        modal.add();
+        removeKeydownListenerRef.current = (0, _listenDefault.default)(document, 'keydown', handleDocumentKeyDown);
+        removeFocusListenerRef.current = (0, _listenDefault.default)(document, 'focus', // the timeout is necessary b/c this will run before the new modal is mounted
+        // and so steals focus from it
+        ()=>setTimeout(handleEnforceFocus), true);
+        if (onShow) onShow();
+        // autofocus after onShow to not trigger a focus event for previous
+        // modals before this one is shown.
+        if (autoFocus) {
+            var _modal$dialog$ownerDo, _modal$dialog;
+            const currentActiveElement = (0, _activeElementDefault.default)((_modal$dialog$ownerDo = (_modal$dialog = modal.dialog) == null ? void 0 : _modal$dialog.ownerDocument) != null ? _modal$dialog$ownerDo : ownerWindow == null ? void 0 : ownerWindow.document);
+            if (modal.dialog && currentActiveElement && !(0, _containsDefault.default)(modal.dialog, currentActiveElement)) {
+                lastFocusRef.current = currentActiveElement;
+                modal.dialog.focus();
+            }
+        }
+    });
+    const handleHide = (0, _useEventCallbackDefault.default)(()=>{
+        modal.remove();
+        removeKeydownListenerRef.current == null || removeKeydownListenerRef.current();
+        removeFocusListenerRef.current == null || removeFocusListenerRef.current();
+        if (restoreFocus) {
+            var _lastFocusRef$current;
+            // Support: <=IE11 doesn't support `focus()` on svg elements (RB: #917)
+            (_lastFocusRef$current = lastFocusRef.current) == null || _lastFocusRef$current.focus == null || _lastFocusRef$current.focus(restoreFocusOptions);
+            lastFocusRef.current = null;
+        }
+    });
+    // TODO: try and combine these effects: https://github.com/react-bootstrap/react-overlays/pull/794#discussion_r409954120
+    // Show logic when:
+    //  - show is `true` _and_ `container` has resolved
+    (0, _react.useEffect)(()=>{
+        if (!show || !container) return;
+        handleShow();
+    }, [
+        show,
+        container,
+        /* should never change: */ handleShow
+    ]);
+    // Hide cleanup logic when:
+    //  - `exited` switches to true
+    //  - component unmounts;
+    (0, _react.useEffect)(()=>{
+        if (!exited) return;
+        handleHide();
+    }, [
+        exited,
+        handleHide
+    ]);
+    (0, _useWillUnmountDefault.default)(()=>{
+        handleHide();
+    });
+    // --------------------------------
+    const handleEnforceFocus = (0, _useEventCallbackDefault.default)(()=>{
+        if (!enforceFocus || !isMounted() || !modal.isTopModal()) return;
+        const currentActiveElement = (0, _activeElementDefault.default)(ownerWindow == null ? void 0 : ownerWindow.document);
+        if (modal.dialog && currentActiveElement && !(0, _containsDefault.default)(modal.dialog, currentActiveElement)) modal.dialog.focus();
+    });
+    const handleBackdropClick = (0, _useEventCallbackDefault.default)((e)=>{
+        if (e.target !== e.currentTarget) return;
+        onBackdropClick == null || onBackdropClick(e);
+        if (backdrop === true) onHide();
+    });
+    const handleDocumentKeyDown = (0, _useEventCallbackDefault.default)((e)=>{
+        if (keyboard && (0, _utils.isEscKey)(e) && modal.isTopModal()) {
+            onEscapeKeyDown == null || onEscapeKeyDown(e);
+            if (!e.defaultPrevented) onHide();
+        }
+    });
+    const removeFocusListenerRef = (0, _react.useRef)();
+    const removeKeydownListenerRef = (0, _react.useRef)();
+    const handleHidden = (...args)=>{
+        setExited(true);
+        onExited == null || onExited(...args);
+    };
+    if (!container) return null;
+    const dialogProps = Object.assign({
+        role,
+        ref: modal.setDialogRef,
+        // apparently only works on the dialog role element
+        'aria-modal': role === 'dialog' ? true : undefined
+    }, rest, {
+        style,
+        className,
+        tabIndex: -1
+    });
+    let dialog = renderDialog ? renderDialog(dialogProps) : /*#__PURE__*/ (0, _jsxRuntime.jsx)("div", Object.assign({}, dialogProps, {
+        children: /*#__PURE__*/ _react.cloneElement(children, {
+            role: 'document'
+        })
+    }));
+    dialog = (0, _imperativeTransition.renderTransition)(transition, runTransition, {
+        unmountOnExit: true,
+        mountOnEnter: true,
+        appear: true,
+        in: !!show,
+        onExit,
+        onExiting,
+        onExited: handleHidden,
+        onEnter,
+        onEntering,
+        onEntered,
+        children: dialog
+    });
+    let backdropElement = null;
+    if (backdrop) {
+        backdropElement = renderBackdrop({
+            ref: modal.setBackdropRef,
+            onClick: handleBackdropClick
+        });
+        backdropElement = (0, _imperativeTransition.renderTransition)(backdropTransition, runBackdropTransition, {
+            in: !!show,
+            appear: true,
+            mountOnEnter: true,
+            unmountOnExit: true,
+            children: backdropElement
+        });
+    }
+    return /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _jsxRuntime.Fragment), {
+        children: /*#__PURE__*/ (0, _reactDomDefault.default).createPortal(/*#__PURE__*/ (0, _jsxRuntime.jsxs)((0, _jsxRuntime.Fragment), {
+            children: [
+                backdropElement,
+                dialog
+            ]
+        }), container)
+    });
+});
+Modal.displayName = 'Modal';
+exports.default = Object.assign(Modal, {
+    Manager: (0, _modalManagerDefault.default)
+});
+
+},{"dom-helpers/activeElement":"1cZGi","dom-helpers/contains":"7bB4g","dom-helpers/canUseDOM":"4KYBx","dom-helpers/listen":"kIFKz","react":"jMk1U","react-dom":"i4X7T","@restart/hooks/useMounted":"gvzMX","@restart/hooks/useWillUnmount":"ljKYb","@restart/hooks/usePrevious":"6qj9r","@restart/hooks/useEventCallback":"8ZwAX","./ModalManager":"jAXnV","./useWaitForDOMRef":"hstLK","./useWindow":"9Q4WK","./ImperativeTransition":"bumCS","./utils":"9WvAD","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"1cZGi":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>activeElement);
+var _ownerDocument = require("./ownerDocument");
+var _ownerDocumentDefault = parcelHelpers.interopDefault(_ownerDocument);
+function activeElement(doc) {
+    if (doc === void 0) doc = (0, _ownerDocumentDefault.default)();
+    // Support: IE 9 only
+    // IE9 throws an "Unspecified error" accessing document.activeElement from an <iframe>
+    try {
+        var active = doc.activeElement; // IE11 returns a seemingly empty object in some cases when accessing
+        // document.activeElement from an <iframe>
+        if (!active || !active.nodeName) return null;
+        return active;
+    } catch (e) {
+        /* ie throws if no active element */ return doc.body;
+    }
+}
+
+},{"./ownerDocument":"isOL7","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"ljKYb":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>useWillUnmount);
+var _useUpdatedRef = require("./useUpdatedRef");
+var _useUpdatedRefDefault = parcelHelpers.interopDefault(_useUpdatedRef);
+var _react = require("react");
+function useWillUnmount(fn) {
+    const onUnmount = (0, _useUpdatedRefDefault.default)(fn);
+    (0, _react.useEffect)(()=>()=>onUnmount.current(), []);
+}
+
+},{"./useUpdatedRef":"9og4I","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"9og4I":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>useUpdatedRef);
+var _react = require("react");
+function useUpdatedRef(value) {
+    const valueRef = (0, _react.useRef)(value);
+    valueRef.current = value;
+    return valueRef;
+}
+
+},{"react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"jAXnV":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "OPEN_DATA_ATTRIBUTE", ()=>OPEN_DATA_ATTRIBUTE);
+var _css = require("dom-helpers/css");
+var _cssDefault = parcelHelpers.interopDefault(_css);
+var _dataKey = require("./DataKey");
+var _getScrollbarWidth = require("./getScrollbarWidth");
+var _getScrollbarWidthDefault = parcelHelpers.interopDefault(_getScrollbarWidth);
+const OPEN_DATA_ATTRIBUTE = (0, _dataKey.dataAttr)('modal-open');
+/**
+ * Manages a stack of Modals as well as ensuring
+ * body scrolling is is disabled and padding accounted for
+ */ class ModalManager {
+    constructor({ ownerDocument, handleContainerOverflow = true, isRTL = false } = {}){
+        this.handleContainerOverflow = handleContainerOverflow;
+        this.isRTL = isRTL;
+        this.modals = [];
+        this.ownerDocument = ownerDocument;
+    }
+    getScrollbarWidth() {
+        return (0, _getScrollbarWidthDefault.default)(this.ownerDocument);
+    }
+    getElement() {
+        return (this.ownerDocument || document).body;
+    }
+    setModalAttributes(_modal) {
+    // For overriding
+    }
+    removeModalAttributes(_modal) {
+    // For overriding
+    }
+    setContainerStyle(containerState) {
+        const style = {
+            overflow: 'hidden'
+        };
+        // we are only interested in the actual `style` here
+        // because we will override it
+        const paddingProp = this.isRTL ? 'paddingLeft' : 'paddingRight';
+        const container = this.getElement();
+        containerState.style = {
+            overflow: container.style.overflow,
+            [paddingProp]: container.style[paddingProp]
+        };
+        if (containerState.scrollBarWidth) // use computed style, here to get the real padding
+        // to add our scrollbar width
+        style[paddingProp] = `${parseInt((0, _cssDefault.default)(container, paddingProp) || '0', 10) + containerState.scrollBarWidth}px`;
+        container.setAttribute(OPEN_DATA_ATTRIBUTE, '');
+        (0, _cssDefault.default)(container, style);
+    }
+    reset() {
+        [
+            ...this.modals
+        ].forEach((m)=>this.remove(m));
+    }
+    removeContainerStyle(containerState) {
+        const container = this.getElement();
+        container.removeAttribute(OPEN_DATA_ATTRIBUTE);
+        Object.assign(container.style, containerState.style);
+    }
+    add(modal) {
+        let modalIdx = this.modals.indexOf(modal);
+        if (modalIdx !== -1) return modalIdx;
+        modalIdx = this.modals.length;
+        this.modals.push(modal);
+        this.setModalAttributes(modal);
+        if (modalIdx !== 0) return modalIdx;
+        this.state = {
+            scrollBarWidth: this.getScrollbarWidth(),
+            style: {}
+        };
+        if (this.handleContainerOverflow) this.setContainerStyle(this.state);
+        return modalIdx;
+    }
+    remove(modal) {
+        const modalIdx = this.modals.indexOf(modal);
+        if (modalIdx === -1) return;
+        this.modals.splice(modalIdx, 1);
+        // if that was the last modal in a container,
+        // clean up the container
+        if (!this.modals.length && this.handleContainerOverflow) this.removeContainerStyle(this.state);
+        this.removeModalAttributes(modal);
+    }
+    isTopModal(modal) {
+        return !!this.modals.length && this.modals[this.modals.length - 1] === modal;
+    }
+}
+exports.default = ModalManager;
+
+},{"dom-helpers/css":"7SRnC","./DataKey":"bTMsz","./getScrollbarWidth":"gSXx2","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"gSXx2":[function(require,module,exports,__globalThis) {
+/**
+ * Get the width of the vertical window scrollbar if it's visible
+ */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>getBodyScrollbarWidth);
+function getBodyScrollbarWidth(ownerDocument = document) {
+    const window = ownerDocument.defaultView;
+    return Math.abs(window.innerWidth - ownerDocument.documentElement.clientWidth);
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"hstLK":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "resolveContainerRef", ()=>resolveContainerRef);
+parcelHelpers.export(exports, "default", ()=>useWaitForDOMRef);
+var _ownerDocument = require("dom-helpers/ownerDocument");
+var _ownerDocumentDefault = parcelHelpers.interopDefault(_ownerDocument);
+var _canUseDOM = require("dom-helpers/canUseDOM");
+var _canUseDOMDefault = parcelHelpers.interopDefault(_canUseDOM);
+var _react = require("react");
+var _useWindow = require("./useWindow");
+var _useWindowDefault = parcelHelpers.interopDefault(_useWindow);
+const resolveContainerRef = (ref, document)=>{
+    if (!(0, _canUseDOMDefault.default)) return null;
+    if (ref == null) return (document || (0, _ownerDocumentDefault.default)()).body;
+    if (typeof ref === 'function') ref = ref();
+    if (ref && 'current' in ref) ref = ref.current;
+    if (ref && ('nodeType' in ref || ref.getBoundingClientRect)) return ref;
+    return null;
+};
+function useWaitForDOMRef(ref, onResolved) {
+    const window = (0, _useWindowDefault.default)();
+    const [resolvedRef, setRef] = (0, _react.useState)(()=>resolveContainerRef(ref, window == null ? void 0 : window.document));
+    if (!resolvedRef) {
+        const earlyRef = resolveContainerRef(ref);
+        if (earlyRef) setRef(earlyRef);
+    }
+    (0, _react.useEffect)(()=>{
+        if (onResolved && resolvedRef) onResolved(resolvedRef);
+    }, [
+        onResolved,
+        resolvedRef
+    ]);
+    (0, _react.useEffect)(()=>{
+        const nextRef = resolveContainerRef(ref);
+        if (nextRef !== resolvedRef) setRef(nextRef);
+    }, [
+        ref,
+        resolvedRef
+    ]);
+    return resolvedRef;
+}
+
+},{"dom-helpers/ownerDocument":"isOL7","dom-helpers/canUseDOM":"4KYBx","react":"jMk1U","./useWindow":"9Q4WK","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"bumCS":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "useTransition", ()=>useTransition);
+parcelHelpers.export(exports, "default", ()=>ImperativeTransition);
+parcelHelpers.export(exports, "renderTransition", ()=>renderTransition);
+var _useMergedRefs = require("@restart/hooks/useMergedRefs");
+var _useMergedRefsDefault = parcelHelpers.interopDefault(_useMergedRefs);
+var _useEventCallback = require("@restart/hooks/useEventCallback");
+var _useEventCallbackDefault = parcelHelpers.interopDefault(_useEventCallback);
+var _useIsomorphicEffect = require("@restart/hooks/useIsomorphicEffect");
+var _useIsomorphicEffectDefault = parcelHelpers.interopDefault(_useIsomorphicEffect);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _noopTransition = require("./NoopTransition");
+var _noopTransitionDefault = parcelHelpers.interopDefault(_noopTransition);
+var _rtgtransition = require("./RTGTransition");
+var _rtgtransitionDefault = parcelHelpers.interopDefault(_rtgtransition);
+var _utils = require("./utils");
+var _jsxRuntime = require("react/jsx-runtime");
+function useTransition({ in: inProp, onTransition }) {
+    const ref = (0, _react.useRef)(null);
+    const isInitialRef = (0, _react.useRef)(true);
+    const handleTransition = (0, _useEventCallbackDefault.default)(onTransition);
+    (0, _useIsomorphicEffectDefault.default)(()=>{
+        if (!ref.current) return undefined;
+        let stale = false;
+        handleTransition({
+            in: inProp,
+            element: ref.current,
+            initial: isInitialRef.current,
+            isStale: ()=>stale
+        });
+        return ()=>{
+            stale = true;
+        };
+    }, [
+        inProp,
+        handleTransition
+    ]);
+    (0, _useIsomorphicEffectDefault.default)(()=>{
+        isInitialRef.current = false;
+        // this is for strict mode
+        return ()=>{
+            isInitialRef.current = true;
+        };
+    }, []);
+    return ref;
+}
+function ImperativeTransition({ children, in: inProp, onExited, onEntered, transition }) {
+    const [exited, setExited] = (0, _react.useState)(!inProp);
+    // TODO: I think this needs to be in an effect
+    if (inProp && exited) setExited(false);
+    const ref = useTransition({
+        in: !!inProp,
+        onTransition: (options)=>{
+            const onFinish = ()=>{
+                if (options.isStale()) return;
+                if (options.in) onEntered == null || onEntered(options.element, options.initial);
+                else {
+                    setExited(true);
+                    onExited == null || onExited(options.element);
+                }
+            };
+            Promise.resolve(transition(options)).then(onFinish, (error)=>{
+                if (!options.in) setExited(true);
+                throw error;
+            });
+        }
+    });
+    const combinedRef = (0, _useMergedRefsDefault.default)(ref, (0, _utils.getChildRef)(children));
+    return exited && !inProp ? null : /*#__PURE__*/ (0, _react.cloneElement)(children, {
+        ref: combinedRef
+    });
+}
+function renderTransition(component, runTransition, props) {
+    if (component) return /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _rtgtransitionDefault.default), Object.assign({}, props, {
+        component: component
+    }));
+    if (runTransition) return /*#__PURE__*/ (0, _jsxRuntime.jsx)(ImperativeTransition, Object.assign({}, props, {
+        transition: runTransition
+    }));
+    return /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _noopTransitionDefault.default), Object.assign({}, props));
+}
+
+},{"@restart/hooks/useMergedRefs":"cRxiR","@restart/hooks/useEventCallback":"8ZwAX","@restart/hooks/useIsomorphicEffect":"2D2VF","react":"jMk1U","./NoopTransition":"7LgCB","./RTGTransition":"5LS7b","./utils":"9WvAD","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"cRxiR":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "mergeRefs", ()=>mergeRefs);
+var _react = require("react");
+const toFnRef = (ref)=>!ref || typeof ref === 'function' ? ref : (value)=>{
+        ref.current = value;
+    };
+function mergeRefs(refA, refB) {
+    const a = toFnRef(refA);
+    const b = toFnRef(refB);
+    return (value)=>{
+        if (a) a(value);
+        if (b) b(value);
+    };
+}
+/**
+ * Create and returns a single callback ref composed from two other Refs.
+ *
+ * ```tsx
+ * const Button = React.forwardRef((props, ref) => {
+ *   const [element, attachRef] = useCallbackRef<HTMLButtonElement>();
+ *   const mergedRef = useMergedRefs(ref, attachRef);
+ *
+ *   return <button ref={mergedRef} {...props}/>
+ * })
+ * ```
+ *
+ * @param refA A Callback or mutable Ref
+ * @param refB A Callback or mutable Ref
+ * @category refs
+ */ function useMergedRefs(refA, refB) {
+    return (0, _react.useMemo)(()=>mergeRefs(refA, refB), [
+        refA,
+        refB
+    ]);
+}
+exports.default = useMergedRefs;
+
+},{"react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"7LgCB":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _useEventCallback = require("@restart/hooks/useEventCallback");
+var _useEventCallbackDefault = parcelHelpers.interopDefault(_useEventCallback);
+var _useMergedRefs = require("@restart/hooks/useMergedRefs");
+var _useMergedRefsDefault = parcelHelpers.interopDefault(_useMergedRefs);
+var _react = require("react");
+var _utils = require("./utils");
+function NoopTransition({ children, in: inProp, onExited, mountOnEnter, unmountOnExit }) {
+    const ref = (0, _react.useRef)(null);
+    const hasEnteredRef = (0, _react.useRef)(inProp);
+    const handleExited = (0, _useEventCallbackDefault.default)(onExited);
+    (0, _react.useEffect)(()=>{
+        if (inProp) hasEnteredRef.current = true;
+        else handleExited(ref.current);
+    }, [
+        inProp,
+        handleExited
+    ]);
+    const combinedRef = (0, _useMergedRefsDefault.default)(ref, (0, _utils.getChildRef)(children));
+    const child = /*#__PURE__*/ (0, _react.cloneElement)(children, {
+        ref: combinedRef
+    });
+    if (inProp) return child;
+    if (unmountOnExit) return null;
+    if (!hasEnteredRef.current && mountOnEnter) return null;
+    return child;
+}
+exports.default = NoopTransition;
+
+},{"@restart/hooks/useEventCallback":"8ZwAX","@restart/hooks/useMergedRefs":"cRxiR","react":"jMk1U","./utils":"9WvAD","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"5LS7b":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _useRTGTransitionProps = require("./useRTGTransitionProps");
+var _useRTGTransitionPropsDefault = parcelHelpers.interopDefault(_useRTGTransitionProps);
+var _jsxRuntime = require("react/jsx-runtime");
+const _excluded = [
+    "component"
+];
+function _objectWithoutPropertiesLoose(r, e) {
+    if (null == r) return {};
+    var t = {};
+    for(var n in r)if (({}).hasOwnProperty.call(r, n)) {
+        if (e.indexOf(n) >= 0) continue;
+        t[n] = r[n];
+    }
+    return t;
+}
+// Normalizes Transition callbacks when nodeRef is used.
+const RTGTransition = /*#__PURE__*/ _react.forwardRef((_ref, ref)=>{
+    let { component: Component } = _ref, props = _objectWithoutPropertiesLoose(_ref, _excluded);
+    const transitionProps = (0, _useRTGTransitionPropsDefault.default)(props);
+    return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, Object.assign({
+        ref: ref
+    }, transitionProps));
+});
+exports.default = RTGTransition;
+
+},{"react":"jMk1U","./useRTGTransitionProps":"k884A","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"k884A":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>useRTGTransitionProps);
+var _react = require("react");
+var _useMergedRefs = require("@restart/hooks/useMergedRefs");
+var _useMergedRefsDefault = parcelHelpers.interopDefault(_useMergedRefs);
+var _utils = require("./utils");
+const _excluded = [
+    "onEnter",
+    "onEntering",
+    "onEntered",
+    "onExit",
+    "onExiting",
+    "onExited",
+    "addEndListener",
+    "children"
+];
+function _objectWithoutPropertiesLoose(r, e) {
+    if (null == r) return {};
+    var t = {};
+    for(var n in r)if (({}).hasOwnProperty.call(r, n)) {
+        if (e.indexOf(n) >= 0) continue;
+        t[n] = r[n];
+    }
+    return t;
+}
+function useRTGTransitionProps(_ref) {
+    let { onEnter, onEntering, onEntered, onExit, onExiting, onExited, addEndListener, children } = _ref, props = _objectWithoutPropertiesLoose(_ref, _excluded);
+    const nodeRef = (0, _react.useRef)(null);
+    const mergedRef = (0, _useMergedRefsDefault.default)(nodeRef, (0, _utils.getChildRef)(children));
+    const normalize = (callback)=>(param)=>{
+            if (callback && nodeRef.current) callback(nodeRef.current, param);
+        };
+    /* eslint-disable react-hooks/exhaustive-deps */ const handleEnter = (0, _react.useCallback)(normalize(onEnter), [
+        onEnter
+    ]);
+    const handleEntering = (0, _react.useCallback)(normalize(onEntering), [
+        onEntering
+    ]);
+    const handleEntered = (0, _react.useCallback)(normalize(onEntered), [
+        onEntered
+    ]);
+    const handleExit = (0, _react.useCallback)(normalize(onExit), [
+        onExit
+    ]);
+    const handleExiting = (0, _react.useCallback)(normalize(onExiting), [
+        onExiting
+    ]);
+    const handleExited = (0, _react.useCallback)(normalize(onExited), [
+        onExited
+    ]);
+    const handleAddEndListener = (0, _react.useCallback)(normalize(addEndListener), [
+        addEndListener
+    ]);
+    /* eslint-enable react-hooks/exhaustive-deps */ return Object.assign({}, props, {
+        nodeRef
+    }, onEnter && {
+        onEnter: handleEnter
+    }, onEntering && {
+        onEntering: handleEntering
+    }, onEntered && {
+        onEntered: handleEntered
+    }, onExit && {
+        onExit: handleExit
+    }, onExiting && {
+        onExiting: handleExiting
+    }, onExited && {
+        onExited: handleExited
+    }, addEndListener && {
+        addEndListener: handleAddEndListener
+    }, {
+        children: typeof children === 'function' ? (status, innerProps)=>// TODO: Types for RTG missing innerProps, so need to cast.
+            children(status, Object.assign({}, innerProps, {
+                ref: mergedRef
+            })) : /*#__PURE__*/ (0, _react.cloneElement)(children, {
+            ref: mergedRef
+        })
+    });
+}
+
+},{"react":"jMk1U","@restart/hooks/useMergedRefs":"cRxiR","./utils":"9WvAD","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"fkD02":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "getSharedManager", ()=>getSharedManager);
+var _addClass = require("dom-helpers/addClass");
+var _addClassDefault = parcelHelpers.interopDefault(_addClass);
+var _css = require("dom-helpers/css");
+var _cssDefault = parcelHelpers.interopDefault(_css);
+var _querySelectorAll = require("dom-helpers/querySelectorAll");
+var _querySelectorAllDefault = parcelHelpers.interopDefault(_querySelectorAll);
+var _removeClass = require("dom-helpers/removeClass");
+var _removeClassDefault = parcelHelpers.interopDefault(_removeClass);
+var _modalManager = require("@restart/ui/ModalManager");
+var _modalManagerDefault = parcelHelpers.interopDefault(_modalManager);
+const Selector = {
+    FIXED_CONTENT: '.fixed-top, .fixed-bottom, .is-fixed, .sticky-top',
+    STICKY_CONTENT: '.sticky-top',
+    NAVBAR_TOGGLER: '.navbar-toggler'
+};
+class BootstrapModalManager extends (0, _modalManagerDefault.default) {
+    adjustAndStore(prop, element, adjust) {
+        const actual = element.style[prop];
+        // @ts-expect-error TODO: DOMStringMap and CSSStyleDeclaration aren't strictly compatible
+        element.dataset[prop] = actual;
+        (0, _cssDefault.default)(element, {
+            [prop]: `${parseFloat((0, _cssDefault.default)(element, prop)) + adjust}px`
+        });
+    }
+    restore(prop, element) {
+        const value = element.dataset[prop];
+        if (value !== undefined) {
+            delete element.dataset[prop];
+            (0, _cssDefault.default)(element, {
+                [prop]: value
+            });
+        }
+    }
+    setContainerStyle(containerState) {
+        super.setContainerStyle(containerState);
+        const container = this.getElement();
+        (0, _addClassDefault.default)(container, 'modal-open');
+        if (!containerState.scrollBarWidth) return;
+        const paddingProp = this.isRTL ? 'paddingLeft' : 'paddingRight';
+        const marginProp = this.isRTL ? 'marginLeft' : 'marginRight';
+        (0, _querySelectorAllDefault.default)(container, Selector.FIXED_CONTENT).forEach((el)=>this.adjustAndStore(paddingProp, el, containerState.scrollBarWidth));
+        (0, _querySelectorAllDefault.default)(container, Selector.STICKY_CONTENT).forEach((el)=>this.adjustAndStore(marginProp, el, -containerState.scrollBarWidth));
+        (0, _querySelectorAllDefault.default)(container, Selector.NAVBAR_TOGGLER).forEach((el)=>this.adjustAndStore(marginProp, el, containerState.scrollBarWidth));
+    }
+    removeContainerStyle(containerState) {
+        super.removeContainerStyle(containerState);
+        const container = this.getElement();
+        (0, _removeClassDefault.default)(container, 'modal-open');
+        const paddingProp = this.isRTL ? 'paddingLeft' : 'paddingRight';
+        const marginProp = this.isRTL ? 'marginLeft' : 'marginRight';
+        (0, _querySelectorAllDefault.default)(container, Selector.FIXED_CONTENT).forEach((el)=>this.restore(paddingProp, el));
+        (0, _querySelectorAllDefault.default)(container, Selector.STICKY_CONTENT).forEach((el)=>this.restore(marginProp, el));
+        (0, _querySelectorAllDefault.default)(container, Selector.NAVBAR_TOGGLER).forEach((el)=>this.restore(marginProp, el));
+    }
+}
+let sharedManager;
+function getSharedManager(options) {
+    if (!sharedManager) sharedManager = new BootstrapModalManager(options);
+    return sharedManager;
+}
+exports.default = BootstrapModalManager;
+
+},{"dom-helpers/addClass":"bA1Q4","dom-helpers/css":"7SRnC","dom-helpers/querySelectorAll":"5zxKA","dom-helpers/removeClass":"lnzZZ","@restart/ui/ModalManager":"jAXnV","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"bA1Q4":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>addClass);
+var _hasClass = require("./hasClass");
+var _hasClassDefault = parcelHelpers.interopDefault(_hasClass);
+function addClass(element, className) {
+    if (element.classList) element.classList.add(className);
+    else if (!(0, _hasClassDefault.default)(element, className)) {
+        if (typeof element.className === 'string') element.className = element.className + " " + className;
+        else element.setAttribute('class', (element.className && element.className.baseVal || '') + " " + className);
+    }
+}
+
+},{"./hasClass":"aIL32","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"aIL32":[function(require,module,exports,__globalThis) {
+/**
+ * Checks if a given element has a CSS class.
+ * 
+ * @param element the element
+ * @param className the CSS class name
+ */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>hasClass);
+function hasClass(element, className) {
+    if (element.classList) return !!className && element.classList.contains(className);
+    return (" " + (element.className.baseVal || element.className) + " ").indexOf(" " + className + " ") !== -1;
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"lnzZZ":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>removeClass);
+function replaceClassName(origClass, classToRemove) {
+    return origClass.replace(new RegExp("(^|\\s)" + classToRemove + "(?:\\s|$)", 'g'), '$1').replace(/\s+/g, ' ').replace(/^\s*|\s*$/g, '');
+}
+function removeClass(element, className) {
+    if (element.classList) element.classList.remove(className);
+    else if (typeof element.className === 'string') element.className = replaceClassName(element.className, className);
+    else element.setAttribute('class', replaceClassName(element.className && element.className.baseVal || '', className));
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"41WTP":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _classnames = require("classnames");
+var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
+var _themeProvider = require("./ThemeProvider");
+var _jsxRuntime = require("react/jsx-runtime");
+"use client";
+const ModalBody = /*#__PURE__*/ _react.forwardRef(({ className, bsPrefix, as: Component = 'div', ...props }, ref)=>{
+    bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, 'modal-body');
+    return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
+        ref: ref,
+        className: (0, _classnamesDefault.default)(className, bsPrefix),
+        ...props
+    });
+});
+ModalBody.displayName = 'ModalBody';
+exports.default = ModalBody;
+
+},{"react":"jMk1U","classnames":"Egwmr","./ThemeProvider":"gulxC","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"4BNBH":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+"use client";
+const ModalContext = /*#__PURE__*/ _react.createContext({
+    onHide () {}
+});
+exports.default = ModalContext;
+
+},{"react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"kTPSa":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _classnames = require("classnames");
+var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
+var _react = require("react");
+var _themeProvider = require("./ThemeProvider");
+var _jsxRuntime = require("react/jsx-runtime");
+"use client";
+const ModalDialog = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, className, contentClassName, centered, size, fullscreen, children, scrollable, ...props }, ref)=>{
+    bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, 'modal');
+    const dialogClass = `${bsPrefix}-dialog`;
+    const fullScreenClass = typeof fullscreen === 'string' ? `${bsPrefix}-fullscreen-${fullscreen}` : `${bsPrefix}-fullscreen`;
+    return /*#__PURE__*/ (0, _jsxRuntime.jsx)("div", {
+        ...props,
+        ref: ref,
+        className: (0, _classnamesDefault.default)(dialogClass, className, size && `${bsPrefix}-${size}`, centered && `${dialogClass}-centered`, scrollable && `${dialogClass}-scrollable`, fullscreen && fullScreenClass),
+        children: /*#__PURE__*/ (0, _jsxRuntime.jsx)("div", {
+            className: (0, _classnamesDefault.default)(`${bsPrefix}-content`, contentClassName),
+            children: children
+        })
+    });
+});
+ModalDialog.displayName = 'ModalDialog';
+exports.default = ModalDialog;
+
+},{"classnames":"Egwmr","react":"jMk1U","./ThemeProvider":"gulxC","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"56jld":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _classnames = require("classnames");
+var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
+var _themeProvider = require("./ThemeProvider");
+var _jsxRuntime = require("react/jsx-runtime");
+"use client";
+const ModalFooter = /*#__PURE__*/ _react.forwardRef(({ className, bsPrefix, as: Component = 'div', ...props }, ref)=>{
+    bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, 'modal-footer');
+    return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
+        ref: ref,
+        className: (0, _classnamesDefault.default)(className, bsPrefix),
+        ...props
+    });
+});
+ModalFooter.displayName = 'ModalFooter';
+exports.default = ModalFooter;
+
+},{"react":"jMk1U","classnames":"Egwmr","./ThemeProvider":"gulxC","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"a71mO":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _classnames = require("classnames");
+var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
+var _react = require("react");
+var _themeProvider = require("./ThemeProvider");
+var _abstractModalHeader = require("./AbstractModalHeader");
+var _abstractModalHeaderDefault = parcelHelpers.interopDefault(_abstractModalHeader);
+var _jsxRuntime = require("react/jsx-runtime");
+"use client";
+const ModalHeader = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, className, closeLabel = 'Close', closeButton = false, ...props }, ref)=>{
+    bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, 'modal-header');
+    return /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _abstractModalHeaderDefault.default), {
+        ref: ref,
+        ...props,
+        className: (0, _classnamesDefault.default)(className, bsPrefix),
+        closeLabel: closeLabel,
+        closeButton: closeButton
+    });
+});
+ModalHeader.displayName = 'ModalHeader';
+exports.default = ModalHeader;
+
+},{"classnames":"Egwmr","react":"jMk1U","./ThemeProvider":"gulxC","./AbstractModalHeader":"kZdqe","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"kZdqe":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _useEventCallback = require("@restart/hooks/useEventCallback");
+var _useEventCallbackDefault = parcelHelpers.interopDefault(_useEventCallback);
+var _closeButton = require("./CloseButton");
+var _closeButtonDefault = parcelHelpers.interopDefault(_closeButton);
+var _modalContext = require("./ModalContext");
+var _modalContextDefault = parcelHelpers.interopDefault(_modalContext);
+var _jsxRuntime = require("react/jsx-runtime");
+"use client";
+const AbstractModalHeader = /*#__PURE__*/ _react.forwardRef(({ closeLabel = 'Close', closeVariant, closeButton = false, onHide, children, ...props }, ref)=>{
+    const context = (0, _react.useContext)((0, _modalContextDefault.default));
+    const handleClick = (0, _useEventCallbackDefault.default)(()=>{
+        context == null || context.onHide();
+        onHide == null || onHide();
+    });
+    return /*#__PURE__*/ (0, _jsxRuntime.jsxs)("div", {
+        ref: ref,
+        ...props,
+        children: [
+            children,
+            closeButton && /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _closeButtonDefault.default), {
+                "aria-label": closeLabel,
+                variant: closeVariant,
+                onClick: handleClick
+            })
+        ]
+    });
+});
+AbstractModalHeader.displayName = 'AbstractModalHeader';
+exports.default = AbstractModalHeader;
+
+},{"react":"jMk1U","@restart/hooks/useEventCallback":"2uLwi","./CloseButton":"4dv1h","./ModalContext":"4BNBH","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"41L2a":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _classnames = require("classnames");
+var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
+var _divWithClassName = require("./divWithClassName");
+var _divWithClassNameDefault = parcelHelpers.interopDefault(_divWithClassName);
+var _themeProvider = require("./ThemeProvider");
+var _jsxRuntime = require("react/jsx-runtime");
+"use client";
+const DivStyledAsH4 = (0, _divWithClassNameDefault.default)('h4');
+const ModalTitle = /*#__PURE__*/ _react.forwardRef(({ className, bsPrefix, as: Component = DivStyledAsH4, ...props }, ref)=>{
+    bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, 'modal-title');
+    return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
+        ref: ref,
+        className: (0, _classnamesDefault.default)(className, bsPrefix),
+        ...props
+    });
+});
+ModalTitle.displayName = 'ModalTitle';
+exports.default = ModalTitle;
+
+},{"react":"jMk1U","classnames":"Egwmr","./divWithClassName":"7NpDo","./ThemeProvider":"gulxC","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"8jrcb":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -35305,46 +36612,7 @@ exports.default = Object.assign(Nav, {
     Item: (0, _navItemDefault.default)
 });
 
-},{"dom-helpers/querySelectorAll":"5zxKA","react":"jMk1U","@restart/hooks/useForceUpdate":"3qfTy","@restart/hooks/useMergedRefs":"cRxiR","./NavContext":"eh6HT","./SelectableContext":"HZlMW","./TabContext":"iSI1d","./DataKey":"bTMsz","./NavItem":"YepwW","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"cRxiR":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "mergeRefs", ()=>mergeRefs);
-var _react = require("react");
-const toFnRef = (ref)=>!ref || typeof ref === 'function' ? ref : (value)=>{
-        ref.current = value;
-    };
-function mergeRefs(refA, refB) {
-    const a = toFnRef(refA);
-    const b = toFnRef(refB);
-    return (value)=>{
-        if (a) a(value);
-        if (b) b(value);
-    };
-}
-/**
- * Create and returns a single callback ref composed from two other Refs.
- *
- * ```tsx
- * const Button = React.forwardRef((props, ref) => {
- *   const [element, attachRef] = useCallbackRef<HTMLButtonElement>();
- *   const mergedRef = useMergedRefs(ref, attachRef);
- *
- *   return <button ref={mergedRef} {...props}/>
- * })
- * ```
- *
- * @param refA A Callback or mutable Ref
- * @param refB A Callback or mutable Ref
- * @category refs
- */ function useMergedRefs(refA, refB) {
-    return (0, _react.useMemo)(()=>mergeRefs(refA, refB), [
-        refA,
-        refB
-    ]);
-}
-exports.default = useMergedRefs;
-
-},{"react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"iSI1d":[function(require,module,exports,__globalThis) {
+},{"dom-helpers/querySelectorAll":"5zxKA","react":"jMk1U","@restart/hooks/useForceUpdate":"3qfTy","@restart/hooks/useMergedRefs":"cRxiR","./NavContext":"eh6HT","./SelectableContext":"HZlMW","./TabContext":"iSI1d","./DataKey":"bTMsz","./NavItem":"YepwW","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"iSI1d":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -35976,667 +37244,7 @@ function useMediaQuery(query, targetWindow = typeof window === 'undefined' ? und
     return matches;
 }
 
-},{"./useIsomorphicEffect":"63utT","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"f80sk":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-/* eslint-disable @typescript-eslint/no-use-before-define, react/prop-types */ var _activeElement = require("dom-helpers/activeElement");
-var _activeElementDefault = parcelHelpers.interopDefault(_activeElement);
-var _contains = require("dom-helpers/contains");
-var _containsDefault = parcelHelpers.interopDefault(_contains);
-var _canUseDOM = require("dom-helpers/canUseDOM");
-var _canUseDOMDefault = parcelHelpers.interopDefault(_canUseDOM);
-var _listen = require("dom-helpers/listen");
-var _listenDefault = parcelHelpers.interopDefault(_listen);
-var _react = require("react");
-var _reactDom = require("react-dom");
-var _reactDomDefault = parcelHelpers.interopDefault(_reactDom);
-var _useMounted = require("@restart/hooks/useMounted");
-var _useMountedDefault = parcelHelpers.interopDefault(_useMounted);
-var _useWillUnmount = require("@restart/hooks/useWillUnmount");
-var _useWillUnmountDefault = parcelHelpers.interopDefault(_useWillUnmount);
-var _usePrevious = require("@restart/hooks/usePrevious");
-var _usePreviousDefault = parcelHelpers.interopDefault(_usePrevious);
-var _useEventCallback = require("@restart/hooks/useEventCallback");
-var _useEventCallbackDefault = parcelHelpers.interopDefault(_useEventCallback);
-var _modalManager = require("./ModalManager");
-var _modalManagerDefault = parcelHelpers.interopDefault(_modalManager);
-var _useWaitForDOMRef = require("./useWaitForDOMRef");
-var _useWaitForDOMRefDefault = parcelHelpers.interopDefault(_useWaitForDOMRef);
-var _useWindow = require("./useWindow");
-var _useWindowDefault = parcelHelpers.interopDefault(_useWindow);
-var _imperativeTransition = require("./ImperativeTransition");
-var _utils = require("./utils");
-var _jsxRuntime = require("react/jsx-runtime");
-const _excluded = [
-    "show",
-    "role",
-    "className",
-    "style",
-    "children",
-    "backdrop",
-    "keyboard",
-    "onBackdropClick",
-    "onEscapeKeyDown",
-    "transition",
-    "runTransition",
-    "backdropTransition",
-    "runBackdropTransition",
-    "autoFocus",
-    "enforceFocus",
-    "restoreFocus",
-    "restoreFocusOptions",
-    "renderDialog",
-    "renderBackdrop",
-    "manager",
-    "container",
-    "onShow",
-    "onHide",
-    "onExit",
-    "onExited",
-    "onExiting",
-    "onEnter",
-    "onEntering",
-    "onEntered"
-];
-function _objectWithoutPropertiesLoose(r, e) {
-    if (null == r) return {};
-    var t = {};
-    for(var n in r)if (({}).hasOwnProperty.call(r, n)) {
-        if (e.indexOf(n) >= 0) continue;
-        t[n] = r[n];
-    }
-    return t;
-}
-let manager;
-/*
-  Modal props are split into a version with and without index signature so that you can fully use them in another projects
-  This is due to Typescript not playing well with index signatures e.g. when using Omit
-*/ function getManager(window) {
-    if (!manager) manager = new (0, _modalManagerDefault.default)({
-        ownerDocument: window == null ? void 0 : window.document
-    });
-    return manager;
-}
-function useModalManager(provided) {
-    const window = (0, _useWindowDefault.default)();
-    const modalManager = provided || getManager(window);
-    const modal = (0, _react.useRef)({
-        dialog: null,
-        backdrop: null
-    });
-    return Object.assign(modal.current, {
-        add: ()=>modalManager.add(modal.current),
-        remove: ()=>modalManager.remove(modal.current),
-        isTopModal: ()=>modalManager.isTopModal(modal.current),
-        setDialogRef: (0, _react.useCallback)((ref)=>{
-            modal.current.dialog = ref;
-        }, []),
-        setBackdropRef: (0, _react.useCallback)((ref)=>{
-            modal.current.backdrop = ref;
-        }, [])
-    });
-}
-const Modal = /*#__PURE__*/ (0, _react.forwardRef)((_ref, ref)=>{
-    let { show = false, role = 'dialog', className, style, children, backdrop = true, keyboard = true, onBackdropClick, onEscapeKeyDown, transition, runTransition, backdropTransition, runBackdropTransition, autoFocus = true, enforceFocus = true, restoreFocus = true, restoreFocusOptions, renderDialog, renderBackdrop = (props)=>/*#__PURE__*/ (0, _jsxRuntime.jsx)("div", Object.assign({}, props)), manager: providedManager, container: containerRef, onShow, onHide = ()=>{}, onExit, onExited, onExiting, onEnter, onEntering, onEntered } = _ref, rest = _objectWithoutPropertiesLoose(_ref, _excluded);
-    const ownerWindow = (0, _useWindowDefault.default)();
-    const container = (0, _useWaitForDOMRefDefault.default)(containerRef);
-    const modal = useModalManager(providedManager);
-    const isMounted = (0, _useMountedDefault.default)();
-    const prevShow = (0, _usePreviousDefault.default)(show);
-    const [exited, setExited] = (0, _react.useState)(!show);
-    const lastFocusRef = (0, _react.useRef)(null);
-    (0, _react.useImperativeHandle)(ref, ()=>modal, [
-        modal
-    ]);
-    if ((0, _canUseDOMDefault.default) && !prevShow && show) lastFocusRef.current = (0, _activeElementDefault.default)(ownerWindow == null ? void 0 : ownerWindow.document);
-    // TODO: I think this needs to be in an effect
-    if (show && exited) setExited(false);
-    const handleShow = (0, _useEventCallbackDefault.default)(()=>{
-        modal.add();
-        removeKeydownListenerRef.current = (0, _listenDefault.default)(document, 'keydown', handleDocumentKeyDown);
-        removeFocusListenerRef.current = (0, _listenDefault.default)(document, 'focus', // the timeout is necessary b/c this will run before the new modal is mounted
-        // and so steals focus from it
-        ()=>setTimeout(handleEnforceFocus), true);
-        if (onShow) onShow();
-        // autofocus after onShow to not trigger a focus event for previous
-        // modals before this one is shown.
-        if (autoFocus) {
-            var _modal$dialog$ownerDo, _modal$dialog;
-            const currentActiveElement = (0, _activeElementDefault.default)((_modal$dialog$ownerDo = (_modal$dialog = modal.dialog) == null ? void 0 : _modal$dialog.ownerDocument) != null ? _modal$dialog$ownerDo : ownerWindow == null ? void 0 : ownerWindow.document);
-            if (modal.dialog && currentActiveElement && !(0, _containsDefault.default)(modal.dialog, currentActiveElement)) {
-                lastFocusRef.current = currentActiveElement;
-                modal.dialog.focus();
-            }
-        }
-    });
-    const handleHide = (0, _useEventCallbackDefault.default)(()=>{
-        modal.remove();
-        removeKeydownListenerRef.current == null || removeKeydownListenerRef.current();
-        removeFocusListenerRef.current == null || removeFocusListenerRef.current();
-        if (restoreFocus) {
-            var _lastFocusRef$current;
-            // Support: <=IE11 doesn't support `focus()` on svg elements (RB: #917)
-            (_lastFocusRef$current = lastFocusRef.current) == null || _lastFocusRef$current.focus == null || _lastFocusRef$current.focus(restoreFocusOptions);
-            lastFocusRef.current = null;
-        }
-    });
-    // TODO: try and combine these effects: https://github.com/react-bootstrap/react-overlays/pull/794#discussion_r409954120
-    // Show logic when:
-    //  - show is `true` _and_ `container` has resolved
-    (0, _react.useEffect)(()=>{
-        if (!show || !container) return;
-        handleShow();
-    }, [
-        show,
-        container,
-        /* should never change: */ handleShow
-    ]);
-    // Hide cleanup logic when:
-    //  - `exited` switches to true
-    //  - component unmounts;
-    (0, _react.useEffect)(()=>{
-        if (!exited) return;
-        handleHide();
-    }, [
-        exited,
-        handleHide
-    ]);
-    (0, _useWillUnmountDefault.default)(()=>{
-        handleHide();
-    });
-    // --------------------------------
-    const handleEnforceFocus = (0, _useEventCallbackDefault.default)(()=>{
-        if (!enforceFocus || !isMounted() || !modal.isTopModal()) return;
-        const currentActiveElement = (0, _activeElementDefault.default)(ownerWindow == null ? void 0 : ownerWindow.document);
-        if (modal.dialog && currentActiveElement && !(0, _containsDefault.default)(modal.dialog, currentActiveElement)) modal.dialog.focus();
-    });
-    const handleBackdropClick = (0, _useEventCallbackDefault.default)((e)=>{
-        if (e.target !== e.currentTarget) return;
-        onBackdropClick == null || onBackdropClick(e);
-        if (backdrop === true) onHide();
-    });
-    const handleDocumentKeyDown = (0, _useEventCallbackDefault.default)((e)=>{
-        if (keyboard && (0, _utils.isEscKey)(e) && modal.isTopModal()) {
-            onEscapeKeyDown == null || onEscapeKeyDown(e);
-            if (!e.defaultPrevented) onHide();
-        }
-    });
-    const removeFocusListenerRef = (0, _react.useRef)();
-    const removeKeydownListenerRef = (0, _react.useRef)();
-    const handleHidden = (...args)=>{
-        setExited(true);
-        onExited == null || onExited(...args);
-    };
-    if (!container) return null;
-    const dialogProps = Object.assign({
-        role,
-        ref: modal.setDialogRef,
-        // apparently only works on the dialog role element
-        'aria-modal': role === 'dialog' ? true : undefined
-    }, rest, {
-        style,
-        className,
-        tabIndex: -1
-    });
-    let dialog = renderDialog ? renderDialog(dialogProps) : /*#__PURE__*/ (0, _jsxRuntime.jsx)("div", Object.assign({}, dialogProps, {
-        children: /*#__PURE__*/ _react.cloneElement(children, {
-            role: 'document'
-        })
-    }));
-    dialog = (0, _imperativeTransition.renderTransition)(transition, runTransition, {
-        unmountOnExit: true,
-        mountOnEnter: true,
-        appear: true,
-        in: !!show,
-        onExit,
-        onExiting,
-        onExited: handleHidden,
-        onEnter,
-        onEntering,
-        onEntered,
-        children: dialog
-    });
-    let backdropElement = null;
-    if (backdrop) {
-        backdropElement = renderBackdrop({
-            ref: modal.setBackdropRef,
-            onClick: handleBackdropClick
-        });
-        backdropElement = (0, _imperativeTransition.renderTransition)(backdropTransition, runBackdropTransition, {
-            in: !!show,
-            appear: true,
-            mountOnEnter: true,
-            unmountOnExit: true,
-            children: backdropElement
-        });
-    }
-    return /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _jsxRuntime.Fragment), {
-        children: /*#__PURE__*/ (0, _reactDomDefault.default).createPortal(/*#__PURE__*/ (0, _jsxRuntime.jsxs)((0, _jsxRuntime.Fragment), {
-            children: [
-                backdropElement,
-                dialog
-            ]
-        }), container)
-    });
-});
-Modal.displayName = 'Modal';
-exports.default = Object.assign(Modal, {
-    Manager: (0, _modalManagerDefault.default)
-});
-
-},{"dom-helpers/activeElement":"1cZGi","dom-helpers/contains":"7bB4g","dom-helpers/canUseDOM":"4KYBx","dom-helpers/listen":"kIFKz","react":"jMk1U","react-dom":"i4X7T","@restart/hooks/useMounted":"gvzMX","@restart/hooks/useWillUnmount":"ljKYb","@restart/hooks/usePrevious":"6qj9r","@restart/hooks/useEventCallback":"8ZwAX","./ModalManager":"jAXnV","./useWaitForDOMRef":"hstLK","./useWindow":"9Q4WK","./ImperativeTransition":"bumCS","./utils":"9WvAD","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"1cZGi":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>activeElement);
-var _ownerDocument = require("./ownerDocument");
-var _ownerDocumentDefault = parcelHelpers.interopDefault(_ownerDocument);
-function activeElement(doc) {
-    if (doc === void 0) doc = (0, _ownerDocumentDefault.default)();
-    // Support: IE 9 only
-    // IE9 throws an "Unspecified error" accessing document.activeElement from an <iframe>
-    try {
-        var active = doc.activeElement; // IE11 returns a seemingly empty object in some cases when accessing
-        // document.activeElement from an <iframe>
-        if (!active || !active.nodeName) return null;
-        return active;
-    } catch (e) {
-        /* ie throws if no active element */ return doc.body;
-    }
-}
-
-},{"./ownerDocument":"isOL7","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"ljKYb":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>useWillUnmount);
-var _useUpdatedRef = require("./useUpdatedRef");
-var _useUpdatedRefDefault = parcelHelpers.interopDefault(_useUpdatedRef);
-var _react = require("react");
-function useWillUnmount(fn) {
-    const onUnmount = (0, _useUpdatedRefDefault.default)(fn);
-    (0, _react.useEffect)(()=>()=>onUnmount.current(), []);
-}
-
-},{"./useUpdatedRef":"9og4I","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"9og4I":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>useUpdatedRef);
-var _react = require("react");
-function useUpdatedRef(value) {
-    const valueRef = (0, _react.useRef)(value);
-    valueRef.current = value;
-    return valueRef;
-}
-
-},{"react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"jAXnV":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "OPEN_DATA_ATTRIBUTE", ()=>OPEN_DATA_ATTRIBUTE);
-var _css = require("dom-helpers/css");
-var _cssDefault = parcelHelpers.interopDefault(_css);
-var _dataKey = require("./DataKey");
-var _getScrollbarWidth = require("./getScrollbarWidth");
-var _getScrollbarWidthDefault = parcelHelpers.interopDefault(_getScrollbarWidth);
-const OPEN_DATA_ATTRIBUTE = (0, _dataKey.dataAttr)('modal-open');
-/**
- * Manages a stack of Modals as well as ensuring
- * body scrolling is is disabled and padding accounted for
- */ class ModalManager {
-    constructor({ ownerDocument, handleContainerOverflow = true, isRTL = false } = {}){
-        this.handleContainerOverflow = handleContainerOverflow;
-        this.isRTL = isRTL;
-        this.modals = [];
-        this.ownerDocument = ownerDocument;
-    }
-    getScrollbarWidth() {
-        return (0, _getScrollbarWidthDefault.default)(this.ownerDocument);
-    }
-    getElement() {
-        return (this.ownerDocument || document).body;
-    }
-    setModalAttributes(_modal) {
-    // For overriding
-    }
-    removeModalAttributes(_modal) {
-    // For overriding
-    }
-    setContainerStyle(containerState) {
-        const style = {
-            overflow: 'hidden'
-        };
-        // we are only interested in the actual `style` here
-        // because we will override it
-        const paddingProp = this.isRTL ? 'paddingLeft' : 'paddingRight';
-        const container = this.getElement();
-        containerState.style = {
-            overflow: container.style.overflow,
-            [paddingProp]: container.style[paddingProp]
-        };
-        if (containerState.scrollBarWidth) // use computed style, here to get the real padding
-        // to add our scrollbar width
-        style[paddingProp] = `${parseInt((0, _cssDefault.default)(container, paddingProp) || '0', 10) + containerState.scrollBarWidth}px`;
-        container.setAttribute(OPEN_DATA_ATTRIBUTE, '');
-        (0, _cssDefault.default)(container, style);
-    }
-    reset() {
-        [
-            ...this.modals
-        ].forEach((m)=>this.remove(m));
-    }
-    removeContainerStyle(containerState) {
-        const container = this.getElement();
-        container.removeAttribute(OPEN_DATA_ATTRIBUTE);
-        Object.assign(container.style, containerState.style);
-    }
-    add(modal) {
-        let modalIdx = this.modals.indexOf(modal);
-        if (modalIdx !== -1) return modalIdx;
-        modalIdx = this.modals.length;
-        this.modals.push(modal);
-        this.setModalAttributes(modal);
-        if (modalIdx !== 0) return modalIdx;
-        this.state = {
-            scrollBarWidth: this.getScrollbarWidth(),
-            style: {}
-        };
-        if (this.handleContainerOverflow) this.setContainerStyle(this.state);
-        return modalIdx;
-    }
-    remove(modal) {
-        const modalIdx = this.modals.indexOf(modal);
-        if (modalIdx === -1) return;
-        this.modals.splice(modalIdx, 1);
-        // if that was the last modal in a container,
-        // clean up the container
-        if (!this.modals.length && this.handleContainerOverflow) this.removeContainerStyle(this.state);
-        this.removeModalAttributes(modal);
-    }
-    isTopModal(modal) {
-        return !!this.modals.length && this.modals[this.modals.length - 1] === modal;
-    }
-}
-exports.default = ModalManager;
-
-},{"dom-helpers/css":"7SRnC","./DataKey":"bTMsz","./getScrollbarWidth":"gSXx2","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"gSXx2":[function(require,module,exports,__globalThis) {
-/**
- * Get the width of the vertical window scrollbar if it's visible
- */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>getBodyScrollbarWidth);
-function getBodyScrollbarWidth(ownerDocument = document) {
-    const window = ownerDocument.defaultView;
-    return Math.abs(window.innerWidth - ownerDocument.documentElement.clientWidth);
-}
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"hstLK":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "resolveContainerRef", ()=>resolveContainerRef);
-parcelHelpers.export(exports, "default", ()=>useWaitForDOMRef);
-var _ownerDocument = require("dom-helpers/ownerDocument");
-var _ownerDocumentDefault = parcelHelpers.interopDefault(_ownerDocument);
-var _canUseDOM = require("dom-helpers/canUseDOM");
-var _canUseDOMDefault = parcelHelpers.interopDefault(_canUseDOM);
-var _react = require("react");
-var _useWindow = require("./useWindow");
-var _useWindowDefault = parcelHelpers.interopDefault(_useWindow);
-const resolveContainerRef = (ref, document)=>{
-    if (!(0, _canUseDOMDefault.default)) return null;
-    if (ref == null) return (document || (0, _ownerDocumentDefault.default)()).body;
-    if (typeof ref === 'function') ref = ref();
-    if (ref && 'current' in ref) ref = ref.current;
-    if (ref && ('nodeType' in ref || ref.getBoundingClientRect)) return ref;
-    return null;
-};
-function useWaitForDOMRef(ref, onResolved) {
-    const window = (0, _useWindowDefault.default)();
-    const [resolvedRef, setRef] = (0, _react.useState)(()=>resolveContainerRef(ref, window == null ? void 0 : window.document));
-    if (!resolvedRef) {
-        const earlyRef = resolveContainerRef(ref);
-        if (earlyRef) setRef(earlyRef);
-    }
-    (0, _react.useEffect)(()=>{
-        if (onResolved && resolvedRef) onResolved(resolvedRef);
-    }, [
-        onResolved,
-        resolvedRef
-    ]);
-    (0, _react.useEffect)(()=>{
-        const nextRef = resolveContainerRef(ref);
-        if (nextRef !== resolvedRef) setRef(nextRef);
-    }, [
-        ref,
-        resolvedRef
-    ]);
-    return resolvedRef;
-}
-
-},{"dom-helpers/ownerDocument":"isOL7","dom-helpers/canUseDOM":"4KYBx","react":"jMk1U","./useWindow":"9Q4WK","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"bumCS":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "useTransition", ()=>useTransition);
-parcelHelpers.export(exports, "default", ()=>ImperativeTransition);
-parcelHelpers.export(exports, "renderTransition", ()=>renderTransition);
-var _useMergedRefs = require("@restart/hooks/useMergedRefs");
-var _useMergedRefsDefault = parcelHelpers.interopDefault(_useMergedRefs);
-var _useEventCallback = require("@restart/hooks/useEventCallback");
-var _useEventCallbackDefault = parcelHelpers.interopDefault(_useEventCallback);
-var _useIsomorphicEffect = require("@restart/hooks/useIsomorphicEffect");
-var _useIsomorphicEffectDefault = parcelHelpers.interopDefault(_useIsomorphicEffect);
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _noopTransition = require("./NoopTransition");
-var _noopTransitionDefault = parcelHelpers.interopDefault(_noopTransition);
-var _rtgtransition = require("./RTGTransition");
-var _rtgtransitionDefault = parcelHelpers.interopDefault(_rtgtransition);
-var _utils = require("./utils");
-var _jsxRuntime = require("react/jsx-runtime");
-function useTransition({ in: inProp, onTransition }) {
-    const ref = (0, _react.useRef)(null);
-    const isInitialRef = (0, _react.useRef)(true);
-    const handleTransition = (0, _useEventCallbackDefault.default)(onTransition);
-    (0, _useIsomorphicEffectDefault.default)(()=>{
-        if (!ref.current) return undefined;
-        let stale = false;
-        handleTransition({
-            in: inProp,
-            element: ref.current,
-            initial: isInitialRef.current,
-            isStale: ()=>stale
-        });
-        return ()=>{
-            stale = true;
-        };
-    }, [
-        inProp,
-        handleTransition
-    ]);
-    (0, _useIsomorphicEffectDefault.default)(()=>{
-        isInitialRef.current = false;
-        // this is for strict mode
-        return ()=>{
-            isInitialRef.current = true;
-        };
-    }, []);
-    return ref;
-}
-function ImperativeTransition({ children, in: inProp, onExited, onEntered, transition }) {
-    const [exited, setExited] = (0, _react.useState)(!inProp);
-    // TODO: I think this needs to be in an effect
-    if (inProp && exited) setExited(false);
-    const ref = useTransition({
-        in: !!inProp,
-        onTransition: (options)=>{
-            const onFinish = ()=>{
-                if (options.isStale()) return;
-                if (options.in) onEntered == null || onEntered(options.element, options.initial);
-                else {
-                    setExited(true);
-                    onExited == null || onExited(options.element);
-                }
-            };
-            Promise.resolve(transition(options)).then(onFinish, (error)=>{
-                if (!options.in) setExited(true);
-                throw error;
-            });
-        }
-    });
-    const combinedRef = (0, _useMergedRefsDefault.default)(ref, (0, _utils.getChildRef)(children));
-    return exited && !inProp ? null : /*#__PURE__*/ (0, _react.cloneElement)(children, {
-        ref: combinedRef
-    });
-}
-function renderTransition(component, runTransition, props) {
-    if (component) return /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _rtgtransitionDefault.default), Object.assign({}, props, {
-        component: component
-    }));
-    if (runTransition) return /*#__PURE__*/ (0, _jsxRuntime.jsx)(ImperativeTransition, Object.assign({}, props, {
-        transition: runTransition
-    }));
-    return /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _noopTransitionDefault.default), Object.assign({}, props));
-}
-
-},{"@restart/hooks/useMergedRefs":"cRxiR","@restart/hooks/useEventCallback":"8ZwAX","@restart/hooks/useIsomorphicEffect":"2D2VF","react":"jMk1U","./NoopTransition":"7LgCB","./RTGTransition":"5LS7b","./utils":"9WvAD","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"7LgCB":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _useEventCallback = require("@restart/hooks/useEventCallback");
-var _useEventCallbackDefault = parcelHelpers.interopDefault(_useEventCallback);
-var _useMergedRefs = require("@restart/hooks/useMergedRefs");
-var _useMergedRefsDefault = parcelHelpers.interopDefault(_useMergedRefs);
-var _react = require("react");
-var _utils = require("./utils");
-function NoopTransition({ children, in: inProp, onExited, mountOnEnter, unmountOnExit }) {
-    const ref = (0, _react.useRef)(null);
-    const hasEnteredRef = (0, _react.useRef)(inProp);
-    const handleExited = (0, _useEventCallbackDefault.default)(onExited);
-    (0, _react.useEffect)(()=>{
-        if (inProp) hasEnteredRef.current = true;
-        else handleExited(ref.current);
-    }, [
-        inProp,
-        handleExited
-    ]);
-    const combinedRef = (0, _useMergedRefsDefault.default)(ref, (0, _utils.getChildRef)(children));
-    const child = /*#__PURE__*/ (0, _react.cloneElement)(children, {
-        ref: combinedRef
-    });
-    if (inProp) return child;
-    if (unmountOnExit) return null;
-    if (!hasEnteredRef.current && mountOnEnter) return null;
-    return child;
-}
-exports.default = NoopTransition;
-
-},{"@restart/hooks/useEventCallback":"8ZwAX","@restart/hooks/useMergedRefs":"cRxiR","react":"jMk1U","./utils":"9WvAD","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"5LS7b":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _react = require("react");
-var _useRTGTransitionProps = require("./useRTGTransitionProps");
-var _useRTGTransitionPropsDefault = parcelHelpers.interopDefault(_useRTGTransitionProps);
-var _jsxRuntime = require("react/jsx-runtime");
-const _excluded = [
-    "component"
-];
-function _objectWithoutPropertiesLoose(r, e) {
-    if (null == r) return {};
-    var t = {};
-    for(var n in r)if (({}).hasOwnProperty.call(r, n)) {
-        if (e.indexOf(n) >= 0) continue;
-        t[n] = r[n];
-    }
-    return t;
-}
-// Normalizes Transition callbacks when nodeRef is used.
-const RTGTransition = /*#__PURE__*/ _react.forwardRef((_ref, ref)=>{
-    let { component: Component } = _ref, props = _objectWithoutPropertiesLoose(_ref, _excluded);
-    const transitionProps = (0, _useRTGTransitionPropsDefault.default)(props);
-    return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, Object.assign({
-        ref: ref
-    }, transitionProps));
-});
-exports.default = RTGTransition;
-
-},{"react":"jMk1U","./useRTGTransitionProps":"k884A","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"k884A":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>useRTGTransitionProps);
-var _react = require("react");
-var _useMergedRefs = require("@restart/hooks/useMergedRefs");
-var _useMergedRefsDefault = parcelHelpers.interopDefault(_useMergedRefs);
-var _utils = require("./utils");
-const _excluded = [
-    "onEnter",
-    "onEntering",
-    "onEntered",
-    "onExit",
-    "onExiting",
-    "onExited",
-    "addEndListener",
-    "children"
-];
-function _objectWithoutPropertiesLoose(r, e) {
-    if (null == r) return {};
-    var t = {};
-    for(var n in r)if (({}).hasOwnProperty.call(r, n)) {
-        if (e.indexOf(n) >= 0) continue;
-        t[n] = r[n];
-    }
-    return t;
-}
-function useRTGTransitionProps(_ref) {
-    let { onEnter, onEntering, onEntered, onExit, onExiting, onExited, addEndListener, children } = _ref, props = _objectWithoutPropertiesLoose(_ref, _excluded);
-    const nodeRef = (0, _react.useRef)(null);
-    const mergedRef = (0, _useMergedRefsDefault.default)(nodeRef, (0, _utils.getChildRef)(children));
-    const normalize = (callback)=>(param)=>{
-            if (callback && nodeRef.current) callback(nodeRef.current, param);
-        };
-    /* eslint-disable react-hooks/exhaustive-deps */ const handleEnter = (0, _react.useCallback)(normalize(onEnter), [
-        onEnter
-    ]);
-    const handleEntering = (0, _react.useCallback)(normalize(onEntering), [
-        onEntering
-    ]);
-    const handleEntered = (0, _react.useCallback)(normalize(onEntered), [
-        onEntered
-    ]);
-    const handleExit = (0, _react.useCallback)(normalize(onExit), [
-        onExit
-    ]);
-    const handleExiting = (0, _react.useCallback)(normalize(onExiting), [
-        onExiting
-    ]);
-    const handleExited = (0, _react.useCallback)(normalize(onExited), [
-        onExited
-    ]);
-    const handleAddEndListener = (0, _react.useCallback)(normalize(addEndListener), [
-        addEndListener
-    ]);
-    /* eslint-enable react-hooks/exhaustive-deps */ return Object.assign({}, props, {
-        nodeRef
-    }, onEnter && {
-        onEnter: handleEnter
-    }, onEntering && {
-        onEntering: handleEntering
-    }, onEntered && {
-        onEntered: handleEntered
-    }, onExit && {
-        onExit: handleExit
-    }, onExiting && {
-        onExiting: handleExiting
-    }, onExited && {
-        onExited: handleExited
-    }, addEndListener && {
-        addEndListener: handleAddEndListener
-    }, {
-        children: typeof children === 'function' ? (status, innerProps)=>// TODO: Types for RTG missing innerProps, so need to cast.
-            children(status, Object.assign({}, innerProps, {
-                ref: mergedRef
-            })) : /*#__PURE__*/ (0, _react.cloneElement)(children, {
-            ref: mergedRef
-        })
-    });
-}
-
-},{"react":"jMk1U","@restart/hooks/useMergedRefs":"cRxiR","./utils":"9WvAD","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"dKReK":[function(require,module,exports,__globalThis) {
+},{"./useIsomorphicEffect":"63utT","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"dKReK":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -36695,17 +37303,7 @@ const OffcanvasToggling = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, className
 OffcanvasToggling.displayName = 'OffcanvasToggling';
 exports.default = OffcanvasToggling;
 
-},{"classnames":"Egwmr","react":"jMk1U","react-transition-group/Transition":"hAmWn","@restart/ui/utils":"9WvAD","./transitionEndListener":"emmfn","./TransitionWrapper":"bGHRH","./ThemeProvider":"gulxC","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"4BNBH":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _react = require("react");
-"use client";
-const ModalContext = /*#__PURE__*/ _react.createContext({
-    onHide () {}
-});
-exports.default = ModalContext;
-
-},{"react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"23JdJ":[function(require,module,exports,__globalThis) {
+},{"classnames":"Egwmr","react":"jMk1U","react-transition-group/Transition":"hAmWn","@restart/ui/utils":"9WvAD","./transitionEndListener":"emmfn","./TransitionWrapper":"bGHRH","./ThemeProvider":"gulxC","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"23JdJ":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -36729,41 +37327,7 @@ const OffcanvasHeader = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, className, 
 OffcanvasHeader.displayName = 'OffcanvasHeader';
 exports.default = OffcanvasHeader;
 
-},{"classnames":"Egwmr","react":"jMk1U","./ThemeProvider":"gulxC","./AbstractModalHeader":"kZdqe","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"kZdqe":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _react = require("react");
-var _useEventCallback = require("@restart/hooks/useEventCallback");
-var _useEventCallbackDefault = parcelHelpers.interopDefault(_useEventCallback);
-var _closeButton = require("./CloseButton");
-var _closeButtonDefault = parcelHelpers.interopDefault(_closeButton);
-var _modalContext = require("./ModalContext");
-var _modalContextDefault = parcelHelpers.interopDefault(_modalContext);
-var _jsxRuntime = require("react/jsx-runtime");
-"use client";
-const AbstractModalHeader = /*#__PURE__*/ _react.forwardRef(({ closeLabel = 'Close', closeVariant, closeButton = false, onHide, children, ...props }, ref)=>{
-    const context = (0, _react.useContext)((0, _modalContextDefault.default));
-    const handleClick = (0, _useEventCallbackDefault.default)(()=>{
-        context == null || context.onHide();
-        onHide == null || onHide();
-    });
-    return /*#__PURE__*/ (0, _jsxRuntime.jsxs)("div", {
-        ref: ref,
-        ...props,
-        children: [
-            children,
-            closeButton && /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _closeButtonDefault.default), {
-                "aria-label": closeLabel,
-                variant: closeVariant,
-                onClick: handleClick
-            })
-        ]
-    });
-});
-AbstractModalHeader.displayName = 'AbstractModalHeader';
-exports.default = AbstractModalHeader;
-
-},{"react":"jMk1U","@restart/hooks/useEventCallback":"2uLwi","./CloseButton":"4dv1h","./ModalContext":"4BNBH","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"h3Ihi":[function(require,module,exports,__globalThis) {
+},{"classnames":"Egwmr","react":"jMk1U","./ThemeProvider":"gulxC","./AbstractModalHeader":"kZdqe","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"h3Ihi":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -36786,114 +37350,7 @@ const OffcanvasTitle = /*#__PURE__*/ _react.forwardRef(({ className, bsPrefix, a
 OffcanvasTitle.displayName = 'OffcanvasTitle';
 exports.default = OffcanvasTitle;
 
-},{"react":"jMk1U","classnames":"Egwmr","./divWithClassName":"7NpDo","./ThemeProvider":"gulxC","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"fkD02":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "getSharedManager", ()=>getSharedManager);
-var _addClass = require("dom-helpers/addClass");
-var _addClassDefault = parcelHelpers.interopDefault(_addClass);
-var _css = require("dom-helpers/css");
-var _cssDefault = parcelHelpers.interopDefault(_css);
-var _querySelectorAll = require("dom-helpers/querySelectorAll");
-var _querySelectorAllDefault = parcelHelpers.interopDefault(_querySelectorAll);
-var _removeClass = require("dom-helpers/removeClass");
-var _removeClassDefault = parcelHelpers.interopDefault(_removeClass);
-var _modalManager = require("@restart/ui/ModalManager");
-var _modalManagerDefault = parcelHelpers.interopDefault(_modalManager);
-const Selector = {
-    FIXED_CONTENT: '.fixed-top, .fixed-bottom, .is-fixed, .sticky-top',
-    STICKY_CONTENT: '.sticky-top',
-    NAVBAR_TOGGLER: '.navbar-toggler'
-};
-class BootstrapModalManager extends (0, _modalManagerDefault.default) {
-    adjustAndStore(prop, element, adjust) {
-        const actual = element.style[prop];
-        // @ts-expect-error TODO: DOMStringMap and CSSStyleDeclaration aren't strictly compatible
-        element.dataset[prop] = actual;
-        (0, _cssDefault.default)(element, {
-            [prop]: `${parseFloat((0, _cssDefault.default)(element, prop)) + adjust}px`
-        });
-    }
-    restore(prop, element) {
-        const value = element.dataset[prop];
-        if (value !== undefined) {
-            delete element.dataset[prop];
-            (0, _cssDefault.default)(element, {
-                [prop]: value
-            });
-        }
-    }
-    setContainerStyle(containerState) {
-        super.setContainerStyle(containerState);
-        const container = this.getElement();
-        (0, _addClassDefault.default)(container, 'modal-open');
-        if (!containerState.scrollBarWidth) return;
-        const paddingProp = this.isRTL ? 'paddingLeft' : 'paddingRight';
-        const marginProp = this.isRTL ? 'marginLeft' : 'marginRight';
-        (0, _querySelectorAllDefault.default)(container, Selector.FIXED_CONTENT).forEach((el)=>this.adjustAndStore(paddingProp, el, containerState.scrollBarWidth));
-        (0, _querySelectorAllDefault.default)(container, Selector.STICKY_CONTENT).forEach((el)=>this.adjustAndStore(marginProp, el, -containerState.scrollBarWidth));
-        (0, _querySelectorAllDefault.default)(container, Selector.NAVBAR_TOGGLER).forEach((el)=>this.adjustAndStore(marginProp, el, containerState.scrollBarWidth));
-    }
-    removeContainerStyle(containerState) {
-        super.removeContainerStyle(containerState);
-        const container = this.getElement();
-        (0, _removeClassDefault.default)(container, 'modal-open');
-        const paddingProp = this.isRTL ? 'paddingLeft' : 'paddingRight';
-        const marginProp = this.isRTL ? 'marginLeft' : 'marginRight';
-        (0, _querySelectorAllDefault.default)(container, Selector.FIXED_CONTENT).forEach((el)=>this.restore(paddingProp, el));
-        (0, _querySelectorAllDefault.default)(container, Selector.STICKY_CONTENT).forEach((el)=>this.restore(marginProp, el));
-        (0, _querySelectorAllDefault.default)(container, Selector.NAVBAR_TOGGLER).forEach((el)=>this.restore(marginProp, el));
-    }
-}
-let sharedManager;
-function getSharedManager(options) {
-    if (!sharedManager) sharedManager = new BootstrapModalManager(options);
-    return sharedManager;
-}
-exports.default = BootstrapModalManager;
-
-},{"dom-helpers/addClass":"bA1Q4","dom-helpers/css":"7SRnC","dom-helpers/querySelectorAll":"5zxKA","dom-helpers/removeClass":"lnzZZ","@restart/ui/ModalManager":"jAXnV","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"bA1Q4":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>addClass);
-var _hasClass = require("./hasClass");
-var _hasClassDefault = parcelHelpers.interopDefault(_hasClass);
-function addClass(element, className) {
-    if (element.classList) element.classList.add(className);
-    else if (!(0, _hasClassDefault.default)(element, className)) {
-        if (typeof element.className === 'string') element.className = element.className + " " + className;
-        else element.setAttribute('class', (element.className && element.className.baseVal || '') + " " + className);
-    }
-}
-
-},{"./hasClass":"aIL32","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"aIL32":[function(require,module,exports,__globalThis) {
-/**
- * Checks if a given element has a CSS class.
- * 
- * @param element the element
- * @param className the CSS class name
- */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>hasClass);
-function hasClass(element, className) {
-    if (element.classList) return !!className && element.classList.contains(className);
-    return (" " + (element.className.baseVal || element.className) + " ").indexOf(" " + className + " ") !== -1;
-}
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"lnzZZ":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>removeClass);
-function replaceClassName(origClass, classToRemove) {
-    return origClass.replace(new RegExp("(^|\\s)" + classToRemove + "(?:\\s|$)", 'g'), '$1').replace(/\s+/g, ' ').replace(/^\s*|\s*$/g, '');
-}
-function removeClass(element, className) {
-    if (element.classList) element.classList.remove(className);
-    else if (typeof element.className === 'string') element.className = replaceClassName(element.className, className);
-    else element.setAttribute('class', replaceClassName(element.className && element.className.baseVal || '', className));
-}
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"4Cm8W":[function(require,module,exports,__globalThis) {
+},{"react":"jMk1U","classnames":"Egwmr","./divWithClassName":"7NpDo","./ThemeProvider":"gulxC","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"4Cm8W":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -37198,29 +37655,6 @@ function useMounted() {
         };
     }, []);
     return isMounted.current;
-}
-
-},{"react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"WJkBK":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>useWillUnmount);
-var _useUpdatedRef = require("./useUpdatedRef");
-var _useUpdatedRefDefault = parcelHelpers.interopDefault(_useUpdatedRef);
-var _react = require("react");
-function useWillUnmount(fn) {
-    const onUnmount = (0, _useUpdatedRefDefault.default)(fn);
-    (0, _react.useEffect)(()=>()=>onUnmount.current(), []);
-}
-
-},{"./useUpdatedRef":"aAS1r","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"aAS1r":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>useUpdatedRef);
-var _react = require("react");
-function useUpdatedRef(value) {
-    const valueRef = (0, _react.useRef)(value);
-    valueRef.current = value;
-    return valueRef;
 }
 
 },{"react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"bhNgj":[function(require,module,exports,__globalThis) {
@@ -46211,7 +46645,7 @@ var _createLucideIconJsDefault = parcelHelpers.interopDefault(_createLucideIconJ
 var _iconJs = require("./Icon.js");
 var _iconJsDefault = parcelHelpers.interopDefault(_iconJs);
 
-},{"./icons/index.js":false,"./icons/alarm-clock-check.js":false,"./icons/alarm-clock-minus.js":false,"./icons/alarm-clock-plus.js":false,"./icons/arrow-down-a-z.js":false,"./icons/arrow-down-wide-narrow.js":false,"./icons/arrow-down-z-a.js":false,"./icons/arrow-up-a-z.js":false,"./icons/arrow-up-narrow-wide.js":false,"./icons/arrow-up-z-a.js":false,"./icons/axis-3d.js":false,"./icons/badge-check.js":false,"./icons/badge-question-mark.js":false,"./icons/between-horizontal-end.js":false,"./icons/between-horizontal-start.js":false,"./icons/book-dashed.js":false,"./icons/braces.js":false,"./icons/captions.js":false,"./icons/chart-area.js":false,"./icons/chart-bar-big.js":false,"./icons/chart-bar.js":false,"./icons/chart-candlestick.js":false,"./icons/chart-column-big.js":false,"./icons/chart-column-increasing.js":false,"./icons/chart-column.js":false,"./icons/chart-line.js":false,"./icons/chart-no-axes-column-increasing.js":false,"./icons/chart-no-axes-gantt.js":false,"./icons/chart-no-axes-column.js":false,"./icons/chart-pie.js":false,"./icons/chart-scatter.js":false,"./icons/chromium.js":false,"./icons/circle-alert.js":false,"./icons/circle-arrow-down.js":false,"./icons/circle-arrow-left.js":false,"./icons/circle-arrow-out-down-left.js":false,"./icons/circle-arrow-out-down-right.js":false,"./icons/circle-arrow-out-up-left.js":false,"./icons/circle-arrow-out-up-right.js":false,"./icons/circle-arrow-right.js":false,"./icons/circle-arrow-up.js":false,"./icons/circle-check.js":false,"./icons/circle-check-big.js":false,"./icons/circle-chevron-down.js":false,"./icons/circle-chevron-left.js":false,"./icons/circle-chevron-right.js":false,"./icons/circle-chevron-up.js":false,"./icons/circle-divide.js":false,"./icons/circle-gauge.js":false,"./icons/circle-minus.js":false,"./icons/circle-parking-off.js":false,"./icons/circle-parking.js":false,"./icons/circle-pause.js":false,"./icons/circle-percent.js":false,"./icons/circle-play.js":false,"./icons/circle-plus.js":false,"./icons/circle-power.js":false,"./icons/circle-question-mark.js":false,"./icons/circle-stop.js":false,"./icons/circle-slash-2.js":false,"./icons/circle-user.js":false,"./icons/circle-user-round.js":false,"./icons/circle-x.js":false,"./icons/clipboard-pen-line.js":false,"./icons/clipboard-pen.js":false,"./icons/cloud-download.js":false,"./icons/cloud-upload.js":false,"./icons/code-xml.js":false,"./icons/columns-2.js":false,"./icons/columns-3-cog.js":false,"./icons/columns-3.js":false,"./icons/contact-round.js":false,"./icons/diamond-percent.js":false,"./icons/earth.js":false,"./icons/ellipsis-vertical.js":false,"./icons/ellipsis.js":false,"./icons/file-axis-3d.js":false,"./icons/file-chart-column-increasing.js":false,"./icons/file-chart-column.js":false,"./icons/file-chart-line.js":false,"./icons/file-chart-pie.js":false,"./icons/file-cog.js":false,"./icons/file-pen-line.js":false,"./icons/file-pen.js":false,"./icons/file-play.js":false,"./icons/file-question-mark.js":false,"./icons/file-video-camera.js":false,"./icons/folder-cog.js":false,"./icons/folder-pen.js":false,"./icons/funnel-x.js":false,"./icons/funnel.js":false,"./icons/git-commit-horizontal.js":false,"./icons/grid-2x2-check.js":false,"./icons/grid-2x2-x.js":false,"./icons/grid-2x2-plus.js":false,"./icons/grid-2x2.js":false,"./icons/grid-3x3.js":false,"./icons/hand-grab.js":false,"./icons/hand-helping.js":false,"./icons/house.js":false,"./icons/ice-cream-bowl.js":false,"./icons/ice-cream-cone.js":false,"./icons/laptop-minimal.js":false,"./icons/layers.js":false,"./icons/list-indent-decrease.js":false,"./icons/list-indent-increase.js":false,"./icons/loader-circle.js":false,"./icons/lock-keyhole-open.js":false,"./icons/lock-open.js":false,"./icons/mail-question-mark.js":false,"./icons/map-pin-pen.js":false,"./icons/message-circle-question-mark.js":false,"./icons/mic-vocal.js":false,"./icons/move-3d.js":false,"./icons/octagon-alert.js":false,"./icons/octagon-pause.js":false,"./icons/octagon-x.js":false,"./icons/paintbrush-vertical.js":false,"./icons/panel-bottom-dashed.js":false,"./icons/panel-left-close.js":false,"./icons/panel-left-dashed.js":false,"./icons/panel-left-open.js":false,"./icons/panel-left.js":false,"./icons/panel-right-dashed.js":false,"./icons/panel-top-dashed.js":false,"./icons/panels-top-left.js":false,"./icons/pen-line.js":"cznbW","./icons/pen.js":false,"./icons/plug-zap.js":false,"./icons/rectangle-ellipsis.js":false,"./icons/rotate-3d.js":false,"./icons/rows-2.js":false,"./icons/rows-3.js":false,"./icons/scale-3d.js":false,"./icons/send-horizontal.js":false,"./icons/shield-question-mark.js":false,"./icons/shield-x.js":false,"./icons/sliders-vertical.js":false,"./icons/sparkles.js":false,"./icons/square-arrow-down-left.js":false,"./icons/square-activity.js":false,"./icons/square-arrow-down-right.js":false,"./icons/square-arrow-down.js":false,"./icons/square-arrow-left.js":false,"./icons/square-arrow-out-down-left.js":false,"./icons/square-arrow-out-up-left.js":false,"./icons/square-arrow-out-down-right.js":false,"./icons/square-arrow-out-up-right.js":false,"./icons/square-arrow-up-left.js":false,"./icons/square-arrow-right.js":false,"./icons/square-arrow-up-right.js":false,"./icons/square-arrow-up.js":false,"./icons/square-asterisk.js":false,"./icons/square-bottom-dashed-scissors.js":false,"./icons/square-chart-gantt.js":false,"./icons/square-check-big.js":false,"./icons/square-check.js":false,"./icons/square-chevron-down.js":false,"./icons/square-chevron-left.js":false,"./icons/square-chevron-up.js":false,"./icons/square-chevron-right.js":false,"./icons/square-dashed-kanban.js":false,"./icons/square-code.js":false,"./icons/square-dashed-mouse-pointer.js":false,"./icons/square-dashed.js":false,"./icons/square-divide.js":false,"./icons/square-dot.js":false,"./icons/square-equal.js":false,"./icons/square-function.js":false,"./icons/square-kanban.js":false,"./icons/square-library.js":false,"./icons/square-m.js":false,"./icons/square-menu.js":false,"./icons/square-minus.js":false,"./icons/square-mouse-pointer.js":false,"./icons/square-parking-off.js":false,"./icons/square-parking.js":false,"./icons/square-pen.js":false,"./icons/square-pi.js":false,"./icons/square-percent.js":false,"./icons/square-pilcrow.js":false,"./icons/square-play.js":false,"./icons/square-plus.js":false,"./icons/square-power.js":false,"./icons/square-scissors.js":false,"./icons/square-sigma.js":false,"./icons/square-slash.js":false,"./icons/square-split-horizontal.js":false,"./icons/square-split-vertical.js":false,"./icons/square-terminal.js":false,"./icons/square-user-round.js":false,"./icons/square-user.js":false,"./icons/square-x.js":false,"./icons/test-tube-diagonal.js":false,"./icons/text-align-center.js":false,"./icons/text-align-end.js":false,"./icons/text-align-justify.js":false,"./icons/text-align-start.js":false,"./icons/text-initial.js":false,"./icons/text-select.js":false,"./icons/text-wrap.js":false,"./icons/tram-front.js":false,"./icons/tree-palm.js":false,"./icons/triangle-alert.js":false,"./icons/tv-minimal.js":false,"./icons/university.js":false,"./icons/user-round-check.js":false,"./icons/user-round-cog.js":false,"./icons/user-round-plus.js":false,"./icons/user-round-minus.js":false,"./icons/user-round-x.js":false,"./icons/user-round.js":false,"./icons/users-round.js":false,"./icons/utensils-crossed.js":false,"./icons/utensils.js":false,"./icons/wallet-minimal.js":false,"./icons/wand-sparkles.js":false,"./icons/a-arrow-down.js":false,"./icons/a-large-small.js":false,"./icons/a-arrow-up.js":false,"./icons/activity.js":false,"./icons/accessibility.js":false,"./icons/air-vent.js":false,"./icons/airplay.js":false,"./icons/alarm-clock-off.js":false,"./icons/alarm-clock.js":false,"./icons/alarm-smoke.js":false,"./icons/align-center-horizontal.js":false,"./icons/album.js":false,"./icons/align-center-vertical.js":false,"./icons/align-end-horizontal.js":false,"./icons/align-end-vertical.js":false,"./icons/align-horizontal-distribute-end.js":false,"./icons/align-horizontal-distribute-center.js":false,"./icons/align-horizontal-distribute-start.js":false,"./icons/align-horizontal-justify-end.js":false,"./icons/align-horizontal-justify-center.js":false,"./icons/align-horizontal-justify-start.js":false,"./icons/align-horizontal-space-around.js":false,"./icons/align-horizontal-space-between.js":false,"./icons/align-start-vertical.js":false,"./icons/align-start-horizontal.js":false,"./icons/align-vertical-distribute-end.js":false,"./icons/align-vertical-distribute-center.js":false,"./icons/align-vertical-distribute-start.js":false,"./icons/align-vertical-justify-center.js":false,"./icons/align-vertical-justify-end.js":false,"./icons/align-vertical-justify-start.js":false,"./icons/align-vertical-space-around.js":false,"./icons/align-vertical-space-between.js":false,"./icons/ambulance.js":false,"./icons/ampersand.js":false,"./icons/ampersands.js":false,"./icons/amphora.js":false,"./icons/anchor.js":false,"./icons/annoyed.js":false,"./icons/angry.js":false,"./icons/antenna.js":false,"./icons/anvil.js":false,"./icons/aperture.js":false,"./icons/app-window-mac.js":false,"./icons/app-window.js":false,"./icons/apple.js":false,"./icons/archive-restore.js":false,"./icons/archive-x.js":false,"./icons/archive.js":false,"./icons/armchair.js":false,"./icons/arrow-big-down-dash.js":false,"./icons/arrow-big-down.js":false,"./icons/arrow-big-left-dash.js":false,"./icons/arrow-big-left.js":false,"./icons/arrow-big-right-dash.js":false,"./icons/arrow-big-right.js":false,"./icons/arrow-big-up-dash.js":false,"./icons/arrow-big-up.js":false,"./icons/arrow-down-from-line.js":false,"./icons/arrow-down-narrow-wide.js":false,"./icons/arrow-down-left.js":false,"./icons/arrow-down-right.js":false,"./icons/arrow-down-to-dot.js":false,"./icons/arrow-down-to-line.js":false,"./icons/arrow-down.js":false,"./icons/arrow-down-up.js":false,"./icons/arrow-left-right.js":false,"./icons/arrow-left-from-line.js":false,"./icons/arrow-left-to-line.js":false,"./icons/arrow-left.js":"j7Kdd","./icons/arrow-right-from-line.js":false,"./icons/arrow-right-left.js":false,"./icons/arrow-right-to-line.js":false,"./icons/arrow-right.js":false,"./icons/arrow-up-down.js":false,"./icons/arrow-up-from-dot.js":false,"./icons/arrow-up-from-line.js":false,"./icons/arrow-up-left.js":false,"./icons/arrow-up-right.js":false,"./icons/arrow-up-wide-narrow.js":false,"./icons/arrow-up-to-line.js":false,"./icons/arrow-up.js":false,"./icons/arrows-up-from-line.js":false,"./icons/asterisk.js":false,"./icons/at-sign.js":false,"./icons/audio-lines.js":false,"./icons/atom.js":false,"./icons/audio-waveform.js":false,"./icons/award.js":false,"./icons/axe.js":false,"./icons/baby.js":false,"./icons/backpack.js":false,"./icons/badge-alert.js":false,"./icons/badge-cent.js":false,"./icons/badge-dollar-sign.js":false,"./icons/badge-euro.js":false,"./icons/badge-indian-rupee.js":false,"./icons/badge-info.js":false,"./icons/badge-japanese-yen.js":false,"./icons/badge-minus.js":false,"./icons/badge-percent.js":false,"./icons/badge-plus.js":false,"./icons/badge-pound-sterling.js":false,"./icons/badge-russian-ruble.js":false,"./icons/badge-swiss-franc.js":false,"./icons/badge-turkish-lira.js":false,"./icons/badge-x.js":false,"./icons/badge.js":false,"./icons/baggage-claim.js":false,"./icons/ban.js":false,"./icons/banana.js":false,"./icons/bandage.js":false,"./icons/banknote-arrow-down.js":false,"./icons/banknote-arrow-up.js":false,"./icons/banknote-x.js":false,"./icons/banknote.js":false,"./icons/barrel.js":false,"./icons/barcode.js":false,"./icons/baseline.js":false,"./icons/bath.js":false,"./icons/battery-full.js":false,"./icons/battery-charging.js":false,"./icons/battery-low.js":false,"./icons/battery-medium.js":false,"./icons/battery-warning.js":false,"./icons/battery-plus.js":false,"./icons/battery.js":false,"./icons/beaker.js":false,"./icons/bean-off.js":false,"./icons/bean.js":false,"./icons/bed-double.js":false,"./icons/bed-single.js":false,"./icons/bed.js":false,"./icons/beef.js":false,"./icons/beer-off.js":false,"./icons/beer.js":false,"./icons/bell-dot.js":false,"./icons/bell-electric.js":false,"./icons/bell-minus.js":false,"./icons/bell-off.js":false,"./icons/bell-plus.js":false,"./icons/bell-ring.js":false,"./icons/bell.js":false,"./icons/between-vertical-end.js":false,"./icons/between-vertical-start.js":false,"./icons/biceps-flexed.js":false,"./icons/bike.js":false,"./icons/binary.js":false,"./icons/binoculars.js":false,"./icons/biohazard.js":false,"./icons/bird.js":false,"./icons/bitcoin.js":false,"./icons/blend.js":false,"./icons/blinds.js":false,"./icons/blocks.js":false,"./icons/bluetooth-off.js":false,"./icons/bluetooth-connected.js":false,"./icons/bluetooth-searching.js":false,"./icons/bluetooth.js":false,"./icons/bold.js":false,"./icons/bolt.js":false,"./icons/bomb.js":false,"./icons/book-a.js":false,"./icons/bone.js":false,"./icons/book-alert.js":false,"./icons/book-audio.js":false,"./icons/book-check.js":false,"./icons/book-copy.js":false,"./icons/book-down.js":false,"./icons/book-heart.js":false,"./icons/book-headphones.js":false,"./icons/book-image.js":false,"./icons/book-key.js":false,"./icons/book-lock.js":false,"./icons/book-marked.js":false,"./icons/book-open-check.js":false,"./icons/book-minus.js":false,"./icons/book-open-text.js":false,"./icons/book-open.js":false,"./icons/book-plus.js":false,"./icons/book-text.js":false,"./icons/book-type.js":false,"./icons/book-up-2.js":false,"./icons/book-up.js":false,"./icons/book-user.js":false,"./icons/book-x.js":false,"./icons/book.js":false,"./icons/bookmark-check.js":false,"./icons/bookmark-minus.js":false,"./icons/bookmark-plus.js":false,"./icons/bookmark-x.js":false,"./icons/bookmark.js":false,"./icons/boom-box.js":false,"./icons/bot-message-square.js":false,"./icons/bot-off.js":false,"./icons/bot.js":false,"./icons/bottle-wine.js":false,"./icons/box.js":false,"./icons/bow-arrow.js":false,"./icons/boxes.js":false,"./icons/brackets.js":false,"./icons/brain-circuit.js":false,"./icons/brain-cog.js":false,"./icons/brain.js":false,"./icons/brick-wall-fire.js":false,"./icons/brick-wall-shield.js":false,"./icons/brick-wall.js":false,"./icons/briefcase-business.js":false,"./icons/briefcase-conveyor-belt.js":false,"./icons/briefcase.js":false,"./icons/briefcase-medical.js":false,"./icons/bring-to-front.js":false,"./icons/brush-cleaning.js":false,"./icons/brush.js":false,"./icons/bubbles.js":false,"./icons/bug-off.js":false,"./icons/bug-play.js":false,"./icons/building-2.js":false,"./icons/bug.js":false,"./icons/building.js":false,"./icons/bus-front.js":false,"./icons/bus.js":false,"./icons/cable-car.js":false,"./icons/cable.js":false,"./icons/cake-slice.js":false,"./icons/cake.js":false,"./icons/calendar-1.js":false,"./icons/calculator.js":false,"./icons/calendar-arrow-down.js":false,"./icons/calendar-arrow-up.js":false,"./icons/calendar-check-2.js":false,"./icons/calendar-check.js":false,"./icons/calendar-cog.js":false,"./icons/calendar-clock.js":false,"./icons/calendar-days.js":false,"./icons/calendar-fold.js":false,"./icons/calendar-heart.js":false,"./icons/calendar-minus-2.js":false,"./icons/calendar-minus.js":false,"./icons/calendar-off.js":false,"./icons/calendar-plus-2.js":false,"./icons/calendar-plus.js":false,"./icons/calendar-search.js":false,"./icons/calendar-range.js":false,"./icons/calendar-sync.js":false,"./icons/calendar-x-2.js":false,"./icons/calendar-x.js":false,"./icons/calendar.js":false,"./icons/camera-off.js":false,"./icons/camera.js":false,"./icons/candy-cane.js":false,"./icons/candy-off.js":false,"./icons/candy.js":false,"./icons/cannabis.js":false,"./icons/captions-off.js":false,"./icons/car-front.js":false,"./icons/car-taxi-front.js":false,"./icons/car.js":false,"./icons/caravan.js":false,"./icons/card-sim.js":false,"./icons/case-lower.js":false,"./icons/carrot.js":false,"./icons/case-upper.js":false,"./icons/case-sensitive.js":false,"./icons/cassette-tape.js":false,"./icons/cast.js":false,"./icons/castle.js":false,"./icons/cat.js":false,"./icons/cctv.js":false,"./icons/chart-bar-decreasing.js":false,"./icons/chart-bar-stacked.js":false,"./icons/chart-bar-increasing.js":false,"./icons/chart-column-decreasing.js":false,"./icons/chart-column-stacked.js":false,"./icons/chart-gantt.js":false,"./icons/chart-network.js":false,"./icons/chart-no-axes-column-decreasing.js":false,"./icons/chart-no-axes-combined.js":false,"./icons/chart-spline.js":false,"./icons/check-check.js":false,"./icons/check-line.js":false,"./icons/chef-hat.js":false,"./icons/check.js":"irEtD","./icons/cherry.js":false,"./icons/chevron-down.js":false,"./icons/chevron-first.js":false,"./icons/chevron-last.js":false,"./icons/chevron-left.js":false,"./icons/chevron-right.js":false,"./icons/chevron-up.js":false,"./icons/chevrons-down-up.js":false,"./icons/chevrons-down.js":false,"./icons/chevrons-left-right-ellipsis.js":false,"./icons/chevrons-left-right.js":false,"./icons/chevrons-left.js":false,"./icons/chevrons-right-left.js":false,"./icons/chevrons-right.js":false,"./icons/chevrons-up-down.js":false,"./icons/chevrons-up.js":false,"./icons/church.js":false,"./icons/cigarette-off.js":false,"./icons/cigarette.js":false,"./icons/circle-dashed.js":false,"./icons/circle-dot-dashed.js":false,"./icons/circle-dollar-sign.js":false,"./icons/circle-dot.js":false,"./icons/circle-ellipsis.js":false,"./icons/circle-equal.js":false,"./icons/circle-fading-arrow-up.js":false,"./icons/circle-fading-plus.js":false,"./icons/circle-off.js":false,"./icons/circle-pound-sterling.js":false,"./icons/circle-slash.js":false,"./icons/circle-star.js":false,"./icons/circle-small.js":false,"./icons/circle.js":false,"./icons/circuit-board.js":false,"./icons/citrus.js":false,"./icons/clapperboard.js":false,"./icons/clipboard-check.js":false,"./icons/clipboard-clock.js":false,"./icons/clipboard-copy.js":false,"./icons/clipboard-list.js":false,"./icons/clipboard-minus.js":false,"./icons/clipboard-paste.js":false,"./icons/clipboard-plus.js":false,"./icons/clipboard-type.js":false,"./icons/clipboard-x.js":false,"./icons/clipboard.js":false,"./icons/clock-1.js":false,"./icons/clock-10.js":false,"./icons/clock-11.js":false,"./icons/clock-12.js":false,"./icons/clock-2.js":false,"./icons/clock-3.js":false,"./icons/clock-4.js":false,"./icons/clock-5.js":false,"./icons/clock-6.js":false,"./icons/clock-7.js":false,"./icons/clock-8.js":false,"./icons/clock-9.js":false,"./icons/clock-alert.js":false,"./icons/clock-arrow-down.js":false,"./icons/clock-arrow-up.js":false,"./icons/clock-fading.js":false,"./icons/clock-plus.js":false,"./icons/clock.js":false,"./icons/closed-caption.js":false,"./icons/cloud-check.js":false,"./icons/cloud-alert.js":false,"./icons/cloud-cog.js":false,"./icons/cloud-drizzle.js":false,"./icons/cloud-fog.js":false,"./icons/cloud-hail.js":false,"./icons/cloud-lightning.js":false,"./icons/cloud-moon-rain.js":false,"./icons/cloud-moon.js":false,"./icons/cloud-off.js":false,"./icons/cloud-rain-wind.js":false,"./icons/cloud-rain.js":false,"./icons/cloud-snow.js":false,"./icons/cloud-sun-rain.js":false,"./icons/cloud-sun.js":false,"./icons/cloud.js":false,"./icons/clover.js":false,"./icons/club.js":false,"./icons/cloudy.js":false,"./icons/code.js":false,"./icons/codepen.js":false,"./icons/codesandbox.js":false,"./icons/coffee.js":false,"./icons/cog.js":false,"./icons/coins.js":false,"./icons/columns-4.js":false,"./icons/combine.js":false,"./icons/command.js":false,"./icons/compass.js":false,"./icons/component.js":false,"./icons/computer.js":false,"./icons/cone.js":false,"./icons/concierge-bell.js":false,"./icons/construction.js":false,"./icons/contact.js":false,"./icons/container.js":false,"./icons/contrast.js":false,"./icons/cookie.js":false,"./icons/cooking-pot.js":false,"./icons/copy-check.js":false,"./icons/copy-minus.js":false,"./icons/copy-plus.js":false,"./icons/copy-slash.js":false,"./icons/copy-x.js":false,"./icons/copy.js":false,"./icons/copyleft.js":false,"./icons/copyright.js":false,"./icons/corner-down-left.js":false,"./icons/corner-down-right.js":false,"./icons/corner-left-down.js":false,"./icons/corner-left-up.js":false,"./icons/corner-right-down.js":false,"./icons/corner-right-up.js":false,"./icons/corner-up-left.js":false,"./icons/corner-up-right.js":false,"./icons/cpu.js":false,"./icons/creative-commons.js":false,"./icons/credit-card.js":false,"./icons/croissant.js":false,"./icons/crop.js":false,"./icons/cross.js":false,"./icons/crosshair.js":false,"./icons/crown.js":false,"./icons/cuboid.js":false,"./icons/cup-soda.js":false,"./icons/currency.js":false,"./icons/cylinder.js":false,"./icons/dam.js":false,"./icons/database-backup.js":false,"./icons/database-zap.js":false,"./icons/database.js":false,"./icons/decimals-arrow-left.js":false,"./icons/decimals-arrow-right.js":false,"./icons/delete.js":false,"./icons/dessert.js":false,"./icons/diameter.js":false,"./icons/diamond-minus.js":false,"./icons/diamond-plus.js":false,"./icons/diamond.js":false,"./icons/dice-1.js":false,"./icons/dice-2.js":false,"./icons/dice-3.js":false,"./icons/dice-4.js":false,"./icons/dice-5.js":false,"./icons/dice-6.js":false,"./icons/dices.js":false,"./icons/diff.js":false,"./icons/disc-2.js":false,"./icons/disc-3.js":false,"./icons/disc.js":false,"./icons/disc-album.js":false,"./icons/divide.js":false,"./icons/dna-off.js":false,"./icons/dna.js":false,"./icons/dock.js":false,"./icons/dog.js":false,"./icons/dollar-sign.js":false,"./icons/door-closed-locked.js":false,"./icons/donut.js":false,"./icons/door-closed.js":false,"./icons/door-open.js":false,"./icons/dot.js":false,"./icons/download.js":false,"./icons/drafting-compass.js":false,"./icons/drama.js":false,"./icons/drill.js":false,"./icons/dribbble.js":false,"./icons/drone.js":false,"./icons/droplet-off.js":false,"./icons/droplet.js":false,"./icons/droplets.js":false,"./icons/drum.js":false,"./icons/drumstick.js":false,"./icons/dumbbell.js":false,"./icons/ear.js":false,"./icons/ear-off.js":false,"./icons/earth-lock.js":false,"./icons/eclipse.js":false,"./icons/egg-fried.js":false,"./icons/egg-off.js":false,"./icons/egg.js":false,"./icons/equal-approximately.js":false,"./icons/equal-not.js":false,"./icons/equal.js":false,"./icons/eraser.js":false,"./icons/euro.js":false,"./icons/expand.js":false,"./icons/ethernet-port.js":false,"./icons/external-link.js":false,"./icons/eye-closed.js":false,"./icons/eye-off.js":"38tDF","./icons/eye.js":"fQCsX","./icons/facebook.js":false,"./icons/factory.js":false,"./icons/fan.js":false,"./icons/fast-forward.js":false,"./icons/fence.js":false,"./icons/feather.js":false,"./icons/ferris-wheel.js":false,"./icons/figma.js":false,"./icons/file-archive.js":false,"./icons/file-audio-2.js":false,"./icons/file-audio.js":false,"./icons/file-badge-2.js":false,"./icons/file-badge.js":false,"./icons/file-box.js":false,"./icons/file-check-2.js":false,"./icons/file-check.js":false,"./icons/file-clock.js":false,"./icons/file-code-2.js":false,"./icons/file-code.js":false,"./icons/file-diff.js":false,"./icons/file-digit.js":false,"./icons/file-down.js":false,"./icons/file-heart.js":false,"./icons/file-image.js":false,"./icons/file-input.js":false,"./icons/file-json-2.js":false,"./icons/file-json.js":false,"./icons/file-key-2.js":false,"./icons/file-key.js":false,"./icons/file-lock-2.js":false,"./icons/file-lock.js":false,"./icons/file-minus-2.js":false,"./icons/file-minus.js":false,"./icons/file-music.js":false,"./icons/file-output.js":false,"./icons/file-plus-2.js":false,"./icons/file-plus.js":false,"./icons/file-scan.js":false,"./icons/file-search-2.js":false,"./icons/file-search.js":false,"./icons/file-sliders.js":false,"./icons/file-spreadsheet.js":false,"./icons/file-stack.js":false,"./icons/file-symlink.js":false,"./icons/file-terminal.js":false,"./icons/file-text.js":false,"./icons/file-type-2.js":false,"./icons/file-type.js":false,"./icons/file-up.js":false,"./icons/file-user.js":false,"./icons/file-volume-2.js":false,"./icons/file-volume.js":false,"./icons/file-warning.js":false,"./icons/file-x-2.js":false,"./icons/file-x.js":false,"./icons/file.js":false,"./icons/files.js":false,"./icons/film.js":false,"./icons/fingerprint.js":false,"./icons/fire-extinguisher.js":false,"./icons/fish-symbol.js":false,"./icons/fish-off.js":false,"./icons/fish.js":false,"./icons/flag-triangle-left.js":false,"./icons/flag-off.js":false,"./icons/flag-triangle-right.js":false,"./icons/flag.js":false,"./icons/flame-kindling.js":false,"./icons/flame.js":false,"./icons/flashlight-off.js":false,"./icons/flashlight.js":false,"./icons/flask-conical-off.js":false,"./icons/flask-conical.js":false,"./icons/flask-round.js":false,"./icons/flip-horizontal-2.js":false,"./icons/flip-horizontal.js":false,"./icons/flip-vertical-2.js":false,"./icons/flip-vertical.js":false,"./icons/flower-2.js":false,"./icons/flower.js":false,"./icons/focus.js":false,"./icons/fold-horizontal.js":false,"./icons/fold-vertical.js":false,"./icons/folder-archive.js":false,"./icons/folder-check.js":false,"./icons/folder-clock.js":false,"./icons/folder-closed.js":false,"./icons/folder-code.js":false,"./icons/folder-dot.js":false,"./icons/folder-down.js":false,"./icons/folder-git-2.js":false,"./icons/folder-git.js":false,"./icons/folder-heart.js":false,"./icons/folder-input.js":false,"./icons/folder-kanban.js":false,"./icons/folder-key.js":false,"./icons/folder-lock.js":false,"./icons/folder-open-dot.js":false,"./icons/folder-minus.js":false,"./icons/folder-open.js":false,"./icons/folder-output.js":false,"./icons/folder-plus.js":false,"./icons/folder-root.js":false,"./icons/folder-search-2.js":false,"./icons/folder-search.js":false,"./icons/folder-symlink.js":false,"./icons/folder-sync.js":false,"./icons/folder-tree.js":false,"./icons/folder-up.js":false,"./icons/folder.js":false,"./icons/folder-x.js":false,"./icons/folders.js":false,"./icons/footprints.js":false,"./icons/forklift.js":false,"./icons/forward.js":false,"./icons/frame.js":false,"./icons/framer.js":false,"./icons/frown.js":false,"./icons/fullscreen.js":false,"./icons/fuel.js":false,"./icons/funnel-plus.js":false,"./icons/gallery-horizontal-end.js":false,"./icons/gallery-horizontal.js":false,"./icons/gallery-thumbnails.js":false,"./icons/gallery-vertical-end.js":false,"./icons/gallery-vertical.js":false,"./icons/gamepad-2.js":false,"./icons/gamepad.js":false,"./icons/gavel.js":false,"./icons/gauge.js":false,"./icons/gem.js":false,"./icons/georgian-lari.js":false,"./icons/ghost.js":false,"./icons/gift.js":false,"./icons/git-branch-plus.js":false,"./icons/git-commit-vertical.js":false,"./icons/git-branch.js":false,"./icons/git-compare-arrows.js":false,"./icons/git-compare.js":false,"./icons/git-fork.js":false,"./icons/git-graph.js":false,"./icons/git-pull-request-arrow.js":false,"./icons/git-merge.js":false,"./icons/git-pull-request-closed.js":false,"./icons/git-pull-request-create-arrow.js":false,"./icons/git-pull-request-create.js":false,"./icons/git-pull-request-draft.js":false,"./icons/git-pull-request.js":false,"./icons/glass-water.js":false,"./icons/github.js":false,"./icons/gitlab.js":false,"./icons/globe-lock.js":false,"./icons/glasses.js":false,"./icons/globe.js":false,"./icons/goal.js":false,"./icons/gpu.js":false,"./icons/graduation-cap.js":false,"./icons/grape.js":false,"./icons/grid-3x2.js":false,"./icons/grip-horizontal.js":false,"./icons/grip-vertical.js":false,"./icons/grip.js":false,"./icons/group.js":false,"./icons/ham.js":false,"./icons/guitar.js":false,"./icons/hamburger.js":false,"./icons/hammer.js":false,"./icons/hand-coins.js":false,"./icons/hand-fist.js":false,"./icons/hand-heart.js":false,"./icons/hand-metal.js":false,"./icons/hand-platter.js":false,"./icons/hand.js":false,"./icons/handbag.js":false,"./icons/hard-drive-download.js":false,"./icons/handshake.js":false,"./icons/hard-drive-upload.js":false,"./icons/hard-drive.js":false,"./icons/hard-hat.js":false,"./icons/hash.js":false,"./icons/hat-glasses.js":false,"./icons/haze.js":false,"./icons/hdmi-port.js":false,"./icons/heading-1.js":false,"./icons/heading-2.js":false,"./icons/heading-3.js":false,"./icons/heading-4.js":false,"./icons/heading-5.js":false,"./icons/heading-6.js":false,"./icons/heading.js":false,"./icons/headphone-off.js":false,"./icons/headphones.js":false,"./icons/headset.js":false,"./icons/heart-crack.js":false,"./icons/heart-handshake.js":false,"./icons/heart-minus.js":false,"./icons/heart-off.js":false,"./icons/heart-plus.js":false,"./icons/heart-pulse.js":false,"./icons/heart.js":false,"./icons/heater.js":false,"./icons/hexagon.js":false,"./icons/highlighter.js":false,"./icons/history.js":false,"./icons/hop-off.js":false,"./icons/hop.js":false,"./icons/hotel.js":false,"./icons/hospital.js":false,"./icons/hourglass.js":false,"./icons/house-heart.js":false,"./icons/house-plug.js":false,"./icons/house-plus.js":false,"./icons/house-wifi.js":false,"./icons/id-card.js":false,"./icons/id-card-lanyard.js":false,"./icons/image-down.js":false,"./icons/image-minus.js":false,"./icons/image-play.js":false,"./icons/image-off.js":false,"./icons/image-plus.js":false,"./icons/image-up.js":false,"./icons/image-upscale.js":false,"./icons/image.js":false,"./icons/images.js":false,"./icons/import.js":false,"./icons/inbox.js":false,"./icons/indian-rupee.js":false,"./icons/infinity.js":false,"./icons/info.js":false,"./icons/inspection-panel.js":false,"./icons/instagram.js":false,"./icons/italic.js":false,"./icons/iteration-ccw.js":false,"./icons/iteration-cw.js":false,"./icons/japanese-yen.js":false,"./icons/joystick.js":false,"./icons/kanban.js":false,"./icons/kayak.js":false,"./icons/key-round.js":false,"./icons/key-square.js":false,"./icons/keyboard-music.js":false,"./icons/key.js":false,"./icons/keyboard-off.js":false,"./icons/keyboard.js":false,"./icons/lamp-ceiling.js":false,"./icons/lamp-floor.js":false,"./icons/lamp-desk.js":false,"./icons/lamp-wall-down.js":false,"./icons/lamp-wall-up.js":false,"./icons/lamp.js":false,"./icons/land-plot.js":false,"./icons/landmark.js":false,"./icons/languages.js":false,"./icons/laptop.js":false,"./icons/laptop-minimal-check.js":false,"./icons/lasso-select.js":false,"./icons/lasso.js":false,"./icons/laugh.js":false,"./icons/layers-2.js":false,"./icons/layout-dashboard.js":false,"./icons/layout-grid.js":false,"./icons/layout-list.js":false,"./icons/layout-panel-left.js":false,"./icons/layout-panel-top.js":false,"./icons/layout-template.js":false,"./icons/leaf.js":false,"./icons/lectern.js":false,"./icons/library-big.js":false,"./icons/leafy-green.js":false,"./icons/library.js":false,"./icons/life-buoy.js":false,"./icons/ligature.js":false,"./icons/lightbulb-off.js":false,"./icons/lightbulb.js":false,"./icons/line-squiggle.js":false,"./icons/link-2-off.js":false,"./icons/link-2.js":false,"./icons/linkedin.js":false,"./icons/link.js":false,"./icons/list-check.js":false,"./icons/list-checks.js":false,"./icons/list-chevrons-down-up.js":false,"./icons/list-chevrons-up-down.js":false,"./icons/list-collapse.js":false,"./icons/list-end.js":false,"./icons/list-filter-plus.js":false,"./icons/list-filter.js":false,"./icons/list-minus.js":false,"./icons/list-music.js":false,"./icons/list-ordered.js":false,"./icons/list-plus.js":false,"./icons/list-restart.js":false,"./icons/list-start.js":false,"./icons/list-todo.js":false,"./icons/list-tree.js":false,"./icons/list-video.js":false,"./icons/list-x.js":false,"./icons/list.js":false,"./icons/loader.js":false,"./icons/loader-pinwheel.js":false,"./icons/locate-fixed.js":false,"./icons/locate-off.js":false,"./icons/locate.js":false,"./icons/lock-keyhole.js":false,"./icons/lock.js":false,"./icons/log-in.js":"hWiOD","./icons/logs.js":false,"./icons/log-out.js":"5NSxp","./icons/lollipop.js":false,"./icons/luggage.js":false,"./icons/magnet.js":false,"./icons/mail-check.js":false,"./icons/mail-minus.js":false,"./icons/mail-open.js":false,"./icons/mail-plus.js":false,"./icons/mail-search.js":false,"./icons/mail-warning.js":false,"./icons/mail-x.js":false,"./icons/mail.js":false,"./icons/mails.js":false,"./icons/mailbox.js":false,"./icons/map-minus.js":false,"./icons/map-pin-check-inside.js":false,"./icons/map-pin-check.js":false,"./icons/map-pin-house.js":false,"./icons/map-pin-minus-inside.js":false,"./icons/map-pin-minus.js":false,"./icons/map-pin-off.js":false,"./icons/map-pin-plus-inside.js":false,"./icons/map-pin-plus.js":false,"./icons/map-pin-x-inside.js":false,"./icons/map-pin-x.js":false,"./icons/map-pin.js":false,"./icons/map-pinned.js":false,"./icons/map-plus.js":false,"./icons/map.js":false,"./icons/mars.js":false,"./icons/mars-stroke.js":false,"./icons/martini.js":false,"./icons/maximize-2.js":false,"./icons/maximize.js":false,"./icons/medal.js":false,"./icons/megaphone-off.js":false,"./icons/megaphone.js":false,"./icons/memory-stick.js":false,"./icons/meh.js":false,"./icons/menu.js":false,"./icons/merge.js":false,"./icons/message-circle-code.js":false,"./icons/message-circle-dashed.js":false,"./icons/message-circle-heart.js":false,"./icons/message-circle-more.js":false,"./icons/message-circle-off.js":false,"./icons/message-circle-plus.js":false,"./icons/message-circle-reply.js":false,"./icons/message-circle-warning.js":false,"./icons/message-circle-x.js":false,"./icons/message-circle.js":false,"./icons/message-square-dashed.js":false,"./icons/message-square-code.js":false,"./icons/message-square-diff.js":false,"./icons/message-square-dot.js":false,"./icons/message-square-heart.js":false,"./icons/message-square-more.js":false,"./icons/message-square-lock.js":false,"./icons/message-square-off.js":false,"./icons/message-square-plus.js":false,"./icons/message-square-quote.js":false,"./icons/message-square-reply.js":false,"./icons/message-square-share.js":false,"./icons/message-square-text.js":false,"./icons/message-square-warning.js":false,"./icons/message-square-x.js":false,"./icons/message-square.js":false,"./icons/messages-square.js":false,"./icons/mic.js":false,"./icons/mic-off.js":false,"./icons/microchip.js":false,"./icons/microscope.js":false,"./icons/microwave.js":false,"./icons/milestone.js":false,"./icons/milk.js":false,"./icons/milk-off.js":false,"./icons/minimize-2.js":false,"./icons/minimize.js":false,"./icons/minus.js":false,"./icons/monitor-check.js":false,"./icons/monitor-dot.js":false,"./icons/monitor-cog.js":false,"./icons/monitor-down.js":false,"./icons/monitor-off.js":false,"./icons/monitor-pause.js":false,"./icons/monitor-play.js":false,"./icons/monitor-smartphone.js":false,"./icons/monitor-speaker.js":false,"./icons/monitor-stop.js":false,"./icons/monitor-up.js":false,"./icons/monitor-x.js":false,"./icons/monitor.js":false,"./icons/moon-star.js":false,"./icons/moon.js":false,"./icons/mountain-snow.js":false,"./icons/mountain.js":false,"./icons/mouse-off.js":false,"./icons/mouse-pointer-2.js":false,"./icons/mouse-pointer-ban.js":false,"./icons/mouse-pointer.js":false,"./icons/mouse-pointer-click.js":false,"./icons/mouse.js":false,"./icons/move-diagonal-2.js":false,"./icons/move-diagonal.js":false,"./icons/move-down-left.js":false,"./icons/move-down-right.js":false,"./icons/move-down.js":false,"./icons/move-horizontal.js":false,"./icons/move-left.js":false,"./icons/move-right.js":false,"./icons/move-up-left.js":false,"./icons/move-up-right.js":false,"./icons/move-up.js":false,"./icons/move-vertical.js":false,"./icons/move.js":false,"./icons/music-2.js":false,"./icons/music-3.js":false,"./icons/music-4.js":false,"./icons/music.js":false,"./icons/navigation-2-off.js":false,"./icons/navigation-2.js":false,"./icons/navigation-off.js":false,"./icons/navigation.js":false,"./icons/network.js":false,"./icons/newspaper.js":false,"./icons/nfc.js":false,"./icons/non-binary.js":false,"./icons/notebook-pen.js":false,"./icons/notebook-tabs.js":false,"./icons/notebook-text.js":false,"./icons/notepad-text-dashed.js":false,"./icons/notebook.js":false,"./icons/notepad-text.js":false,"./icons/nut-off.js":false,"./icons/nut.js":false,"./icons/octagon-minus.js":false,"./icons/octagon.js":false,"./icons/omega.js":false,"./icons/option.js":false,"./icons/orbit.js":false,"./icons/origami.js":false,"./icons/package-2.js":false,"./icons/package-check.js":false,"./icons/package-minus.js":false,"./icons/package-open.js":false,"./icons/package-plus.js":false,"./icons/package-search.js":false,"./icons/package-x.js":false,"./icons/package.js":false,"./icons/paint-bucket.js":false,"./icons/paint-roller.js":false,"./icons/paintbrush.js":false,"./icons/palette.js":false,"./icons/panda.js":false,"./icons/panel-bottom-close.js":false,"./icons/panel-bottom-open.js":false,"./icons/panel-bottom.js":false,"./icons/panel-left-right-dashed.js":false,"./icons/panel-right-close.js":false,"./icons/panel-right-open.js":false,"./icons/panel-right.js":false,"./icons/panel-top-bottom-dashed.js":false,"./icons/panel-top-close.js":false,"./icons/panel-top-open.js":false,"./icons/panel-top.js":false,"./icons/panels-left-bottom.js":false,"./icons/panels-right-bottom.js":false,"./icons/paperclip.js":false,"./icons/parking-meter.js":false,"./icons/parentheses.js":false,"./icons/party-popper.js":false,"./icons/pause.js":false,"./icons/paw-print.js":false,"./icons/pc-case.js":false,"./icons/pen-off.js":false,"./icons/pen-tool.js":false,"./icons/pencil-line.js":false,"./icons/pencil-off.js":false,"./icons/pencil-ruler.js":false,"./icons/pencil.js":false,"./icons/pentagon.js":false,"./icons/percent.js":false,"./icons/person-standing.js":false,"./icons/philippine-peso.js":false,"./icons/phone-call.js":false,"./icons/phone-forwarded.js":false,"./icons/phone-missed.js":false,"./icons/phone-incoming.js":false,"./icons/phone-off.js":false,"./icons/phone-outgoing.js":false,"./icons/phone.js":false,"./icons/pi.js":false,"./icons/piano.js":false,"./icons/pickaxe.js":false,"./icons/picture-in-picture-2.js":false,"./icons/picture-in-picture.js":false,"./icons/piggy-bank.js":false,"./icons/pilcrow-left.js":false,"./icons/pilcrow-right.js":false,"./icons/pilcrow.js":false,"./icons/pill-bottle.js":false,"./icons/pill.js":false,"./icons/pin-off.js":false,"./icons/pin.js":false,"./icons/pipette.js":false,"./icons/pizza.js":false,"./icons/plane-landing.js":false,"./icons/plane-takeoff.js":false,"./icons/plane.js":false,"./icons/plug-2.js":false,"./icons/play.js":false,"./icons/plug.js":false,"./icons/plus.js":"4DEkP","./icons/pocket-knife.js":false,"./icons/pocket.js":false,"./icons/podcast.js":false,"./icons/pointer.js":false,"./icons/pointer-off.js":false,"./icons/popcorn.js":false,"./icons/popsicle.js":false,"./icons/pound-sterling.js":false,"./icons/power-off.js":false,"./icons/power.js":false,"./icons/presentation.js":false,"./icons/printer.js":false,"./icons/printer-check.js":false,"./icons/projector.js":false,"./icons/puzzle.js":false,"./icons/proportions.js":false,"./icons/pyramid.js":false,"./icons/qr-code.js":false,"./icons/quote.js":false,"./icons/rabbit.js":false,"./icons/radar.js":false,"./icons/radiation.js":false,"./icons/radical.js":false,"./icons/radio-receiver.js":false,"./icons/radio-tower.js":false,"./icons/radio.js":false,"./icons/radius.js":false,"./icons/rail-symbol.js":false,"./icons/rainbow.js":false,"./icons/rat.js":false,"./icons/ratio.js":false,"./icons/receipt-cent.js":false,"./icons/receipt-euro.js":false,"./icons/receipt-indian-rupee.js":false,"./icons/receipt-pound-sterling.js":false,"./icons/receipt-japanese-yen.js":false,"./icons/receipt-russian-ruble.js":false,"./icons/receipt-swiss-franc.js":false,"./icons/receipt-text.js":false,"./icons/receipt-turkish-lira.js":false,"./icons/receipt.js":false,"./icons/rectangle-circle.js":false,"./icons/rectangle-goggles.js":false,"./icons/rectangle-horizontal.js":false,"./icons/rectangle-vertical.js":false,"./icons/recycle.js":false,"./icons/redo-2.js":false,"./icons/redo-dot.js":false,"./icons/redo.js":false,"./icons/refresh-ccw-dot.js":false,"./icons/refresh-ccw.js":false,"./icons/refresh-cw-off.js":false,"./icons/refresh-cw.js":false,"./icons/refrigerator.js":false,"./icons/regex.js":false,"./icons/remove-formatting.js":false,"./icons/repeat-1.js":false,"./icons/repeat-2.js":false,"./icons/repeat.js":false,"./icons/replace-all.js":false,"./icons/replace.js":false,"./icons/reply-all.js":false,"./icons/reply.js":false,"./icons/rewind.js":false,"./icons/ribbon.js":false,"./icons/rocket.js":false,"./icons/rocking-chair.js":false,"./icons/roller-coaster.js":false,"./icons/rose.js":false,"./icons/rotate-ccw-square.js":false,"./icons/rotate-ccw-key.js":false,"./icons/rotate-ccw.js":false,"./icons/rotate-cw-square.js":false,"./icons/rotate-cw.js":false,"./icons/route-off.js":false,"./icons/route.js":false,"./icons/router.js":false,"./icons/rows-4.js":false,"./icons/rss.js":false,"./icons/ruler-dimension-line.js":false,"./icons/ruler.js":false,"./icons/russian-ruble.js":false,"./icons/sailboat.js":false,"./icons/salad.js":false,"./icons/sandwich.js":false,"./icons/satellite-dish.js":false,"./icons/satellite.js":false,"./icons/saudi-riyal.js":false,"./icons/save-all.js":false,"./icons/save-off.js":false,"./icons/save.js":"7DJPh","./icons/scaling.js":false,"./icons/scale.js":false,"./icons/scan-barcode.js":false,"./icons/scan-eye.js":false,"./icons/scan-face.js":false,"./icons/scan-heart.js":false,"./icons/scan-line.js":false,"./icons/scan-qr-code.js":false,"./icons/scan-search.js":false,"./icons/scan-text.js":false,"./icons/scan.js":false,"./icons/school.js":false,"./icons/scissors-line-dashed.js":false,"./icons/scissors.js":false,"./icons/screen-share-off.js":false,"./icons/screen-share.js":false,"./icons/scroll-text.js":false,"./icons/scroll.js":false,"./icons/search-check.js":false,"./icons/search-code.js":false,"./icons/search-slash.js":false,"./icons/search-x.js":false,"./icons/section.js":false,"./icons/search.js":false,"./icons/send.js":false,"./icons/send-to-back.js":false,"./icons/separator-horizontal.js":false,"./icons/separator-vertical.js":false,"./icons/server-cog.js":false,"./icons/server-crash.js":false,"./icons/server.js":false,"./icons/server-off.js":false,"./icons/settings-2.js":false,"./icons/settings.js":false,"./icons/shapes.js":false,"./icons/share-2.js":false,"./icons/share.js":false,"./icons/sheet.js":false,"./icons/shell.js":false,"./icons/shield-alert.js":false,"./icons/shield-ban.js":false,"./icons/shield-check.js":false,"./icons/shield-ellipsis.js":false,"./icons/shield-half.js":false,"./icons/shield-minus.js":false,"./icons/shield-off.js":false,"./icons/shield-plus.js":false,"./icons/shield-user.js":false,"./icons/shield.js":"9A9tR","./icons/ship-wheel.js":false,"./icons/ship.js":false,"./icons/shirt.js":false,"./icons/shopping-bag.js":false,"./icons/shopping-basket.js":false,"./icons/shopping-cart.js":false,"./icons/shovel.js":false,"./icons/shower-head.js":false,"./icons/shredder.js":false,"./icons/shrimp.js":false,"./icons/shrink.js":false,"./icons/shrub.js":false,"./icons/shuffle.js":false,"./icons/sigma.js":false,"./icons/signal-high.js":false,"./icons/signal-low.js":false,"./icons/signal-zero.js":false,"./icons/signal-medium.js":false,"./icons/signal.js":false,"./icons/signature.js":false,"./icons/signpost-big.js":false,"./icons/signpost.js":false,"./icons/siren.js":false,"./icons/skip-back.js":false,"./icons/skip-forward.js":false,"./icons/skull.js":false,"./icons/slack.js":false,"./icons/slash.js":false,"./icons/slice.js":false,"./icons/sliders-horizontal.js":false,"./icons/smartphone-charging.js":false,"./icons/smartphone.js":false,"./icons/smartphone-nfc.js":false,"./icons/smile.js":false,"./icons/smile-plus.js":false,"./icons/snail.js":false,"./icons/snowflake.js":false,"./icons/sofa.js":false,"./icons/soap-dispenser-droplet.js":false,"./icons/soup.js":false,"./icons/space.js":false,"./icons/spade.js":false,"./icons/sparkle.js":false,"./icons/speaker.js":false,"./icons/speech.js":false,"./icons/spell-check-2.js":false,"./icons/spell-check.js":false,"./icons/spline-pointer.js":false,"./icons/spline.js":false,"./icons/split.js":false,"./icons/spool.js":false,"./icons/spray-can.js":false,"./icons/spotlight.js":false,"./icons/sprout.js":false,"./icons/square-dashed-bottom.js":false,"./icons/square-dashed-bottom-code.js":false,"./icons/square-dashed-top-solid.js":false,"./icons/square-pause.js":false,"./icons/square-radical.js":false,"./icons/square-round-corner.js":false,"./icons/square-square.js":false,"./icons/square-stack.js":false,"./icons/square-star.js":false,"./icons/square-stop.js":false,"./icons/square.js":false,"./icons/squares-exclude.js":false,"./icons/squares-intersect.js":false,"./icons/squares-subtract.js":false,"./icons/squares-unite.js":false,"./icons/squircle-dashed.js":false,"./icons/squircle.js":false,"./icons/squirrel.js":false,"./icons/stamp.js":false,"./icons/star-half.js":false,"./icons/star.js":false,"./icons/star-off.js":false,"./icons/step-back.js":false,"./icons/step-forward.js":false,"./icons/stethoscope.js":false,"./icons/sticker.js":false,"./icons/sticky-note.js":false,"./icons/store.js":false,"./icons/stretch-horizontal.js":false,"./icons/stretch-vertical.js":false,"./icons/strikethrough.js":false,"./icons/subscript.js":false,"./icons/sun-dim.js":false,"./icons/sun-medium.js":false,"./icons/sun-moon.js":false,"./icons/sun-snow.js":false,"./icons/sun.js":false,"./icons/sunrise.js":false,"./icons/sunset.js":false,"./icons/superscript.js":false,"./icons/swatch-book.js":false,"./icons/swiss-franc.js":false,"./icons/switch-camera.js":false,"./icons/sword.js":false,"./icons/swords.js":false,"./icons/syringe.js":false,"./icons/table-2.js":false,"./icons/table-cells-merge.js":false,"./icons/table-cells-split.js":false,"./icons/table-of-contents.js":false,"./icons/table-columns-split.js":false,"./icons/table-properties.js":false,"./icons/table.js":false,"./icons/table-rows-split.js":false,"./icons/tablet-smartphone.js":false,"./icons/tablet.js":false,"./icons/tablets.js":false,"./icons/tag.js":false,"./icons/tags.js":false,"./icons/tally-1.js":false,"./icons/tally-3.js":false,"./icons/tally-2.js":false,"./icons/tally-4.js":false,"./icons/tally-5.js":false,"./icons/tangent.js":false,"./icons/target.js":false,"./icons/telescope.js":false,"./icons/tent-tree.js":false,"./icons/tent.js":false,"./icons/terminal.js":false,"./icons/test-tube.js":false,"./icons/test-tubes.js":false,"./icons/text-cursor-input.js":false,"./icons/text-cursor.js":false,"./icons/text-quote.js":false,"./icons/text-search.js":false,"./icons/theater.js":false,"./icons/thermometer-snowflake.js":false,"./icons/thermometer-sun.js":false,"./icons/thumbs-down.js":false,"./icons/thermometer.js":false,"./icons/thumbs-up.js":false,"./icons/ticket-check.js":false,"./icons/ticket-percent.js":false,"./icons/ticket-minus.js":false,"./icons/ticket-plus.js":false,"./icons/ticket-x.js":false,"./icons/ticket-slash.js":false,"./icons/ticket.js":false,"./icons/tickets-plane.js":false,"./icons/tickets.js":false,"./icons/timer-off.js":false,"./icons/timer-reset.js":false,"./icons/timer.js":false,"./icons/toggle-left.js":false,"./icons/toggle-right.js":false,"./icons/toilet.js":false,"./icons/tool-case.js":false,"./icons/tornado.js":false,"./icons/torus.js":false,"./icons/touchpad-off.js":false,"./icons/touchpad.js":false,"./icons/tower-control.js":false,"./icons/toy-brick.js":false,"./icons/tractor.js":false,"./icons/traffic-cone.js":false,"./icons/train-front-tunnel.js":false,"./icons/train-front.js":false,"./icons/train-track.js":false,"./icons/transgender.js":false,"./icons/trash-2.js":"e3cIN","./icons/trash.js":false,"./icons/tree-deciduous.js":false,"./icons/tree-pine.js":false,"./icons/trees.js":false,"./icons/trello.js":false,"./icons/trending-down.js":false,"./icons/trending-up-down.js":false,"./icons/trending-up.js":false,"./icons/triangle-dashed.js":false,"./icons/triangle-right.js":false,"./icons/triangle.js":false,"./icons/trophy.js":false,"./icons/truck-electric.js":false,"./icons/truck.js":false,"./icons/turkish-lira.js":false,"./icons/turntable.js":false,"./icons/turtle.js":false,"./icons/tv-minimal-play.js":false,"./icons/tv.js":false,"./icons/twitch.js":false,"./icons/twitter.js":false,"./icons/type-outline.js":false,"./icons/type.js":false,"./icons/umbrella-off.js":false,"./icons/umbrella.js":false,"./icons/underline.js":false,"./icons/undo-2.js":false,"./icons/undo-dot.js":false,"./icons/undo.js":false,"./icons/unfold-vertical.js":false,"./icons/unfold-horizontal.js":false,"./icons/ungroup.js":false,"./icons/unlink-2.js":false,"./icons/unlink.js":false,"./icons/unplug.js":false,"./icons/upload.js":false,"./icons/usb.js":false,"./icons/user-check.js":false,"./icons/user-cog.js":false,"./icons/user-lock.js":false,"./icons/user-minus.js":false,"./icons/user-pen.js":false,"./icons/user-plus.js":"bvji1","./icons/user-round-pen.js":false,"./icons/user-round-search.js":false,"./icons/user-search.js":false,"./icons/user-star.js":false,"./icons/user-x.js":false,"./icons/user.js":"atYgq","./icons/users.js":false,"./icons/utility-pole.js":false,"./icons/variable.js":false,"./icons/vault.js":false,"./icons/vector-square.js":false,"./icons/vegan.js":false,"./icons/venetian-mask.js":false,"./icons/venus-and-mars.js":false,"./icons/venus.js":false,"./icons/vibrate-off.js":false,"./icons/vibrate.js":false,"./icons/video-off.js":false,"./icons/video.js":false,"./icons/videotape.js":false,"./icons/view.js":false,"./icons/voicemail.js":false,"./icons/volleyball.js":false,"./icons/volume-2.js":false,"./icons/volume-1.js":false,"./icons/volume-off.js":false,"./icons/volume-x.js":false,"./icons/volume.js":false,"./icons/vote.js":false,"./icons/wallet-cards.js":false,"./icons/wallet.js":false,"./icons/wallpaper.js":false,"./icons/wand.js":false,"./icons/warehouse.js":false,"./icons/washing-machine.js":false,"./icons/waves-ladder.js":false,"./icons/watch.js":false,"./icons/waves.js":false,"./icons/waypoints.js":false,"./icons/webcam.js":false,"./icons/webhook-off.js":false,"./icons/webhook.js":false,"./icons/weight.js":false,"./icons/wheat-off.js":false,"./icons/wheat.js":false,"./icons/whole-word.js":false,"./icons/wifi-cog.js":false,"./icons/wifi-high.js":false,"./icons/wifi-low.js":false,"./icons/wifi-off.js":false,"./icons/wifi-pen.js":false,"./icons/wifi-sync.js":false,"./icons/wifi-zero.js":false,"./icons/wind-arrow-down.js":false,"./icons/wifi.js":false,"./icons/wine-off.js":false,"./icons/wind.js":false,"./icons/wine.js":false,"./icons/workflow.js":false,"./icons/worm.js":false,"./icons/wrench.js":false,"./icons/x.js":"aJBqa","./icons/youtube.js":false,"./icons/zap-off.js":false,"./icons/zap.js":false,"./icons/zoom-in.js":false,"./icons/zoom-out.js":false,"./icons/arrow-down-0-1.js":false,"./icons/arrow-down-1-0.js":false,"./icons/arrow-up-0-1.js":false,"./icons/arrow-up-1-0.js":false,"./createLucideIcon.js":false,"./Icon.js":false,"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"cznbW":[function(require,module,exports,__globalThis) {
+},{"./icons/index.js":false,"./icons/alarm-clock-check.js":false,"./icons/alarm-clock-minus.js":false,"./icons/alarm-clock-plus.js":false,"./icons/arrow-down-a-z.js":false,"./icons/arrow-down-wide-narrow.js":false,"./icons/arrow-down-z-a.js":false,"./icons/arrow-up-a-z.js":false,"./icons/arrow-up-narrow-wide.js":false,"./icons/arrow-up-z-a.js":false,"./icons/axis-3d.js":false,"./icons/badge-check.js":false,"./icons/badge-question-mark.js":false,"./icons/between-horizontal-end.js":false,"./icons/between-horizontal-start.js":false,"./icons/book-dashed.js":false,"./icons/braces.js":false,"./icons/captions.js":false,"./icons/chart-area.js":false,"./icons/chart-bar-big.js":false,"./icons/chart-bar.js":false,"./icons/chart-candlestick.js":false,"./icons/chart-column-big.js":false,"./icons/chart-column-increasing.js":false,"./icons/chart-column.js":false,"./icons/chart-line.js":false,"./icons/chart-no-axes-column-increasing.js":false,"./icons/chart-no-axes-gantt.js":false,"./icons/chart-no-axes-column.js":false,"./icons/chart-pie.js":false,"./icons/chart-scatter.js":false,"./icons/chromium.js":false,"./icons/circle-alert.js":"fBZpl","./icons/circle-arrow-down.js":false,"./icons/circle-arrow-left.js":false,"./icons/circle-arrow-out-down-left.js":false,"./icons/circle-arrow-out-down-right.js":false,"./icons/circle-arrow-out-up-left.js":false,"./icons/circle-arrow-out-up-right.js":false,"./icons/circle-arrow-right.js":false,"./icons/circle-arrow-up.js":false,"./icons/circle-check.js":false,"./icons/circle-check-big.js":"eIsf3","./icons/circle-chevron-down.js":false,"./icons/circle-chevron-left.js":false,"./icons/circle-chevron-right.js":false,"./icons/circle-chevron-up.js":false,"./icons/circle-divide.js":false,"./icons/circle-gauge.js":false,"./icons/circle-minus.js":false,"./icons/circle-parking-off.js":false,"./icons/circle-parking.js":false,"./icons/circle-pause.js":false,"./icons/circle-percent.js":false,"./icons/circle-play.js":false,"./icons/circle-plus.js":false,"./icons/circle-power.js":false,"./icons/circle-question-mark.js":false,"./icons/circle-stop.js":false,"./icons/circle-slash-2.js":false,"./icons/circle-user.js":false,"./icons/circle-user-round.js":false,"./icons/circle-x.js":false,"./icons/clipboard-pen-line.js":false,"./icons/clipboard-pen.js":false,"./icons/cloud-download.js":false,"./icons/cloud-upload.js":false,"./icons/code-xml.js":false,"./icons/columns-2.js":false,"./icons/columns-3-cog.js":false,"./icons/columns-3.js":false,"./icons/contact-round.js":false,"./icons/diamond-percent.js":false,"./icons/earth.js":false,"./icons/ellipsis-vertical.js":false,"./icons/ellipsis.js":false,"./icons/file-axis-3d.js":false,"./icons/file-chart-column-increasing.js":false,"./icons/file-chart-column.js":false,"./icons/file-chart-line.js":false,"./icons/file-chart-pie.js":false,"./icons/file-cog.js":false,"./icons/file-pen-line.js":false,"./icons/file-pen.js":false,"./icons/file-play.js":false,"./icons/file-question-mark.js":false,"./icons/file-video-camera.js":false,"./icons/folder-cog.js":false,"./icons/folder-pen.js":false,"./icons/funnel-x.js":false,"./icons/funnel.js":false,"./icons/git-commit-horizontal.js":false,"./icons/grid-2x2-check.js":false,"./icons/grid-2x2-x.js":false,"./icons/grid-2x2-plus.js":false,"./icons/grid-2x2.js":false,"./icons/grid-3x3.js":false,"./icons/hand-grab.js":false,"./icons/hand-helping.js":false,"./icons/house.js":false,"./icons/ice-cream-bowl.js":false,"./icons/ice-cream-cone.js":false,"./icons/laptop-minimal.js":false,"./icons/layers.js":false,"./icons/list-indent-decrease.js":false,"./icons/list-indent-increase.js":false,"./icons/loader-circle.js":false,"./icons/lock-keyhole-open.js":false,"./icons/lock-open.js":false,"./icons/mail-question-mark.js":false,"./icons/map-pin-pen.js":false,"./icons/message-circle-question-mark.js":false,"./icons/mic-vocal.js":false,"./icons/move-3d.js":false,"./icons/octagon-alert.js":false,"./icons/octagon-pause.js":false,"./icons/octagon-x.js":false,"./icons/paintbrush-vertical.js":false,"./icons/panel-bottom-dashed.js":false,"./icons/panel-left-close.js":false,"./icons/panel-left-dashed.js":false,"./icons/panel-left-open.js":false,"./icons/panel-left.js":false,"./icons/panel-right-dashed.js":false,"./icons/panel-top-dashed.js":false,"./icons/panels-top-left.js":false,"./icons/pen-line.js":"cznbW","./icons/pen.js":false,"./icons/plug-zap.js":false,"./icons/rectangle-ellipsis.js":false,"./icons/rotate-3d.js":false,"./icons/rows-2.js":false,"./icons/rows-3.js":false,"./icons/scale-3d.js":false,"./icons/send-horizontal.js":false,"./icons/shield-question-mark.js":false,"./icons/shield-x.js":false,"./icons/sliders-vertical.js":false,"./icons/sparkles.js":false,"./icons/square-arrow-down-left.js":false,"./icons/square-activity.js":false,"./icons/square-arrow-down-right.js":false,"./icons/square-arrow-down.js":false,"./icons/square-arrow-left.js":false,"./icons/square-arrow-out-down-left.js":false,"./icons/square-arrow-out-up-left.js":false,"./icons/square-arrow-out-down-right.js":false,"./icons/square-arrow-out-up-right.js":false,"./icons/square-arrow-up-left.js":false,"./icons/square-arrow-right.js":false,"./icons/square-arrow-up-right.js":false,"./icons/square-arrow-up.js":false,"./icons/square-asterisk.js":false,"./icons/square-bottom-dashed-scissors.js":false,"./icons/square-chart-gantt.js":false,"./icons/square-check-big.js":false,"./icons/square-check.js":false,"./icons/square-chevron-down.js":false,"./icons/square-chevron-left.js":false,"./icons/square-chevron-up.js":false,"./icons/square-chevron-right.js":false,"./icons/square-dashed-kanban.js":false,"./icons/square-code.js":false,"./icons/square-dashed-mouse-pointer.js":false,"./icons/square-dashed.js":false,"./icons/square-divide.js":false,"./icons/square-dot.js":false,"./icons/square-equal.js":false,"./icons/square-function.js":false,"./icons/square-kanban.js":false,"./icons/square-library.js":false,"./icons/square-m.js":false,"./icons/square-menu.js":false,"./icons/square-minus.js":false,"./icons/square-mouse-pointer.js":false,"./icons/square-parking-off.js":false,"./icons/square-parking.js":false,"./icons/square-pen.js":false,"./icons/square-pi.js":false,"./icons/square-percent.js":false,"./icons/square-pilcrow.js":false,"./icons/square-play.js":false,"./icons/square-plus.js":false,"./icons/square-power.js":false,"./icons/square-scissors.js":false,"./icons/square-sigma.js":false,"./icons/square-slash.js":false,"./icons/square-split-horizontal.js":false,"./icons/square-split-vertical.js":false,"./icons/square-terminal.js":false,"./icons/square-user-round.js":false,"./icons/square-user.js":false,"./icons/square-x.js":false,"./icons/test-tube-diagonal.js":false,"./icons/text-align-center.js":false,"./icons/text-align-end.js":false,"./icons/text-align-justify.js":false,"./icons/text-align-start.js":false,"./icons/text-initial.js":false,"./icons/text-select.js":false,"./icons/text-wrap.js":false,"./icons/tram-front.js":false,"./icons/tree-palm.js":false,"./icons/triangle-alert.js":false,"./icons/tv-minimal.js":false,"./icons/university.js":false,"./icons/user-round-check.js":false,"./icons/user-round-cog.js":false,"./icons/user-round-plus.js":false,"./icons/user-round-minus.js":false,"./icons/user-round-x.js":false,"./icons/user-round.js":false,"./icons/users-round.js":false,"./icons/utensils-crossed.js":false,"./icons/utensils.js":false,"./icons/wallet-minimal.js":false,"./icons/wand-sparkles.js":false,"./icons/a-arrow-down.js":false,"./icons/a-large-small.js":false,"./icons/a-arrow-up.js":false,"./icons/activity.js":false,"./icons/accessibility.js":false,"./icons/air-vent.js":false,"./icons/airplay.js":false,"./icons/alarm-clock-off.js":false,"./icons/alarm-clock.js":false,"./icons/alarm-smoke.js":false,"./icons/align-center-horizontal.js":false,"./icons/album.js":false,"./icons/align-center-vertical.js":false,"./icons/align-end-horizontal.js":false,"./icons/align-end-vertical.js":false,"./icons/align-horizontal-distribute-end.js":false,"./icons/align-horizontal-distribute-center.js":false,"./icons/align-horizontal-distribute-start.js":false,"./icons/align-horizontal-justify-end.js":false,"./icons/align-horizontal-justify-center.js":false,"./icons/align-horizontal-justify-start.js":false,"./icons/align-horizontal-space-around.js":false,"./icons/align-horizontal-space-between.js":false,"./icons/align-start-vertical.js":false,"./icons/align-start-horizontal.js":false,"./icons/align-vertical-distribute-end.js":false,"./icons/align-vertical-distribute-center.js":false,"./icons/align-vertical-distribute-start.js":false,"./icons/align-vertical-justify-center.js":false,"./icons/align-vertical-justify-end.js":false,"./icons/align-vertical-justify-start.js":false,"./icons/align-vertical-space-around.js":false,"./icons/align-vertical-space-between.js":false,"./icons/ambulance.js":false,"./icons/ampersand.js":false,"./icons/ampersands.js":false,"./icons/amphora.js":false,"./icons/anchor.js":false,"./icons/annoyed.js":false,"./icons/angry.js":false,"./icons/antenna.js":false,"./icons/anvil.js":false,"./icons/aperture.js":false,"./icons/app-window-mac.js":false,"./icons/app-window.js":false,"./icons/apple.js":false,"./icons/archive-restore.js":false,"./icons/archive-x.js":false,"./icons/archive.js":false,"./icons/armchair.js":false,"./icons/arrow-big-down-dash.js":false,"./icons/arrow-big-down.js":false,"./icons/arrow-big-left-dash.js":false,"./icons/arrow-big-left.js":false,"./icons/arrow-big-right-dash.js":false,"./icons/arrow-big-right.js":false,"./icons/arrow-big-up-dash.js":false,"./icons/arrow-big-up.js":false,"./icons/arrow-down-from-line.js":false,"./icons/arrow-down-narrow-wide.js":false,"./icons/arrow-down-left.js":false,"./icons/arrow-down-right.js":false,"./icons/arrow-down-to-dot.js":false,"./icons/arrow-down-to-line.js":false,"./icons/arrow-down.js":false,"./icons/arrow-down-up.js":false,"./icons/arrow-left-right.js":false,"./icons/arrow-left-from-line.js":false,"./icons/arrow-left-to-line.js":false,"./icons/arrow-left.js":"j7Kdd","./icons/arrow-right-from-line.js":false,"./icons/arrow-right-left.js":false,"./icons/arrow-right-to-line.js":false,"./icons/arrow-right.js":false,"./icons/arrow-up-down.js":false,"./icons/arrow-up-from-dot.js":false,"./icons/arrow-up-from-line.js":false,"./icons/arrow-up-left.js":false,"./icons/arrow-up-right.js":false,"./icons/arrow-up-wide-narrow.js":false,"./icons/arrow-up-to-line.js":false,"./icons/arrow-up.js":false,"./icons/arrows-up-from-line.js":false,"./icons/asterisk.js":false,"./icons/at-sign.js":false,"./icons/audio-lines.js":false,"./icons/atom.js":false,"./icons/audio-waveform.js":false,"./icons/award.js":false,"./icons/axe.js":false,"./icons/baby.js":false,"./icons/backpack.js":false,"./icons/badge-alert.js":false,"./icons/badge-cent.js":false,"./icons/badge-dollar-sign.js":false,"./icons/badge-euro.js":false,"./icons/badge-indian-rupee.js":false,"./icons/badge-info.js":false,"./icons/badge-japanese-yen.js":false,"./icons/badge-minus.js":false,"./icons/badge-percent.js":false,"./icons/badge-plus.js":false,"./icons/badge-pound-sterling.js":false,"./icons/badge-russian-ruble.js":false,"./icons/badge-swiss-franc.js":false,"./icons/badge-turkish-lira.js":false,"./icons/badge-x.js":false,"./icons/badge.js":false,"./icons/baggage-claim.js":false,"./icons/ban.js":false,"./icons/banana.js":false,"./icons/bandage.js":false,"./icons/banknote-arrow-down.js":false,"./icons/banknote-arrow-up.js":false,"./icons/banknote-x.js":false,"./icons/banknote.js":false,"./icons/barrel.js":false,"./icons/barcode.js":false,"./icons/baseline.js":false,"./icons/bath.js":false,"./icons/battery-full.js":false,"./icons/battery-charging.js":false,"./icons/battery-low.js":false,"./icons/battery-medium.js":false,"./icons/battery-warning.js":false,"./icons/battery-plus.js":false,"./icons/battery.js":false,"./icons/beaker.js":false,"./icons/bean-off.js":false,"./icons/bean.js":false,"./icons/bed-double.js":false,"./icons/bed-single.js":false,"./icons/bed.js":false,"./icons/beef.js":false,"./icons/beer-off.js":false,"./icons/beer.js":false,"./icons/bell-dot.js":false,"./icons/bell-electric.js":false,"./icons/bell-minus.js":false,"./icons/bell-off.js":false,"./icons/bell-plus.js":false,"./icons/bell-ring.js":false,"./icons/bell.js":false,"./icons/between-vertical-end.js":false,"./icons/between-vertical-start.js":false,"./icons/biceps-flexed.js":false,"./icons/bike.js":false,"./icons/binary.js":false,"./icons/binoculars.js":false,"./icons/biohazard.js":false,"./icons/bird.js":false,"./icons/bitcoin.js":false,"./icons/blend.js":false,"./icons/blinds.js":false,"./icons/blocks.js":false,"./icons/bluetooth-off.js":false,"./icons/bluetooth-connected.js":false,"./icons/bluetooth-searching.js":false,"./icons/bluetooth.js":false,"./icons/bold.js":false,"./icons/bolt.js":false,"./icons/bomb.js":false,"./icons/book-a.js":false,"./icons/bone.js":false,"./icons/book-alert.js":false,"./icons/book-audio.js":false,"./icons/book-check.js":false,"./icons/book-copy.js":false,"./icons/book-down.js":false,"./icons/book-heart.js":false,"./icons/book-headphones.js":false,"./icons/book-image.js":false,"./icons/book-key.js":false,"./icons/book-lock.js":false,"./icons/book-marked.js":false,"./icons/book-open-check.js":false,"./icons/book-minus.js":false,"./icons/book-open-text.js":false,"./icons/book-open.js":false,"./icons/book-plus.js":false,"./icons/book-text.js":false,"./icons/book-type.js":false,"./icons/book-up-2.js":false,"./icons/book-up.js":false,"./icons/book-user.js":false,"./icons/book-x.js":false,"./icons/book.js":false,"./icons/bookmark-check.js":false,"./icons/bookmark-minus.js":false,"./icons/bookmark-plus.js":false,"./icons/bookmark-x.js":false,"./icons/bookmark.js":false,"./icons/boom-box.js":false,"./icons/bot-message-square.js":false,"./icons/bot-off.js":false,"./icons/bot.js":false,"./icons/bottle-wine.js":false,"./icons/box.js":false,"./icons/bow-arrow.js":false,"./icons/boxes.js":false,"./icons/brackets.js":false,"./icons/brain-circuit.js":false,"./icons/brain-cog.js":false,"./icons/brain.js":false,"./icons/brick-wall-fire.js":false,"./icons/brick-wall-shield.js":false,"./icons/brick-wall.js":false,"./icons/briefcase-business.js":false,"./icons/briefcase-conveyor-belt.js":false,"./icons/briefcase.js":false,"./icons/briefcase-medical.js":false,"./icons/bring-to-front.js":false,"./icons/brush-cleaning.js":false,"./icons/brush.js":false,"./icons/bubbles.js":false,"./icons/bug-off.js":false,"./icons/bug-play.js":false,"./icons/building-2.js":false,"./icons/bug.js":false,"./icons/building.js":false,"./icons/bus-front.js":false,"./icons/bus.js":false,"./icons/cable-car.js":false,"./icons/cable.js":false,"./icons/cake-slice.js":false,"./icons/cake.js":false,"./icons/calendar-1.js":false,"./icons/calculator.js":false,"./icons/calendar-arrow-down.js":false,"./icons/calendar-arrow-up.js":false,"./icons/calendar-check-2.js":false,"./icons/calendar-check.js":false,"./icons/calendar-cog.js":false,"./icons/calendar-clock.js":false,"./icons/calendar-days.js":false,"./icons/calendar-fold.js":false,"./icons/calendar-heart.js":false,"./icons/calendar-minus-2.js":false,"./icons/calendar-minus.js":false,"./icons/calendar-off.js":false,"./icons/calendar-plus-2.js":false,"./icons/calendar-plus.js":false,"./icons/calendar-search.js":false,"./icons/calendar-range.js":false,"./icons/calendar-sync.js":false,"./icons/calendar-x-2.js":false,"./icons/calendar-x.js":false,"./icons/calendar.js":false,"./icons/camera-off.js":false,"./icons/camera.js":false,"./icons/candy-cane.js":false,"./icons/candy-off.js":false,"./icons/candy.js":false,"./icons/cannabis.js":false,"./icons/captions-off.js":false,"./icons/car-front.js":false,"./icons/car-taxi-front.js":false,"./icons/car.js":false,"./icons/caravan.js":false,"./icons/card-sim.js":false,"./icons/case-lower.js":false,"./icons/carrot.js":false,"./icons/case-upper.js":false,"./icons/case-sensitive.js":false,"./icons/cassette-tape.js":false,"./icons/cast.js":false,"./icons/castle.js":false,"./icons/cat.js":false,"./icons/cctv.js":false,"./icons/chart-bar-decreasing.js":false,"./icons/chart-bar-stacked.js":false,"./icons/chart-bar-increasing.js":false,"./icons/chart-column-decreasing.js":false,"./icons/chart-column-stacked.js":false,"./icons/chart-gantt.js":false,"./icons/chart-network.js":false,"./icons/chart-no-axes-column-decreasing.js":false,"./icons/chart-no-axes-combined.js":false,"./icons/chart-spline.js":false,"./icons/check-check.js":false,"./icons/check-line.js":false,"./icons/chef-hat.js":false,"./icons/check.js":"irEtD","./icons/cherry.js":false,"./icons/chevron-down.js":false,"./icons/chevron-first.js":false,"./icons/chevron-last.js":false,"./icons/chevron-left.js":false,"./icons/chevron-right.js":false,"./icons/chevron-up.js":false,"./icons/chevrons-down-up.js":false,"./icons/chevrons-down.js":false,"./icons/chevrons-left-right-ellipsis.js":false,"./icons/chevrons-left-right.js":false,"./icons/chevrons-left.js":false,"./icons/chevrons-right-left.js":false,"./icons/chevrons-right.js":false,"./icons/chevrons-up-down.js":false,"./icons/chevrons-up.js":false,"./icons/church.js":false,"./icons/cigarette-off.js":false,"./icons/cigarette.js":false,"./icons/circle-dashed.js":false,"./icons/circle-dot-dashed.js":false,"./icons/circle-dollar-sign.js":false,"./icons/circle-dot.js":false,"./icons/circle-ellipsis.js":false,"./icons/circle-equal.js":false,"./icons/circle-fading-arrow-up.js":false,"./icons/circle-fading-plus.js":false,"./icons/circle-off.js":false,"./icons/circle-pound-sterling.js":false,"./icons/circle-slash.js":false,"./icons/circle-star.js":false,"./icons/circle-small.js":false,"./icons/circle.js":false,"./icons/circuit-board.js":false,"./icons/citrus.js":false,"./icons/clapperboard.js":false,"./icons/clipboard-check.js":false,"./icons/clipboard-clock.js":false,"./icons/clipboard-copy.js":false,"./icons/clipboard-list.js":false,"./icons/clipboard-minus.js":false,"./icons/clipboard-paste.js":false,"./icons/clipboard-plus.js":false,"./icons/clipboard-type.js":false,"./icons/clipboard-x.js":false,"./icons/clipboard.js":false,"./icons/clock-1.js":false,"./icons/clock-10.js":false,"./icons/clock-11.js":false,"./icons/clock-12.js":false,"./icons/clock-2.js":false,"./icons/clock-3.js":false,"./icons/clock-4.js":false,"./icons/clock-5.js":false,"./icons/clock-6.js":false,"./icons/clock-7.js":false,"./icons/clock-8.js":false,"./icons/clock-9.js":false,"./icons/clock-alert.js":false,"./icons/clock-arrow-down.js":false,"./icons/clock-arrow-up.js":false,"./icons/clock-fading.js":false,"./icons/clock-plus.js":false,"./icons/clock.js":"hnwjz","./icons/closed-caption.js":false,"./icons/cloud-check.js":false,"./icons/cloud-alert.js":false,"./icons/cloud-cog.js":false,"./icons/cloud-drizzle.js":false,"./icons/cloud-fog.js":false,"./icons/cloud-hail.js":false,"./icons/cloud-lightning.js":false,"./icons/cloud-moon-rain.js":false,"./icons/cloud-moon.js":false,"./icons/cloud-off.js":false,"./icons/cloud-rain-wind.js":false,"./icons/cloud-rain.js":false,"./icons/cloud-snow.js":false,"./icons/cloud-sun-rain.js":false,"./icons/cloud-sun.js":false,"./icons/cloud.js":false,"./icons/clover.js":false,"./icons/club.js":false,"./icons/cloudy.js":false,"./icons/code.js":false,"./icons/codepen.js":false,"./icons/codesandbox.js":false,"./icons/coffee.js":false,"./icons/cog.js":false,"./icons/coins.js":false,"./icons/columns-4.js":false,"./icons/combine.js":false,"./icons/command.js":false,"./icons/compass.js":false,"./icons/component.js":false,"./icons/computer.js":false,"./icons/cone.js":false,"./icons/concierge-bell.js":false,"./icons/construction.js":false,"./icons/contact.js":false,"./icons/container.js":false,"./icons/contrast.js":false,"./icons/cookie.js":false,"./icons/cooking-pot.js":false,"./icons/copy-check.js":false,"./icons/copy-minus.js":false,"./icons/copy-plus.js":false,"./icons/copy-slash.js":false,"./icons/copy-x.js":false,"./icons/copy.js":false,"./icons/copyleft.js":false,"./icons/copyright.js":false,"./icons/corner-down-left.js":false,"./icons/corner-down-right.js":false,"./icons/corner-left-down.js":false,"./icons/corner-left-up.js":false,"./icons/corner-right-down.js":false,"./icons/corner-right-up.js":false,"./icons/corner-up-left.js":false,"./icons/corner-up-right.js":false,"./icons/cpu.js":false,"./icons/creative-commons.js":false,"./icons/credit-card.js":"as1Wb","./icons/croissant.js":false,"./icons/crop.js":false,"./icons/cross.js":false,"./icons/crosshair.js":false,"./icons/crown.js":false,"./icons/cuboid.js":false,"./icons/cup-soda.js":false,"./icons/currency.js":false,"./icons/cylinder.js":false,"./icons/dam.js":false,"./icons/database-backup.js":false,"./icons/database-zap.js":false,"./icons/database.js":false,"./icons/decimals-arrow-left.js":false,"./icons/decimals-arrow-right.js":false,"./icons/delete.js":false,"./icons/dessert.js":false,"./icons/diameter.js":false,"./icons/diamond-minus.js":false,"./icons/diamond-plus.js":false,"./icons/diamond.js":false,"./icons/dice-1.js":false,"./icons/dice-2.js":false,"./icons/dice-3.js":false,"./icons/dice-4.js":false,"./icons/dice-5.js":false,"./icons/dice-6.js":false,"./icons/dices.js":false,"./icons/diff.js":false,"./icons/disc-2.js":false,"./icons/disc-3.js":false,"./icons/disc.js":false,"./icons/disc-album.js":false,"./icons/divide.js":false,"./icons/dna-off.js":false,"./icons/dna.js":false,"./icons/dock.js":false,"./icons/dog.js":false,"./icons/dollar-sign.js":false,"./icons/door-closed-locked.js":false,"./icons/donut.js":false,"./icons/door-closed.js":false,"./icons/door-open.js":false,"./icons/dot.js":false,"./icons/download.js":false,"./icons/drafting-compass.js":false,"./icons/drama.js":false,"./icons/drill.js":false,"./icons/dribbble.js":false,"./icons/drone.js":false,"./icons/droplet-off.js":false,"./icons/droplet.js":false,"./icons/droplets.js":false,"./icons/drum.js":false,"./icons/drumstick.js":false,"./icons/dumbbell.js":false,"./icons/ear.js":false,"./icons/ear-off.js":false,"./icons/earth-lock.js":false,"./icons/eclipse.js":false,"./icons/egg-fried.js":false,"./icons/egg-off.js":false,"./icons/egg.js":false,"./icons/equal-approximately.js":false,"./icons/equal-not.js":false,"./icons/equal.js":false,"./icons/eraser.js":false,"./icons/euro.js":false,"./icons/expand.js":false,"./icons/ethernet-port.js":false,"./icons/external-link.js":false,"./icons/eye-closed.js":false,"./icons/eye-off.js":"38tDF","./icons/eye.js":"fQCsX","./icons/facebook.js":false,"./icons/factory.js":false,"./icons/fan.js":false,"./icons/fast-forward.js":false,"./icons/fence.js":false,"./icons/feather.js":false,"./icons/ferris-wheel.js":false,"./icons/figma.js":false,"./icons/file-archive.js":false,"./icons/file-audio-2.js":false,"./icons/file-audio.js":false,"./icons/file-badge-2.js":false,"./icons/file-badge.js":false,"./icons/file-box.js":false,"./icons/file-check-2.js":false,"./icons/file-check.js":false,"./icons/file-clock.js":false,"./icons/file-code-2.js":false,"./icons/file-code.js":false,"./icons/file-diff.js":false,"./icons/file-digit.js":false,"./icons/file-down.js":false,"./icons/file-heart.js":false,"./icons/file-image.js":false,"./icons/file-input.js":false,"./icons/file-json-2.js":false,"./icons/file-json.js":false,"./icons/file-key-2.js":false,"./icons/file-key.js":false,"./icons/file-lock-2.js":false,"./icons/file-lock.js":false,"./icons/file-minus-2.js":false,"./icons/file-minus.js":false,"./icons/file-music.js":false,"./icons/file-output.js":false,"./icons/file-plus-2.js":false,"./icons/file-plus.js":false,"./icons/file-scan.js":false,"./icons/file-search-2.js":false,"./icons/file-search.js":false,"./icons/file-sliders.js":false,"./icons/file-spreadsheet.js":false,"./icons/file-stack.js":false,"./icons/file-symlink.js":false,"./icons/file-terminal.js":false,"./icons/file-text.js":false,"./icons/file-type-2.js":false,"./icons/file-type.js":false,"./icons/file-up.js":false,"./icons/file-user.js":false,"./icons/file-volume-2.js":false,"./icons/file-volume.js":false,"./icons/file-warning.js":false,"./icons/file-x-2.js":false,"./icons/file-x.js":false,"./icons/file.js":false,"./icons/files.js":false,"./icons/film.js":false,"./icons/fingerprint.js":false,"./icons/fire-extinguisher.js":false,"./icons/fish-symbol.js":false,"./icons/fish-off.js":false,"./icons/fish.js":false,"./icons/flag-triangle-left.js":false,"./icons/flag-off.js":false,"./icons/flag-triangle-right.js":false,"./icons/flag.js":false,"./icons/flame-kindling.js":false,"./icons/flame.js":false,"./icons/flashlight-off.js":false,"./icons/flashlight.js":false,"./icons/flask-conical-off.js":false,"./icons/flask-conical.js":false,"./icons/flask-round.js":false,"./icons/flip-horizontal-2.js":false,"./icons/flip-horizontal.js":false,"./icons/flip-vertical-2.js":false,"./icons/flip-vertical.js":false,"./icons/flower-2.js":false,"./icons/flower.js":false,"./icons/focus.js":false,"./icons/fold-horizontal.js":false,"./icons/fold-vertical.js":false,"./icons/folder-archive.js":false,"./icons/folder-check.js":false,"./icons/folder-clock.js":false,"./icons/folder-closed.js":false,"./icons/folder-code.js":false,"./icons/folder-dot.js":false,"./icons/folder-down.js":false,"./icons/folder-git-2.js":false,"./icons/folder-git.js":false,"./icons/folder-heart.js":false,"./icons/folder-input.js":false,"./icons/folder-kanban.js":false,"./icons/folder-key.js":false,"./icons/folder-lock.js":false,"./icons/folder-open-dot.js":false,"./icons/folder-minus.js":false,"./icons/folder-open.js":false,"./icons/folder-output.js":false,"./icons/folder-plus.js":false,"./icons/folder-root.js":false,"./icons/folder-search-2.js":false,"./icons/folder-search.js":false,"./icons/folder-symlink.js":false,"./icons/folder-sync.js":false,"./icons/folder-tree.js":false,"./icons/folder-up.js":false,"./icons/folder.js":false,"./icons/folder-x.js":false,"./icons/folders.js":false,"./icons/footprints.js":false,"./icons/forklift.js":false,"./icons/forward.js":false,"./icons/frame.js":false,"./icons/framer.js":false,"./icons/frown.js":false,"./icons/fullscreen.js":false,"./icons/fuel.js":false,"./icons/funnel-plus.js":false,"./icons/gallery-horizontal-end.js":false,"./icons/gallery-horizontal.js":false,"./icons/gallery-thumbnails.js":false,"./icons/gallery-vertical-end.js":false,"./icons/gallery-vertical.js":false,"./icons/gamepad-2.js":false,"./icons/gamepad.js":false,"./icons/gavel.js":false,"./icons/gauge.js":false,"./icons/gem.js":false,"./icons/georgian-lari.js":false,"./icons/ghost.js":false,"./icons/gift.js":false,"./icons/git-branch-plus.js":false,"./icons/git-commit-vertical.js":false,"./icons/git-branch.js":false,"./icons/git-compare-arrows.js":false,"./icons/git-compare.js":false,"./icons/git-fork.js":false,"./icons/git-graph.js":false,"./icons/git-pull-request-arrow.js":false,"./icons/git-merge.js":false,"./icons/git-pull-request-closed.js":false,"./icons/git-pull-request-create-arrow.js":false,"./icons/git-pull-request-create.js":false,"./icons/git-pull-request-draft.js":false,"./icons/git-pull-request.js":false,"./icons/glass-water.js":false,"./icons/github.js":false,"./icons/gitlab.js":false,"./icons/globe-lock.js":false,"./icons/glasses.js":false,"./icons/globe.js":false,"./icons/goal.js":false,"./icons/gpu.js":false,"./icons/graduation-cap.js":false,"./icons/grape.js":false,"./icons/grid-3x2.js":false,"./icons/grip-horizontal.js":false,"./icons/grip-vertical.js":false,"./icons/grip.js":false,"./icons/group.js":false,"./icons/ham.js":false,"./icons/guitar.js":false,"./icons/hamburger.js":false,"./icons/hammer.js":false,"./icons/hand-coins.js":false,"./icons/hand-fist.js":false,"./icons/hand-heart.js":false,"./icons/hand-metal.js":false,"./icons/hand-platter.js":false,"./icons/hand.js":false,"./icons/handbag.js":false,"./icons/hard-drive-download.js":false,"./icons/handshake.js":false,"./icons/hard-drive-upload.js":false,"./icons/hard-drive.js":false,"./icons/hard-hat.js":false,"./icons/hash.js":false,"./icons/hat-glasses.js":false,"./icons/haze.js":false,"./icons/hdmi-port.js":false,"./icons/heading-1.js":false,"./icons/heading-2.js":false,"./icons/heading-3.js":false,"./icons/heading-4.js":false,"./icons/heading-5.js":false,"./icons/heading-6.js":false,"./icons/heading.js":false,"./icons/headphone-off.js":false,"./icons/headphones.js":false,"./icons/headset.js":false,"./icons/heart-crack.js":false,"./icons/heart-handshake.js":false,"./icons/heart-minus.js":false,"./icons/heart-off.js":false,"./icons/heart-plus.js":false,"./icons/heart-pulse.js":false,"./icons/heart.js":false,"./icons/heater.js":false,"./icons/hexagon.js":false,"./icons/highlighter.js":false,"./icons/history.js":false,"./icons/hop-off.js":false,"./icons/hop.js":false,"./icons/hotel.js":false,"./icons/hospital.js":false,"./icons/hourglass.js":false,"./icons/house-heart.js":false,"./icons/house-plug.js":false,"./icons/house-plus.js":false,"./icons/house-wifi.js":false,"./icons/id-card.js":false,"./icons/id-card-lanyard.js":false,"./icons/image-down.js":false,"./icons/image-minus.js":false,"./icons/image-play.js":false,"./icons/image-off.js":false,"./icons/image-plus.js":false,"./icons/image-up.js":false,"./icons/image-upscale.js":false,"./icons/image.js":false,"./icons/images.js":false,"./icons/import.js":false,"./icons/inbox.js":false,"./icons/indian-rupee.js":false,"./icons/infinity.js":false,"./icons/info.js":false,"./icons/inspection-panel.js":false,"./icons/instagram.js":false,"./icons/italic.js":false,"./icons/iteration-ccw.js":false,"./icons/iteration-cw.js":false,"./icons/japanese-yen.js":false,"./icons/joystick.js":false,"./icons/kanban.js":false,"./icons/kayak.js":false,"./icons/key-round.js":false,"./icons/key-square.js":false,"./icons/keyboard-music.js":false,"./icons/key.js":false,"./icons/keyboard-off.js":false,"./icons/keyboard.js":false,"./icons/lamp-ceiling.js":false,"./icons/lamp-floor.js":false,"./icons/lamp-desk.js":false,"./icons/lamp-wall-down.js":false,"./icons/lamp-wall-up.js":false,"./icons/lamp.js":false,"./icons/land-plot.js":false,"./icons/landmark.js":false,"./icons/languages.js":false,"./icons/laptop.js":false,"./icons/laptop-minimal-check.js":false,"./icons/lasso-select.js":false,"./icons/lasso.js":false,"./icons/laugh.js":false,"./icons/layers-2.js":false,"./icons/layout-dashboard.js":false,"./icons/layout-grid.js":false,"./icons/layout-list.js":false,"./icons/layout-panel-left.js":false,"./icons/layout-panel-top.js":false,"./icons/layout-template.js":false,"./icons/leaf.js":false,"./icons/lectern.js":false,"./icons/library-big.js":false,"./icons/leafy-green.js":false,"./icons/library.js":false,"./icons/life-buoy.js":false,"./icons/ligature.js":false,"./icons/lightbulb-off.js":false,"./icons/lightbulb.js":false,"./icons/line-squiggle.js":false,"./icons/link-2-off.js":false,"./icons/link-2.js":false,"./icons/linkedin.js":false,"./icons/link.js":false,"./icons/list-check.js":false,"./icons/list-checks.js":false,"./icons/list-chevrons-down-up.js":false,"./icons/list-chevrons-up-down.js":false,"./icons/list-collapse.js":false,"./icons/list-end.js":false,"./icons/list-filter-plus.js":false,"./icons/list-filter.js":false,"./icons/list-minus.js":false,"./icons/list-music.js":false,"./icons/list-ordered.js":false,"./icons/list-plus.js":false,"./icons/list-restart.js":false,"./icons/list-start.js":false,"./icons/list-todo.js":false,"./icons/list-tree.js":false,"./icons/list-video.js":false,"./icons/list-x.js":false,"./icons/list.js":false,"./icons/loader.js":false,"./icons/loader-pinwheel.js":false,"./icons/locate-fixed.js":false,"./icons/locate-off.js":false,"./icons/locate.js":false,"./icons/lock-keyhole.js":false,"./icons/lock.js":false,"./icons/log-in.js":"hWiOD","./icons/logs.js":false,"./icons/log-out.js":"5NSxp","./icons/lollipop.js":false,"./icons/luggage.js":false,"./icons/magnet.js":false,"./icons/mail-check.js":false,"./icons/mail-minus.js":false,"./icons/mail-open.js":false,"./icons/mail-plus.js":false,"./icons/mail-search.js":false,"./icons/mail-warning.js":false,"./icons/mail-x.js":false,"./icons/mail.js":false,"./icons/mails.js":false,"./icons/mailbox.js":false,"./icons/map-minus.js":false,"./icons/map-pin-check-inside.js":false,"./icons/map-pin-check.js":false,"./icons/map-pin-house.js":false,"./icons/map-pin-minus-inside.js":false,"./icons/map-pin-minus.js":false,"./icons/map-pin-off.js":false,"./icons/map-pin-plus-inside.js":false,"./icons/map-pin-plus.js":false,"./icons/map-pin-x-inside.js":false,"./icons/map-pin-x.js":false,"./icons/map-pin.js":false,"./icons/map-pinned.js":false,"./icons/map-plus.js":false,"./icons/map.js":false,"./icons/mars.js":false,"./icons/mars-stroke.js":false,"./icons/martini.js":false,"./icons/maximize-2.js":false,"./icons/maximize.js":false,"./icons/medal.js":false,"./icons/megaphone-off.js":false,"./icons/megaphone.js":false,"./icons/memory-stick.js":false,"./icons/meh.js":false,"./icons/menu.js":false,"./icons/merge.js":false,"./icons/message-circle-code.js":false,"./icons/message-circle-dashed.js":false,"./icons/message-circle-heart.js":false,"./icons/message-circle-more.js":false,"./icons/message-circle-off.js":false,"./icons/message-circle-plus.js":false,"./icons/message-circle-reply.js":false,"./icons/message-circle-warning.js":false,"./icons/message-circle-x.js":false,"./icons/message-circle.js":false,"./icons/message-square-dashed.js":false,"./icons/message-square-code.js":false,"./icons/message-square-diff.js":false,"./icons/message-square-dot.js":false,"./icons/message-square-heart.js":false,"./icons/message-square-more.js":false,"./icons/message-square-lock.js":false,"./icons/message-square-off.js":false,"./icons/message-square-plus.js":false,"./icons/message-square-quote.js":false,"./icons/message-square-reply.js":false,"./icons/message-square-share.js":false,"./icons/message-square-text.js":false,"./icons/message-square-warning.js":false,"./icons/message-square-x.js":false,"./icons/message-square.js":false,"./icons/messages-square.js":false,"./icons/mic.js":false,"./icons/mic-off.js":false,"./icons/microchip.js":false,"./icons/microscope.js":false,"./icons/microwave.js":false,"./icons/milestone.js":false,"./icons/milk.js":false,"./icons/milk-off.js":false,"./icons/minimize-2.js":false,"./icons/minimize.js":false,"./icons/minus.js":false,"./icons/monitor-check.js":false,"./icons/monitor-dot.js":false,"./icons/monitor-cog.js":false,"./icons/monitor-down.js":false,"./icons/monitor-off.js":false,"./icons/monitor-pause.js":false,"./icons/monitor-play.js":false,"./icons/monitor-smartphone.js":false,"./icons/monitor-speaker.js":false,"./icons/monitor-stop.js":false,"./icons/monitor-up.js":false,"./icons/monitor-x.js":false,"./icons/monitor.js":false,"./icons/moon-star.js":false,"./icons/moon.js":false,"./icons/mountain-snow.js":false,"./icons/mountain.js":false,"./icons/mouse-off.js":false,"./icons/mouse-pointer-2.js":false,"./icons/mouse-pointer-ban.js":false,"./icons/mouse-pointer.js":false,"./icons/mouse-pointer-click.js":false,"./icons/mouse.js":false,"./icons/move-diagonal-2.js":false,"./icons/move-diagonal.js":false,"./icons/move-down-left.js":false,"./icons/move-down-right.js":false,"./icons/move-down.js":false,"./icons/move-horizontal.js":false,"./icons/move-left.js":false,"./icons/move-right.js":false,"./icons/move-up-left.js":false,"./icons/move-up-right.js":false,"./icons/move-up.js":false,"./icons/move-vertical.js":false,"./icons/move.js":false,"./icons/music-2.js":false,"./icons/music-3.js":false,"./icons/music-4.js":false,"./icons/music.js":false,"./icons/navigation-2-off.js":false,"./icons/navigation-2.js":false,"./icons/navigation-off.js":false,"./icons/navigation.js":false,"./icons/network.js":false,"./icons/newspaper.js":false,"./icons/nfc.js":false,"./icons/non-binary.js":false,"./icons/notebook-pen.js":false,"./icons/notebook-tabs.js":false,"./icons/notebook-text.js":false,"./icons/notepad-text-dashed.js":false,"./icons/notebook.js":false,"./icons/notepad-text.js":false,"./icons/nut-off.js":false,"./icons/nut.js":false,"./icons/octagon-minus.js":false,"./icons/octagon.js":false,"./icons/omega.js":false,"./icons/option.js":false,"./icons/orbit.js":false,"./icons/origami.js":false,"./icons/package-2.js":false,"./icons/package-check.js":false,"./icons/package-minus.js":false,"./icons/package-open.js":false,"./icons/package-plus.js":false,"./icons/package-search.js":false,"./icons/package-x.js":false,"./icons/package.js":"7JqoS","./icons/paint-bucket.js":false,"./icons/paint-roller.js":false,"./icons/paintbrush.js":false,"./icons/palette.js":false,"./icons/panda.js":false,"./icons/panel-bottom-close.js":false,"./icons/panel-bottom-open.js":false,"./icons/panel-bottom.js":false,"./icons/panel-left-right-dashed.js":false,"./icons/panel-right-close.js":false,"./icons/panel-right-open.js":false,"./icons/panel-right.js":false,"./icons/panel-top-bottom-dashed.js":false,"./icons/panel-top-close.js":false,"./icons/panel-top-open.js":false,"./icons/panel-top.js":false,"./icons/panels-left-bottom.js":false,"./icons/panels-right-bottom.js":false,"./icons/paperclip.js":false,"./icons/parking-meter.js":false,"./icons/parentheses.js":false,"./icons/party-popper.js":false,"./icons/pause.js":false,"./icons/paw-print.js":false,"./icons/pc-case.js":false,"./icons/pen-off.js":false,"./icons/pen-tool.js":false,"./icons/pencil-line.js":false,"./icons/pencil-off.js":false,"./icons/pencil-ruler.js":false,"./icons/pencil.js":false,"./icons/pentagon.js":false,"./icons/percent.js":false,"./icons/person-standing.js":false,"./icons/philippine-peso.js":false,"./icons/phone-call.js":false,"./icons/phone-forwarded.js":false,"./icons/phone-missed.js":false,"./icons/phone-incoming.js":false,"./icons/phone-off.js":false,"./icons/phone-outgoing.js":false,"./icons/phone.js":false,"./icons/pi.js":false,"./icons/piano.js":false,"./icons/pickaxe.js":false,"./icons/picture-in-picture-2.js":false,"./icons/picture-in-picture.js":false,"./icons/piggy-bank.js":false,"./icons/pilcrow-left.js":false,"./icons/pilcrow-right.js":false,"./icons/pilcrow.js":false,"./icons/pill-bottle.js":false,"./icons/pill.js":false,"./icons/pin-off.js":false,"./icons/pin.js":false,"./icons/pipette.js":false,"./icons/pizza.js":false,"./icons/plane-landing.js":false,"./icons/plane-takeoff.js":false,"./icons/plane.js":false,"./icons/plug-2.js":false,"./icons/play.js":false,"./icons/plug.js":false,"./icons/plus.js":"4DEkP","./icons/pocket-knife.js":false,"./icons/pocket.js":false,"./icons/podcast.js":false,"./icons/pointer.js":false,"./icons/pointer-off.js":false,"./icons/popcorn.js":false,"./icons/popsicle.js":false,"./icons/pound-sterling.js":false,"./icons/power-off.js":false,"./icons/power.js":false,"./icons/presentation.js":false,"./icons/printer.js":false,"./icons/printer-check.js":false,"./icons/projector.js":false,"./icons/puzzle.js":false,"./icons/proportions.js":false,"./icons/pyramid.js":false,"./icons/qr-code.js":false,"./icons/quote.js":false,"./icons/rabbit.js":false,"./icons/radar.js":false,"./icons/radiation.js":false,"./icons/radical.js":false,"./icons/radio-receiver.js":false,"./icons/radio-tower.js":false,"./icons/radio.js":false,"./icons/radius.js":false,"./icons/rail-symbol.js":false,"./icons/rainbow.js":false,"./icons/rat.js":false,"./icons/ratio.js":false,"./icons/receipt-cent.js":false,"./icons/receipt-euro.js":false,"./icons/receipt-indian-rupee.js":false,"./icons/receipt-pound-sterling.js":false,"./icons/receipt-japanese-yen.js":false,"./icons/receipt-russian-ruble.js":false,"./icons/receipt-swiss-franc.js":false,"./icons/receipt-text.js":false,"./icons/receipt-turkish-lira.js":false,"./icons/receipt.js":false,"./icons/rectangle-circle.js":false,"./icons/rectangle-goggles.js":false,"./icons/rectangle-horizontal.js":false,"./icons/rectangle-vertical.js":false,"./icons/recycle.js":false,"./icons/redo-2.js":false,"./icons/redo-dot.js":false,"./icons/redo.js":false,"./icons/refresh-ccw-dot.js":false,"./icons/refresh-ccw.js":false,"./icons/refresh-cw-off.js":false,"./icons/refresh-cw.js":"j5851","./icons/refrigerator.js":false,"./icons/regex.js":false,"./icons/remove-formatting.js":false,"./icons/repeat-1.js":false,"./icons/repeat-2.js":false,"./icons/repeat.js":false,"./icons/replace-all.js":false,"./icons/replace.js":false,"./icons/reply-all.js":false,"./icons/reply.js":false,"./icons/rewind.js":false,"./icons/ribbon.js":false,"./icons/rocket.js":false,"./icons/rocking-chair.js":false,"./icons/roller-coaster.js":false,"./icons/rose.js":false,"./icons/rotate-ccw-square.js":false,"./icons/rotate-ccw-key.js":false,"./icons/rotate-ccw.js":false,"./icons/rotate-cw-square.js":false,"./icons/rotate-cw.js":false,"./icons/route-off.js":false,"./icons/route.js":false,"./icons/router.js":false,"./icons/rows-4.js":false,"./icons/rss.js":false,"./icons/ruler-dimension-line.js":false,"./icons/ruler.js":false,"./icons/russian-ruble.js":false,"./icons/sailboat.js":false,"./icons/salad.js":false,"./icons/sandwich.js":false,"./icons/satellite-dish.js":false,"./icons/satellite.js":false,"./icons/saudi-riyal.js":false,"./icons/save-all.js":false,"./icons/save-off.js":false,"./icons/save.js":"7DJPh","./icons/scaling.js":false,"./icons/scale.js":false,"./icons/scan-barcode.js":false,"./icons/scan-eye.js":false,"./icons/scan-face.js":false,"./icons/scan-heart.js":false,"./icons/scan-line.js":false,"./icons/scan-qr-code.js":false,"./icons/scan-search.js":false,"./icons/scan-text.js":false,"./icons/scan.js":false,"./icons/school.js":false,"./icons/scissors-line-dashed.js":false,"./icons/scissors.js":false,"./icons/screen-share-off.js":false,"./icons/screen-share.js":false,"./icons/scroll-text.js":false,"./icons/scroll.js":false,"./icons/search-check.js":false,"./icons/search-code.js":false,"./icons/search-slash.js":false,"./icons/search-x.js":false,"./icons/section.js":false,"./icons/search.js":false,"./icons/send.js":false,"./icons/send-to-back.js":false,"./icons/separator-horizontal.js":false,"./icons/separator-vertical.js":false,"./icons/server-cog.js":false,"./icons/server-crash.js":false,"./icons/server.js":false,"./icons/server-off.js":false,"./icons/settings-2.js":false,"./icons/settings.js":"icIUb","./icons/shapes.js":false,"./icons/share-2.js":false,"./icons/share.js":false,"./icons/sheet.js":false,"./icons/shell.js":false,"./icons/shield-alert.js":false,"./icons/shield-ban.js":false,"./icons/shield-check.js":false,"./icons/shield-ellipsis.js":false,"./icons/shield-half.js":false,"./icons/shield-minus.js":false,"./icons/shield-off.js":false,"./icons/shield-plus.js":false,"./icons/shield-user.js":false,"./icons/shield.js":"9A9tR","./icons/ship-wheel.js":false,"./icons/ship.js":false,"./icons/shirt.js":false,"./icons/shopping-bag.js":false,"./icons/shopping-basket.js":false,"./icons/shopping-cart.js":false,"./icons/shovel.js":false,"./icons/shower-head.js":false,"./icons/shredder.js":false,"./icons/shrimp.js":false,"./icons/shrink.js":false,"./icons/shrub.js":false,"./icons/shuffle.js":false,"./icons/sigma.js":false,"./icons/signal-high.js":false,"./icons/signal-low.js":false,"./icons/signal-zero.js":false,"./icons/signal-medium.js":false,"./icons/signal.js":false,"./icons/signature.js":false,"./icons/signpost-big.js":false,"./icons/signpost.js":false,"./icons/siren.js":false,"./icons/skip-back.js":false,"./icons/skip-forward.js":false,"./icons/skull.js":false,"./icons/slack.js":false,"./icons/slash.js":false,"./icons/slice.js":false,"./icons/sliders-horizontal.js":false,"./icons/smartphone-charging.js":false,"./icons/smartphone.js":false,"./icons/smartphone-nfc.js":false,"./icons/smile.js":false,"./icons/smile-plus.js":false,"./icons/snail.js":false,"./icons/snowflake.js":false,"./icons/sofa.js":false,"./icons/soap-dispenser-droplet.js":false,"./icons/soup.js":false,"./icons/space.js":false,"./icons/spade.js":false,"./icons/sparkle.js":false,"./icons/speaker.js":false,"./icons/speech.js":false,"./icons/spell-check-2.js":false,"./icons/spell-check.js":false,"./icons/spline-pointer.js":false,"./icons/spline.js":false,"./icons/split.js":false,"./icons/spool.js":false,"./icons/spray-can.js":false,"./icons/spotlight.js":false,"./icons/sprout.js":false,"./icons/square-dashed-bottom.js":false,"./icons/square-dashed-bottom-code.js":false,"./icons/square-dashed-top-solid.js":false,"./icons/square-pause.js":false,"./icons/square-radical.js":false,"./icons/square-round-corner.js":false,"./icons/square-square.js":false,"./icons/square-stack.js":false,"./icons/square-star.js":false,"./icons/square-stop.js":false,"./icons/square.js":false,"./icons/squares-exclude.js":false,"./icons/squares-intersect.js":false,"./icons/squares-subtract.js":false,"./icons/squares-unite.js":false,"./icons/squircle-dashed.js":false,"./icons/squircle.js":false,"./icons/squirrel.js":false,"./icons/stamp.js":false,"./icons/star-half.js":false,"./icons/star.js":false,"./icons/star-off.js":false,"./icons/step-back.js":false,"./icons/step-forward.js":false,"./icons/stethoscope.js":false,"./icons/sticker.js":false,"./icons/sticky-note.js":false,"./icons/store.js":false,"./icons/stretch-horizontal.js":false,"./icons/stretch-vertical.js":false,"./icons/strikethrough.js":false,"./icons/subscript.js":false,"./icons/sun-dim.js":false,"./icons/sun-medium.js":false,"./icons/sun-moon.js":false,"./icons/sun-snow.js":false,"./icons/sun.js":false,"./icons/sunrise.js":false,"./icons/sunset.js":false,"./icons/superscript.js":false,"./icons/swatch-book.js":false,"./icons/swiss-franc.js":false,"./icons/switch-camera.js":false,"./icons/sword.js":false,"./icons/swords.js":false,"./icons/syringe.js":false,"./icons/table-2.js":false,"./icons/table-cells-merge.js":false,"./icons/table-cells-split.js":false,"./icons/table-of-contents.js":false,"./icons/table-columns-split.js":false,"./icons/table-properties.js":false,"./icons/table.js":false,"./icons/table-rows-split.js":false,"./icons/tablet-smartphone.js":false,"./icons/tablet.js":false,"./icons/tablets.js":false,"./icons/tag.js":"2YtPd","./icons/tags.js":false,"./icons/tally-1.js":false,"./icons/tally-3.js":false,"./icons/tally-2.js":false,"./icons/tally-4.js":false,"./icons/tally-5.js":false,"./icons/tangent.js":false,"./icons/target.js":false,"./icons/telescope.js":false,"./icons/tent-tree.js":false,"./icons/tent.js":false,"./icons/terminal.js":false,"./icons/test-tube.js":false,"./icons/test-tubes.js":false,"./icons/text-cursor-input.js":false,"./icons/text-cursor.js":false,"./icons/text-quote.js":false,"./icons/text-search.js":false,"./icons/theater.js":false,"./icons/thermometer-snowflake.js":false,"./icons/thermometer-sun.js":false,"./icons/thumbs-down.js":false,"./icons/thermometer.js":false,"./icons/thumbs-up.js":false,"./icons/ticket-check.js":false,"./icons/ticket-percent.js":false,"./icons/ticket-minus.js":false,"./icons/ticket-plus.js":false,"./icons/ticket-x.js":false,"./icons/ticket-slash.js":false,"./icons/ticket.js":false,"./icons/tickets-plane.js":false,"./icons/tickets.js":false,"./icons/timer-off.js":false,"./icons/timer-reset.js":false,"./icons/timer.js":false,"./icons/toggle-left.js":false,"./icons/toggle-right.js":false,"./icons/toilet.js":false,"./icons/tool-case.js":false,"./icons/tornado.js":false,"./icons/torus.js":false,"./icons/touchpad-off.js":false,"./icons/touchpad.js":false,"./icons/tower-control.js":false,"./icons/toy-brick.js":false,"./icons/tractor.js":false,"./icons/traffic-cone.js":false,"./icons/train-front-tunnel.js":false,"./icons/train-front.js":false,"./icons/train-track.js":false,"./icons/transgender.js":false,"./icons/trash-2.js":"e3cIN","./icons/trash.js":false,"./icons/tree-deciduous.js":false,"./icons/tree-pine.js":false,"./icons/trees.js":false,"./icons/trello.js":false,"./icons/trending-down.js":false,"./icons/trending-up-down.js":false,"./icons/trending-up.js":false,"./icons/triangle-dashed.js":false,"./icons/triangle-right.js":false,"./icons/triangle.js":false,"./icons/trophy.js":false,"./icons/truck-electric.js":false,"./icons/truck.js":"bTJej","./icons/turkish-lira.js":false,"./icons/turntable.js":false,"./icons/turtle.js":false,"./icons/tv-minimal-play.js":false,"./icons/tv.js":false,"./icons/twitch.js":false,"./icons/twitter.js":false,"./icons/type-outline.js":false,"./icons/type.js":false,"./icons/umbrella-off.js":false,"./icons/umbrella.js":false,"./icons/underline.js":false,"./icons/undo-2.js":false,"./icons/undo-dot.js":false,"./icons/undo.js":false,"./icons/unfold-vertical.js":false,"./icons/unfold-horizontal.js":false,"./icons/ungroup.js":false,"./icons/unlink-2.js":false,"./icons/unlink.js":false,"./icons/unplug.js":false,"./icons/upload.js":false,"./icons/usb.js":false,"./icons/user-check.js":false,"./icons/user-cog.js":false,"./icons/user-lock.js":false,"./icons/user-minus.js":false,"./icons/user-pen.js":false,"./icons/user-plus.js":"bvji1","./icons/user-round-pen.js":false,"./icons/user-round-search.js":false,"./icons/user-search.js":false,"./icons/user-star.js":false,"./icons/user-x.js":false,"./icons/user.js":"atYgq","./icons/users.js":false,"./icons/utility-pole.js":false,"./icons/variable.js":false,"./icons/vault.js":false,"./icons/vector-square.js":false,"./icons/vegan.js":false,"./icons/venetian-mask.js":false,"./icons/venus-and-mars.js":false,"./icons/venus.js":false,"./icons/vibrate-off.js":false,"./icons/vibrate.js":false,"./icons/video-off.js":false,"./icons/video.js":false,"./icons/videotape.js":false,"./icons/view.js":false,"./icons/voicemail.js":false,"./icons/volleyball.js":false,"./icons/volume-2.js":false,"./icons/volume-1.js":false,"./icons/volume-off.js":false,"./icons/volume-x.js":false,"./icons/volume.js":false,"./icons/vote.js":false,"./icons/wallet-cards.js":false,"./icons/wallet.js":false,"./icons/wallpaper.js":false,"./icons/wand.js":false,"./icons/warehouse.js":false,"./icons/washing-machine.js":false,"./icons/waves-ladder.js":false,"./icons/watch.js":false,"./icons/waves.js":false,"./icons/waypoints.js":false,"./icons/webcam.js":false,"./icons/webhook-off.js":false,"./icons/webhook.js":false,"./icons/weight.js":false,"./icons/wheat-off.js":false,"./icons/wheat.js":false,"./icons/whole-word.js":false,"./icons/wifi-cog.js":false,"./icons/wifi-high.js":false,"./icons/wifi-low.js":false,"./icons/wifi-off.js":false,"./icons/wifi-pen.js":false,"./icons/wifi-sync.js":false,"./icons/wifi-zero.js":false,"./icons/wind-arrow-down.js":false,"./icons/wifi.js":false,"./icons/wine-off.js":false,"./icons/wind.js":false,"./icons/wine.js":false,"./icons/workflow.js":false,"./icons/worm.js":false,"./icons/wrench.js":false,"./icons/x.js":"aJBqa","./icons/youtube.js":false,"./icons/zap-off.js":false,"./icons/zap.js":false,"./icons/zoom-in.js":false,"./icons/zoom-out.js":false,"./icons/arrow-down-0-1.js":false,"./icons/arrow-down-1-0.js":false,"./icons/arrow-up-0-1.js":false,"./icons/arrow-up-1-0.js":false,"./createLucideIcon.js":false,"./Icon.js":false,"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"fBZpl":[function(require,module,exports,__globalThis) {
 /**
  * @license lucide-react v0.543.0 - ISC
  *
@@ -46220,26 +46654,41 @@ var _iconJsDefault = parcelHelpers.interopDefault(_iconJs);
  */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "__iconNode", ()=>__iconNode);
-parcelHelpers.export(exports, "default", ()=>PenLine);
+parcelHelpers.export(exports, "default", ()=>CircleAlert);
 var _createLucideIconJs = require("../createLucideIcon.js");
 var _createLucideIconJsDefault = parcelHelpers.interopDefault(_createLucideIconJs);
 const __iconNode = [
     [
-        "path",
+        "circle",
         {
-            d: "M13 21h8",
-            key: "1jsn5i"
+            cx: "12",
+            cy: "12",
+            r: "10",
+            key: "1mglay"
         }
     ],
     [
-        "path",
+        "line",
         {
-            d: "M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z",
-            key: "1a8usu"
+            x1: "12",
+            x2: "12",
+            y1: "8",
+            y2: "12",
+            key: "1pkeuh"
+        }
+    ],
+    [
+        "line",
+        {
+            x1: "12",
+            x2: "12.01",
+            y1: "16",
+            y2: "16",
+            key: "4dfq90"
         }
     ]
 ];
-const PenLine = (0, _createLucideIconJsDefault.default)("pen-line", __iconNode);
+const CircleAlert = (0, _createLucideIconJsDefault.default)("circle-alert", __iconNode);
 
 },{"../createLucideIcon.js":"c2nE9","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"c2nE9":[function(require,module,exports,__globalThis) {
 /**
@@ -46346,7 +46795,67 @@ var defaultAttributes = {
     strokeLinejoin: "round"
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"j7Kdd":[function(require,module,exports,__globalThis) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"eIsf3":[function(require,module,exports,__globalThis) {
+/**
+ * @license lucide-react v0.543.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "__iconNode", ()=>__iconNode);
+parcelHelpers.export(exports, "default", ()=>CircleCheckBig);
+var _createLucideIconJs = require("../createLucideIcon.js");
+var _createLucideIconJsDefault = parcelHelpers.interopDefault(_createLucideIconJs);
+const __iconNode = [
+    [
+        "path",
+        {
+            d: "M21.801 10A10 10 0 1 1 17 3.335",
+            key: "yps3ct"
+        }
+    ],
+    [
+        "path",
+        {
+            d: "m9 11 3 3L22 4",
+            key: "1pflzl"
+        }
+    ]
+];
+const CircleCheckBig = (0, _createLucideIconJsDefault.default)("circle-check-big", __iconNode);
+
+},{"../createLucideIcon.js":"c2nE9","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"cznbW":[function(require,module,exports,__globalThis) {
+/**
+ * @license lucide-react v0.543.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "__iconNode", ()=>__iconNode);
+parcelHelpers.export(exports, "default", ()=>PenLine);
+var _createLucideIconJs = require("../createLucideIcon.js");
+var _createLucideIconJsDefault = parcelHelpers.interopDefault(_createLucideIconJs);
+const __iconNode = [
+    [
+        "path",
+        {
+            d: "M13 21h8",
+            key: "1jsn5i"
+        }
+    ],
+    [
+        "path",
+        {
+            d: "M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z",
+            key: "1a8usu"
+        }
+    ]
+];
+const PenLine = (0, _createLucideIconJsDefault.default)("pen-line", __iconNode);
+
+},{"../createLucideIcon.js":"c2nE9","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"j7Kdd":[function(require,module,exports,__globalThis) {
 /**
  * @license lucide-react v0.543.0 - ISC
  *
@@ -46398,6 +46907,75 @@ const __iconNode = [
     ]
 ];
 const Check = (0, _createLucideIconJsDefault.default)("check", __iconNode);
+
+},{"../createLucideIcon.js":"c2nE9","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"hnwjz":[function(require,module,exports,__globalThis) {
+/**
+ * @license lucide-react v0.543.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "__iconNode", ()=>__iconNode);
+parcelHelpers.export(exports, "default", ()=>Clock);
+var _createLucideIconJs = require("../createLucideIcon.js");
+var _createLucideIconJsDefault = parcelHelpers.interopDefault(_createLucideIconJs);
+const __iconNode = [
+    [
+        "path",
+        {
+            d: "M12 6v6l4 2",
+            key: "mmk7yg"
+        }
+    ],
+    [
+        "circle",
+        {
+            cx: "12",
+            cy: "12",
+            r: "10",
+            key: "1mglay"
+        }
+    ]
+];
+const Clock = (0, _createLucideIconJsDefault.default)("clock", __iconNode);
+
+},{"../createLucideIcon.js":"c2nE9","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"as1Wb":[function(require,module,exports,__globalThis) {
+/**
+ * @license lucide-react v0.543.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "__iconNode", ()=>__iconNode);
+parcelHelpers.export(exports, "default", ()=>CreditCard);
+var _createLucideIconJs = require("../createLucideIcon.js");
+var _createLucideIconJsDefault = parcelHelpers.interopDefault(_createLucideIconJs);
+const __iconNode = [
+    [
+        "rect",
+        {
+            width: "20",
+            height: "14",
+            x: "2",
+            y: "5",
+            rx: "2",
+            key: "ynyp8z"
+        }
+    ],
+    [
+        "line",
+        {
+            x1: "2",
+            x2: "22",
+            y1: "10",
+            y2: "10",
+            key: "1b3vmo"
+        }
+    ]
+];
+const CreditCard = (0, _createLucideIconJsDefault.default)("credit-card", __iconNode);
 
 },{"../createLucideIcon.js":"c2nE9","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"38tDF":[function(require,module,exports,__globalThis) {
 /**
@@ -46549,6 +47127,50 @@ const __iconNode = [
 ];
 const LogOut = (0, _createLucideIconJsDefault.default)("log-out", __iconNode);
 
+},{"../createLucideIcon.js":"c2nE9","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"7JqoS":[function(require,module,exports,__globalThis) {
+/**
+ * @license lucide-react v0.543.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "__iconNode", ()=>__iconNode);
+parcelHelpers.export(exports, "default", ()=>Package);
+var _createLucideIconJs = require("../createLucideIcon.js");
+var _createLucideIconJsDefault = parcelHelpers.interopDefault(_createLucideIconJs);
+const __iconNode = [
+    [
+        "path",
+        {
+            d: "M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z",
+            key: "1a0edw"
+        }
+    ],
+    [
+        "path",
+        {
+            d: "M12 22V12",
+            key: "d0xqtd"
+        }
+    ],
+    [
+        "polyline",
+        {
+            points: "3.29 7 12 12 20.71 7",
+            key: "ousv84"
+        }
+    ],
+    [
+        "path",
+        {
+            d: "m7.5 4.27 9 5.15",
+            key: "1c824w"
+        }
+    ]
+];
+const Package = (0, _createLucideIconJsDefault.default)("package", __iconNode);
+
 },{"../createLucideIcon.js":"c2nE9","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"4DEkP":[function(require,module,exports,__globalThis) {
 /**
  * @license lucide-react v0.543.0 - ISC
@@ -46578,6 +47200,50 @@ const __iconNode = [
     ]
 ];
 const Plus = (0, _createLucideIconJsDefault.default)("plus", __iconNode);
+
+},{"../createLucideIcon.js":"c2nE9","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"j5851":[function(require,module,exports,__globalThis) {
+/**
+ * @license lucide-react v0.543.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "__iconNode", ()=>__iconNode);
+parcelHelpers.export(exports, "default", ()=>RefreshCw);
+var _createLucideIconJs = require("../createLucideIcon.js");
+var _createLucideIconJsDefault = parcelHelpers.interopDefault(_createLucideIconJs);
+const __iconNode = [
+    [
+        "path",
+        {
+            d: "M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8",
+            key: "v9h5vc"
+        }
+    ],
+    [
+        "path",
+        {
+            d: "M21 3v5h-5",
+            key: "1q7to0"
+        }
+    ],
+    [
+        "path",
+        {
+            d: "M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16",
+            key: "3uifl3"
+        }
+    ],
+    [
+        "path",
+        {
+            d: "M8 16H3v5",
+            key: "1cv678"
+        }
+    ]
+];
+const RefreshCw = (0, _createLucideIconJsDefault.default)("refresh-cw", __iconNode);
 
 },{"../createLucideIcon.js":"c2nE9","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"7DJPh":[function(require,module,exports,__globalThis) {
 /**
@@ -46616,6 +47282,38 @@ const __iconNode = [
 ];
 const Save = (0, _createLucideIconJsDefault.default)("save", __iconNode);
 
+},{"../createLucideIcon.js":"c2nE9","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"icIUb":[function(require,module,exports,__globalThis) {
+/**
+ * @license lucide-react v0.543.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "__iconNode", ()=>__iconNode);
+parcelHelpers.export(exports, "default", ()=>Settings);
+var _createLucideIconJs = require("../createLucideIcon.js");
+var _createLucideIconJsDefault = parcelHelpers.interopDefault(_createLucideIconJs);
+const __iconNode = [
+    [
+        "path",
+        {
+            d: "M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915",
+            key: "1i5ecw"
+        }
+    ],
+    [
+        "circle",
+        {
+            cx: "12",
+            cy: "12",
+            r: "3",
+            key: "1v7zrd"
+        }
+    ]
+];
+const Settings = (0, _createLucideIconJsDefault.default)("settings", __iconNode);
+
 },{"../createLucideIcon.js":"c2nE9","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"9A9tR":[function(require,module,exports,__globalThis) {
 /**
  * @license lucide-react v0.543.0 - ISC
@@ -46638,6 +47336,39 @@ const __iconNode = [
     ]
 ];
 const Shield = (0, _createLucideIconJsDefault.default)("shield", __iconNode);
+
+},{"../createLucideIcon.js":"c2nE9","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"2YtPd":[function(require,module,exports,__globalThis) {
+/**
+ * @license lucide-react v0.543.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "__iconNode", ()=>__iconNode);
+parcelHelpers.export(exports, "default", ()=>Tag);
+var _createLucideIconJs = require("../createLucideIcon.js");
+var _createLucideIconJsDefault = parcelHelpers.interopDefault(_createLucideIconJs);
+const __iconNode = [
+    [
+        "path",
+        {
+            d: "M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z",
+            key: "vktsd0"
+        }
+    ],
+    [
+        "circle",
+        {
+            cx: "7.5",
+            cy: "7.5",
+            r: ".5",
+            fill: "currentColor",
+            key: "kqv944"
+        }
+    ]
+];
+const Tag = (0, _createLucideIconJsDefault.default)("tag", __iconNode);
 
 },{"../createLucideIcon.js":"c2nE9","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"e3cIN":[function(require,module,exports,__globalThis) {
 /**
@@ -46689,6 +47420,61 @@ const __iconNode = [
     ]
 ];
 const Trash2 = (0, _createLucideIconJsDefault.default)("trash-2", __iconNode);
+
+},{"../createLucideIcon.js":"c2nE9","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"bTJej":[function(require,module,exports,__globalThis) {
+/**
+ * @license lucide-react v0.543.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "__iconNode", ()=>__iconNode);
+parcelHelpers.export(exports, "default", ()=>Truck);
+var _createLucideIconJs = require("../createLucideIcon.js");
+var _createLucideIconJsDefault = parcelHelpers.interopDefault(_createLucideIconJs);
+const __iconNode = [
+    [
+        "path",
+        {
+            d: "M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2",
+            key: "wrbu53"
+        }
+    ],
+    [
+        "path",
+        {
+            d: "M15 18H9",
+            key: "1lyqi6"
+        }
+    ],
+    [
+        "path",
+        {
+            d: "M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14",
+            key: "lysw3i"
+        }
+    ],
+    [
+        "circle",
+        {
+            cx: "17",
+            cy: "18",
+            r: "2",
+            key: "332jqn"
+        }
+    ],
+    [
+        "circle",
+        {
+            cx: "7",
+            cy: "18",
+            r: "2",
+            key: "19iecd"
+        }
+    ]
+];
+const Truck = (0, _createLucideIconJsDefault.default)("truck", __iconNode);
 
 },{"../createLucideIcon.js":"c2nE9","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"bvji1":[function(require,module,exports,__globalThis) {
 /**
@@ -46827,10 +47613,10 @@ function cartReducer(state, action) {
         case 'ADD':
             {
                 const qty = Math.max(1, action.qty ?? 1);
-                const existing = state.items.find((i)=>i.product.id === action.product.id);
+                const existing = state.items.find((i)=>i.product?.id === action.product.id);
                 if (existing) return {
                     ...state,
-                    items: state.items.map((i)=>i.product.id === action.product.id ? {
+                    items: state.items.map((i)=>i.product?.id === action.product.id ? {
                             ...i,
                             qty: i.qty + qty
                         } : i)
@@ -46849,18 +47635,18 @@ function cartReducer(state, action) {
         case 'REMOVE':
             return {
                 ...state,
-                items: state.items.filter((i)=>i.product.id !== action.productId)
+                items: state.items.filter((i)=>i.product?.id !== action.productId)
             };
         case 'SET_QTY':
             {
                 const qty = Math.max(0, action.qty);
                 if (qty === 0) return {
                     ...state,
-                    items: state.items.filter((i)=>i.product.id !== action.productId)
+                    items: state.items.filter((i)=>i.product?.id !== action.productId)
                 };
                 return {
                     ...state,
-                    items: state.items.map((i)=>i.product.id === action.productId ? {
+                    items: state.items.map((i)=>i.product?.id === action.productId ? {
                             ...i,
                             qty
                         } : i)
@@ -46879,8 +47665,8 @@ function cartReducer(state, action) {
         case 'LOAD_FROM_API':
             return {
                 ...state,
-                items: action.items
-            };
+                items: action.items.filter((item)=>item.product)
+            }; // Filtra elementi invalidi
         default:
             return state;
     }
@@ -46898,8 +47684,10 @@ function loadInitialState() {
             items: [],
             loading: false
         };
+        // Filtra elementi con product valido
+        const validItems = parsed.items.filter((item)=>item.product && typeof item.product.price === 'number');
         return {
-            items: parsed.items,
+            items: validItems,
             loading: false
         };
     } catch  {
@@ -46967,10 +47755,12 @@ function CartProvider({ children }) {
         state.loading
     ]);
     const value = (0, _react.useMemo)(()=>{
-        const count = state.items.reduce((sum, i)=>sum + i.qty, 0);
-        const total = state.items.reduce((sum, i)=>sum + i.qty * i.product.price, 0);
+        // Filtra elementi validi prima dei calcoli
+        const validItems = state.items.filter((item)=>item.product && typeof item.product.price === 'number');
+        const count = validItems.reduce((sum, i)=>sum + i.qty, 0);
+        const total = validItems.reduce((sum, i)=>sum + i.qty * i.product.price, 0);
         return {
-            items: state.items,
+            items: validItems,
             count,
             total,
             loading: state.loading,
@@ -47010,7 +47800,7 @@ function CartProvider({ children }) {
         children: children
     }, void 0, false, {
         fileName: "src/context/CartContext.tsx",
-        lineNumber: 156,
+        lineNumber: 160,
         columnNumber: 12
     }, this);
 }
@@ -49418,6 +50208,38 @@ function AuthProvider({ children }) {
         setUser(null);
         localStorage.removeItem(STORAGE_KEY);
     };
+    const updateProfile = async (profileData)=>{
+        setLoading(true);
+        try {
+            // Simula chiamata API con delay
+            await new Promise((resolve)=>setTimeout(resolve, 800));
+            if (!user) throw new Error('Utente non autenticato');
+            const updatedUser = {
+                ...user,
+                ...profileData
+            };
+            setUser(updatedUser);
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedUser));
+        // TODO: Chiamata API reale per aggiornare il profilo
+        /*
+      const response = await fetch("http://127.0.0.1:1880/utente/profile", {
+        method: "PUT",
+        headers: { 
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${authToken}`
+        },
+        body: JSON.stringify(profileData)
+      });
+      
+      if (!response.ok) {
+        throw new Error('Errore nell\'aggiornamento del profilo');
+      }
+      */ } catch (error) {
+            throw error;
+        } finally{
+            setLoading(false);
+        }
+    };
     const value = {
         user,
         loading,
@@ -49425,14 +50247,15 @@ function AuthProvider({ children }) {
         isAdmin: user?.role === 'admin',
         login,
         register,
-        logout
+        logout,
+        updateProfile
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(AuthContext.Provider, {
         value: value,
         children: children
     }, void 0, false, {
         fileName: "src/context/AuthContext.tsx",
-        lineNumber: 148,
+        lineNumber: 192,
         columnNumber: 5
     }, this);
 }
@@ -49472,11 +50295,14 @@ var _productCard = require("../components/ProductCard");
 var _productCardDefault = parcelHelpers.interopDefault(_productCard);
 var _reactRouterDom = require("react-router-dom");
 var _api = require("../data/api");
+var _categoryContext = require("../context/CategoryContext");
 var _s = $RefreshSig$();
 function Home() {
     _s();
     const [data, setData] = (0, _react.useState)([]);
     const [loading, setLoading] = (0, _react.useState)(true);
+    // Usa il CategoryContext per le categorie dinamiche
+    const { categories: dynamicCategories, fetchCategories } = (0, _categoryContext.useCategories)();
     const [searchParams, setSearchParams] = (0, _reactRouterDom.useSearchParams)();
     const qParam = searchParams.get('q') ?? '';
     const catParam = searchParams.get('category') ?? 'all';
@@ -49508,7 +50334,7 @@ function Home() {
         category,
         sort
     ]);
-    //carica prodotti dalla API locale
+    // Carica prodotti dalla API locale
     (0, _react.useEffect)(()=>{
         let cancelled = false;
         setLoading(true);
@@ -49523,19 +50349,29 @@ function Home() {
             cancelled = true;
         };
     }, []);
+    // Carica le categorie 
+    (0, _react.useEffect)(()=>{
+        fetchCategories();
+    }, [
+        fetchCategories
+    ]);
     const categories = (0, _react.useMemo)(()=>{
-        const set = new Set();
-        data.forEach((p)=>set.add(p.category));
+        const activeCategories = dynamicCategories.filter((cat)=>cat.active).sort((a, b)=>(a.sortOrder || 0) - (b.sortOrder || 0)).map((cat)=>cat.slug);
         return [
             'all',
-            ...Array.from(set)
+            ...activeCategories
         ];
     }, [
-        data
+        dynamicCategories
     ]);
+    // Filtra per slug delle categorie 
     const filtered = (0, _react.useMemo)(()=>{
         let list = data.filter((p)=>p?.name.toLowerCase().includes(qDebounced.toLowerCase()) || p?.category.toLowerCase().includes(qDebounced.toLowerCase()));
-        if (category !== 'all') list = list.filter((p)=>p.category === category);
+        if (category !== 'all') {
+            // Trova la categoria  corrispondente
+            const selectedCategory = dynamicCategories.find((cat)=>cat.slug === category);
+            if (selectedCategory) list = list.filter((p)=>p.category.toLowerCase() === selectedCategory.name.toLowerCase() || p.categoryId === selectedCategory.id);
+        }
         if (sort === 'price-asc') list = [
             ...list
         ].sort((a, b)=>a.price - b.price);
@@ -49547,7 +50383,8 @@ function Home() {
         data,
         qDebounced,
         category,
-        sort
+        sort,
+        dynamicCategories
     ]);
     (0, _react.useEffect)(()=>{
         if (orderSuccess) {
@@ -49565,6 +50402,12 @@ function Home() {
         searchParams,
         setSearchParams
     ]);
+    // ottiene il nome visualizzato della categoria
+    const getCategoryDisplayName = (categorySlug)=>{
+        if (categorySlug === 'all') return 'Tutte le categorie';
+        const category = dynamicCategories.find((cat)=>cat.slug === categorySlug);
+        return category ? category.name : categorySlug;
+    };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -49575,7 +50418,7 @@ function Home() {
                         children: "Catalogo"
                     }, void 0, false, {
                         fileName: "src/pages/Home.tsx",
-                        lineNumber: 78,
+                        lineNumber: 109,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form), {
@@ -49589,7 +50432,7 @@ function Home() {
                                 onChange: (e)=>setQ(e.target.value)
                             }, void 0, false, {
                                 fileName: "src/pages/Home.tsx",
-                                lineNumber: 81,
+                                lineNumber: 112,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Select, {
@@ -49599,15 +50442,15 @@ function Home() {
                                 title: "Categoria",
                                 children: categories.map((c)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
                                         value: c,
-                                        children: c === 'all' ? 'Tutte le categorie' : c
+                                        children: getCategoryDisplayName(c)
                                     }, c, false, {
                                         fileName: "src/pages/Home.tsx",
-                                        lineNumber: 95,
+                                        lineNumber: 126,
                                         columnNumber: 29
                                     }, this))
                             }, void 0, false, {
                                 fileName: "src/pages/Home.tsx",
-                                lineNumber: 88,
+                                lineNumber: 119,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Select, {
@@ -49621,7 +50464,7 @@ function Home() {
                                         children: "Ordina"
                                     }, void 0, false, {
                                         fileName: "src/pages/Home.tsx",
-                                        lineNumber: 104,
+                                        lineNumber: 137,
                                         columnNumber: 25
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
@@ -49629,7 +50472,7 @@ function Home() {
                                         children: "Prezzo: crescente"
                                     }, void 0, false, {
                                         fileName: "src/pages/Home.tsx",
-                                        lineNumber: 105,
+                                        lineNumber: 138,
                                         columnNumber: 25
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
@@ -49637,25 +50480,25 @@ function Home() {
                                         children: "Prezzo: decrescente"
                                     }, void 0, false, {
                                         fileName: "src/pages/Home.tsx",
-                                        lineNumber: 106,
+                                        lineNumber: 139,
                                         columnNumber: 25
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/pages/Home.tsx",
-                                lineNumber: 98,
+                                lineNumber: 131,
                                 columnNumber: 21
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/pages/Home.tsx",
-                        lineNumber: 80,
+                        lineNumber: 111,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/pages/Home.tsx",
-                lineNumber: 77,
+                lineNumber: 108,
                 columnNumber: 13
             }, this),
             orderSuccess && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Alert), {
@@ -49671,7 +50514,7 @@ function Home() {
                 children: "Ordine completato! \uD83C\uDF89"
             }, void 0, false, {
                 fileName: "src/pages/Home.tsx",
-                lineNumber: 112,
+                lineNumber: 145,
                 columnNumber: 17
             }, this),
             loading && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -49681,12 +50524,12 @@ function Home() {
                     role: "status"
                 }, void 0, false, {
                     fileName: "src/pages/Home.tsx",
-                    lineNumber: 123,
+                    lineNumber: 156,
                     columnNumber: 21
                 }, this)
             }, void 0, false, {
                 fileName: "src/pages/Home.tsx",
-                lineNumber: 122,
+                lineNumber: 155,
                 columnNumber: 17
             }, this),
             !loading && filtered.length === 0 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Alert), {
@@ -49694,7 +50537,7 @@ function Home() {
                 children: "Nessun prodotto trovato."
             }, void 0, false, {
                 fileName: "src/pages/Home.tsx",
-                lineNumber: 128,
+                lineNumber: 161,
                 columnNumber: 17
             }, this),
             !loading && filtered.length > 0 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -49705,14 +50548,14 @@ function Home() {
                         children: filtered.length
                     }, void 0, false, {
                         fileName: "src/pages/Home.tsx",
-                        lineNumber: 133,
+                        lineNumber: 166,
                         columnNumber: 21
                     }, this),
                     " prodotti"
                 ]
             }, void 0, true, {
                 fileName: "src/pages/Home.tsx",
-                lineNumber: 132,
+                lineNumber: 165,
                 columnNumber: 17
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
@@ -49726,24 +50569,25 @@ function Home() {
                             product: p
                         }, void 0, false, {
                             fileName: "src/pages/Home.tsx",
-                            lineNumber: 140,
+                            lineNumber: 173,
                             columnNumber: 25
                         }, this)
                     }, p.id, false, {
                         fileName: "src/pages/Home.tsx",
-                        lineNumber: 139,
+                        lineNumber: 172,
                         columnNumber: 21
                     }, this))
             }, void 0, false, {
                 fileName: "src/pages/Home.tsx",
-                lineNumber: 137,
+                lineNumber: 170,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true);
 }
-_s(Home, "IV+ZQD9Id1v9SJB+W7Dld2T9o1c=", false, function() {
+_s(Home, "zepKQBIesg+s7lpQM6+7qiMARDE=", false, function() {
     return [
+        (0, _categoryContext.useCategories),
         (0, _reactRouterDom.useSearchParams)
     ];
 });
@@ -49756,7 +50600,7 @@ $RefreshReg$(_c, "Home");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","react-bootstrap":"ctEhb","../components/ProductCard":"99RjA","react-router-dom":"61z4w","../data/api":"kkQ0o","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"99RjA":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","react-bootstrap":"ctEhb","../components/ProductCard":"99RjA","react-router-dom":"61z4w","../data/api":"kkQ0o","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","../context/CategoryContext":"4AzgB"}],"99RjA":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$1bb3 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$1bb3.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
@@ -50255,7 +51099,166 @@ const RAW_PRODUCTS = [
     }
 ];
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"6ooNF":[function(require,module,exports,__globalThis) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"4AzgB":[function(require,module,exports,__globalThis) {
+var $parcel$ReactRefreshHelpers$b7d5 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+$parcel$ReactRefreshHelpers$b7d5.init();
+var prevRefreshReg = globalThis.$RefreshReg$;
+var prevRefreshSig = globalThis.$RefreshSig$;
+$parcel$ReactRefreshHelpers$b7d5.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "CategoryProvider", ()=>CategoryProvider);
+parcelHelpers.export(exports, "useCategories", ()=>useCategories);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _config = require("src/config");
+var _s = $RefreshSig$(), _s1 = $RefreshSig$();
+const CategoryContext = /*#__PURE__*/ (0, _react.createContext)(undefined);
+function CategoryProvider({ children }) {
+    _s();
+    const [categories, setCategories] = (0, _react.useState)([]);
+    const [loading, setLoading] = (0, _react.useState)(false);
+    const [error, setError] = (0, _react.useState)(null);
+    const fetchCategories = (0, _react.useCallback)(async ()=>{
+        if (loading) return;
+        setLoading(true);
+        setError(null);
+        try {
+            const response = await fetch(`${(0, _config.config).API_BASE}/categorie`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            if (!response.ok) throw new Error(`Errore nel caricamento categorie: ${response.statusText}`);
+            const data = await response.json();
+            setCategories(Array.isArray(data) ? data : []);
+        } catch (err) {
+            setError(err instanceof Error ? err.message : 'Errore sconosciuto');
+            console.error('Errore fetchCategories:', err);
+            // Fallback con array vuoto invece di bloccare l'app
+            setCategories([]);
+        } finally{
+            setLoading(false);
+        }
+    }, [
+        loading
+    ]);
+    // Carica le categorie solo una volta al mount
+    (0, _react.useEffect)(()=>{
+        fetchCategories();
+    }, []); // Dipendenze vuote per caricare solo una volta
+    const createCategory = async (categoryData)=>{
+        setLoading(true);
+        setError(null);
+        try {
+            const response = await fetch(`${(0, _config.config).API_BASE}/categorie`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(categoryData)
+            });
+            if (!response.ok) throw new Error(`Errore nella creazione categoria: ${response.statusText}`);
+            const newCategory = await response.json();
+            setCategories((prev)=>[
+                    ...prev,
+                    newCategory
+                ]);
+        } catch (err) {
+            setError(err instanceof Error ? err.message : 'Errore nella creazione');
+            throw err;
+        } finally{
+            setLoading(false);
+        }
+    };
+    const updateCategory = async (id, categoryData)=>{
+        setLoading(true);
+        setError(null);
+        try {
+            const response = await fetch(`${(0, _config.config).API_BASE}/categorie/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(categoryData)
+            });
+            if (!response.ok) throw new Error(`Errore nell'aggiornamento categoria: ${response.statusText}`);
+            const updatedCategory = await response.json();
+            setCategories((prev)=>prev.map((c)=>c.id === id ? updatedCategory : c));
+        } catch (err) {
+            setError(err instanceof Error ? err.message : 'Errore nell\'aggiornamento');
+            throw err;
+        } finally{
+            setLoading(false);
+        }
+    };
+    const deleteCategory = async (id)=>{
+        setLoading(true);
+        setError(null);
+        try {
+            const response = await fetch(`${(0, _config.config).API_BASE}/categorie/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            if (!response.ok) throw new Error(`Errore nell'eliminazione categoria: ${response.statusText}`);
+            setCategories((prev)=>prev.filter((c)=>c.id !== id));
+        } catch (err) {
+            setError(err instanceof Error ? err.message : 'Errore nell\'eliminazione');
+            throw err;
+        } finally{
+            setLoading(false);
+        }
+    };
+    const getCategoryById = (id)=>{
+        return categories.find((c)=>c.id === id);
+    };
+    const getCategoriesByParent = (parentId)=>{
+        return categories.filter((c)=>c.parentId === parentId);
+    };
+    const value = {
+        categories,
+        loading,
+        error,
+        fetchCategories,
+        createCategory,
+        updateCategory,
+        deleteCategory,
+        getCategoryById,
+        getCategoriesByParent
+    };
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(CategoryContext.Provider, {
+        value: value,
+        children: children
+    }, void 0, false, {
+        fileName: "src/context/CategoryContext.tsx",
+        lineNumber: 163,
+        columnNumber: 5
+    }, this);
+}
+_s(CategoryProvider, "umjKJXTB/aPlNfcz5my9iJAJ8wk=");
+_c = CategoryProvider;
+function useCategories() {
+    _s1();
+    const context = (0, _react.useContext)(CategoryContext);
+    if (!context) throw new Error('useCategories deve essere usato dentro CategoryProvider');
+    return context;
+}
+_s1(useCategories, "b9L3QQ+jgeyIrH0NfHrJ8nn7VMU=");
+var _c;
+$RefreshReg$(_c, "CategoryProvider");
+
+  $parcel$ReactRefreshHelpers$b7d5.postlude(module);
+} finally {
+  globalThis.$RefreshReg$ = prevRefreshReg;
+  globalThis.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","src/config":"fCip8","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"6ooNF":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$0425 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$0425.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
@@ -53324,33 +54327,49 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _lucideReact = require("lucide-react");
 var _api = require("../data/api");
 var _toastContext = require("../context/ToastContext");
-var _productContext = require("src/context/ProductContext");
+var _productContext = require("../context/ProductContext");
+var _categoryContext = require("../context/CategoryContext");
 var _s = $RefreshSig$();
 const AdminPanel = ()=>{
     _s();
+    const [activeTab, setActiveTab] = (0, _react.useState)('products');
     const [products, setProducts] = (0, _react.useState)([]);
     const [showForm, setShowForm] = (0, _react.useState)(false);
     const [editingProduct, setEditingProduct] = (0, _react.useState)(null);
+    const [editingCategory, setEditingCategory] = (0, _react.useState)(null);
     const [loading, setLoading] = (0, _react.useState)(true);
     const { createProduct } = (0, _productContext.useProducts)();
-    const [formData, setFormData] = (0, _react.useState)({
+    const { categories, loading: categoriesLoading, error: categoriesError, fetchCategories, createCategory, updateCategory, deleteCategory } = (0, _categoryContext.useCategories)();
+    const [productFormData, setProductFormData] = (0, _react.useState)({
         name: '',
-        category: "men's clothing",
+        categoryId: 0,
         price: 0,
         originalPrice: undefined,
         description: '',
-        imageFile: '',
+        image: '',
+        stock: 0,
         colors: [
             '#000000'
         ],
         isNew: false,
-        isSale: false
+        isSale: false,
+        featured: false
+    });
+    const [categoryFormData, setCategoryFormData] = (0, _react.useState)({
+        name: '',
+        description: '',
+        slug: '',
+        parentId: undefined,
+        image: '',
+        active: true,
+        sortOrder: 0
     });
     const [imagePreview, setImagePreview] = (0, _react.useState)('');
     const [uploadedImage, setUploadedImage] = (0, _react.useState)(null);
     const { showToast } = (0, _toastContext.useToast)();
     (0, _react.useEffect)(()=>{
         loadProducts();
+        fetchCategories();
     }, []);
     const loadProducts = async ()=>{
         try {
@@ -53363,24 +54382,48 @@ const AdminPanel = ()=>{
             setLoading(false);
         }
     };
-    const resetForm = ()=>{
-        setFormData({
+    const resetProductForm = ()=>{
+        setProductFormData({
             name: '',
-            category: "men's clothing",
+            categoryId: 0,
             price: 0,
             originalPrice: undefined,
             description: '',
-            imageFile: '',
+            image: '',
+            stock: 0,
             colors: [
                 '#000000'
             ],
             isNew: false,
-            isSale: false
+            isSale: false,
+            featured: false
         });
         setImagePreview('');
         setUploadedImage(null);
         setEditingProduct(null);
         setShowForm(false);
+    };
+    const resetCategoryForm = ()=>{
+        setCategoryFormData({
+            name: '',
+            description: '',
+            slug: '',
+            parentId: undefined,
+            image: '',
+            active: true,
+            sortOrder: 0
+        });
+        setImagePreview('');
+        setUploadedImage(null);
+        setEditingCategory(null);
+        setShowForm(false);
+    };
+    const generateSlug = (name)=>{
+        return name.toLowerCase().replace(/[àáäâ]/g, 'a').replace(/[èéëê]/g, 'e').replace(/[ìíïî]/g, 'i').replace(/[òóöô]/g, 'o').replace(/[ùúüû]/g, 'u').replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
+    };
+    const getCategoryNameById = (categoryId)=>{
+        const category = categories.find((c)=>c.id === categoryId);
+        return category ? category.name : 'Categoria sconosciuta';
     };
     const handleImageUpload = (e)=>{
         const file = e.target.files?.[0];
@@ -53391,9 +54434,13 @@ const AdminPanel = ()=>{
                 reader.onload = (e)=>{
                     const result = e.target?.result;
                     setImagePreview(result);
-                    setFormData((prev)=>({
+                    if (activeTab === 'products') setProductFormData((prev)=>({
                             ...prev,
-                            imageFile: file.name
+                            image: file.name
+                        }));
+                    else setCategoryFormData((prev)=>({
+                            ...prev,
+                            image: file.name
                         }));
                 };
                 reader.readAsDataURL(file);
@@ -53402,16 +54449,16 @@ const AdminPanel = ()=>{
     };
     const handleColorChange = (index, color)=>{
         const newColors = [
-            ...formData.colors
+            ...productFormData.colors
         ];
         newColors[index] = color;
-        setFormData((prev)=>({
+        setProductFormData((prev)=>({
                 ...prev,
                 colors: newColors
             }));
     };
     const addColor = ()=>{
-        if (formData.colors.length < 5) setFormData((prev)=>({
+        if (productFormData.colors.length < 5) setProductFormData((prev)=>({
                 ...prev,
                 colors: [
                     ...prev.colors,
@@ -53420,36 +54467,58 @@ const AdminPanel = ()=>{
             }));
     };
     const removeColor = (index)=>{
-        if (formData.colors.length > 1) {
-            const newColors = formData.colors.filter((_, i)=>i !== index);
-            setFormData((prev)=>({
+        if (productFormData.colors.length > 1) {
+            const newColors = productFormData.colors.filter((_, i)=>i !== index);
+            setProductFormData((prev)=>({
                     ...prev,
                     colors: newColors
                 }));
         }
     };
-    const handleEdit = (product)=>{
+    const handleEditProduct = (product)=>{
         setEditingProduct(product);
-        setFormData({
+        setProductFormData({
             name: product.name,
-            category: product.category,
+            categoryId: product.categoryId,
             price: product.price,
             originalPrice: product.originalPrice,
             description: product.description || '',
-            imageFile: product.imageFile,
+            image: product.image || '',
+            stock: product.stock,
             colors: product.colors || [
                 '#000000'
             ],
             isNew: product.isNew || false,
-            isSale: product.isSale || false
+            isSale: product.isSale || false,
+            featured: product.featured || false
         });
-        setImagePreview(product.image);
+        setImagePreview(product.image || '');
+        setActiveTab('products');
         setShowForm(true);
     };
-    const handleSubmit = async (e)=>{
+    const handleEditCategory = (category)=>{
+        setEditingCategory(category);
+        setCategoryFormData({
+            name: category.name,
+            description: category.description || '',
+            slug: category.slug,
+            parentId: category.parentId,
+            image: category.image || '',
+            active: category.active,
+            sortOrder: category.sortOrder || 0
+        });
+        setImagePreview(category.image || '');
+        setActiveTab('categories');
+        setShowForm(true);
+    };
+    const handleProductSubmit = async (e)=>{
         e.preventDefault();
-        if (!formData.name.trim() || !formData.description.trim() || formData.price <= 0) {
+        if (!productFormData.name.trim() || !productFormData.description.trim() || productFormData.price <= 0) {
             showToast('Compila tutti i campi obbligatori', 'warning');
+            return;
+        }
+        if (productFormData.categoryId === 0) {
+            showToast('Seleziona una categoria', 'warning');
             return;
         }
         if (!editingProduct && !uploadedImage && !imagePreview) {
@@ -53457,43 +54526,69 @@ const AdminPanel = ()=>{
             return;
         }
         try {
+            const selectedCategory = categories.find((c)=>c.id === productFormData.categoryId);
             const newProduct = {
                 id: editingProduct ? editingProduct.id : Date.now(),
-                name: formData.name,
-                category: formData.category,
-                price: formData.price,
-                originalPrice: formData.isSale ? formData.originalPrice : undefined,
+                name: productFormData.name,
+                category: selectedCategory?.slug || '',
+                categoryId: productFormData.categoryId,
+                price: productFormData.price,
+                originalPrice: productFormData.isSale ? productFormData.originalPrice : undefined,
                 rating: editingProduct ? editingProduct.rating : 0,
                 reviews: editingProduct ? editingProduct.reviews : 0,
                 image: imagePreview || `https://picsum.photos/300/300?random=${Date.now()}`,
-                imageFile: formData.imageFile || `product-${Date.now()}.jpg`,
-                colors: formData.colors,
-                isNew: formData.isNew,
-                isSale: formData.isSale,
-                description: formData.description
+                stock: productFormData.stock,
+                colors: productFormData.colors,
+                isNew: productFormData.isNew,
+                isSale: productFormData.isSale,
+                featured: productFormData.featured,
+                description: productFormData.description
             };
             let updatedProducts;
             if (editingProduct) {
-                // Aggiorna prodotto
                 updatedProducts = products.map((p)=>p.id === editingProduct.id ? newProduct : p);
                 showToast('Prodotto aggiornato con successo!', 'success');
             } else {
-                // Aggiungi nuovo prodotto
                 updatedProducts = [
                     ...products,
                     newProduct
                 ];
                 showToast('Prodotto aggiunto con successo!', 'success');
+                await createProduct(newProduct);
             }
-            createProduct(updatedProducts);
             setProducts(updatedProducts);
             (0, _api.saveProducts)(updatedProducts);
-            resetForm();
+            resetProductForm();
         } catch (error) {
             showToast('Errore nel salvare il prodotto', 'danger');
         }
     };
-    const handleDelete = async (productId)=>{
+    const handleCategorySubmit = async (e)=>{
+        e.preventDefault();
+        if (!categoryFormData.name.trim()) {
+            showToast("Il nome della categoria \xe8 obbligatorio", 'warning');
+            return;
+        }
+        try {
+            const categoryData = {
+                ...categoryFormData,
+                slug: categoryFormData.slug || generateSlug(categoryFormData.name),
+                image: imagePreview || `https://picsum.photos/400/300?random=${Date.now()}`
+            };
+            if (editingCategory) {
+                await updateCategory(editingCategory.id, categoryData);
+                showToast('Categoria aggiornata con successo!', 'success');
+            } else {
+                await createCategory(categoryData);
+                showToast('Categoria creata con successo!', 'success');
+            }
+            resetCategoryForm();
+            fetchCategories();
+        } catch (error) {
+            showToast('Errore nel salvare la categoria', 'danger');
+        }
+    };
+    const handleDeleteProduct = async (productId)=>{
         if (window.confirm('Sei sicuro di voler eliminare questo prodotto?')) try {
             const updatedProducts = products.filter((p)=>p.id !== productId);
             setProducts(updatedProducts);
@@ -53503,16 +54598,32 @@ const AdminPanel = ()=>{
             showToast('Errore nell\'eliminazione del prodotto', 'danger');
         }
     };
-    const getCategoryBadgeColor = (category)=>{
-        const colors = {
-            "men's clothing": 'primary',
-            "women's clothing": 'success',
-            "jewelery": 'warning',
-            "electronics": 'info'
-        };
-        return colors[category] || 'secondary';
+    const handleDeleteCategory = async (categoryId)=>{
+        // Controlla se ci sono prodotti in questa categoria
+        const productsInCategory = products.filter((p)=>p.categoryId === categoryId);
+        if (productsInCategory.length > 0) {
+            showToast(`Impossibile eliminare: ci sono ${productsInCategory.length} prodotti in questa categoria`, 'warning');
+            return;
+        }
+        if (window.confirm('Sei sicuro di voler eliminare questa categoria?')) try {
+            await deleteCategory(categoryId);
+            showToast('Categoria eliminata con successo!', 'success');
+            fetchCategories();
+        } catch (error) {
+            showToast('Errore nell\'eliminazione della categoria', 'danger');
+        }
     };
-    if (loading) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+    const getCategoryBadgeColor = (categoryId)=>{
+        const colors = [
+            'primary',
+            'success',
+            'warning',
+            'info',
+            'secondary'
+        ];
+        return colors[categoryId % colors.length];
+    };
+    if (loading || categoriesLoading) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "container-fluid py-4",
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
             className: "d-flex justify-content-center",
@@ -53524,22 +54635,22 @@ const AdminPanel = ()=>{
                     children: "Caricamento..."
                 }, void 0, false, {
                     fileName: "src/pages/AdminPanel.tsx",
-                    lineNumber: 209,
+                    lineNumber: 360,
                     columnNumber: 25
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/pages/AdminPanel.tsx",
-                lineNumber: 208,
+                lineNumber: 359,
                 columnNumber: 21
             }, undefined)
         }, void 0, false, {
             fileName: "src/pages/AdminPanel.tsx",
-            lineNumber: 207,
+            lineNumber: 358,
             columnNumber: 17
         }, undefined)
     }, void 0, false, {
         fileName: "src/pages/AdminPanel.tsx",
-        lineNumber: 206,
+        lineNumber: 357,
         columnNumber: 13
     }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -53564,21 +54675,21 @@ const AdminPanel = ()=>{
                                             children: "Pannello Amministratore"
                                         }, void 0, false, {
                                             fileName: "src/pages/AdminPanel.tsx",
-                                            lineNumber: 223,
+                                            lineNumber: 374,
                                             columnNumber: 29
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                             className: "text-white-50 mb-0",
-                                            children: "Gestisci il catalogo prodotti"
+                                            children: activeTab === 'products' ? 'Gestisci il catalogo prodotti' : 'Gestisci le categorie'
                                         }, void 0, false, {
                                             fileName: "src/pages/AdminPanel.tsx",
-                                            lineNumber: 224,
+                                            lineNumber: 375,
                                             columnNumber: 29
                                         }, undefined)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/pages/AdminPanel.tsx",
-                                    lineNumber: 222,
+                                    lineNumber: 373,
                                     columnNumber: 25
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -53590,20 +54701,95 @@ const AdminPanel = ()=>{
                                             size: 20
                                         }, void 0, false, {
                                             fileName: "src/pages/AdminPanel.tsx",
-                                            lineNumber: 230,
+                                            lineNumber: 383,
                                             columnNumber: 29
                                         }, undefined),
-                                        "Aggiungi Prodotto"
+                                        activeTab === 'products' ? 'Aggiungi Prodotto' : 'Aggiungi Categoria'
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/pages/AdminPanel.tsx",
-                                    lineNumber: 226,
+                                    lineNumber: 379,
                                     columnNumber: 25
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/pages/AdminPanel.tsx",
-                            lineNumber: 221,
+                            lineNumber: 372,
+                            columnNumber: 21
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "card bg-white bg-opacity-10 backdrop-blur border-0 mb-4",
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "card-body p-0",
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
+                                    className: "nav nav-tabs border-0",
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                            className: "nav-item",
+                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                                className: `nav-link border-0 text-white ${activeTab === 'products' ? 'active bg-white bg-opacity-20' : ''}`,
+                                                onClick: ()=>setActiveTab('products'),
+                                                children: [
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _lucideReact.Package), {
+                                                        className: "me-2",
+                                                        size: 18
+                                                    }, void 0, false, {
+                                                        fileName: "src/pages/AdminPanel.tsx",
+                                                        lineNumber: 397,
+                                                        columnNumber: 41
+                                                    }, undefined),
+                                                    "Prodotti"
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "src/pages/AdminPanel.tsx",
+                                                lineNumber: 393,
+                                                columnNumber: 37
+                                            }, undefined)
+                                        }, void 0, false, {
+                                            fileName: "src/pages/AdminPanel.tsx",
+                                            lineNumber: 392,
+                                            columnNumber: 33
+                                        }, undefined),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                            className: "nav-item",
+                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                                className: `nav-link border-0 text-white ${activeTab === 'categories' ? 'active bg-white bg-opacity-20' : ''}`,
+                                                onClick: ()=>setActiveTab('categories'),
+                                                children: [
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _lucideReact.Tag), {
+                                                        className: "me-2",
+                                                        size: 18
+                                                    }, void 0, false, {
+                                                        fileName: "src/pages/AdminPanel.tsx",
+                                                        lineNumber: 406,
+                                                        columnNumber: 41
+                                                    }, undefined),
+                                                    "Categorie"
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "src/pages/AdminPanel.tsx",
+                                                lineNumber: 402,
+                                                columnNumber: 37
+                                            }, undefined)
+                                        }, void 0, false, {
+                                            fileName: "src/pages/AdminPanel.tsx",
+                                            lineNumber: 401,
+                                            columnNumber: 33
+                                        }, undefined)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/pages/AdminPanel.tsx",
+                                    lineNumber: 391,
+                                    columnNumber: 29
+                                }, undefined)
+                            }, void 0, false, {
+                                fileName: "src/pages/AdminPanel.tsx",
+                                lineNumber: 390,
+                                columnNumber: 25
+                            }, undefined)
+                        }, void 0, false, {
+                            fileName: "src/pages/AdminPanel.tsx",
+                            lineNumber: 389,
                             columnNumber: 21
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -53625,7 +54811,7 @@ const AdminPanel = ()=>{
                                                             children: "Totale Prodotti"
                                                         }, void 0, false, {
                                                             fileName: "src/pages/AdminPanel.tsx",
-                                                            lineNumber: 242,
+                                                            lineNumber: 421,
                                                             columnNumber: 45
                                                         }, undefined),
                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
@@ -53633,33 +54819,33 @@ const AdminPanel = ()=>{
                                                             children: products.length
                                                         }, void 0, false, {
                                                             fileName: "src/pages/AdminPanel.tsx",
-                                                            lineNumber: 243,
+                                                            lineNumber: 422,
                                                             columnNumber: 45
                                                         }, undefined)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                    lineNumber: 241,
+                                                    lineNumber: 420,
                                                     columnNumber: 41
                                                 }, undefined)
                                             }, void 0, false, {
                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                lineNumber: 240,
+                                                lineNumber: 419,
                                                 columnNumber: 37
                                             }, undefined)
                                         }, void 0, false, {
                                             fileName: "src/pages/AdminPanel.tsx",
-                                            lineNumber: 239,
+                                            lineNumber: 418,
                                             columnNumber: 33
                                         }, undefined)
                                     }, void 0, false, {
                                         fileName: "src/pages/AdminPanel.tsx",
-                                        lineNumber: 238,
+                                        lineNumber: 417,
                                         columnNumber: 29
                                     }, undefined)
                                 }, void 0, false, {
                                     fileName: "src/pages/AdminPanel.tsx",
-                                    lineNumber: 237,
+                                    lineNumber: 416,
                                     columnNumber: 25
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -53675,44 +54861,44 @@ const AdminPanel = ()=>{
                                                     children: [
                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h5", {
                                                             className: "card-title",
-                                                            children: "Nuovi Arrivi"
+                                                            children: "Categorie Attive"
                                                         }, void 0, false, {
                                                             fileName: "src/pages/AdminPanel.tsx",
-                                                            lineNumber: 254,
+                                                            lineNumber: 433,
                                                             columnNumber: 45
                                                         }, undefined),
                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
                                                             className: "mb-0",
-                                                            children: products.filter((p)=>p.isNew).length
+                                                            children: categories.filter((c)=>c.active).length
                                                         }, void 0, false, {
                                                             fileName: "src/pages/AdminPanel.tsx",
-                                                            lineNumber: 255,
+                                                            lineNumber: 434,
                                                             columnNumber: 45
                                                         }, undefined)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                    lineNumber: 253,
+                                                    lineNumber: 432,
                                                     columnNumber: 41
                                                 }, undefined)
                                             }, void 0, false, {
                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                lineNumber: 252,
+                                                lineNumber: 431,
                                                 columnNumber: 37
                                             }, undefined)
                                         }, void 0, false, {
                                             fileName: "src/pages/AdminPanel.tsx",
-                                            lineNumber: 251,
+                                            lineNumber: 430,
                                             columnNumber: 33
                                         }, undefined)
                                     }, void 0, false, {
                                         fileName: "src/pages/AdminPanel.tsx",
-                                        lineNumber: 250,
+                                        lineNumber: 429,
                                         columnNumber: 29
                                     }, undefined)
                                 }, void 0, false, {
                                     fileName: "src/pages/AdminPanel.tsx",
-                                    lineNumber: 249,
+                                    lineNumber: 428,
                                     columnNumber: 25
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -53731,7 +54917,7 @@ const AdminPanel = ()=>{
                                                             children: "In Offerta"
                                                         }, void 0, false, {
                                                             fileName: "src/pages/AdminPanel.tsx",
-                                                            lineNumber: 266,
+                                                            lineNumber: 445,
                                                             columnNumber: 45
                                                         }, undefined),
                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
@@ -53739,33 +54925,33 @@ const AdminPanel = ()=>{
                                                             children: products.filter((p)=>p.isSale).length
                                                         }, void 0, false, {
                                                             fileName: "src/pages/AdminPanel.tsx",
-                                                            lineNumber: 267,
+                                                            lineNumber: 446,
                                                             columnNumber: 45
                                                         }, undefined)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                    lineNumber: 265,
+                                                    lineNumber: 444,
                                                     columnNumber: 41
                                                 }, undefined)
                                             }, void 0, false, {
                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                lineNumber: 264,
+                                                lineNumber: 443,
                                                 columnNumber: 37
                                             }, undefined)
                                         }, void 0, false, {
                                             fileName: "src/pages/AdminPanel.tsx",
-                                            lineNumber: 263,
+                                            lineNumber: 442,
                                             columnNumber: 33
                                         }, undefined)
                                     }, void 0, false, {
                                         fileName: "src/pages/AdminPanel.tsx",
-                                        lineNumber: 262,
+                                        lineNumber: 441,
                                         columnNumber: 29
                                     }, undefined)
                                 }, void 0, false, {
                                     fileName: "src/pages/AdminPanel.tsx",
-                                    lineNumber: 261,
+                                    lineNumber: 440,
                                     columnNumber: 25
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -53781,53 +54967,53 @@ const AdminPanel = ()=>{
                                                     children: [
                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h5", {
                                                             className: "card-title",
-                                                            children: "Categorie"
+                                                            children: "Nuovi Arrivi"
                                                         }, void 0, false, {
                                                             fileName: "src/pages/AdminPanel.tsx",
-                                                            lineNumber: 278,
+                                                            lineNumber: 457,
                                                             columnNumber: 45
                                                         }, undefined),
                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
                                                             className: "mb-0",
-                                                            children: new Set(products.map((p)=>p.category)).size
+                                                            children: products.filter((p)=>p.isNew).length
                                                         }, void 0, false, {
                                                             fileName: "src/pages/AdminPanel.tsx",
-                                                            lineNumber: 279,
+                                                            lineNumber: 458,
                                                             columnNumber: 45
                                                         }, undefined)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                    lineNumber: 277,
+                                                    lineNumber: 456,
                                                     columnNumber: 41
                                                 }, undefined)
                                             }, void 0, false, {
                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                lineNumber: 276,
+                                                lineNumber: 455,
                                                 columnNumber: 37
                                             }, undefined)
                                         }, void 0, false, {
                                             fileName: "src/pages/AdminPanel.tsx",
-                                            lineNumber: 275,
+                                            lineNumber: 454,
                                             columnNumber: 33
                                         }, undefined)
                                     }, void 0, false, {
                                         fileName: "src/pages/AdminPanel.tsx",
-                                        lineNumber: 274,
+                                        lineNumber: 453,
                                         columnNumber: 29
                                     }, undefined)
                                 }, void 0, false, {
                                     fileName: "src/pages/AdminPanel.tsx",
-                                    lineNumber: 273,
+                                    lineNumber: 452,
                                     columnNumber: 25
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/pages/AdminPanel.tsx",
-                            lineNumber: 236,
+                            lineNumber: 415,
                             columnNumber: 21
                         }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        activeTab === 'products' ? /* Products Table */ /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                             className: "card bg-white bg-opacity-90 backdrop-blur border-0 shadow",
                             children: [
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -53837,13 +55023,13 @@ const AdminPanel = ()=>{
                                         children: "Elenco Prodotti"
                                     }, void 0, false, {
                                         fileName: "src/pages/AdminPanel.tsx",
-                                        lineNumber: 290,
-                                        columnNumber: 29
+                                        lineNumber: 471,
+                                        columnNumber: 33
                                     }, undefined)
                                 }, void 0, false, {
                                     fileName: "src/pages/AdminPanel.tsx",
-                                    lineNumber: 289,
-                                    columnNumber: 25
+                                    lineNumber: 470,
+                                    columnNumber: 29
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                     className: "card-body p-0",
@@ -53860,54 +55046,61 @@ const AdminPanel = ()=>{
                                                                 children: "Immagine"
                                                             }, void 0, false, {
                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                lineNumber: 297,
-                                                                columnNumber: 45
+                                                                lineNumber: 478,
+                                                                columnNumber: 49
                                                             }, undefined),
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
                                                                 children: "Nome"
                                                             }, void 0, false, {
                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                lineNumber: 298,
-                                                                columnNumber: 45
+                                                                lineNumber: 479,
+                                                                columnNumber: 49
                                                             }, undefined),
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
                                                                 children: "Categoria"
                                                             }, void 0, false, {
                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                lineNumber: 299,
-                                                                columnNumber: 45
+                                                                lineNumber: 480,
+                                                                columnNumber: 49
                                                             }, undefined),
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
                                                                 children: "Prezzo"
                                                             }, void 0, false, {
                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                lineNumber: 300,
-                                                                columnNumber: 45
+                                                                lineNumber: 481,
+                                                                columnNumber: 49
+                                                            }, undefined),
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                                                children: "Stock"
+                                                            }, void 0, false, {
+                                                                fileName: "src/pages/AdminPanel.tsx",
+                                                                lineNumber: 482,
+                                                                columnNumber: 49
                                                             }, undefined),
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
                                                                 children: "Status"
                                                             }, void 0, false, {
                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                lineNumber: 301,
-                                                                columnNumber: 45
+                                                                lineNumber: 483,
+                                                                columnNumber: 49
                                                             }, undefined),
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
                                                                 children: "Azioni"
                                                             }, void 0, false, {
                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                lineNumber: 302,
-                                                                columnNumber: 45
+                                                                lineNumber: 484,
+                                                                columnNumber: 49
                                                             }, undefined)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "src/pages/AdminPanel.tsx",
-                                                        lineNumber: 296,
-                                                        columnNumber: 41
+                                                        lineNumber: 477,
+                                                        columnNumber: 45
                                                     }, undefined)
                                                 }, void 0, false, {
                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                    lineNumber: 295,
-                                                    columnNumber: 37
+                                                    lineNumber: 476,
+                                                    columnNumber: 41
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tbody", {
                                                     children: products.map((product)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tr", {
@@ -53924,13 +55117,13 @@ const AdminPanel = ()=>{
                                                                         }
                                                                     }, void 0, false, {
                                                                         fileName: "src/pages/AdminPanel.tsx",
-                                                                        lineNumber: 309,
-                                                                        columnNumber: 53
+                                                                        lineNumber: 491,
+                                                                        columnNumber: 57
                                                                     }, undefined)
                                                                 }, void 0, false, {
                                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                                    lineNumber: 308,
-                                                                    columnNumber: 49
+                                                                    lineNumber: 490,
+                                                                    columnNumber: 53
                                                                 }, undefined),
                                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
                                                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -53939,13 +55132,13 @@ const AdminPanel = ()=>{
                                                                                 children: product.name
                                                                             }, void 0, false, {
                                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                                lineNumber: 318,
-                                                                                columnNumber: 57
+                                                                                lineNumber: 500,
+                                                                                columnNumber: 61
                                                                             }, undefined),
                                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                                lineNumber: 319,
-                                                                                columnNumber: 57
+                                                                                lineNumber: 501,
+                                                                                columnNumber: 61
                                                                             }, undefined),
                                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("small", {
                                                                                 className: "text-muted",
@@ -53955,33 +55148,33 @@ const AdminPanel = ()=>{
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                                lineNumber: 320,
-                                                                                columnNumber: 57
+                                                                                lineNumber: 502,
+                                                                                columnNumber: 61
                                                                             }, undefined)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "src/pages/AdminPanel.tsx",
-                                                                        lineNumber: 317,
-                                                                        columnNumber: 53
+                                                                        lineNumber: 499,
+                                                                        columnNumber: 57
                                                                     }, undefined)
                                                                 }, void 0, false, {
                                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                                    lineNumber: 316,
-                                                                    columnNumber: 49
+                                                                    lineNumber: 498,
+                                                                    columnNumber: 53
                                                                 }, undefined),
                                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
                                                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                                                        className: `badge bg-${getCategoryBadgeColor(product.category)}`,
-                                                                        children: product.category
+                                                                        className: `badge bg-${getCategoryBadgeColor(product.categoryId)}`,
+                                                                        children: getCategoryNameById(product.categoryId)
                                                                     }, void 0, false, {
                                                                         fileName: "src/pages/AdminPanel.tsx",
-                                                                        lineNumber: 324,
-                                                                        columnNumber: 53
+                                                                        lineNumber: 506,
+                                                                        columnNumber: 57
                                                                     }, undefined)
                                                                 }, void 0, false, {
                                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                                    lineNumber: 323,
-                                                                    columnNumber: 49
+                                                                    lineNumber: 505,
+                                                                    columnNumber: 53
                                                                 }, undefined),
                                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
                                                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -53993,8 +55186,8 @@ const AdminPanel = ()=>{
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                                lineNumber: 330,
-                                                                                columnNumber: 57
+                                                                                lineNumber: 512,
+                                                                                columnNumber: 61
                                                                             }, undefined),
                                                                             product.originalPrice && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                                                                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("small", {
@@ -54005,24 +55198,38 @@ const AdminPanel = ()=>{
                                                                                     ]
                                                                                 }, void 0, true, {
                                                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                                                    lineNumber: 333,
-                                                                                    columnNumber: 65
+                                                                                    lineNumber: 515,
+                                                                                    columnNumber: 69
                                                                                 }, undefined)
                                                                             }, void 0, false, {
                                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                                lineNumber: 332,
-                                                                                columnNumber: 61
+                                                                                lineNumber: 514,
+                                                                                columnNumber: 65
                                                                             }, undefined)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "src/pages/AdminPanel.tsx",
-                                                                        lineNumber: 329,
-                                                                        columnNumber: 53
+                                                                        lineNumber: 511,
+                                                                        columnNumber: 57
                                                                     }, undefined)
                                                                 }, void 0, false, {
                                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                                    lineNumber: 328,
-                                                                    columnNumber: 49
+                                                                    lineNumber: 510,
+                                                                    columnNumber: 53
+                                                                }, undefined),
+                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                                                        className: `badge ${product.stock > 10 ? 'bg-success' : product.stock > 0 ? 'bg-warning' : 'bg-danger'}`,
+                                                                        children: product.stock
+                                                                    }, void 0, false, {
+                                                                        fileName: "src/pages/AdminPanel.tsx",
+                                                                        lineNumber: 523,
+                                                                        columnNumber: 57
+                                                                    }, undefined)
+                                                                }, void 0, false, {
+                                                                    fileName: "src/pages/AdminPanel.tsx",
+                                                                    lineNumber: 522,
+                                                                    columnNumber: 53
                                                                 }, undefined),
                                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
                                                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -54033,27 +55240,35 @@ const AdminPanel = ()=>{
                                                                                 children: "Nuovo"
                                                                             }, void 0, false, {
                                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                                lineNumber: 342,
-                                                                                columnNumber: 75
+                                                                                lineNumber: 529,
+                                                                                columnNumber: 79
                                                                             }, undefined),
                                                                             product.isSale && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                                                                 className: "badge bg-danger",
                                                                                 children: "Offerta"
                                                                             }, void 0, false, {
                                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                                lineNumber: 343,
-                                                                                columnNumber: 76
+                                                                                lineNumber: 530,
+                                                                                columnNumber: 80
+                                                                            }, undefined),
+                                                                            product.featured && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                                                                className: "badge bg-primary",
+                                                                                children: "Featured"
+                                                                            }, void 0, false, {
+                                                                                fileName: "src/pages/AdminPanel.tsx",
+                                                                                lineNumber: 531,
+                                                                                columnNumber: 82
                                                                             }, undefined)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "src/pages/AdminPanel.tsx",
-                                                                        lineNumber: 341,
-                                                                        columnNumber: 53
+                                                                        lineNumber: 528,
+                                                                        columnNumber: 57
                                                                     }, undefined)
                                                                 }, void 0, false, {
                                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                                    lineNumber: 340,
-                                                                    columnNumber: 49
+                                                                    lineNumber: 527,
+                                                                    columnNumber: 53
                                                                 }, undefined),
                                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
                                                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -54062,89 +55277,352 @@ const AdminPanel = ()=>{
                                                                         children: [
                                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                                                                                 className: "btn btn-outline-primary btn-sm",
-                                                                                onClick: ()=>handleEdit(product),
+                                                                                onClick: ()=>handleEditProduct(product),
                                                                                 title: "Modifica",
                                                                                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _lucideReact.Edit3), {
                                                                                     size: 16
                                                                                 }, void 0, false, {
                                                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                                                    lineNumber: 353,
-                                                                                    columnNumber: 61
+                                                                                    lineNumber: 541,
+                                                                                    columnNumber: 65
                                                                                 }, undefined)
                                                                             }, void 0, false, {
                                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                                lineNumber: 348,
-                                                                                columnNumber: 57
+                                                                                lineNumber: 536,
+                                                                                columnNumber: 61
                                                                             }, undefined),
                                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                                                                                 className: "btn btn-outline-danger btn-sm",
-                                                                                onClick: ()=>handleDelete(product.id),
+                                                                                onClick: ()=>handleDeleteProduct(product.id),
                                                                                 title: "Elimina",
                                                                                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _lucideReact.Trash2), {
                                                                                     size: 16
                                                                                 }, void 0, false, {
                                                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                                                    lineNumber: 360,
-                                                                                    columnNumber: 61
+                                                                                    lineNumber: 548,
+                                                                                    columnNumber: 65
                                                                                 }, undefined)
                                                                             }, void 0, false, {
                                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                                lineNumber: 355,
-                                                                                columnNumber: 57
+                                                                                lineNumber: 543,
+                                                                                columnNumber: 61
                                                                             }, undefined)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "src/pages/AdminPanel.tsx",
-                                                                        lineNumber: 347,
-                                                                        columnNumber: 53
+                                                                        lineNumber: 535,
+                                                                        columnNumber: 57
                                                                     }, undefined)
                                                                 }, void 0, false, {
                                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                                    lineNumber: 346,
-                                                                    columnNumber: 49
+                                                                    lineNumber: 534,
+                                                                    columnNumber: 53
                                                                 }, undefined)
                                                             ]
                                                         }, product.id, true, {
                                                             fileName: "src/pages/AdminPanel.tsx",
-                                                            lineNumber: 307,
-                                                            columnNumber: 45
+                                                            lineNumber: 489,
+                                                            columnNumber: 49
                                                         }, undefined))
                                                 }, void 0, false, {
                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                    lineNumber: 305,
-                                                    columnNumber: 37
+                                                    lineNumber: 487,
+                                                    columnNumber: 41
                                                 }, undefined)
                                             ]
                                         }, void 0, true, {
                                             fileName: "src/pages/AdminPanel.tsx",
-                                            lineNumber: 294,
-                                            columnNumber: 33
+                                            lineNumber: 475,
+                                            columnNumber: 37
                                         }, undefined)
                                     }, void 0, false, {
                                         fileName: "src/pages/AdminPanel.tsx",
-                                        lineNumber: 293,
-                                        columnNumber: 29
+                                        lineNumber: 474,
+                                        columnNumber: 33
                                     }, undefined)
                                 }, void 0, false, {
                                     fileName: "src/pages/AdminPanel.tsx",
-                                    lineNumber: 292,
-                                    columnNumber: 25
+                                    lineNumber: 473,
+                                    columnNumber: 29
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/pages/AdminPanel.tsx",
-                            lineNumber: 288,
-                            columnNumber: 21
+                            lineNumber: 469,
+                            columnNumber: 25
+                        }, undefined) : /* Categories Table */ /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "card bg-white bg-opacity-90 backdrop-blur border-0 shadow",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                    className: "card-header bg-transparent border-0",
+                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h5", {
+                                        className: "mb-0",
+                                        children: "Elenco Categorie"
+                                    }, void 0, false, {
+                                        fileName: "src/pages/AdminPanel.tsx",
+                                        lineNumber: 563,
+                                        columnNumber: 33
+                                    }, undefined)
+                                }, void 0, false, {
+                                    fileName: "src/pages/AdminPanel.tsx",
+                                    lineNumber: 562,
+                                    columnNumber: 29
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                    className: "card-body p-0",
+                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                        className: "table-responsive",
+                                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("table", {
+                                            className: "table table-hover mb-0",
+                                            children: [
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("thead", {
+                                                    className: "table-light",
+                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tr", {
+                                                        children: [
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                                                children: "Immagine"
+                                                            }, void 0, false, {
+                                                                fileName: "src/pages/AdminPanel.tsx",
+                                                                lineNumber: 570,
+                                                                columnNumber: 49
+                                                            }, undefined),
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                                                children: "Nome"
+                                                            }, void 0, false, {
+                                                                fileName: "src/pages/AdminPanel.tsx",
+                                                                lineNumber: 571,
+                                                                columnNumber: 49
+                                                            }, undefined),
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                                                children: "Slug"
+                                                            }, void 0, false, {
+                                                                fileName: "src/pages/AdminPanel.tsx",
+                                                                lineNumber: 572,
+                                                                columnNumber: 49
+                                                            }, undefined),
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                                                children: "Descrizione"
+                                                            }, void 0, false, {
+                                                                fileName: "src/pages/AdminPanel.tsx",
+                                                                lineNumber: 573,
+                                                                columnNumber: 49
+                                                            }, undefined),
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                                                children: "Prodotti"
+                                                            }, void 0, false, {
+                                                                fileName: "src/pages/AdminPanel.tsx",
+                                                                lineNumber: 574,
+                                                                columnNumber: 49
+                                                            }, undefined),
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                                                children: "Status"
+                                                            }, void 0, false, {
+                                                                fileName: "src/pages/AdminPanel.tsx",
+                                                                lineNumber: 575,
+                                                                columnNumber: 49
+                                                            }, undefined),
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                                                children: "Azioni"
+                                                            }, void 0, false, {
+                                                                fileName: "src/pages/AdminPanel.tsx",
+                                                                lineNumber: 576,
+                                                                columnNumber: 49
+                                                            }, undefined)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "src/pages/AdminPanel.tsx",
+                                                        lineNumber: 569,
+                                                        columnNumber: 45
+                                                    }, undefined)
+                                                }, void 0, false, {
+                                                    fileName: "src/pages/AdminPanel.tsx",
+                                                    lineNumber: 568,
+                                                    columnNumber: 41
+                                                }, undefined),
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tbody", {
+                                                    children: categories.map((category)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tr", {
+                                                            children: [
+                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                                                        src: category.image || 'https://picsum.photos/50/50',
+                                                                        alt: category.name,
+                                                                        className: "rounded",
+                                                                        style: {
+                                                                            width: '50px',
+                                                                            height: '50px',
+                                                                            objectFit: 'cover'
+                                                                        }
+                                                                    }, void 0, false, {
+                                                                        fileName: "src/pages/AdminPanel.tsx",
+                                                                        lineNumber: 583,
+                                                                        columnNumber: 57
+                                                                    }, undefined)
+                                                                }, void 0, false, {
+                                                                    fileName: "src/pages/AdminPanel.tsx",
+                                                                    lineNumber: 582,
+                                                                    columnNumber: 53
+                                                                }, undefined),
+                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
+                                                                        children: category.name
+                                                                    }, void 0, false, {
+                                                                        fileName: "src/pages/AdminPanel.tsx",
+                                                                        lineNumber: 591,
+                                                                        columnNumber: 57
+                                                                    }, undefined)
+                                                                }, void 0, false, {
+                                                                    fileName: "src/pages/AdminPanel.tsx",
+                                                                    lineNumber: 590,
+                                                                    columnNumber: 53
+                                                                }, undefined),
+                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("code", {
+                                                                        children: category.slug
+                                                                    }, void 0, false, {
+                                                                        fileName: "src/pages/AdminPanel.tsx",
+                                                                        lineNumber: 594,
+                                                                        columnNumber: 57
+                                                                    }, undefined)
+                                                                }, void 0, false, {
+                                                                    fileName: "src/pages/AdminPanel.tsx",
+                                                                    lineNumber: 593,
+                                                                    columnNumber: 53
+                                                                }, undefined),
+                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("small", {
+                                                                        className: "text-muted",
+                                                                        children: [
+                                                                            category.description?.substring(0, 50) || 'Nessuna descrizione',
+                                                                            "..."
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "src/pages/AdminPanel.tsx",
+                                                                        lineNumber: 597,
+                                                                        columnNumber: 57
+                                                                    }, undefined)
+                                                                }, void 0, false, {
+                                                                    fileName: "src/pages/AdminPanel.tsx",
+                                                                    lineNumber: 596,
+                                                                    columnNumber: 53
+                                                                }, undefined),
+                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                                                        className: "badge bg-info",
+                                                                        children: products.filter((p)=>p.categoryId === category.id).length
+                                                                    }, void 0, false, {
+                                                                        fileName: "src/pages/AdminPanel.tsx",
+                                                                        lineNumber: 602,
+                                                                        columnNumber: 57
+                                                                    }, undefined)
+                                                                }, void 0, false, {
+                                                                    fileName: "src/pages/AdminPanel.tsx",
+                                                                    lineNumber: 601,
+                                                                    columnNumber: 53
+                                                                }, undefined),
+                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                                                        className: `badge ${category.active ? 'bg-success' : 'bg-secondary'}`,
+                                                                        children: category.active ? 'Attiva' : 'Disattiva'
+                                                                    }, void 0, false, {
+                                                                        fileName: "src/pages/AdminPanel.tsx",
+                                                                        lineNumber: 607,
+                                                                        columnNumber: 57
+                                                                    }, undefined)
+                                                                }, void 0, false, {
+                                                                    fileName: "src/pages/AdminPanel.tsx",
+                                                                    lineNumber: 606,
+                                                                    columnNumber: 53
+                                                                }, undefined),
+                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                                        className: "btn-group",
+                                                                        role: "group",
+                                                                        children: [
+                                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                                                                className: "btn btn-outline-primary btn-sm",
+                                                                                onClick: ()=>handleEditCategory(category),
+                                                                                title: "Modifica",
+                                                                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _lucideReact.Edit3), {
+                                                                                    size: 16
+                                                                                }, void 0, false, {
+                                                                                    fileName: "src/pages/AdminPanel.tsx",
+                                                                                    lineNumber: 618,
+                                                                                    columnNumber: 65
+                                                                                }, undefined)
+                                                                            }, void 0, false, {
+                                                                                fileName: "src/pages/AdminPanel.tsx",
+                                                                                lineNumber: 613,
+                                                                                columnNumber: 61
+                                                                            }, undefined),
+                                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                                                                className: "btn btn-outline-danger btn-sm",
+                                                                                onClick: ()=>handleDeleteCategory(category.id),
+                                                                                title: "Elimina",
+                                                                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _lucideReact.Trash2), {
+                                                                                    size: 16
+                                                                                }, void 0, false, {
+                                                                                    fileName: "src/pages/AdminPanel.tsx",
+                                                                                    lineNumber: 625,
+                                                                                    columnNumber: 65
+                                                                                }, undefined)
+                                                                            }, void 0, false, {
+                                                                                fileName: "src/pages/AdminPanel.tsx",
+                                                                                lineNumber: 620,
+                                                                                columnNumber: 61
+                                                                            }, undefined)
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "src/pages/AdminPanel.tsx",
+                                                                        lineNumber: 612,
+                                                                        columnNumber: 57
+                                                                    }, undefined)
+                                                                }, void 0, false, {
+                                                                    fileName: "src/pages/AdminPanel.tsx",
+                                                                    lineNumber: 611,
+                                                                    columnNumber: 53
+                                                                }, undefined)
+                                                            ]
+                                                        }, category.id, true, {
+                                                            fileName: "src/pages/AdminPanel.tsx",
+                                                            lineNumber: 581,
+                                                            columnNumber: 49
+                                                        }, undefined))
+                                                }, void 0, false, {
+                                                    fileName: "src/pages/AdminPanel.tsx",
+                                                    lineNumber: 579,
+                                                    columnNumber: 41
+                                                }, undefined)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "src/pages/AdminPanel.tsx",
+                                            lineNumber: 567,
+                                            columnNumber: 37
+                                        }, undefined)
+                                    }, void 0, false, {
+                                        fileName: "src/pages/AdminPanel.tsx",
+                                        lineNumber: 566,
+                                        columnNumber: 33
+                                    }, undefined)
+                                }, void 0, false, {
+                                    fileName: "src/pages/AdminPanel.tsx",
+                                    lineNumber: 565,
+                                    columnNumber: 29
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/pages/AdminPanel.tsx",
+                            lineNumber: 561,
+                            columnNumber: 25
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/pages/AdminPanel.tsx",
-                    lineNumber: 219,
+                    lineNumber: 370,
                     columnNumber: 17
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/pages/AdminPanel.tsx",
-                lineNumber: 218,
+                lineNumber: 369,
                 columnNumber: 13
             }, undefined),
             showForm && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -54162,31 +55640,31 @@ const AdminPanel = ()=>{
                                 children: [
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h5", {
                                         className: "modal-title",
-                                        children: editingProduct ? 'Modifica Prodotto' : 'Aggiungi Nuovo Prodotto'
+                                        children: activeTab === 'products' ? editingProduct ? 'Modifica Prodotto' : 'Aggiungi Nuovo Prodotto' : editingCategory ? 'Modifica Categoria' : 'Aggiungi Nuova Categoria'
                                     }, void 0, false, {
                                         fileName: "src/pages/AdminPanel.tsx",
-                                        lineNumber: 380,
+                                        lineNumber: 646,
                                         columnNumber: 33
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                                         type: "button",
                                         className: "btn-close",
-                                        onClick: resetForm
+                                        onClick: activeTab === 'products' ? resetProductForm : resetCategoryForm
                                     }, void 0, false, {
                                         fileName: "src/pages/AdminPanel.tsx",
-                                        lineNumber: 383,
+                                        lineNumber: 652,
                                         columnNumber: 33
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/pages/AdminPanel.tsx",
-                                lineNumber: 379,
+                                lineNumber: 645,
                                 columnNumber: 29
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                 className: "modal-body",
-                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
-                                    onSubmit: handleSubmit,
+                                children: activeTab === 'products' ? /* Product Form */ /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
+                                    onSubmit: handleProductSubmit,
                                     children: [
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                             className: "row",
@@ -54199,8 +55677,8 @@ const AdminPanel = ()=>{
                                                             children: "Immagine Prodotto *"
                                                         }, void 0, false, {
                                                             fileName: "src/pages/AdminPanel.tsx",
-                                                            lineNumber: 394,
-                                                            columnNumber: 45
+                                                            lineNumber: 665,
+                                                            columnNumber: 49
                                                         }, undefined),
                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                                             className: "border rounded p-3",
@@ -54217,13 +55695,13 @@ const AdminPanel = ()=>{
                                                                         }
                                                                     }, void 0, false, {
                                                                         fileName: "src/pages/AdminPanel.tsx",
-                                                                        lineNumber: 398,
-                                                                        columnNumber: 57
+                                                                        lineNumber: 669,
+                                                                        columnNumber: 61
                                                                     }, undefined)
                                                                 }, void 0, false, {
                                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                                    lineNumber: 397,
-                                                                    columnNumber: 53
+                                                                    lineNumber: 668,
+                                                                    columnNumber: 57
                                                                 }, undefined),
                                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                                                                     type: "file",
@@ -54232,28 +55710,28 @@ const AdminPanel = ()=>{
                                                                     onChange: handleImageUpload
                                                                 }, void 0, false, {
                                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                                    lineNumber: 406,
-                                                                    columnNumber: 49
+                                                                    lineNumber: 677,
+                                                                    columnNumber: 53
                                                                 }, undefined),
                                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("small", {
                                                                     className: "form-text text-muted",
                                                                     children: "Formati supportati: JPG, PNG, GIF. Max 5MB"
                                                                 }, void 0, false, {
                                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                                    lineNumber: 412,
-                                                                    columnNumber: 49
+                                                                    lineNumber: 683,
+                                                                    columnNumber: 53
                                                                 }, undefined)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "src/pages/AdminPanel.tsx",
-                                                            lineNumber: 395,
-                                                            columnNumber: 45
+                                                            lineNumber: 666,
+                                                            columnNumber: 49
                                                         }, undefined)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                    lineNumber: 393,
-                                                    columnNumber: 41
+                                                    lineNumber: 664,
+                                                    columnNumber: 45
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                                     className: "col-md-6",
@@ -54266,28 +55744,28 @@ const AdminPanel = ()=>{
                                                                     children: "Nome Prodotto *"
                                                                 }, void 0, false, {
                                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                                    lineNumber: 421,
-                                                                    columnNumber: 49
+                                                                    lineNumber: 692,
+                                                                    columnNumber: 53
                                                                 }, undefined),
                                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                                                                     type: "text",
                                                                     className: "form-control",
-                                                                    value: formData.name,
-                                                                    onChange: (e)=>setFormData((prev)=>({
+                                                                    value: productFormData.name,
+                                                                    onChange: (e)=>setProductFormData((prev)=>({
                                                                                 ...prev,
                                                                                 name: e.target.value
                                                                             })),
                                                                     required: true
                                                                 }, void 0, false, {
                                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                                    lineNumber: 422,
-                                                                    columnNumber: 49
+                                                                    lineNumber: 693,
+                                                                    columnNumber: 53
                                                                 }, undefined)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "src/pages/AdminPanel.tsx",
-                                                            lineNumber: 420,
-                                                            columnNumber: 45
+                                                            lineNumber: 691,
+                                                            columnNumber: 49
                                                         }, undefined),
                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                                             className: "mb-3",
@@ -54297,60 +55775,45 @@ const AdminPanel = ()=>{
                                                                     children: "Categoria *"
                                                                 }, void 0, false, {
                                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                                    lineNumber: 432,
-                                                                    columnNumber: 49
+                                                                    lineNumber: 703,
+                                                                    columnNumber: 53
                                                                 }, undefined),
                                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("select", {
                                                                     className: "form-select",
-                                                                    value: formData.category,
-                                                                    onChange: (e)=>setFormData((prev)=>({
+                                                                    value: productFormData.categoryId,
+                                                                    onChange: (e)=>setProductFormData((prev)=>({
                                                                                 ...prev,
-                                                                                category: e.target.value
+                                                                                categoryId: parseInt(e.target.value)
                                                                             })),
+                                                                    required: true,
                                                                     children: [
                                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
-                                                                            value: "men's clothing",
-                                                                            children: "Men's Clothing"
+                                                                            value: 0,
+                                                                            children: "Seleziona una categoria"
                                                                         }, void 0, false, {
                                                                             fileName: "src/pages/AdminPanel.tsx",
-                                                                            lineNumber: 438,
-                                                                            columnNumber: 53
+                                                                            lineNumber: 710,
+                                                                            columnNumber: 57
                                                                         }, undefined),
-                                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
-                                                                            value: "women's clothing",
-                                                                            children: "Women's Clothing"
-                                                                        }, void 0, false, {
-                                                                            fileName: "src/pages/AdminPanel.tsx",
-                                                                            lineNumber: 439,
-                                                                            columnNumber: 53
-                                                                        }, undefined),
-                                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
-                                                                            value: "jewelery",
-                                                                            children: "Jewelery"
-                                                                        }, void 0, false, {
-                                                                            fileName: "src/pages/AdminPanel.tsx",
-                                                                            lineNumber: 440,
-                                                                            columnNumber: 53
-                                                                        }, undefined),
-                                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
-                                                                            value: "electronics",
-                                                                            children: "Electronics"
-                                                                        }, void 0, false, {
-                                                                            fileName: "src/pages/AdminPanel.tsx",
-                                                                            lineNumber: 441,
-                                                                            columnNumber: 53
-                                                                        }, undefined)
+                                                                        categories.filter((cat)=>cat.active).sort((a, b)=>(a.sortOrder || 0) - (b.sortOrder || 0)).map((category)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
+                                                                                value: category.id,
+                                                                                children: category.name
+                                                                            }, category.id, false, {
+                                                                                fileName: "src/pages/AdminPanel.tsx",
+                                                                                lineNumber: 715,
+                                                                                columnNumber: 65
+                                                                            }, undefined))
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                                    lineNumber: 433,
-                                                                    columnNumber: 49
+                                                                    lineNumber: 704,
+                                                                    columnNumber: 53
                                                                 }, undefined)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "src/pages/AdminPanel.tsx",
-                                                            lineNumber: 431,
-                                                            columnNumber: 45
+                                                            lineNumber: 702,
+                                                            columnNumber: 49
                                                         }, undefined),
                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                                             className: "row",
@@ -54365,8 +55828,8 @@ const AdminPanel = ()=>{
                                                                                 children: "Prezzo *"
                                                                             }, void 0, false, {
                                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                                lineNumber: 448,
-                                                                                columnNumber: 57
+                                                                                lineNumber: 726,
+                                                                                columnNumber: 61
                                                                             }, undefined),
                                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                                                                 className: "input-group",
@@ -54376,41 +55839,41 @@ const AdminPanel = ()=>{
                                                                                         children: "\u20AC"
                                                                                     }, void 0, false, {
                                                                                         fileName: "src/pages/AdminPanel.tsx",
-                                                                                        lineNumber: 450,
-                                                                                        columnNumber: 61
+                                                                                        lineNumber: 728,
+                                                                                        columnNumber: 65
                                                                                     }, undefined),
                                                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                                                                                         type: "number",
                                                                                         className: "form-control",
                                                                                         min: "0",
                                                                                         step: "0.01",
-                                                                                        value: formData.price,
-                                                                                        onChange: (e)=>setFormData((prev)=>({
+                                                                                        value: productFormData.price,
+                                                                                        onChange: (e)=>setProductFormData((prev)=>({
                                                                                                     ...prev,
                                                                                                     price: parseFloat(e.target.value) || 0
                                                                                                 })),
                                                                                         required: true
                                                                                     }, void 0, false, {
                                                                                         fileName: "src/pages/AdminPanel.tsx",
-                                                                                        lineNumber: 451,
-                                                                                        columnNumber: 61
+                                                                                        lineNumber: 729,
+                                                                                        columnNumber: 65
                                                                                     }, undefined)
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                                lineNumber: 449,
-                                                                                columnNumber: 57
+                                                                                lineNumber: 727,
+                                                                                columnNumber: 61
                                                                             }, undefined)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "src/pages/AdminPanel.tsx",
-                                                                        lineNumber: 447,
-                                                                        columnNumber: 53
+                                                                        lineNumber: 725,
+                                                                        columnNumber: 57
                                                                     }, undefined)
                                                                 }, void 0, false, {
                                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                                    lineNumber: 446,
-                                                                    columnNumber: 49
+                                                                    lineNumber: 724,
+                                                                    columnNumber: 53
                                                                 }, undefined),
                                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                                                     className: "col-6",
@@ -54419,73 +55882,105 @@ const AdminPanel = ()=>{
                                                                         children: [
                                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
                                                                                 className: "form-label",
-                                                                                children: "Prezzo Originale"
+                                                                                children: "Stock *"
                                                                             }, void 0, false, {
                                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                                lineNumber: 465,
-                                                                                columnNumber: 57
+                                                                                lineNumber: 743,
+                                                                                columnNumber: 61
                                                                             }, undefined),
-                                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                                className: "input-group",
-                                                                                children: [
-                                                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                                                                        className: "input-group-text",
-                                                                                        children: "\u20AC"
-                                                                                    }, void 0, false, {
-                                                                                        fileName: "src/pages/AdminPanel.tsx",
-                                                                                        lineNumber: 467,
-                                                                                        columnNumber: 61
-                                                                                    }, undefined),
-                                                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                                                                        type: "number",
-                                                                                        className: "form-control",
-                                                                                        min: "0",
-                                                                                        step: "0.01",
-                                                                                        value: formData.originalPrice || '',
-                                                                                        onChange: (e)=>setFormData((prev)=>({
-                                                                                                    ...prev,
-                                                                                                    originalPrice: parseFloat(e.target.value) || undefined
-                                                                                                })),
-                                                                                        disabled: !formData.isSale
-                                                                                    }, void 0, false, {
-                                                                                        fileName: "src/pages/AdminPanel.tsx",
-                                                                                        lineNumber: 468,
-                                                                                        columnNumber: 61
-                                                                                    }, undefined)
-                                                                                ]
-                                                                            }, void 0, true, {
+                                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                                                                type: "number",
+                                                                                className: "form-control",
+                                                                                min: "0",
+                                                                                value: productFormData.stock,
+                                                                                onChange: (e)=>setProductFormData((prev)=>({
+                                                                                            ...prev,
+                                                                                            stock: parseInt(e.target.value) || 0
+                                                                                        })),
+                                                                                required: true
+                                                                            }, void 0, false, {
                                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                                lineNumber: 466,
-                                                                                columnNumber: 57
+                                                                                lineNumber: 744,
+                                                                                columnNumber: 61
                                                                             }, undefined)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "src/pages/AdminPanel.tsx",
-                                                                        lineNumber: 464,
-                                                                        columnNumber: 53
+                                                                        lineNumber: 742,
+                                                                        columnNumber: 57
                                                                     }, undefined)
                                                                 }, void 0, false, {
                                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                                    lineNumber: 463,
-                                                                    columnNumber: 49
+                                                                    lineNumber: 741,
+                                                                    columnNumber: 53
                                                                 }, undefined)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "src/pages/AdminPanel.tsx",
-                                                            lineNumber: 445,
-                                                            columnNumber: 45
+                                                            lineNumber: 723,
+                                                            columnNumber: 49
+                                                        }, undefined),
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                            className: "mb-3",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                                                    className: "form-label",
+                                                                    children: "Prezzo Originale"
+                                                                }, void 0, false, {
+                                                                    fileName: "src/pages/AdminPanel.tsx",
+                                                                    lineNumber: 757,
+                                                                    columnNumber: 53
+                                                                }, undefined),
+                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                                    className: "input-group",
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                                                            className: "input-group-text",
+                                                                            children: "\u20AC"
+                                                                        }, void 0, false, {
+                                                                            fileName: "src/pages/AdminPanel.tsx",
+                                                                            lineNumber: 759,
+                                                                            columnNumber: 57
+                                                                        }, undefined),
+                                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                                                            type: "number",
+                                                                            className: "form-control",
+                                                                            min: "0",
+                                                                            step: "0.01",
+                                                                            value: productFormData.originalPrice || '',
+                                                                            onChange: (e)=>setProductFormData((prev)=>({
+                                                                                        ...prev,
+                                                                                        originalPrice: parseFloat(e.target.value) || undefined
+                                                                                    })),
+                                                                            disabled: !productFormData.isSale
+                                                                        }, void 0, false, {
+                                                                            fileName: "src/pages/AdminPanel.tsx",
+                                                                            lineNumber: 760,
+                                                                            columnNumber: 57
+                                                                        }, undefined)
+                                                                    ]
+                                                                }, void 0, true, {
+                                                                    fileName: "src/pages/AdminPanel.tsx",
+                                                                    lineNumber: 758,
+                                                                    columnNumber: 53
+                                                                }, undefined)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "src/pages/AdminPanel.tsx",
+                                                            lineNumber: 756,
+                                                            columnNumber: 49
                                                         }, undefined)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                    lineNumber: 419,
-                                                    columnNumber: 41
+                                                    lineNumber: 690,
+                                                    columnNumber: 45
                                                 }, undefined)
                                             ]
                                         }, void 0, true, {
                                             fileName: "src/pages/AdminPanel.tsx",
-                                            lineNumber: 391,
-                                            columnNumber: 37
+                                            lineNumber: 662,
+                                            columnNumber: 41
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                             className: "mb-3",
@@ -54495,28 +55990,28 @@ const AdminPanel = ()=>{
                                                     children: "Descrizione *"
                                                 }, void 0, false, {
                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                    lineNumber: 486,
-                                                    columnNumber: 41
+                                                    lineNumber: 776,
+                                                    columnNumber: 45
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("textarea", {
                                                     className: "form-control",
                                                     rows: 3,
-                                                    value: formData.description,
-                                                    onChange: (e)=>setFormData((prev)=>({
+                                                    value: productFormData.description,
+                                                    onChange: (e)=>setProductFormData((prev)=>({
                                                                 ...prev,
                                                                 description: e.target.value
                                                             })),
                                                     required: true
                                                 }, void 0, false, {
                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                    lineNumber: 487,
-                                                    columnNumber: 41
+                                                    lineNumber: 777,
+                                                    columnNumber: 45
                                                 }, undefined)
                                             ]
                                         }, void 0, true, {
                                             fileName: "src/pages/AdminPanel.tsx",
-                                            lineNumber: 485,
-                                            columnNumber: 37
+                                            lineNumber: 775,
+                                            columnNumber: 41
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                             className: "mb-3",
@@ -54526,13 +56021,13 @@ const AdminPanel = ()=>{
                                                     children: "Colori Disponibili"
                                                 }, void 0, false, {
                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                    lineNumber: 498,
-                                                    columnNumber: 41
+                                                    lineNumber: 788,
+                                                    columnNumber: 45
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                                     className: "d-flex flex-wrap gap-2 align-items-center",
                                                     children: [
-                                                        formData.colors.map((color, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                        productFormData.colors.map((color, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                                                 className: "d-flex align-items-center gap-1",
                                                                 children: [
                                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -54542,10 +56037,10 @@ const AdminPanel = ()=>{
                                                                         onChange: (e)=>handleColorChange(index, e.target.value)
                                                                     }, void 0, false, {
                                                                         fileName: "src/pages/AdminPanel.tsx",
-                                                                        lineNumber: 502,
-                                                                        columnNumber: 53
+                                                                        lineNumber: 792,
+                                                                        columnNumber: 57
                                                                     }, undefined),
-                                                                    formData.colors.length > 1 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                                                    productFormData.colors.length > 1 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                                                                         type: "button",
                                                                         className: "btn btn-sm btn-outline-danger",
                                                                         onClick: ()=>removeColor(index),
@@ -54553,21 +56048,21 @@ const AdminPanel = ()=>{
                                                                             size: 16
                                                                         }, void 0, false, {
                                                                             fileName: "src/pages/AdminPanel.tsx",
-                                                                            lineNumber: 514,
-                                                                            columnNumber: 61
+                                                                            lineNumber: 804,
+                                                                            columnNumber: 65
                                                                         }, undefined)
                                                                     }, void 0, false, {
                                                                         fileName: "src/pages/AdminPanel.tsx",
-                                                                        lineNumber: 509,
-                                                                        columnNumber: 57
+                                                                        lineNumber: 799,
+                                                                        columnNumber: 61
                                                                     }, undefined)
                                                                 ]
                                                             }, index, true, {
                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                lineNumber: 501,
-                                                                columnNumber: 49
+                                                                lineNumber: 791,
+                                                                columnNumber: 53
                                                             }, undefined)),
-                                                        formData.colors.length < 5 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                                        productFormData.colors.length < 5 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                                                             type: "button",
                                                             className: "btn btn-sm btn-outline-primary",
                                                             onClick: addColor,
@@ -54575,118 +56070,498 @@ const AdminPanel = ()=>{
                                                                 size: 16
                                                             }, void 0, false, {
                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                lineNumber: 525,
-                                                                columnNumber: 53
+                                                                lineNumber: 815,
+                                                                columnNumber: 57
                                                             }, undefined)
                                                         }, void 0, false, {
                                                             fileName: "src/pages/AdminPanel.tsx",
-                                                            lineNumber: 520,
-                                                            columnNumber: 49
+                                                            lineNumber: 810,
+                                                            columnNumber: 53
                                                         }, undefined)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                    lineNumber: 499,
-                                                    columnNumber: 41
+                                                    lineNumber: 789,
+                                                    columnNumber: 45
                                                 }, undefined)
                                             ]
                                         }, void 0, true, {
                                             fileName: "src/pages/AdminPanel.tsx",
-                                            lineNumber: 497,
-                                            columnNumber: 37
+                                            lineNumber: 787,
+                                            columnNumber: 41
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                             className: "row mb-3",
                                             children: [
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                    className: "col-md-6",
+                                                    className: "col-md-4",
                                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                                         className: "form-check",
                                                         children: [
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                                                                 className: "form-check-input",
                                                                 type: "checkbox",
-                                                                checked: formData.isNew,
-                                                                onChange: (e)=>setFormData((prev)=>({
+                                                                checked: productFormData.isNew,
+                                                                onChange: (e)=>setProductFormData((prev)=>({
                                                                             ...prev,
                                                                             isNew: e.target.checked
                                                                         }))
                                                             }, void 0, false, {
                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                lineNumber: 535,
-                                                                columnNumber: 49
+                                                                lineNumber: 825,
+                                                                columnNumber: 53
                                                             }, undefined),
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
                                                                 className: "form-check-label",
                                                                 children: "Nuovo Arrivo"
                                                             }, void 0, false, {
                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                lineNumber: 541,
-                                                                columnNumber: 49
+                                                                lineNumber: 831,
+                                                                columnNumber: 53
                                                             }, undefined)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "src/pages/AdminPanel.tsx",
-                                                        lineNumber: 534,
-                                                        columnNumber: 45
+                                                        lineNumber: 824,
+                                                        columnNumber: 49
                                                     }, undefined)
                                                 }, void 0, false, {
                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                    lineNumber: 533,
-                                                    columnNumber: 41
+                                                    lineNumber: 823,
+                                                    columnNumber: 45
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                    className: "col-md-6",
+                                                    className: "col-md-4",
                                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                                         className: "form-check",
                                                         children: [
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                                                                 className: "form-check-input",
                                                                 type: "checkbox",
-                                                                checked: formData.isSale,
-                                                                onChange: (e)=>setFormData((prev)=>({
+                                                                checked: productFormData.isSale,
+                                                                onChange: (e)=>setProductFormData((prev)=>({
                                                                             ...prev,
                                                                             isSale: e.target.checked
                                                                         }))
                                                             }, void 0, false, {
                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                lineNumber: 548,
-                                                                columnNumber: 49
+                                                                lineNumber: 838,
+                                                                columnNumber: 53
                                                             }, undefined),
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
                                                                 className: "form-check-label",
                                                                 children: "In Offerta"
                                                             }, void 0, false, {
                                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                                lineNumber: 554,
-                                                                columnNumber: 49
+                                                                lineNumber: 844,
+                                                                columnNumber: 53
                                                             }, undefined)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "src/pages/AdminPanel.tsx",
-                                                        lineNumber: 547,
-                                                        columnNumber: 45
+                                                        lineNumber: 837,
+                                                        columnNumber: 49
                                                     }, undefined)
                                                 }, void 0, false, {
                                                     fileName: "src/pages/AdminPanel.tsx",
-                                                    lineNumber: 546,
-                                                    columnNumber: 41
+                                                    lineNumber: 836,
+                                                    columnNumber: 45
+                                                }, undefined),
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                    className: "col-md-4",
+                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                        className: "form-check",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                                                className: "form-check-input",
+                                                                type: "checkbox",
+                                                                checked: productFormData.featured,
+                                                                onChange: (e)=>setProductFormData((prev)=>({
+                                                                            ...prev,
+                                                                            featured: e.target.checked
+                                                                        }))
+                                                            }, void 0, false, {
+                                                                fileName: "src/pages/AdminPanel.tsx",
+                                                                lineNumber: 851,
+                                                                columnNumber: 53
+                                                            }, undefined),
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                                                className: "form-check-label",
+                                                                children: "In Evidenza"
+                                                            }, void 0, false, {
+                                                                fileName: "src/pages/AdminPanel.tsx",
+                                                                lineNumber: 857,
+                                                                columnNumber: 53
+                                                            }, undefined)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "src/pages/AdminPanel.tsx",
+                                                        lineNumber: 850,
+                                                        columnNumber: 49
+                                                    }, undefined)
+                                                }, void 0, false, {
+                                                    fileName: "src/pages/AdminPanel.tsx",
+                                                    lineNumber: 849,
+                                                    columnNumber: 45
                                                 }, undefined)
                                             ]
                                         }, void 0, true, {
                                             fileName: "src/pages/AdminPanel.tsx",
-                                            lineNumber: 532,
-                                            columnNumber: 37
+                                            lineNumber: 822,
+                                            columnNumber: 41
                                         }, undefined)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/pages/AdminPanel.tsx",
-                                    lineNumber: 390,
-                                    columnNumber: 33
+                                    lineNumber: 661,
+                                    columnNumber: 37
+                                }, undefined) : /* Category Form */ /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
+                                    onSubmit: handleCategorySubmit,
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                            className: "row",
+                                            children: [
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                    className: "col-md-6 mb-3",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                                            className: "form-label",
+                                                            children: "Immagine Categoria"
+                                                        }, void 0, false, {
+                                                            fileName: "src/pages/AdminPanel.tsx",
+                                                            lineNumber: 870,
+                                                            columnNumber: 49
+                                                        }, undefined),
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                            className: "border rounded p-3",
+                                                            children: [
+                                                                imagePreview && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                                    className: "mb-3 text-center",
+                                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                                                        src: imagePreview,
+                                                                        alt: "Preview",
+                                                                        className: "img-thumbnail",
+                                                                        style: {
+                                                                            maxWidth: '200px',
+                                                                            maxHeight: '200px'
+                                                                        }
+                                                                    }, void 0, false, {
+                                                                        fileName: "src/pages/AdminPanel.tsx",
+                                                                        lineNumber: 874,
+                                                                        columnNumber: 61
+                                                                    }, undefined)
+                                                                }, void 0, false, {
+                                                                    fileName: "src/pages/AdminPanel.tsx",
+                                                                    lineNumber: 873,
+                                                                    columnNumber: 57
+                                                                }, undefined),
+                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                                                    type: "file",
+                                                                    className: "form-control",
+                                                                    accept: "image/*",
+                                                                    onChange: handleImageUpload
+                                                                }, void 0, false, {
+                                                                    fileName: "src/pages/AdminPanel.tsx",
+                                                                    lineNumber: 882,
+                                                                    columnNumber: 53
+                                                                }, undefined),
+                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("small", {
+                                                                    className: "form-text text-muted",
+                                                                    children: "Formati supportati: JPG, PNG, GIF. Max 5MB"
+                                                                }, void 0, false, {
+                                                                    fileName: "src/pages/AdminPanel.tsx",
+                                                                    lineNumber: 888,
+                                                                    columnNumber: 53
+                                                                }, undefined)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "src/pages/AdminPanel.tsx",
+                                                            lineNumber: 871,
+                                                            columnNumber: 49
+                                                        }, undefined)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "src/pages/AdminPanel.tsx",
+                                                    lineNumber: 869,
+                                                    columnNumber: 45
+                                                }, undefined),
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                    className: "col-md-6",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                            className: "mb-3",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                                                    className: "form-label",
+                                                                    children: "Nome Categoria *"
+                                                                }, void 0, false, {
+                                                                    fileName: "src/pages/AdminPanel.tsx",
+                                                                    lineNumber: 897,
+                                                                    columnNumber: 53
+                                                                }, undefined),
+                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                                                    type: "text",
+                                                                    className: "form-control",
+                                                                    value: categoryFormData.name,
+                                                                    onChange: (e)=>{
+                                                                        const name = e.target.value;
+                                                                        setCategoryFormData((prev)=>({
+                                                                                ...prev,
+                                                                                name,
+                                                                                slug: generateSlug(name)
+                                                                            }));
+                                                                    },
+                                                                    required: true
+                                                                }, void 0, false, {
+                                                                    fileName: "src/pages/AdminPanel.tsx",
+                                                                    lineNumber: 898,
+                                                                    columnNumber: 53
+                                                                }, undefined)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "src/pages/AdminPanel.tsx",
+                                                            lineNumber: 896,
+                                                            columnNumber: 49
+                                                        }, undefined),
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                            className: "mb-3",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                                                    className: "form-label",
+                                                                    children: "Slug"
+                                                                }, void 0, false, {
+                                                                    fileName: "src/pages/AdminPanel.tsx",
+                                                                    lineNumber: 915,
+                                                                    columnNumber: 53
+                                                                }, undefined),
+                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                                                    type: "text",
+                                                                    className: "form-control",
+                                                                    value: categoryFormData.slug,
+                                                                    onChange: (e)=>setCategoryFormData((prev)=>({
+                                                                                ...prev,
+                                                                                slug: e.target.value
+                                                                            })),
+                                                                    placeholder: "viene-generato-automaticamente"
+                                                                }, void 0, false, {
+                                                                    fileName: "src/pages/AdminPanel.tsx",
+                                                                    lineNumber: 916,
+                                                                    columnNumber: 53
+                                                                }, undefined),
+                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("small", {
+                                                                    className: "form-text text-muted",
+                                                                    children: "URL amichevole per la categoria (es: elettronica, abbigliamento-uomo)"
+                                                                }, void 0, false, {
+                                                                    fileName: "src/pages/AdminPanel.tsx",
+                                                                    lineNumber: 923,
+                                                                    columnNumber: 53
+                                                                }, undefined)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "src/pages/AdminPanel.tsx",
+                                                            lineNumber: 914,
+                                                            columnNumber: 49
+                                                        }, undefined),
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                            className: "mb-3",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                                                    className: "form-label",
+                                                                    children: "Categoria Padre"
+                                                                }, void 0, false, {
+                                                                    fileName: "src/pages/AdminPanel.tsx",
+                                                                    lineNumber: 929,
+                                                                    columnNumber: 53
+                                                                }, undefined),
+                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("select", {
+                                                                    className: "form-select",
+                                                                    value: categoryFormData.parentId || '',
+                                                                    onChange: (e)=>setCategoryFormData((prev)=>({
+                                                                                ...prev,
+                                                                                parentId: e.target.value ? parseInt(e.target.value) : undefined
+                                                                            })),
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
+                                                                            value: "",
+                                                                            children: "Nessuna (Categoria principale)"
+                                                                        }, void 0, false, {
+                                                                            fileName: "src/pages/AdminPanel.tsx",
+                                                                            lineNumber: 938,
+                                                                            columnNumber: 57
+                                                                        }, undefined),
+                                                                        categories.filter((c)=>c.id !== editingCategory?.id).map((category)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
+                                                                                value: category.id,
+                                                                                children: category.name
+                                                                            }, category.id, false, {
+                                                                                fileName: "src/pages/AdminPanel.tsx",
+                                                                                lineNumber: 942,
+                                                                                columnNumber: 65
+                                                                            }, undefined))
+                                                                    ]
+                                                                }, void 0, true, {
+                                                                    fileName: "src/pages/AdminPanel.tsx",
+                                                                    lineNumber: 930,
+                                                                    columnNumber: 53
+                                                                }, undefined)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "src/pages/AdminPanel.tsx",
+                                                            lineNumber: 928,
+                                                            columnNumber: 49
+                                                        }, undefined),
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                            className: "row",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                                    className: "col-6",
+                                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                                        className: "mb-3",
+                                                                        children: [
+                                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                                                                className: "form-label",
+                                                                                children: "Ordine di Visualizzazione"
+                                                                            }, void 0, false, {
+                                                                                fileName: "src/pages/AdminPanel.tsx",
+                                                                                lineNumber: 953,
+                                                                                columnNumber: 61
+                                                                            }, undefined),
+                                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                                                                type: "number",
+                                                                                className: "form-control",
+                                                                                min: "0",
+                                                                                value: categoryFormData.sortOrder,
+                                                                                onChange: (e)=>setCategoryFormData((prev)=>({
+                                                                                            ...prev,
+                                                                                            sortOrder: parseInt(e.target.value) || 0
+                                                                                        }))
+                                                                            }, void 0, false, {
+                                                                                fileName: "src/pages/AdminPanel.tsx",
+                                                                                lineNumber: 954,
+                                                                                columnNumber: 61
+                                                                            }, undefined)
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "src/pages/AdminPanel.tsx",
+                                                                        lineNumber: 952,
+                                                                        columnNumber: 57
+                                                                    }, undefined)
+                                                                }, void 0, false, {
+                                                                    fileName: "src/pages/AdminPanel.tsx",
+                                                                    lineNumber: 951,
+                                                                    columnNumber: 53
+                                                                }, undefined),
+                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                                    className: "col-6",
+                                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                                        className: "mb-3",
+                                                                        children: [
+                                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                                                                className: "form-label",
+                                                                                children: "Status"
+                                                                            }, void 0, false, {
+                                                                                fileName: "src/pages/AdminPanel.tsx",
+                                                                                lineNumber: 965,
+                                                                                columnNumber: 61
+                                                                            }, undefined),
+                                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                                                className: "form-check form-switch",
+                                                                                children: [
+                                                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                                                                        className: "form-check-input",
+                                                                                        type: "checkbox",
+                                                                                        checked: categoryFormData.active,
+                                                                                        onChange: (e)=>setCategoryFormData((prev)=>({
+                                                                                                    ...prev,
+                                                                                                    active: e.target.checked
+                                                                                                }))
+                                                                                    }, void 0, false, {
+                                                                                        fileName: "src/pages/AdminPanel.tsx",
+                                                                                        lineNumber: 967,
+                                                                                        columnNumber: 65
+                                                                                    }, undefined),
+                                                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                                                                        className: "form-check-label",
+                                                                                        children: "Categoria Attiva"
+                                                                                    }, void 0, false, {
+                                                                                        fileName: "src/pages/AdminPanel.tsx",
+                                                                                        lineNumber: 973,
+                                                                                        columnNumber: 65
+                                                                                    }, undefined)
+                                                                                ]
+                                                                            }, void 0, true, {
+                                                                                fileName: "src/pages/AdminPanel.tsx",
+                                                                                lineNumber: 966,
+                                                                                columnNumber: 61
+                                                                            }, undefined)
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "src/pages/AdminPanel.tsx",
+                                                                        lineNumber: 964,
+                                                                        columnNumber: 57
+                                                                    }, undefined)
+                                                                }, void 0, false, {
+                                                                    fileName: "src/pages/AdminPanel.tsx",
+                                                                    lineNumber: 963,
+                                                                    columnNumber: 53
+                                                                }, undefined)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "src/pages/AdminPanel.tsx",
+                                                            lineNumber: 950,
+                                                            columnNumber: 49
+                                                        }, undefined)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "src/pages/AdminPanel.tsx",
+                                                    lineNumber: 895,
+                                                    columnNumber: 45
+                                                }, undefined)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "src/pages/AdminPanel.tsx",
+                                            lineNumber: 867,
+                                            columnNumber: 41
+                                        }, undefined),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                            className: "mb-3",
+                                            children: [
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                                    className: "form-label",
+                                                    children: "Descrizione"
+                                                }, void 0, false, {
+                                                    fileName: "src/pages/AdminPanel.tsx",
+                                                    lineNumber: 985,
+                                                    columnNumber: 45
+                                                }, undefined),
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("textarea", {
+                                                    className: "form-control",
+                                                    rows: 3,
+                                                    value: categoryFormData.description,
+                                                    onChange: (e)=>setCategoryFormData((prev)=>({
+                                                                ...prev,
+                                                                description: e.target.value
+                                                            })),
+                                                    placeholder: "Descrizione della categoria per SEO e visualizzazione..."
+                                                }, void 0, false, {
+                                                    fileName: "src/pages/AdminPanel.tsx",
+                                                    lineNumber: 986,
+                                                    columnNumber: 45
+                                                }, undefined)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "src/pages/AdminPanel.tsx",
+                                            lineNumber: 984,
+                                            columnNumber: 41
+                                        }, undefined)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/pages/AdminPanel.tsx",
+                                    lineNumber: 866,
+                                    columnNumber: 37
                                 }, undefined)
                             }, void 0, false, {
                                 fileName: "src/pages/AdminPanel.tsx",
-                                lineNumber: 389,
+                                lineNumber: 658,
                                 columnNumber: 29
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -54695,66 +56570,66 @@ const AdminPanel = ()=>{
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                                         type: "button",
                                         className: "btn btn-secondary",
-                                        onClick: resetForm,
+                                        onClick: activeTab === 'products' ? resetProductForm : resetCategoryForm,
                                         children: "Annulla"
                                     }, void 0, false, {
                                         fileName: "src/pages/AdminPanel.tsx",
-                                        lineNumber: 563,
+                                        lineNumber: 998,
                                         columnNumber: 33
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                                         type: "submit",
                                         className: "btn btn-primary",
-                                        onClick: handleSubmit,
+                                        onClick: activeTab === 'products' ? handleProductSubmit : handleCategorySubmit,
                                         children: [
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _lucideReact.Save), {
                                                 className: "me-2",
                                                 size: 16
                                             }, void 0, false, {
                                                 fileName: "src/pages/AdminPanel.tsx",
-                                                lineNumber: 576,
+                                                lineNumber: 1010,
                                                 columnNumber: 37
                                             }, undefined),
-                                            editingProduct ? 'Aggiorna' : 'Salva',
-                                            " Prodotto"
+                                            activeTab === 'products' ? (editingProduct ? 'Aggiorna' : 'Salva') + ' Prodotto' : (editingCategory ? 'Aggiorna' : 'Salva') + ' Categoria'
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/pages/AdminPanel.tsx",
-                                        lineNumber: 571,
+                                        lineNumber: 1005,
                                         columnNumber: 33
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/pages/AdminPanel.tsx",
-                                lineNumber: 562,
+                                lineNumber: 997,
                                 columnNumber: 29
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/pages/AdminPanel.tsx",
-                        lineNumber: 378,
+                        lineNumber: 644,
                         columnNumber: 25
                     }, undefined)
                 }, void 0, false, {
                     fileName: "src/pages/AdminPanel.tsx",
-                    lineNumber: 377,
+                    lineNumber: 643,
                     columnNumber: 21
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/pages/AdminPanel.tsx",
-                lineNumber: 376,
+                lineNumber: 642,
                 columnNumber: 17
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/pages/AdminPanel.tsx",
-        lineNumber: 217,
+        lineNumber: 368,
         columnNumber: 9
     }, undefined);
 };
-_s(AdminPanel, "44EifxcmLYdbkSM5TBbZX82T4gU=", false, function() {
+_s(AdminPanel, "ewZSmEpPMxMLCKHk3aW3MtxE9iQ=", false, function() {
     return [
         (0, _productContext.useProducts),
+        (0, _categoryContext.useCategories),
         (0, _toastContext.useToast)
     ];
 });
@@ -54768,7 +56643,7 @@ $RefreshReg$(_c, "AdminPanel");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","lucide-react":"2I7qR","../data/api":"kkQ0o","../context/ToastContext":"6VmKk","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","src/context/ProductContext":"1wA0o"}],"1wA0o":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","lucide-react":"2I7qR","../data/api":"kkQ0o","../context/ToastContext":"6VmKk","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","../context/ProductContext":"1wA0o","../context/CategoryContext":"4AzgB"}],"1wA0o":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$75dd = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$75dd.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
@@ -55015,6 +56890,2281 @@ $RefreshReg$(_c, "ProtectedRoute");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","react-router-dom":"61z4w","react-bootstrap":"ctEhb","../context/AuthContext":"3zDyC","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}]},["7KwkS","4dmnR"], "4dmnR", "parcelRequire9630", {}, null, null, "http://localhost:1234")
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","react-router-dom":"61z4w","react-bootstrap":"ctEhb","../context/AuthContext":"3zDyC","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"3X1z6":[function(require,module,exports,__globalThis) {
+var $parcel$ReactRefreshHelpers$79eb = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+$parcel$ReactRefreshHelpers$79eb.init();
+var prevRefreshReg = globalThis.$RefreshReg$;
+var prevRefreshSig = globalThis.$RefreshSig$;
+$parcel$ReactRefreshHelpers$79eb.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactBootstrap = require("react-bootstrap");
+var _lucideReact = require("lucide-react");
+var _authContext = require("../context/AuthContext");
+var _orderContext = require("../context/OrderContext");
+var _toastContext = require("../context/ToastContext");
+var _s = $RefreshSig$();
+const UserDashboard = ()=>{
+    _s();
+    const { user, updateProfile } = (0, _authContext.useAuth)();
+    const { orders, loading: ordersLoading, fetchOrders, cancelOrder } = (0, _orderContext.useOrders)();
+    const { showToast } = (0, _toastContext.useToast)();
+    const [activeTab, setActiveTab] = (0, _react.useState)('overview');
+    const [showOrderDetails, setShowOrderDetails] = (0, _react.useState)(null);
+    const [showPasswordModal, setShowPasswordModal] = (0, _react.useState)(false);
+    const [profileLoading, setProfileLoading] = (0, _react.useState)(false);
+    const [ordersInitialized, setOrdersInitialized] = (0, _react.useState)(false);
+    const [profileData, setProfileData] = (0, _react.useState)({
+        firstName: user?.firstName || '',
+        lastName: user?.lastName || '',
+        email: user?.email || '',
+        phone: user?.phone || '',
+        address: user?.address || '',
+        city: user?.city || '',
+        zipCode: user?.zipCode || '',
+        country: user?.country || 'Italia'
+    });
+    const [passwordData, setPasswordData] = (0, _react.useState)({
+        currentPassword: '',
+        newPassword: '',
+        confirmPassword: ''
+    });
+    // Carica ordini solo quando l'utente va nella tab ordini o overview
+    const loadOrders = async ()=>{
+        if (!ordersInitialized) try {
+            await fetchOrders();
+            setOrdersInitialized(true);
+        } catch (error) {
+            showToast('Errore nel caricamento degli ordini', 'warning');
+        }
+    };
+    // Carica ordini quando si entra in overview o orders tab
+    (0, _react.useEffect)(()=>{
+        if (activeTab === 'overview' || activeTab === 'orders') loadOrders();
+    }, [
+        activeTab
+    ]);
+    (0, _react.useEffect)(()=>{
+        if (user) setProfileData({
+            firstName: user.firstName || '',
+            lastName: user.lastName || '',
+            email: user.email || '',
+            phone: user.phone || '',
+            address: user.address || '',
+            city: user.city || '',
+            zipCode: user.zipCode || '',
+            country: user.country || 'Italia'
+        });
+    }, [
+        user
+    ]);
+    const handleProfileSubmit = async (e)=>{
+        e.preventDefault();
+        setProfileLoading(true);
+        try {
+            await updateProfile(profileData);
+            showToast('Profilo aggiornato con successo!', 'success');
+        } catch (error) {
+            showToast('Errore nell\'aggiornamento del profilo', 'danger');
+        } finally{
+            setProfileLoading(false);
+        }
+    };
+    const handlePasswordSubmit = async (e)=>{
+        e.preventDefault();
+        if (passwordData.newPassword !== passwordData.confirmPassword) {
+            showToast('Le password non corrispondono', 'warning');
+            return;
+        }
+        if (passwordData.newPassword.length < 6) {
+            showToast('La password deve contenere almeno 6 caratteri', 'warning');
+            return;
+        }
+        try {
+            // Chiamata API per cambiare password
+            const response = await fetch('/api/user/change-password', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('authToken')}`
+                },
+                body: JSON.stringify({
+                    currentPassword: passwordData.currentPassword,
+                    newPassword: passwordData.newPassword
+                })
+            });
+            if (!response.ok) throw new Error('Errore nel cambio password');
+            showToast('Password cambiata con successo!', 'success');
+            setShowPasswordModal(false);
+            setPasswordData({
+                currentPassword: '',
+                newPassword: '',
+                confirmPassword: ''
+            });
+        } catch (error) {
+            showToast('Errore nel cambio password', 'danger');
+        }
+    };
+    const handleCancelOrder = async (orderId)=>{
+        if (window.confirm('Sei sicuro di voler annullare questo ordine?')) try {
+            await cancelOrder(orderId);
+            showToast('Ordine annullato con successo', 'success');
+        } catch (error) {
+            showToast('Errore nell\'annullamento dell\'ordine', 'danger');
+        }
+    };
+    const handleRefreshOrders = async ()=>{
+        try {
+            await fetchOrders();
+            showToast('Ordini aggiornati', 'success');
+        } catch (error) {
+            showToast('Errore nell\'aggiornamento degli ordini', 'danger');
+        }
+    };
+    const getStatusIcon = (status)=>{
+        switch(status){
+            case 'pending':
+                return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _lucideReact.Clock), {
+                    className: "text-warning",
+                    size: 16
+                }, void 0, false, {
+                    fileName: "src/pages/UserDashboard.tsx",
+                    lineNumber: 162,
+                    columnNumber: 30
+                }, undefined);
+            case 'processing':
+                return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _lucideReact.AlertCircle), {
+                    className: "text-info",
+                    size: 16
+                }, void 0, false, {
+                    fileName: "src/pages/UserDashboard.tsx",
+                    lineNumber: 163,
+                    columnNumber: 33
+                }, undefined);
+            case 'shipped':
+                return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _lucideReact.Truck), {
+                    className: "text-primary",
+                    size: 16
+                }, void 0, false, {
+                    fileName: "src/pages/UserDashboard.tsx",
+                    lineNumber: 164,
+                    columnNumber: 30
+                }, undefined);
+            case 'delivered':
+                return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _lucideReact.CheckCircle), {
+                    className: "text-success",
+                    size: 16
+                }, void 0, false, {
+                    fileName: "src/pages/UserDashboard.tsx",
+                    lineNumber: 165,
+                    columnNumber: 32
+                }, undefined);
+            case 'cancelled':
+                return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _lucideReact.X), {
+                    className: "text-danger",
+                    size: 16
+                }, void 0, false, {
+                    fileName: "src/pages/UserDashboard.tsx",
+                    lineNumber: 166,
+                    columnNumber: 32
+                }, undefined);
+            default:
+                return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _lucideReact.Clock), {
+                    className: "text-secondary",
+                    size: 16
+                }, void 0, false, {
+                    fileName: "src/pages/UserDashboard.tsx",
+                    lineNumber: 167,
+                    columnNumber: 23
+                }, undefined);
+        }
+    };
+    const getStatusText = (status)=>{
+        switch(status){
+            case 'pending':
+                return 'In attesa';
+            case 'processing':
+                return 'In elaborazione';
+            case 'shipped':
+                return 'Spedito';
+            case 'delivered':
+                return 'Consegnato';
+            case 'cancelled':
+                return 'Annullato';
+            default:
+                return status;
+        }
+    };
+    const getStatusBadgeVariant = (status)=>{
+        switch(status){
+            case 'pending':
+                return 'warning';
+            case 'processing':
+                return 'info';
+            case 'shipped':
+                return 'primary';
+            case 'delivered':
+                return 'success';
+            case 'cancelled':
+                return 'danger';
+            default:
+                return 'secondary';
+        }
+    };
+    const totalOrders = orders.length;
+    const totalSpent = orders.reduce((sum, order)=>sum + order.total, 0);
+    const completedOrders = orders.filter((o)=>o.status === 'delivered').length;
+    const pendingOrders = orders.filter((o)=>[
+            'pending',
+            'processing',
+            'shipped'
+        ].includes(o.status)).length;
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "container-fluid py-4",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
+                        md: 3,
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
+                                className: "mb-4",
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Body, {
+                                    className: "text-center",
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                            className: "mb-3",
+                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                className: "rounded-circle bg-primary d-inline-flex align-items-center justify-content-center",
+                                                style: {
+                                                    width: '80px',
+                                                    height: '80px'
+                                                },
+                                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _lucideReact.User), {
+                                                    size: 40,
+                                                    className: "text-white"
+                                                }, void 0, false, {
+                                                    fileName: "src/pages/UserDashboard.tsx",
+                                                    lineNumber: 209,
+                                                    columnNumber: 19
+                                                }, undefined)
+                                            }, void 0, false, {
+                                                fileName: "src/pages/UserDashboard.tsx",
+                                                lineNumber: 205,
+                                                columnNumber: 17
+                                            }, undefined)
+                                        }, void 0, false, {
+                                            fileName: "src/pages/UserDashboard.tsx",
+                                            lineNumber: 204,
+                                            columnNumber: 15
+                                        }, undefined),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h5", {
+                                            className: "mb-1",
+                                            children: [
+                                                user?.firstName,
+                                                " ",
+                                                user?.lastName
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "src/pages/UserDashboard.tsx",
+                                            lineNumber: 212,
+                                            columnNumber: 15
+                                        }, undefined),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                            className: "text-muted mb-0",
+                                            children: user?.email
+                                        }, void 0, false, {
+                                            fileName: "src/pages/UserDashboard.tsx",
+                                            lineNumber: 213,
+                                            columnNumber: 15
+                                        }, undefined)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/pages/UserDashboard.tsx",
+                                    lineNumber: 203,
+                                    columnNumber: 13
+                                }, undefined)
+                            }, void 0, false, {
+                                fileName: "src/pages/UserDashboard.tsx",
+                                lineNumber: 202,
+                                columnNumber: 11
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav), {
+                                variant: "pills",
+                                className: "flex-column",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Item, {
+                                        className: "mb-2",
+                                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
+                                            active: activeTab === 'overview',
+                                            onClick: ()=>setActiveTab('overview'),
+                                            className: "d-flex align-items-center",
+                                            children: [
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _lucideReact.Package), {
+                                                    className: "me-2",
+                                                    size: 18
+                                                }, void 0, false, {
+                                                    fileName: "src/pages/UserDashboard.tsx",
+                                                    lineNumber: 224,
+                                                    columnNumber: 17
+                                                }, undefined),
+                                                "Panoramica"
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "src/pages/UserDashboard.tsx",
+                                            lineNumber: 219,
+                                            columnNumber: 15
+                                        }, undefined)
+                                    }, void 0, false, {
+                                        fileName: "src/pages/UserDashboard.tsx",
+                                        lineNumber: 218,
+                                        columnNumber: 13
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Item, {
+                                        className: "mb-2",
+                                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
+                                            active: activeTab === 'orders',
+                                            onClick: ()=>setActiveTab('orders'),
+                                            className: "d-flex align-items-center",
+                                            children: [
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _lucideReact.CreditCard), {
+                                                    className: "me-2",
+                                                    size: 18
+                                                }, void 0, false, {
+                                                    fileName: "src/pages/UserDashboard.tsx",
+                                                    lineNumber: 234,
+                                                    columnNumber: 17
+                                                }, undefined),
+                                                "I miei ordini"
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "src/pages/UserDashboard.tsx",
+                                            lineNumber: 229,
+                                            columnNumber: 15
+                                        }, undefined)
+                                    }, void 0, false, {
+                                        fileName: "src/pages/UserDashboard.tsx",
+                                        lineNumber: 228,
+                                        columnNumber: 13
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Item, {
+                                        className: "mb-2",
+                                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
+                                            active: activeTab === 'profile',
+                                            onClick: ()=>setActiveTab('profile'),
+                                            className: "d-flex align-items-center",
+                                            children: [
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _lucideReact.Settings), {
+                                                    className: "me-2",
+                                                    size: 18
+                                                }, void 0, false, {
+                                                    fileName: "src/pages/UserDashboard.tsx",
+                                                    lineNumber: 244,
+                                                    columnNumber: 17
+                                                }, undefined),
+                                                "Profilo"
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "src/pages/UserDashboard.tsx",
+                                            lineNumber: 239,
+                                            columnNumber: 15
+                                        }, undefined)
+                                    }, void 0, false, {
+                                        fileName: "src/pages/UserDashboard.tsx",
+                                        lineNumber: 238,
+                                        columnNumber: 13
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/pages/UserDashboard.tsx",
+                                lineNumber: 217,
+                                columnNumber: 11
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/pages/UserDashboard.tsx",
+                        lineNumber: 201,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
+                        md: 9,
+                        children: [
+                            activeTab === 'overview' && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                        className: "d-flex justify-content-between align-items-center mb-4",
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                                                children: [
+                                                    "Benvenuto, ",
+                                                    user?.firstName,
+                                                    "!"
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "src/pages/UserDashboard.tsx",
+                                                lineNumber: 255,
+                                                columnNumber: 17
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
+                                                variant: "outline-primary",
+                                                size: "sm",
+                                                onClick: handleRefreshOrders,
+                                                disabled: ordersLoading,
+                                                children: [
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _lucideReact.RefreshCw), {
+                                                        className: `me-1 ${ordersLoading ? 'spin' : ''}`,
+                                                        size: 16
+                                                    }, void 0, false, {
+                                                        fileName: "src/pages/UserDashboard.tsx",
+                                                        lineNumber: 262,
+                                                        columnNumber: 19
+                                                    }, undefined),
+                                                    "Aggiorna"
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "src/pages/UserDashboard.tsx",
+                                                lineNumber: 256,
+                                                columnNumber: 17
+                                            }, undefined)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/pages/UserDashboard.tsx",
+                                        lineNumber: 254,
+                                        columnNumber: 15
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
+                                        className: "mb-4",
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
+                                                md: 3,
+                                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
+                                                    className: "text-center border-primary",
+                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Body, {
+                                                        children: [
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
+                                                                className: "text-primary",
+                                                                children: totalOrders
+                                                            }, void 0, false, {
+                                                                fileName: "src/pages/UserDashboard.tsx",
+                                                                lineNumber: 271,
+                                                                columnNumber: 23
+                                                            }, undefined),
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                                                className: "mb-0",
+                                                                children: "Ordini totali"
+                                                            }, void 0, false, {
+                                                                fileName: "src/pages/UserDashboard.tsx",
+                                                                lineNumber: 272,
+                                                                columnNumber: 23
+                                                            }, undefined)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "src/pages/UserDashboard.tsx",
+                                                        lineNumber: 270,
+                                                        columnNumber: 21
+                                                    }, undefined)
+                                                }, void 0, false, {
+                                                    fileName: "src/pages/UserDashboard.tsx",
+                                                    lineNumber: 269,
+                                                    columnNumber: 19
+                                                }, undefined)
+                                            }, void 0, false, {
+                                                fileName: "src/pages/UserDashboard.tsx",
+                                                lineNumber: 268,
+                                                columnNumber: 17
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
+                                                md: 3,
+                                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
+                                                    className: "text-center border-success",
+                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Body, {
+                                                        children: [
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
+                                                                className: "text-success",
+                                                                children: [
+                                                                    "\u20AC",
+                                                                    totalSpent.toFixed(2)
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "src/pages/UserDashboard.tsx",
+                                                                lineNumber: 279,
+                                                                columnNumber: 23
+                                                            }, undefined),
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                                                className: "mb-0",
+                                                                children: "Speso totale"
+                                                            }, void 0, false, {
+                                                                fileName: "src/pages/UserDashboard.tsx",
+                                                                lineNumber: 280,
+                                                                columnNumber: 23
+                                                            }, undefined)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "src/pages/UserDashboard.tsx",
+                                                        lineNumber: 278,
+                                                        columnNumber: 21
+                                                    }, undefined)
+                                                }, void 0, false, {
+                                                    fileName: "src/pages/UserDashboard.tsx",
+                                                    lineNumber: 277,
+                                                    columnNumber: 19
+                                                }, undefined)
+                                            }, void 0, false, {
+                                                fileName: "src/pages/UserDashboard.tsx",
+                                                lineNumber: 276,
+                                                columnNumber: 17
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
+                                                md: 3,
+                                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
+                                                    className: "text-center border-info",
+                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Body, {
+                                                        children: [
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
+                                                                className: "text-info",
+                                                                children: completedOrders
+                                                            }, void 0, false, {
+                                                                fileName: "src/pages/UserDashboard.tsx",
+                                                                lineNumber: 287,
+                                                                columnNumber: 23
+                                                            }, undefined),
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                                                className: "mb-0",
+                                                                children: "Ordini completati"
+                                                            }, void 0, false, {
+                                                                fileName: "src/pages/UserDashboard.tsx",
+                                                                lineNumber: 288,
+                                                                columnNumber: 23
+                                                            }, undefined)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "src/pages/UserDashboard.tsx",
+                                                        lineNumber: 286,
+                                                        columnNumber: 21
+                                                    }, undefined)
+                                                }, void 0, false, {
+                                                    fileName: "src/pages/UserDashboard.tsx",
+                                                    lineNumber: 285,
+                                                    columnNumber: 19
+                                                }, undefined)
+                                            }, void 0, false, {
+                                                fileName: "src/pages/UserDashboard.tsx",
+                                                lineNumber: 284,
+                                                columnNumber: 17
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
+                                                md: 3,
+                                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
+                                                    className: "text-center border-warning",
+                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Body, {
+                                                        children: [
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
+                                                                className: "text-warning",
+                                                                children: pendingOrders
+                                                            }, void 0, false, {
+                                                                fileName: "src/pages/UserDashboard.tsx",
+                                                                lineNumber: 295,
+                                                                columnNumber: 23
+                                                            }, undefined),
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                                                className: "mb-0",
+                                                                children: "Ordini in corso"
+                                                            }, void 0, false, {
+                                                                fileName: "src/pages/UserDashboard.tsx",
+                                                                lineNumber: 296,
+                                                                columnNumber: 23
+                                                            }, undefined)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "src/pages/UserDashboard.tsx",
+                                                        lineNumber: 294,
+                                                        columnNumber: 21
+                                                    }, undefined)
+                                                }, void 0, false, {
+                                                    fileName: "src/pages/UserDashboard.tsx",
+                                                    lineNumber: 293,
+                                                    columnNumber: 19
+                                                }, undefined)
+                                            }, void 0, false, {
+                                                fileName: "src/pages/UserDashboard.tsx",
+                                                lineNumber: 292,
+                                                columnNumber: 17
+                                            }, undefined)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/pages/UserDashboard.tsx",
+                                        lineNumber: 267,
+                                        columnNumber: 15
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Header, {
+                                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h5", {
+                                                    className: "mb-0",
+                                                    children: "Ultimi ordini"
+                                                }, void 0, false, {
+                                                    fileName: "src/pages/UserDashboard.tsx",
+                                                    lineNumber: 304,
+                                                    columnNumber: 19
+                                                }, undefined)
+                                            }, void 0, false, {
+                                                fileName: "src/pages/UserDashboard.tsx",
+                                                lineNumber: 303,
+                                                columnNumber: 17
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Body, {
+                                                children: ordersLoading ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                    className: "text-center py-4",
+                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Spinner), {
+                                                        animation: "border"
+                                                    }, void 0, false, {
+                                                        fileName: "src/pages/UserDashboard.tsx",
+                                                        lineNumber: 309,
+                                                        columnNumber: 23
+                                                    }, undefined)
+                                                }, void 0, false, {
+                                                    fileName: "src/pages/UserDashboard.tsx",
+                                                    lineNumber: 308,
+                                                    columnNumber: 21
+                                                }, undefined) : orders.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                    className: "text-center py-4",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                                            className: "text-muted mb-3",
+                                                            children: "Non hai ancora effettuato ordini."
+                                                        }, void 0, false, {
+                                                            fileName: "src/pages/UserDashboard.tsx",
+                                                            lineNumber: 313,
+                                                            columnNumber: 23
+                                                        }, undefined),
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
+                                                            variant: "outline-primary",
+                                                            onClick: loadOrders,
+                                                            children: "Carica ordini"
+                                                        }, void 0, false, {
+                                                            fileName: "src/pages/UserDashboard.tsx",
+                                                            lineNumber: 314,
+                                                            columnNumber: 23
+                                                        }, undefined)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "src/pages/UserDashboard.tsx",
+                                                    lineNumber: 312,
+                                                    columnNumber: 21
+                                                }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Table), {
+                                                    responsive: true,
+                                                    children: [
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("thead", {
+                                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tr", {
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                                                        children: "Ordine"
+                                                                    }, void 0, false, {
+                                                                        fileName: "src/pages/UserDashboard.tsx",
+                                                                        lineNumber: 322,
+                                                                        columnNumber: 27
+                                                                    }, undefined),
+                                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                                                        children: "Data"
+                                                                    }, void 0, false, {
+                                                                        fileName: "src/pages/UserDashboard.tsx",
+                                                                        lineNumber: 323,
+                                                                        columnNumber: 27
+                                                                    }, undefined),
+                                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                                                        children: "Stato"
+                                                                    }, void 0, false, {
+                                                                        fileName: "src/pages/UserDashboard.tsx",
+                                                                        lineNumber: 324,
+                                                                        columnNumber: 27
+                                                                    }, undefined),
+                                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                                                        children: "Totale"
+                                                                    }, void 0, false, {
+                                                                        fileName: "src/pages/UserDashboard.tsx",
+                                                                        lineNumber: 325,
+                                                                        columnNumber: 27
+                                                                    }, undefined),
+                                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                                                        children: "Azioni"
+                                                                    }, void 0, false, {
+                                                                        fileName: "src/pages/UserDashboard.tsx",
+                                                                        lineNumber: 326,
+                                                                        columnNumber: 27
+                                                                    }, undefined)
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "src/pages/UserDashboard.tsx",
+                                                                lineNumber: 321,
+                                                                columnNumber: 25
+                                                            }, undefined)
+                                                        }, void 0, false, {
+                                                            fileName: "src/pages/UserDashboard.tsx",
+                                                            lineNumber: 320,
+                                                            columnNumber: 23
+                                                        }, undefined),
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tbody", {
+                                                            children: orders.slice(0, 5).map((order)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tr", {
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                                                            children: [
+                                                                                "#",
+                                                                                order.id
+                                                                            ]
+                                                                        }, void 0, true, {
+                                                                            fileName: "src/pages/UserDashboard.tsx",
+                                                                            lineNumber: 332,
+                                                                            columnNumber: 29
+                                                                        }, undefined),
+                                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                                                            children: new Date(order.orderDate).toLocaleDateString('it-IT')
+                                                                        }, void 0, false, {
+                                                                            fileName: "src/pages/UserDashboard.tsx",
+                                                                            lineNumber: 333,
+                                                                            columnNumber: 29
+                                                                        }, undefined),
+                                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Badge), {
+                                                                                bg: getStatusBadgeVariant(order.status),
+                                                                                className: "d-flex align-items-center gap-1 w-auto",
+                                                                                children: [
+                                                                                    getStatusIcon(order.status),
+                                                                                    getStatusText(order.status)
+                                                                                ]
+                                                                            }, void 0, true, {
+                                                                                fileName: "src/pages/UserDashboard.tsx",
+                                                                                lineNumber: 335,
+                                                                                columnNumber: 31
+                                                                            }, undefined)
+                                                                        }, void 0, false, {
+                                                                            fileName: "src/pages/UserDashboard.tsx",
+                                                                            lineNumber: 334,
+                                                                            columnNumber: 29
+                                                                        }, undefined),
+                                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                                                            children: [
+                                                                                "\u20AC",
+                                                                                order.total.toFixed(2)
+                                                                            ]
+                                                                        }, void 0, true, {
+                                                                            fileName: "src/pages/UserDashboard.tsx",
+                                                                            lineNumber: 340,
+                                                                            columnNumber: 29
+                                                                        }, undefined),
+                                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
+                                                                                variant: "outline-primary",
+                                                                                size: "sm",
+                                                                                onClick: ()=>setShowOrderDetails(order.id),
+                                                                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _lucideReact.Eye), {
+                                                                                    size: 14
+                                                                                }, void 0, false, {
+                                                                                    fileName: "src/pages/UserDashboard.tsx",
+                                                                                    lineNumber: 347,
+                                                                                    columnNumber: 33
+                                                                                }, undefined)
+                                                                            }, void 0, false, {
+                                                                                fileName: "src/pages/UserDashboard.tsx",
+                                                                                lineNumber: 342,
+                                                                                columnNumber: 31
+                                                                            }, undefined)
+                                                                        }, void 0, false, {
+                                                                            fileName: "src/pages/UserDashboard.tsx",
+                                                                            lineNumber: 341,
+                                                                            columnNumber: 29
+                                                                        }, undefined)
+                                                                    ]
+                                                                }, order.id, true, {
+                                                                    fileName: "src/pages/UserDashboard.tsx",
+                                                                    lineNumber: 331,
+                                                                    columnNumber: 27
+                                                                }, undefined))
+                                                        }, void 0, false, {
+                                                            fileName: "src/pages/UserDashboard.tsx",
+                                                            lineNumber: 329,
+                                                            columnNumber: 23
+                                                        }, undefined)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "src/pages/UserDashboard.tsx",
+                                                    lineNumber: 319,
+                                                    columnNumber: 21
+                                                }, undefined)
+                                            }, void 0, false, {
+                                                fileName: "src/pages/UserDashboard.tsx",
+                                                lineNumber: 306,
+                                                columnNumber: 17
+                                            }, undefined)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/pages/UserDashboard.tsx",
+                                        lineNumber: 302,
+                                        columnNumber: 15
+                                    }, undefined)
+                                ]
+                            }, void 0, true),
+                            activeTab === 'orders' && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                        className: "d-flex justify-content-between align-items-center mb-4",
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                                                children: "I miei ordini"
+                                            }, void 0, false, {
+                                                fileName: "src/pages/UserDashboard.tsx",
+                                                lineNumber: 363,
+                                                columnNumber: 17
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                className: "d-flex gap-2",
+                                                children: [
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Badge), {
+                                                        bg: "secondary",
+                                                        children: [
+                                                            totalOrders,
+                                                            " ordini"
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "src/pages/UserDashboard.tsx",
+                                                        lineNumber: 365,
+                                                        columnNumber: 19
+                                                    }, undefined),
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
+                                                        variant: "outline-primary",
+                                                        size: "sm",
+                                                        onClick: handleRefreshOrders,
+                                                        disabled: ordersLoading,
+                                                        children: [
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _lucideReact.RefreshCw), {
+                                                                className: `me-1 ${ordersLoading ? 'spin' : ''}`,
+                                                                size: 16
+                                                            }, void 0, false, {
+                                                                fileName: "src/pages/UserDashboard.tsx",
+                                                                lineNumber: 372,
+                                                                columnNumber: 21
+                                                            }, undefined),
+                                                            "Aggiorna"
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "src/pages/UserDashboard.tsx",
+                                                        lineNumber: 366,
+                                                        columnNumber: 19
+                                                    }, undefined)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "src/pages/UserDashboard.tsx",
+                                                lineNumber: 364,
+                                                columnNumber: 17
+                                            }, undefined)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/pages/UserDashboard.tsx",
+                                        lineNumber: 362,
+                                        columnNumber: 15
+                                    }, undefined),
+                                    ordersLoading ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                        className: "text-center py-5",
+                                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Spinner), {
+                                            animation: "border"
+                                        }, void 0, false, {
+                                            fileName: "src/pages/UserDashboard.tsx",
+                                            lineNumber: 380,
+                                            columnNumber: 19
+                                        }, undefined)
+                                    }, void 0, false, {
+                                        fileName: "src/pages/UserDashboard.tsx",
+                                        lineNumber: 379,
+                                        columnNumber: 17
+                                    }, undefined) : orders.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
+                                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Body, {
+                                            className: "text-center py-5",
+                                            children: [
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _lucideReact.Package), {
+                                                    size: 48,
+                                                    className: "text-muted mb-3"
+                                                }, void 0, false, {
+                                                    fileName: "src/pages/UserDashboard.tsx",
+                                                    lineNumber: 385,
+                                                    columnNumber: 21
+                                                }, undefined),
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h5", {
+                                                    children: "Nessun ordine trovato"
+                                                }, void 0, false, {
+                                                    fileName: "src/pages/UserDashboard.tsx",
+                                                    lineNumber: 386,
+                                                    columnNumber: 21
+                                                }, undefined),
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                                    className: "text-muted mb-3",
+                                                    children: "Non hai ancora effettuato nessun ordine."
+                                                }, void 0, false, {
+                                                    fileName: "src/pages/UserDashboard.tsx",
+                                                    lineNumber: 387,
+                                                    columnNumber: 21
+                                                }, undefined),
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
+                                                    variant: "outline-primary",
+                                                    onClick: loadOrders,
+                                                    children: "Carica ordini"
+                                                }, void 0, false, {
+                                                    fileName: "src/pages/UserDashboard.tsx",
+                                                    lineNumber: 388,
+                                                    columnNumber: 21
+                                                }, undefined)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "src/pages/UserDashboard.tsx",
+                                            lineNumber: 384,
+                                            columnNumber: 19
+                                        }, undefined)
+                                    }, void 0, false, {
+                                        fileName: "src/pages/UserDashboard.tsx",
+                                        lineNumber: 383,
+                                        columnNumber: 17
+                                    }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                        className: "space-y-3",
+                                        children: orders.map((order)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
+                                                className: "mb-3",
+                                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Body, {
+                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
+                                                        className: "align-items-center",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
+                                                                md: 2,
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
+                                                                        children: [
+                                                                            "#",
+                                                                            order.id
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "src/pages/UserDashboard.tsx",
+                                                                        lineNumber: 400,
+                                                                        columnNumber: 29
+                                                                    }, undefined),
+                                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                                                                        fileName: "src/pages/UserDashboard.tsx",
+                                                                        lineNumber: 401,
+                                                                        columnNumber: 29
+                                                                    }, undefined),
+                                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("small", {
+                                                                        className: "text-muted",
+                                                                        children: new Date(order.orderDate).toLocaleDateString('it-IT')
+                                                                    }, void 0, false, {
+                                                                        fileName: "src/pages/UserDashboard.tsx",
+                                                                        lineNumber: 402,
+                                                                        columnNumber: 29
+                                                                    }, undefined)
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "src/pages/UserDashboard.tsx",
+                                                                lineNumber: 399,
+                                                                columnNumber: 27
+                                                            }, undefined),
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
+                                                                md: 3,
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                                        className: "d-flex align-items-center gap-2",
+                                                                        children: [
+                                                                            getStatusIcon(order.status),
+                                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                                                                children: getStatusText(order.status)
+                                                                            }, void 0, false, {
+                                                                                fileName: "src/pages/UserDashboard.tsx",
+                                                                                lineNumber: 409,
+                                                                                columnNumber: 31
+                                                                            }, undefined)
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "src/pages/UserDashboard.tsx",
+                                                                        lineNumber: 407,
+                                                                        columnNumber: 29
+                                                                    }, undefined),
+                                                                    order.trackingNumber && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("small", {
+                                                                        className: "text-muted",
+                                                                        children: [
+                                                                            "Tracking: ",
+                                                                            order.trackingNumber
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "src/pages/UserDashboard.tsx",
+                                                                        lineNumber: 412,
+                                                                        columnNumber: 31
+                                                                    }, undefined)
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "src/pages/UserDashboard.tsx",
+                                                                lineNumber: 406,
+                                                                columnNumber: 27
+                                                            }, undefined),
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
+                                                                md: 2,
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
+                                                                        children: [
+                                                                            "\u20AC",
+                                                                            order.total.toFixed(2)
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "src/pages/UserDashboard.tsx",
+                                                                        lineNumber: 418,
+                                                                        columnNumber: 29
+                                                                    }, undefined),
+                                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                                                                        fileName: "src/pages/UserDashboard.tsx",
+                                                                        lineNumber: 419,
+                                                                        columnNumber: 29
+                                                                    }, undefined),
+                                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("small", {
+                                                                        className: "text-muted",
+                                                                        children: [
+                                                                            order.items.length,
+                                                                            " prodotti"
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "src/pages/UserDashboard.tsx",
+                                                                        lineNumber: 420,
+                                                                        columnNumber: 29
+                                                                    }, undefined)
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "src/pages/UserDashboard.tsx",
+                                                                lineNumber: 417,
+                                                                columnNumber: 27
+                                                            }, undefined),
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
+                                                                md: 3,
+                                                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("small", {
+                                                                    className: "text-muted",
+                                                                    children: order.paymentMethod
+                                                                }, void 0, false, {
+                                                                    fileName: "src/pages/UserDashboard.tsx",
+                                                                    lineNumber: 425,
+                                                                    columnNumber: 29
+                                                                }, undefined)
+                                                            }, void 0, false, {
+                                                                fileName: "src/pages/UserDashboard.tsx",
+                                                                lineNumber: 424,
+                                                                columnNumber: 27
+                                                            }, undefined),
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
+                                                                md: 2,
+                                                                className: "text-end",
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
+                                                                        variant: "outline-primary",
+                                                                        size: "sm",
+                                                                        className: "me-2",
+                                                                        onClick: ()=>setShowOrderDetails(order.id),
+                                                                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _lucideReact.Eye), {
+                                                                            size: 14
+                                                                        }, void 0, false, {
+                                                                            fileName: "src/pages/UserDashboard.tsx",
+                                                                            lineNumber: 436,
+                                                                            columnNumber: 31
+                                                                        }, undefined)
+                                                                    }, void 0, false, {
+                                                                        fileName: "src/pages/UserDashboard.tsx",
+                                                                        lineNumber: 430,
+                                                                        columnNumber: 29
+                                                                    }, undefined),
+                                                                    order.status === 'pending' && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
+                                                                        variant: "outline-danger",
+                                                                        size: "sm",
+                                                                        onClick: ()=>handleCancelOrder(order.id),
+                                                                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _lucideReact.X), {
+                                                                            size: 14
+                                                                        }, void 0, false, {
+                                                                            fileName: "src/pages/UserDashboard.tsx",
+                                                                            lineNumber: 444,
+                                                                            columnNumber: 33
+                                                                        }, undefined)
+                                                                    }, void 0, false, {
+                                                                        fileName: "src/pages/UserDashboard.tsx",
+                                                                        lineNumber: 439,
+                                                                        columnNumber: 31
+                                                                    }, undefined)
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "src/pages/UserDashboard.tsx",
+                                                                lineNumber: 429,
+                                                                columnNumber: 27
+                                                            }, undefined)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "src/pages/UserDashboard.tsx",
+                                                        lineNumber: 398,
+                                                        columnNumber: 25
+                                                    }, undefined)
+                                                }, void 0, false, {
+                                                    fileName: "src/pages/UserDashboard.tsx",
+                                                    lineNumber: 397,
+                                                    columnNumber: 23
+                                                }, undefined)
+                                            }, order.id, false, {
+                                                fileName: "src/pages/UserDashboard.tsx",
+                                                lineNumber: 396,
+                                                columnNumber: 21
+                                            }, undefined))
+                                    }, void 0, false, {
+                                        fileName: "src/pages/UserDashboard.tsx",
+                                        lineNumber: 394,
+                                        columnNumber: 17
+                                    }, undefined)
+                                ]
+                            }, void 0, true),
+                            activeTab === 'profile' && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                                        className: "mb-4",
+                                        children: "Gestione Profilo"
+                                    }, void 0, false, {
+                                        fileName: "src/pages/UserDashboard.tsx",
+                                        lineNumber: 459,
+                                        columnNumber: 15
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
+                                                md: 8,
+                                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
+                                                    className: "mb-4",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Header, {
+                                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h5", {
+                                                                className: "mb-0",
+                                                                children: "Informazioni personali"
+                                                            }, void 0, false, {
+                                                                fileName: "src/pages/UserDashboard.tsx",
+                                                                lineNumber: 465,
+                                                                columnNumber: 23
+                                                            }, undefined)
+                                                        }, void 0, false, {
+                                                            fileName: "src/pages/UserDashboard.tsx",
+                                                            lineNumber: 464,
+                                                            columnNumber: 21
+                                                        }, undefined),
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Body, {
+                                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form), {
+                                                                onSubmit: handleProfileSubmit,
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
+                                                                        children: [
+                                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
+                                                                                md: 6,
+                                                                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
+                                                                                    className: "mb-3",
+                                                                                    children: [
+                                                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
+                                                                                            children: "Nome"
+                                                                                        }, void 0, false, {
+                                                                                            fileName: "src/pages/UserDashboard.tsx",
+                                                                                            lineNumber: 472,
+                                                                                            columnNumber: 31
+                                                                                        }, undefined),
+                                                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
+                                                                                            type: "text",
+                                                                                            value: profileData.firstName,
+                                                                                            onChange: (e)=>setProfileData((prev)=>({
+                                                                                                        ...prev,
+                                                                                                        firstName: e.target.value
+                                                                                                    })),
+                                                                                            required: true
+                                                                                        }, void 0, false, {
+                                                                                            fileName: "src/pages/UserDashboard.tsx",
+                                                                                            lineNumber: 473,
+                                                                                            columnNumber: 31
+                                                                                        }, undefined)
+                                                                                    ]
+                                                                                }, void 0, true, {
+                                                                                    fileName: "src/pages/UserDashboard.tsx",
+                                                                                    lineNumber: 471,
+                                                                                    columnNumber: 29
+                                                                                }, undefined)
+                                                                            }, void 0, false, {
+                                                                                fileName: "src/pages/UserDashboard.tsx",
+                                                                                lineNumber: 470,
+                                                                                columnNumber: 27
+                                                                            }, undefined),
+                                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
+                                                                                md: 6,
+                                                                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
+                                                                                    className: "mb-3",
+                                                                                    children: [
+                                                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
+                                                                                            children: "Cognome"
+                                                                                        }, void 0, false, {
+                                                                                            fileName: "src/pages/UserDashboard.tsx",
+                                                                                            lineNumber: 486,
+                                                                                            columnNumber: 31
+                                                                                        }, undefined),
+                                                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
+                                                                                            type: "text",
+                                                                                            value: profileData.lastName,
+                                                                                            onChange: (e)=>setProfileData((prev)=>({
+                                                                                                        ...prev,
+                                                                                                        lastName: e.target.value
+                                                                                                    })),
+                                                                                            required: true
+                                                                                        }, void 0, false, {
+                                                                                            fileName: "src/pages/UserDashboard.tsx",
+                                                                                            lineNumber: 487,
+                                                                                            columnNumber: 31
+                                                                                        }, undefined)
+                                                                                    ]
+                                                                                }, void 0, true, {
+                                                                                    fileName: "src/pages/UserDashboard.tsx",
+                                                                                    lineNumber: 485,
+                                                                                    columnNumber: 29
+                                                                                }, undefined)
+                                                                            }, void 0, false, {
+                                                                                fileName: "src/pages/UserDashboard.tsx",
+                                                                                lineNumber: 484,
+                                                                                columnNumber: 27
+                                                                            }, undefined)
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "src/pages/UserDashboard.tsx",
+                                                                        lineNumber: 469,
+                                                                        columnNumber: 25
+                                                                    }, undefined),
+                                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
+                                                                        className: "mb-3",
+                                                                        children: [
+                                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
+                                                                                children: "Email"
+                                                                            }, void 0, false, {
+                                                                                fileName: "src/pages/UserDashboard.tsx",
+                                                                                lineNumber: 501,
+                                                                                columnNumber: 27
+                                                                            }, undefined),
+                                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
+                                                                                type: "email",
+                                                                                value: profileData.email,
+                                                                                onChange: (e)=>setProfileData((prev)=>({
+                                                                                            ...prev,
+                                                                                            email: e.target.value
+                                                                                        })),
+                                                                                required: true
+                                                                            }, void 0, false, {
+                                                                                fileName: "src/pages/UserDashboard.tsx",
+                                                                                lineNumber: 502,
+                                                                                columnNumber: 27
+                                                                            }, undefined)
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "src/pages/UserDashboard.tsx",
+                                                                        lineNumber: 500,
+                                                                        columnNumber: 25
+                                                                    }, undefined),
+                                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
+                                                                        className: "mb-3",
+                                                                        children: [
+                                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
+                                                                                children: "Telefono"
+                                                                            }, void 0, false, {
+                                                                                fileName: "src/pages/UserDashboard.tsx",
+                                                                                lineNumber: 514,
+                                                                                columnNumber: 27
+                                                                            }, undefined),
+                                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
+                                                                                type: "tel",
+                                                                                value: profileData.phone,
+                                                                                onChange: (e)=>setProfileData((prev)=>({
+                                                                                            ...prev,
+                                                                                            phone: e.target.value
+                                                                                        }))
+                                                                            }, void 0, false, {
+                                                                                fileName: "src/pages/UserDashboard.tsx",
+                                                                                lineNumber: 515,
+                                                                                columnNumber: 27
+                                                                            }, undefined)
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "src/pages/UserDashboard.tsx",
+                                                                        lineNumber: 513,
+                                                                        columnNumber: 25
+                                                                    }, undefined),
+                                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
+                                                                        className: "mb-3",
+                                                                        children: [
+                                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
+                                                                                children: "Indirizzo"
+                                                                            }, void 0, false, {
+                                                                                fileName: "src/pages/UserDashboard.tsx",
+                                                                                lineNumber: 526,
+                                                                                columnNumber: 27
+                                                                            }, undefined),
+                                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
+                                                                                type: "text",
+                                                                                value: profileData.address,
+                                                                                onChange: (e)=>setProfileData((prev)=>({
+                                                                                            ...prev,
+                                                                                            address: e.target.value
+                                                                                        }))
+                                                                            }, void 0, false, {
+                                                                                fileName: "src/pages/UserDashboard.tsx",
+                                                                                lineNumber: 527,
+                                                                                columnNumber: 27
+                                                                            }, undefined)
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "src/pages/UserDashboard.tsx",
+                                                                        lineNumber: 525,
+                                                                        columnNumber: 25
+                                                                    }, undefined),
+                                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
+                                                                        children: [
+                                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
+                                                                                md: 4,
+                                                                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
+                                                                                    className: "mb-3",
+                                                                                    children: [
+                                                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
+                                                                                            children: "Citt\xe0"
+                                                                                        }, void 0, false, {
+                                                                                            fileName: "src/pages/UserDashboard.tsx",
+                                                                                            lineNumber: 540,
+                                                                                            columnNumber: 31
+                                                                                        }, undefined),
+                                                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
+                                                                                            type: "text",
+                                                                                            value: profileData.city,
+                                                                                            onChange: (e)=>setProfileData((prev)=>({
+                                                                                                        ...prev,
+                                                                                                        city: e.target.value
+                                                                                                    }))
+                                                                                        }, void 0, false, {
+                                                                                            fileName: "src/pages/UserDashboard.tsx",
+                                                                                            lineNumber: 541,
+                                                                                            columnNumber: 31
+                                                                                        }, undefined)
+                                                                                    ]
+                                                                                }, void 0, true, {
+                                                                                    fileName: "src/pages/UserDashboard.tsx",
+                                                                                    lineNumber: 539,
+                                                                                    columnNumber: 29
+                                                                                }, undefined)
+                                                                            }, void 0, false, {
+                                                                                fileName: "src/pages/UserDashboard.tsx",
+                                                                                lineNumber: 538,
+                                                                                columnNumber: 27
+                                                                            }, undefined),
+                                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
+                                                                                md: 4,
+                                                                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
+                                                                                    className: "mb-3",
+                                                                                    children: [
+                                                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
+                                                                                            children: "CAP"
+                                                                                        }, void 0, false, {
+                                                                                            fileName: "src/pages/UserDashboard.tsx",
+                                                                                            lineNumber: 553,
+                                                                                            columnNumber: 31
+                                                                                        }, undefined),
+                                                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
+                                                                                            type: "text",
+                                                                                            value: profileData.zipCode,
+                                                                                            onChange: (e)=>setProfileData((prev)=>({
+                                                                                                        ...prev,
+                                                                                                        zipCode: e.target.value
+                                                                                                    }))
+                                                                                        }, void 0, false, {
+                                                                                            fileName: "src/pages/UserDashboard.tsx",
+                                                                                            lineNumber: 554,
+                                                                                            columnNumber: 31
+                                                                                        }, undefined)
+                                                                                    ]
+                                                                                }, void 0, true, {
+                                                                                    fileName: "src/pages/UserDashboard.tsx",
+                                                                                    lineNumber: 552,
+                                                                                    columnNumber: 29
+                                                                                }, undefined)
+                                                                            }, void 0, false, {
+                                                                                fileName: "src/pages/UserDashboard.tsx",
+                                                                                lineNumber: 551,
+                                                                                columnNumber: 27
+                                                                            }, undefined),
+                                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
+                                                                                md: 4,
+                                                                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
+                                                                                    className: "mb-3",
+                                                                                    children: [
+                                                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
+                                                                                            children: "Paese"
+                                                                                        }, void 0, false, {
+                                                                                            fileName: "src/pages/UserDashboard.tsx",
+                                                                                            lineNumber: 566,
+                                                                                            columnNumber: 31
+                                                                                        }, undefined),
+                                                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
+                                                                                            type: "text",
+                                                                                            value: profileData.country,
+                                                                                            onChange: (e)=>setProfileData((prev)=>({
+                                                                                                        ...prev,
+                                                                                                        country: e.target.value
+                                                                                                    }))
+                                                                                        }, void 0, false, {
+                                                                                            fileName: "src/pages/UserDashboard.tsx",
+                                                                                            lineNumber: 567,
+                                                                                            columnNumber: 31
+                                                                                        }, undefined)
+                                                                                    ]
+                                                                                }, void 0, true, {
+                                                                                    fileName: "src/pages/UserDashboard.tsx",
+                                                                                    lineNumber: 565,
+                                                                                    columnNumber: 29
+                                                                                }, undefined)
+                                                                            }, void 0, false, {
+                                                                                fileName: "src/pages/UserDashboard.tsx",
+                                                                                lineNumber: 564,
+                                                                                columnNumber: 27
+                                                                            }, undefined)
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "src/pages/UserDashboard.tsx",
+                                                                        lineNumber: 537,
+                                                                        columnNumber: 25
+                                                                    }, undefined),
+                                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
+                                                                        type: "submit",
+                                                                        variant: "primary",
+                                                                        disabled: profileLoading,
+                                                                        children: profileLoading ? 'Salvando...' : 'Salva modifiche'
+                                                                    }, void 0, false, {
+                                                                        fileName: "src/pages/UserDashboard.tsx",
+                                                                        lineNumber: 579,
+                                                                        columnNumber: 25
+                                                                    }, undefined)
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "src/pages/UserDashboard.tsx",
+                                                                lineNumber: 468,
+                                                                columnNumber: 23
+                                                            }, undefined)
+                                                        }, void 0, false, {
+                                                            fileName: "src/pages/UserDashboard.tsx",
+                                                            lineNumber: 467,
+                                                            columnNumber: 21
+                                                        }, undefined)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "src/pages/UserDashboard.tsx",
+                                                    lineNumber: 463,
+                                                    columnNumber: 19
+                                                }, undefined)
+                                            }, void 0, false, {
+                                                fileName: "src/pages/UserDashboard.tsx",
+                                                lineNumber: 462,
+                                                columnNumber: 17
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
+                                                md: 4,
+                                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
+                                                    children: [
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Header, {
+                                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h5", {
+                                                                className: "mb-0",
+                                                                children: "Sicurezza"
+                                                            }, void 0, false, {
+                                                                fileName: "src/pages/UserDashboard.tsx",
+                                                                lineNumber: 594,
+                                                                columnNumber: 23
+                                                            }, undefined)
+                                                        }, void 0, false, {
+                                                            fileName: "src/pages/UserDashboard.tsx",
+                                                            lineNumber: 593,
+                                                            columnNumber: 21
+                                                        }, undefined),
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Body, {
+                                                            children: [
+                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                                                    className: "text-muted mb-3",
+                                                                    children: "Mantieni sicuro il tuo account cambiando regolarmente la password."
+                                                                }, void 0, false, {
+                                                                    fileName: "src/pages/UserDashboard.tsx",
+                                                                    lineNumber: 597,
+                                                                    columnNumber: 23
+                                                                }, undefined),
+                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
+                                                                    variant: "outline-warning",
+                                                                    onClick: ()=>setShowPasswordModal(true),
+                                                                    className: "w-100",
+                                                                    children: "Cambia Password"
+                                                                }, void 0, false, {
+                                                                    fileName: "src/pages/UserDashboard.tsx",
+                                                                    lineNumber: 600,
+                                                                    columnNumber: 23
+                                                                }, undefined)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "src/pages/UserDashboard.tsx",
+                                                            lineNumber: 596,
+                                                            columnNumber: 21
+                                                        }, undefined)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "src/pages/UserDashboard.tsx",
+                                                    lineNumber: 592,
+                                                    columnNumber: 19
+                                                }, undefined)
+                                            }, void 0, false, {
+                                                fileName: "src/pages/UserDashboard.tsx",
+                                                lineNumber: 591,
+                                                columnNumber: 17
+                                            }, undefined)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/pages/UserDashboard.tsx",
+                                        lineNumber: 461,
+                                        columnNumber: 15
+                                    }, undefined)
+                                ]
+                            }, void 0, true)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/pages/UserDashboard.tsx",
+                        lineNumber: 251,
+                        columnNumber: 9
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/pages/UserDashboard.tsx",
+                lineNumber: 200,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Modal), {
+                show: showOrderDetails !== null,
+                onHide: ()=>setShowOrderDetails(null),
+                size: "lg",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Modal).Header, {
+                        closeButton: true,
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Modal).Title, {
+                            children: [
+                                "Dettagli Ordine #",
+                                showOrderDetails
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/pages/UserDashboard.tsx",
+                            lineNumber: 623,
+                            columnNumber: 11
+                        }, undefined)
+                    }, void 0, false, {
+                        fileName: "src/pages/UserDashboard.tsx",
+                        lineNumber: 622,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Modal).Body, {
+                        children: showOrderDetails && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+                            children: (()=>{
+                                const order = orders.find((o)=>o.id === showOrderDetails);
+                                if (!order) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                    children: "Ordine non trovato"
+                                }, void 0, false, {
+                                    fileName: "src/pages/UserDashboard.tsx",
+                                    lineNumber: 630,
+                                    columnNumber: 36
+                                }, undefined);
+                                return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
+                                            className: "mb-4",
+                                            children: [
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
+                                                    md: 6,
+                                                    children: [
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h6", {
+                                                            children: "Informazioni ordine"
+                                                        }, void 0, false, {
+                                                            fileName: "src/pages/UserDashboard.tsx",
+                                                            lineNumber: 636,
+                                                            columnNumber: 25
+                                                        }, undefined),
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                                            className: "mb-1",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
+                                                                    children: "Data:"
+                                                                }, void 0, false, {
+                                                                    fileName: "src/pages/UserDashboard.tsx",
+                                                                    lineNumber: 637,
+                                                                    columnNumber: 45
+                                                                }, undefined),
+                                                                " ",
+                                                                new Date(order.orderDate).toLocaleDateString('it-IT')
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "src/pages/UserDashboard.tsx",
+                                                            lineNumber: 637,
+                                                            columnNumber: 25
+                                                        }, undefined),
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                                            className: "mb-1",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
+                                                                    children: "Stato:"
+                                                                }, void 0, false, {
+                                                                    fileName: "src/pages/UserDashboard.tsx",
+                                                                    lineNumber: 638,
+                                                                    columnNumber: 45
+                                                                }, undefined),
+                                                                " ",
+                                                                getStatusText(order.status)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "src/pages/UserDashboard.tsx",
+                                                            lineNumber: 638,
+                                                            columnNumber: 25
+                                                        }, undefined),
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                                            className: "mb-1",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
+                                                                    children: "Totale:"
+                                                                }, void 0, false, {
+                                                                    fileName: "src/pages/UserDashboard.tsx",
+                                                                    lineNumber: 639,
+                                                                    columnNumber: 45
+                                                                }, undefined),
+                                                                " \u20AC",
+                                                                order.total.toFixed(2)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "src/pages/UserDashboard.tsx",
+                                                            lineNumber: 639,
+                                                            columnNumber: 25
+                                                        }, undefined),
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                                            className: "mb-1",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
+                                                                    children: "Pagamento:"
+                                                                }, void 0, false, {
+                                                                    fileName: "src/pages/UserDashboard.tsx",
+                                                                    lineNumber: 640,
+                                                                    columnNumber: 45
+                                                                }, undefined),
+                                                                " ",
+                                                                order.paymentMethod
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "src/pages/UserDashboard.tsx",
+                                                            lineNumber: 640,
+                                                            columnNumber: 25
+                                                        }, undefined),
+                                                        order.trackingNumber && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                                            className: "mb-1",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
+                                                                    children: "Tracking:"
+                                                                }, void 0, false, {
+                                                                    fileName: "src/pages/UserDashboard.tsx",
+                                                                    lineNumber: 642,
+                                                                    columnNumber: 47
+                                                                }, undefined),
+                                                                " ",
+                                                                order.trackingNumber
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "src/pages/UserDashboard.tsx",
+                                                            lineNumber: 642,
+                                                            columnNumber: 27
+                                                        }, undefined)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "src/pages/UserDashboard.tsx",
+                                                    lineNumber: 635,
+                                                    columnNumber: 23
+                                                }, undefined),
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
+                                                    md: 6,
+                                                    children: [
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h6", {
+                                                            children: "Indirizzo di spedizione"
+                                                        }, void 0, false, {
+                                                            fileName: "src/pages/UserDashboard.tsx",
+                                                            lineNumber: 646,
+                                                            columnNumber: 25
+                                                        }, undefined),
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                                            className: "mb-1",
+                                                            children: order.shippingAddress.name
+                                                        }, void 0, false, {
+                                                            fileName: "src/pages/UserDashboard.tsx",
+                                                            lineNumber: 647,
+                                                            columnNumber: 25
+                                                        }, undefined),
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                                            className: "mb-1",
+                                                            children: order.shippingAddress.address
+                                                        }, void 0, false, {
+                                                            fileName: "src/pages/UserDashboard.tsx",
+                                                            lineNumber: 648,
+                                                            columnNumber: 25
+                                                        }, undefined),
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                                            className: "mb-1",
+                                                            children: [
+                                                                order.shippingAddress.city,
+                                                                ", ",
+                                                                order.shippingAddress.zipCode
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "src/pages/UserDashboard.tsx",
+                                                            lineNumber: 649,
+                                                            columnNumber: 25
+                                                        }, undefined),
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                                            className: "mb-1",
+                                                            children: order.shippingAddress.country
+                                                        }, void 0, false, {
+                                                            fileName: "src/pages/UserDashboard.tsx",
+                                                            lineNumber: 652,
+                                                            columnNumber: 25
+                                                        }, undefined),
+                                                        order.shippingAddress.phone && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                                            className: "mb-1",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
+                                                                    children: "Tel:"
+                                                                }, void 0, false, {
+                                                                    fileName: "src/pages/UserDashboard.tsx",
+                                                                    lineNumber: 654,
+                                                                    columnNumber: 47
+                                                                }, undefined),
+                                                                " ",
+                                                                order.shippingAddress.phone
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "src/pages/UserDashboard.tsx",
+                                                            lineNumber: 654,
+                                                            columnNumber: 27
+                                                        }, undefined)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "src/pages/UserDashboard.tsx",
+                                                    lineNumber: 645,
+                                                    columnNumber: 23
+                                                }, undefined)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "src/pages/UserDashboard.tsx",
+                                            lineNumber: 634,
+                                            columnNumber: 21
+                                        }, undefined),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h6", {
+                                            children: "Prodotti ordinati"
+                                        }, void 0, false, {
+                                            fileName: "src/pages/UserDashboard.tsx",
+                                            lineNumber: 659,
+                                            columnNumber: 21
+                                        }, undefined),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Table), {
+                                            children: [
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("thead", {
+                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tr", {
+                                                        children: [
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                                                children: "Prodotto"
+                                                            }, void 0, false, {
+                                                                fileName: "src/pages/UserDashboard.tsx",
+                                                                lineNumber: 663,
+                                                                columnNumber: 27
+                                                            }, undefined),
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                                                children: "Categoria"
+                                                            }, void 0, false, {
+                                                                fileName: "src/pages/UserDashboard.tsx",
+                                                                lineNumber: 664,
+                                                                columnNumber: 27
+                                                            }, undefined),
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                                                children: "Prezzo"
+                                                            }, void 0, false, {
+                                                                fileName: "src/pages/UserDashboard.tsx",
+                                                                lineNumber: 665,
+                                                                columnNumber: 27
+                                                            }, undefined),
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                                                children: "Quantit\xe0"
+                                                            }, void 0, false, {
+                                                                fileName: "src/pages/UserDashboard.tsx",
+                                                                lineNumber: 666,
+                                                                columnNumber: 27
+                                                            }, undefined),
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                                                children: "Subtotale"
+                                                            }, void 0, false, {
+                                                                fileName: "src/pages/UserDashboard.tsx",
+                                                                lineNumber: 667,
+                                                                columnNumber: 27
+                                                            }, undefined)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "src/pages/UserDashboard.tsx",
+                                                        lineNumber: 662,
+                                                        columnNumber: 25
+                                                    }, undefined)
+                                                }, void 0, false, {
+                                                    fileName: "src/pages/UserDashboard.tsx",
+                                                    lineNumber: 661,
+                                                    columnNumber: 23
+                                                }, undefined),
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tbody", {
+                                                    children: order.items.map((item, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tr", {
+                                                            children: [
+                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                                        className: "d-flex align-items-center",
+                                                                        children: [
+                                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                                                                src: item.productImage,
+                                                                                alt: item.productName,
+                                                                                style: {
+                                                                                    width: '40px',
+                                                                                    height: '40px',
+                                                                                    objectFit: 'cover'
+                                                                                },
+                                                                                className: "me-2 rounded"
+                                                                            }, void 0, false, {
+                                                                                fileName: "src/pages/UserDashboard.tsx",
+                                                                                lineNumber: 675,
+                                                                                columnNumber: 33
+                                                                            }, undefined),
+                                                                            item.productName
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "src/pages/UserDashboard.tsx",
+                                                                        lineNumber: 674,
+                                                                        columnNumber: 31
+                                                                    }, undefined)
+                                                                }, void 0, false, {
+                                                                    fileName: "src/pages/UserDashboard.tsx",
+                                                                    lineNumber: 673,
+                                                                    columnNumber: 29
+                                                                }, undefined),
+                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                                                    children: item.categoryName
+                                                                }, void 0, false, {
+                                                                    fileName: "src/pages/UserDashboard.tsx",
+                                                                    lineNumber: 684,
+                                                                    columnNumber: 29
+                                                                }, undefined),
+                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                                                    children: [
+                                                                        "\u20AC",
+                                                                        item.price.toFixed(2)
+                                                                    ]
+                                                                }, void 0, true, {
+                                                                    fileName: "src/pages/UserDashboard.tsx",
+                                                                    lineNumber: 685,
+                                                                    columnNumber: 29
+                                                                }, undefined),
+                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                                                    children: item.quantity
+                                                                }, void 0, false, {
+                                                                    fileName: "src/pages/UserDashboard.tsx",
+                                                                    lineNumber: 686,
+                                                                    columnNumber: 29
+                                                                }, undefined),
+                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                                                    children: [
+                                                                        "\u20AC",
+                                                                        (item.price * item.quantity).toFixed(2)
+                                                                    ]
+                                                                }, void 0, true, {
+                                                                    fileName: "src/pages/UserDashboard.tsx",
+                                                                    lineNumber: 687,
+                                                                    columnNumber: 29
+                                                                }, undefined)
+                                                            ]
+                                                        }, index, true, {
+                                                            fileName: "src/pages/UserDashboard.tsx",
+                                                            lineNumber: 672,
+                                                            columnNumber: 27
+                                                        }, undefined))
+                                                }, void 0, false, {
+                                                    fileName: "src/pages/UserDashboard.tsx",
+                                                    lineNumber: 670,
+                                                    columnNumber: 23
+                                                }, undefined)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "src/pages/UserDashboard.tsx",
+                                            lineNumber: 660,
+                                            columnNumber: 21
+                                        }, undefined),
+                                        order.notes && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+                                            children: [
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h6", {
+                                                    children: "Note"
+                                                }, void 0, false, {
+                                                    fileName: "src/pages/UserDashboard.tsx",
+                                                    lineNumber: 695,
+                                                    columnNumber: 25
+                                                }, undefined),
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                                    children: order.notes
+                                                }, void 0, false, {
+                                                    fileName: "src/pages/UserDashboard.tsx",
+                                                    lineNumber: 696,
+                                                    columnNumber: 25
+                                                }, undefined)
+                                            ]
+                                        }, void 0, true)
+                                    ]
+                                }, void 0, true);
+                            })()
+                        }, void 0, false)
+                    }, void 0, false, {
+                        fileName: "src/pages/UserDashboard.tsx",
+                        lineNumber: 625,
+                        columnNumber: 9
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/pages/UserDashboard.tsx",
+                lineNumber: 617,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Modal), {
+                show: showPasswordModal,
+                onHide: ()=>setShowPasswordModal(false),
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Modal).Header, {
+                        closeButton: true,
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Modal).Title, {
+                            children: "Cambia Password"
+                        }, void 0, false, {
+                            fileName: "src/pages/UserDashboard.tsx",
+                            lineNumber: 710,
+                            columnNumber: 11
+                        }, undefined)
+                    }, void 0, false, {
+                        fileName: "src/pages/UserDashboard.tsx",
+                        lineNumber: 709,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form), {
+                        onSubmit: handlePasswordSubmit,
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Modal).Body, {
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
+                                        className: "mb-3",
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
+                                                children: "Password attuale"
+                                            }, void 0, false, {
+                                                fileName: "src/pages/UserDashboard.tsx",
+                                                lineNumber: 715,
+                                                columnNumber: 15
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
+                                                type: "password",
+                                                value: passwordData.currentPassword,
+                                                onChange: (e)=>setPasswordData((prev)=>({
+                                                            ...prev,
+                                                            currentPassword: e.target.value
+                                                        })),
+                                                required: true
+                                            }, void 0, false, {
+                                                fileName: "src/pages/UserDashboard.tsx",
+                                                lineNumber: 716,
+                                                columnNumber: 15
+                                            }, undefined)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/pages/UserDashboard.tsx",
+                                        lineNumber: 714,
+                                        columnNumber: 13
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
+                                        className: "mb-3",
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
+                                                children: "Nuova password"
+                                            }, void 0, false, {
+                                                fileName: "src/pages/UserDashboard.tsx",
+                                                lineNumber: 728,
+                                                columnNumber: 15
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
+                                                type: "password",
+                                                value: passwordData.newPassword,
+                                                onChange: (e)=>setPasswordData((prev)=>({
+                                                            ...prev,
+                                                            newPassword: e.target.value
+                                                        })),
+                                                minLength: 6,
+                                                required: true
+                                            }, void 0, false, {
+                                                fileName: "src/pages/UserDashboard.tsx",
+                                                lineNumber: 729,
+                                                columnNumber: 15
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Text, {
+                                                className: "text-muted",
+                                                children: "La password deve contenere almeno 6 caratteri"
+                                            }, void 0, false, {
+                                                fileName: "src/pages/UserDashboard.tsx",
+                                                lineNumber: 739,
+                                                columnNumber: 15
+                                            }, undefined)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/pages/UserDashboard.tsx",
+                                        lineNumber: 727,
+                                        columnNumber: 13
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
+                                        className: "mb-3",
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
+                                                children: "Conferma nuova password"
+                                            }, void 0, false, {
+                                                fileName: "src/pages/UserDashboard.tsx",
+                                                lineNumber: 745,
+                                                columnNumber: 15
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
+                                                type: "password",
+                                                value: passwordData.confirmPassword,
+                                                onChange: (e)=>setPasswordData((prev)=>({
+                                                            ...prev,
+                                                            confirmPassword: e.target.value
+                                                        })),
+                                                required: true
+                                            }, void 0, false, {
+                                                fileName: "src/pages/UserDashboard.tsx",
+                                                lineNumber: 746,
+                                                columnNumber: 15
+                                            }, undefined)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/pages/UserDashboard.tsx",
+                                        lineNumber: 744,
+                                        columnNumber: 13
+                                    }, undefined),
+                                    passwordData.newPassword && passwordData.confirmPassword && passwordData.newPassword !== passwordData.confirmPassword && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Alert), {
+                                        variant: "warning",
+                                        children: "Le password non corrispondono"
+                                    }, void 0, false, {
+                                        fileName: "src/pages/UserDashboard.tsx",
+                                        lineNumber: 759,
+                                        columnNumber: 15
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/pages/UserDashboard.tsx",
+                                lineNumber: 713,
+                                columnNumber: 11
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Modal).Footer, {
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
+                                        variant: "secondary",
+                                        onClick: ()=>setShowPasswordModal(false),
+                                        children: "Annulla"
+                                    }, void 0, false, {
+                                        fileName: "src/pages/UserDashboard.tsx",
+                                        lineNumber: 765,
+                                        columnNumber: 13
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
+                                        type: "submit",
+                                        variant: "primary",
+                                        disabled: passwordData.newPassword !== passwordData.confirmPassword || passwordData.newPassword.length < 6,
+                                        children: "Cambia Password"
+                                    }, void 0, false, {
+                                        fileName: "src/pages/UserDashboard.tsx",
+                                        lineNumber: 768,
+                                        columnNumber: 13
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/pages/UserDashboard.tsx",
+                                lineNumber: 764,
+                                columnNumber: 11
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/pages/UserDashboard.tsx",
+                        lineNumber: 712,
+                        columnNumber: 9
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/pages/UserDashboard.tsx",
+                lineNumber: 708,
+                columnNumber: 7
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/pages/UserDashboard.tsx",
+        lineNumber: 199,
+        columnNumber: 5
+    }, undefined);
+};
+_s(UserDashboard, "GQGmZ+j2ap5vYbvJuHNykXJxaxk=", false, function() {
+    return [
+        (0, _authContext.useAuth),
+        (0, _orderContext.useOrders),
+        (0, _toastContext.useToast)
+    ];
+});
+_c = UserDashboard;
+exports.default = UserDashboard;
+var _c;
+$RefreshReg$(_c, "UserDashboard");
+
+  $parcel$ReactRefreshHelpers$79eb.postlude(module);
+} finally {
+  globalThis.$RefreshReg$ = prevRefreshReg;
+  globalThis.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","react-bootstrap":"ctEhb","lucide-react":"2I7qR","../context/AuthContext":"3zDyC","../context/OrderContext":"a2oZv","../context/ToastContext":"6VmKk","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"a2oZv":[function(require,module,exports,__globalThis) {
+var $parcel$ReactRefreshHelpers$d607 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+$parcel$ReactRefreshHelpers$d607.init();
+var prevRefreshReg = globalThis.$RefreshReg$;
+var prevRefreshSig = globalThis.$RefreshSig$;
+$parcel$ReactRefreshHelpers$d607.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "OrderProvider", ()=>OrderProvider);
+parcelHelpers.export(exports, "useOrders", ()=>useOrders);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _config = require("src/config");
+var _s = $RefreshSig$(), _s1 = $RefreshSig$();
+const OrderContext = /*#__PURE__*/ (0, _react.createContext)(undefined);
+function OrderProvider({ children }) {
+    _s();
+    const [orders, setOrders] = (0, _react.useState)([]);
+    const [loading, setLoading] = (0, _react.useState)(false);
+    const [error, setError] = (0, _react.useState)(null);
+    const fetchOrders = (0, _react.useCallback)(async ()=>{
+        if (loading) return;
+        setLoading(true);
+        setError(null);
+        try {
+            const response = await fetch(`${(0, _config.config).API_BASE}/ordini`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('authToken')}`
+                }
+            });
+            if (!response.ok) throw new Error(`Errore nel caricamento ordini: ${response.statusText}`);
+            const data = await response.json();
+            setOrders(Array.isArray(data) ? data : []);
+        } catch (err) {
+            setError(err instanceof Error ? err.message : 'Errore sconosciuto');
+            console.error('Errore fetchOrders:', err);
+            setOrders([]);
+        } finally{
+            setLoading(false);
+        }
+    }, [
+        loading
+    ]);
+    const createOrder = async (orderData)=>{
+        setLoading(true);
+        setError(null);
+        try {
+            const response = await fetch(`${(0, _config.config).API_BASE}/ordini`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('authToken')}`
+                },
+                body: JSON.stringify(orderData)
+            });
+            if (!response.ok) throw new Error(`Errore nella creazione ordine: ${response.statusText}`);
+            const newOrder = await response.json();
+            setOrders((prev)=>[
+                    newOrder,
+                    ...prev
+                ]);
+            return newOrder;
+        } catch (err) {
+            setError(err instanceof Error ? err.message : 'Errore nella creazione');
+            throw err;
+        } finally{
+            setLoading(false);
+        }
+    };
+    const cancelOrder = async (id)=>{
+        setLoading(true);
+        setError(null);
+        try {
+            const response = await fetch(`${(0, _config.config).API_BASE}/ordini/${id}/cancel`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('authToken')}`
+                }
+            });
+            if (!response.ok) throw new Error(`Errore nell'annullamento ordine: ${response.statusText}`);
+            setOrders((prev)=>prev.map((order)=>order.id === id ? {
+                        ...order,
+                        status: 'cancelled'
+                    } : order));
+        } catch (err) {
+            setError(err instanceof Error ? err.message : 'Errore nell\'annullamento');
+            throw err;
+        } finally{
+            setLoading(false);
+        }
+    };
+    const getOrderById = (id)=>{
+        return orders.find((order)=>order.id === id);
+    };
+    const value = {
+        orders,
+        loading,
+        error,
+        fetchOrders,
+        createOrder,
+        getOrderById,
+        cancelOrder
+    };
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(OrderContext.Provider, {
+        value: value,
+        children: children
+    }, void 0, false, {
+        fileName: "src/context/OrderContext.tsx",
+        lineNumber: 169,
+        columnNumber: 5
+    }, this);
+}
+_s(OrderProvider, "R+pR13Ac49Ju9ErxeMPewntWnWo=");
+_c = OrderProvider;
+function useOrders() {
+    _s1();
+    const context = (0, _react.useContext)(OrderContext);
+    if (!context) throw new Error('useOrders deve essere usato dentro OrderProvider');
+    return context;
+}
+_s1(useOrders, "b9L3QQ+jgeyIrH0NfHrJ8nn7VMU=");
+var _c;
+$RefreshReg$(_c, "OrderProvider");
+
+  $parcel$ReactRefreshHelpers$d607.postlude(module);
+} finally {
+  globalThis.$RefreshReg$ = prevRefreshReg;
+  globalThis.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","src/config":"fCip8","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}]},["7KwkS","4dmnR"], "4dmnR", "parcelRequire9630", {}, null, null, "http://localhost:1234")
 
 //# sourceMappingURL=progect-1M.6efbc4f8.js.map
