@@ -7,6 +7,11 @@ export interface User {
   lastName: string;
   role: 'user' | 'admin';
   avatar?: string;
+  phone?: string;
+  address?: string;
+  city?: string;
+  zipCode?: string;
+  country?: string;
 }
 
 export interface LoginCredentials {
@@ -29,6 +34,7 @@ interface AuthContextValue {
   login: (credentials: LoginCredentials) => Promise<void>;
   register: (data: RegisterData) => Promise<void>;
   logout: () => void;
+  updateProfile: (profileData: Partial<User>) => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextValue | undefined>(undefined);
@@ -75,7 +81,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const login = async (credentials: LoginCredentials): Promise<void> => {
     setLoading(true);
-
 
     await new Promise(resolve => setTimeout(resolve, 800));
 
@@ -134,6 +139,44 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     localStorage.removeItem(STORAGE_KEY);
   };
 
+  const updateProfile = async (profileData: Partial<User>): Promise<void> => {
+    setLoading(true);
+    
+    try {
+      // Simula chiamata API con delay
+      await new Promise(resolve => setTimeout(resolve, 800));
+
+      if (!user) {
+        throw new Error('Utente non autenticato');
+      }
+
+      const updatedUser = { ...user, ...profileData };
+      
+      setUser(updatedUser);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedUser));
+
+      // TODO: Chiamata API reale per aggiornare il profilo
+      /*
+      const response = await fetch("http://127.0.0.1:1880/utente/profile", {
+        method: "PUT",
+        headers: { 
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${authToken}`
+        },
+        body: JSON.stringify(profileData)
+      });
+      
+      if (!response.ok) {
+        throw new Error('Errore nell\'aggiornamento del profilo');
+      }
+      */
+    } catch (error) {
+      throw error;
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const value: AuthContextValue = {
     user,
     loading,
@@ -141,7 +184,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     isAdmin: user?.role === 'admin',
     login,
     register,
-    logout
+    logout,
+    updateProfile
   };
 
   return (

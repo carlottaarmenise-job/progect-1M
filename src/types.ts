@@ -42,3 +42,18 @@ export type RawProduct = {
     isNew?: boolean;
     isSale?: boolean;
 };
+export type User = {
+    id: number;
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone?: string;
+    address?: string;
+    city?: string;
+    zipCode?: string;
+    country?: string;
+    role?: string;
+    isAdmin?: boolean;
+    createdAt?: string;
+    updatedAt?: string;
+};
