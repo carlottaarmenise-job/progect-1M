@@ -23,9 +23,7 @@ createRoot(rootEl).render(
           <ProductProvider>
             <CategoryProvider>
               <OrderProvider>
-                <BrowserRouter>
                   <App />
-                </BrowserRouter>
               </OrderProvider>
             </CategoryProvider>
           </ProductProvider>
