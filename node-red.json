@@ -21,7 +21,8 @@
         "y": 240,
         "wires": [
             [
-                "8f270a65eb9dd2e9"
+                "8f270a65eb9dd2e9",
+                "fn-create"
             ]
         ]
     },
@@ -59,7 +60,8 @@
         "y": 320,
         "wires": [
             [
-                "ffc592a504a29d7f"
+                "ffc592a504a29d7f",
+                "fn-read"
             ]
         ]
     },
@@ -97,7 +99,8 @@
         "y": 400,
         "wires": [
             [
-                "026a957d3c969bc7"
+                "026a957d3c969bc7",
+                "fn-update"
             ]
         ]
     },
@@ -135,7 +138,8 @@
         "y": 480,
         "wires": [
             [
-                "a78bb7c507ef51b2"
+                "a78bb7c507ef51b2",
+                "fn-delete"
             ]
         ]
     },
@@ -184,7 +188,8 @@
         "y": 640,
         "wires": [
             [
-                "b980b7c72820ebd7"
+                "b980b7c72820ebd7",
+                "ee623335cf2c5e70"
             ]
         ]
     },
@@ -202,7 +207,8 @@
         "y": 720,
         "wires": [
             [
-                "5b929c879bed62fe"
+                "5b929c879bed62fe",
+                "06a5756cc889b179"
             ]
         ]
     },
@@ -231,7 +237,7 @@
         "type": "function",
         "z": "6560bab65fc2abf1",
         "name": "Read logic",
-        "func": "let products = global.get(\"products\") || [];\nmsg.payload = {\n    status: \"success\", \n    products: products,\n    count: products.length\n};\nreturn msg;\nreturn msg;",
+        "func": "msg.payload = [\n    {\n        id: 1,\n        name: \"Elettronica\",\n        slug: \"elettronica\",\n        description: \"Dispositivi elettronici e tecnologia\",\n        active: true,\n        sortOrder: 1\n    },\n    {\n        id: 2,\n        name: \"Abbigliamento\", \n        slug: \"abbigliamento\",\n        description: \"Vestiti e accessori\",\n        active: true,\n        sortOrder: 2\n    }\n];\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -260,7 +266,8 @@
         "y": 800,
         "wires": [
             [
-                "6a4c19250ce70e13"
+                "6a4c19250ce70e13",
+                "5f241cb67eb55576"
             ]
         ]
     },
@@ -278,7 +285,8 @@
         "y": 880,
         "wires": [
             [
-                "f778e8834f8ac1e4"
+                "f778e8834f8ac1e4",
+                "5079b17e58df81f3"
             ]
         ]
     },
@@ -367,7 +375,8 @@
         "y": 1160,
         "wires": [
             [
-                "a52c6b5a8a40cc92"
+                "a52c6b5a8a40cc92",
+                "1b3249e28d4ed36a"
             ]
         ]
     },
@@ -385,7 +394,8 @@
         "y": 1240,
         "wires": [
             [
-                "c72c14a0341c1a86"
+                "c72c14a0341c1a86",
+                "652b9a60c354d4af"
             ]
         ]
     },
@@ -403,7 +413,8 @@
         "y": 1320,
         "wires": [
             [
-                "0964f297869c6544"
+                "0964f297869c6544",
+                "97e5370b51a61091"
             ]
         ]
     },
@@ -421,7 +432,8 @@
         "y": 1400,
         "wires": [
             [
-                "13403bdf3a6992d5"
+                "13403bdf3a6992d5",
+                "600804806126d520"
             ]
         ]
     },
@@ -450,7 +462,7 @@
         "type": "function",
         "z": "6560bab65fc2abf1",
         "name": "Read Categories Logic",
-        "func": "let categories = global.get(\"categories\") || [];\nmsg.payload = {\n    status: \"success\",\n    categories: categories,\n    count: categories.length\n};\nreturn msg;",
+        "func": "let categories = global.get(\"categories\") || [];\nmsg.payload = categories;\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -529,7 +541,8 @@
         "y": 1660,
         "wires": [
             [
-                "59ce3b10664abbe2"
+                "59ce3b10664abbe2",
+                "4671f5aa1c7e4363"
             ]
         ]
     },
@@ -547,7 +560,8 @@
         "y": 1740,
         "wires": [
             [
-                "7f91142baad8e492"
+                "7f91142baad8e492",
+                "c590f52dfea79b8f"
             ]
         ]
     },
@@ -565,7 +579,8 @@
         "y": 1820,
         "wires": [
             [
-                "33bfeffd595ee80d"
+                "33bfeffd595ee80d",
+                "dbc538b19ff73579"
             ]
         ]
     },
@@ -583,7 +598,8 @@
         "y": 1900,
         "wires": [
             [
-                "d826a3a25b6d8250"
+                "d826a3a25b6d8250",
+                "a243996d97e6f36e"
             ]
         ]
     },
@@ -969,6 +985,251 @@
         "statusType": "auto",
         "x": 460,
         "y": 1900,
+        "wires": []
+    },
+    {
+        "id": "33d6a996eff16da3",
+        "type": "comment",
+        "z": "6560bab65fc2abf1",
+        "name": "ORDINI",
+        "info": "",
+        "x": 410,
+        "y": 2020,
+        "wires": []
+    },
+    {
+        "id": "4f1db1774f76fddc",
+        "type": "http in",
+        "z": "6560bab65fc2abf1",
+        "name": "Get Orders",
+        "url": "/ordini",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 200,
+        "y": 2100,
+        "wires": [
+            [
+                "de6588c3ab35c62c",
+                "aa6f40deb33cb212"
+            ]
+        ]
+    },
+    {
+        "id": "7570cd8274e092db",
+        "type": "http in",
+        "z": "6560bab65fc2abf1",
+        "name": "Create Order",
+        "url": "/ordini",
+        "method": "post",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 210,
+        "y": 2180,
+        "wires": [
+            [
+                "2c079f518f754d17",
+                "eae36a1fee8534cf"
+            ]
+        ]
+    },
+    {
+        "id": "8e93dd3ebe94f09f",
+        "type": "http in",
+        "z": "6560bab65fc2abf1",
+        "name": "Update Order",
+        "url": "/ordini/:id",
+        "method": "put",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 210,
+        "y": 2260,
+        "wires": [
+            [
+                "98a30921c886d55b",
+                "6bed0b62b97b5664"
+            ]
+        ]
+    },
+    {
+        "id": "e88edbd898deac0b",
+        "type": "http in",
+        "z": "6560bab65fc2abf1",
+        "name": "Cancel Order",
+        "url": "/ordini/:id",
+        "method": "put",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 210,
+        "y": 2340,
+        "wires": [
+            [
+                "e72dc17a5fe37fc2",
+                "58b48cc59be22b54"
+            ]
+        ]
+    },
+    {
+        "id": "de6588c3ab35c62c",
+        "type": "debug",
+        "z": "6560bab65fc2abf1",
+        "name": "Debug Orders",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 420,
+        "y": 2100,
+        "wires": []
+    },
+    {
+        "id": "2c079f518f754d17",
+        "type": "debug",
+        "z": "6560bab65fc2abf1",
+        "name": "Debug create order",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 440,
+        "y": 2180,
+        "wires": []
+    },
+    {
+        "id": "98a30921c886d55b",
+        "type": "debug",
+        "z": "6560bab65fc2abf1",
+        "name": "Debug Update",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 430,
+        "y": 2260,
+        "wires": []
+    },
+    {
+        "id": "e72dc17a5fe37fc2",
+        "type": "debug",
+        "z": "6560bab65fc2abf1",
+        "name": "Debug cancel",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 420,
+        "y": 2340,
+        "wires": []
+    },
+    {
+        "id": "aa6f40deb33cb212",
+        "type": "function",
+        "z": "6560bab65fc2abf1",
+        "name": "Get order logic",
+        "func": "// Recupera tutti gli ordini dell'utente\nlet orders = global.get(\"orders\") || [];\n\n// Filtra per utente se necessario (per ora restituisce tutti)\n// In futuro qui puoi aggiungere filtro per userId\nmsg.payload = orders;\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 2100,
+        "wires": [
+            [
+                "d1efb8f792aa39b8"
+            ]
+        ]
+    },
+    {
+        "id": "eae36a1fee8534cf",
+        "type": "function",
+        "z": "6560bab65fc2abf1",
+        "name": "Create order logic",
+        "func": "// Crea un nuovo ordine\nlet orders = global.get(\"orders\") || [];\nlet order = msg.payload;\n\n// Genera ID e timestamp\norder.id = Date.now();\norder.orderDate = new Date().toISOString();\norder.status = \"pending\";\n\n// Genera tracking number\norder.trackingNumber = \"TRK\" + Math.random().toString(36).substr(2, 9).toUpperCase();\n\n// Salva l'ordine\norders.push(order);\nglobal.set(\"orders\", orders);\n\n// Restituisce l'ordine creato\nmsg.payload = order;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 2180,
+        "wires": [
+            [
+                "d1efb8f792aa39b8"
+            ]
+        ]
+    },
+    {
+        "id": "6bed0b62b97b5664",
+        "type": "function",
+        "z": "6560bab65fc2abf1",
+        "name": "Update order logic",
+        "func": "// Aggiorna un ordine esistente\nlet orders = global.get(\"orders\") || [];\nlet orderId = parseInt(msg.req.params.id);\nlet updateData = msg.payload;\n\n// Trova l'ordine\nlet orderIndex = orders.findIndex(o => o.id === orderId);\n\nif (orderIndex === -1) {\n    msg.statusCode = 404;\n    msg.payload = { error: \"Ordine non trovato\" };\n    return msg;\n}\n\n// Aggiorna l'ordine\norders[orderIndex] = { ...orders[orderIndex], ...updateData };\n\n// Aggiorna timestamp\norders[orderIndex].updatedAt = new Date().toISOString();\n\nglobal.set(\"orders\", orders);\n\nmsg.payload = orders[orderIndex];\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 2260,
+        "wires": [
+            [
+                "d1efb8f792aa39b8"
+            ]
+        ]
+    },
+    {
+        "id": "58b48cc59be22b54",
+        "type": "function",
+        "z": "6560bab65fc2abf1",
+        "name": "Cancel order logic",
+        "func": "// Annulla un ordine\nlet orders = global.get(\"orders\") || [];\nlet orderId = parseInt(msg.req.params.id);\n\n// Trova l'ordine\nlet orderIndex = orders.findIndex(o => o.id === orderId);\n\nif (orderIndex === -1) {\n    msg.statusCode = 404;\n    msg.payload = { error: \"Ordine non trovato\" };\n    return msg;\n}\n\n// Controlla se l'ordine può essere annullato\nif (orders[orderIndex].status === \"delivered\" || orders[orderIndex].status === \"cancelled\") {\n    msg.statusCode = 400;\n    msg.payload = { error: \"Impossibile annullare questo ordine\" };\n    return msg;\n}\n\n// Annulla l'ordine\norders[orderIndex].status = \"cancelled\";\norders[orderIndex].cancelledDate = new Date().toISOString();\n\nglobal.set(\"orders\", orders);\n\nmsg.payload = orders[orderIndex];\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 2340,
+        "wires": [
+            [
+                "d1efb8f792aa39b8"
+            ]
+        ]
+    },
+    {
+        "id": "d1efb8f792aa39b8",
+        "type": "http response",
+        "z": "6560bab65fc2abf1",
+        "name": "Response",
+        "statusCode": "",
+        "headers": {},
+        "x": 1180,
+        "y": 2200,
         "wires": []
     }
 ]
