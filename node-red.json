@@ -347,8 +347,8 @@
         "z": "6560bab65fc2abf1",
         "name": "PRODOTTI",
         "info": "",
-        "x": 330,
-        "y": 580,
+        "x": 470,
+        "y": 540,
         "wires": []
     },
     {
@@ -357,8 +357,8 @@
         "z": "6560bab65fc2abf1",
         "name": "CATEGORIE",
         "info": "",
-        "x": 310,
-        "y": 1040,
+        "x": 510,
+        "y": 1000,
         "wires": []
     },
     {
@@ -523,7 +523,7 @@
         "z": "6560bab65fc2abf1",
         "name": "CARRELLO",
         "info": "",
-        "x": 310,
+        "x": 470,
         "y": 1540,
         "wires": []
     },
@@ -699,7 +699,7 @@
         "type": "http response",
         "z": "6560bab65fc2abf1",
         "name": "Response",
-        "statusCode": "",
+        "statusCode": "200",
         "headers": {},
         "x": 1240,
         "y": 1760,
@@ -719,7 +719,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 440,
-        "y": 240,
+        "y": 200,
         "wires": []
     },
     {
@@ -746,7 +746,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 430,
-        "y": 320,
+        "y": 280,
         "wires": []
     },
     {
@@ -763,7 +763,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 440,
-        "y": 400,
+        "y": 360,
         "wires": []
     },
     {
@@ -780,7 +780,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 440,
-        "y": 480,
+        "y": 440,
         "wires": []
     },
     {
@@ -797,7 +797,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 450,
-        "y": 640,
+        "y": 600,
         "wires": []
     },
     {
@@ -814,7 +814,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 440,
-        "y": 720,
+        "y": 680,
         "wires": []
     },
     {
@@ -831,7 +831,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 450,
-        "y": 800,
+        "y": 760,
         "wires": []
     },
     {
@@ -848,7 +848,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 450,
-        "y": 880,
+        "y": 840,
         "wires": []
     },
     {
@@ -865,7 +865,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 480,
-        "y": 1160,
+        "y": 1120,
         "wires": []
     },
     {
@@ -882,7 +882,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 470,
-        "y": 1240,
+        "y": 1200,
         "wires": []
     },
     {
@@ -899,7 +899,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 480,
-        "y": 1320,
+        "y": 1280,
         "wires": []
     },
     {
@@ -916,7 +916,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 480,
-        "y": 1400,
+        "y": 1360,
         "wires": []
     },
     {
@@ -928,12 +928,12 @@
         "tosidebar": true,
         "console": true,
         "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
         "x": 460,
-        "y": 1660,
+        "y": 1620,
         "wires": []
     },
     {
@@ -950,7 +950,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 450,
-        "y": 1740,
+        "y": 1700,
         "wires": []
     },
     {
@@ -967,7 +967,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 460,
-        "y": 1820,
+        "y": 1780,
         "wires": []
     },
     {
@@ -984,7 +984,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 460,
-        "y": 1900,
+        "y": 1860,
         "wires": []
     },
     {
@@ -993,8 +993,8 @@
         "z": "6560bab65fc2abf1",
         "name": "ORDINI",
         "info": "",
-        "x": 410,
-        "y": 2020,
+        "x": 470,
+        "y": 1980,
         "wires": []
     },
     {
@@ -1087,7 +1087,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 420,
-        "y": 2100,
+        "y": 2060,
         "wires": []
     },
     {
@@ -1104,7 +1104,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 440,
-        "y": 2180,
+        "y": 2140,
         "wires": []
     },
     {
@@ -1121,7 +1121,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 430,
-        "y": 2260,
+        "y": 2220,
         "wires": []
     },
     {
@@ -1138,7 +1138,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 420,
-        "y": 2340,
+        "y": 2300,
         "wires": []
     },
     {
@@ -1146,7 +1146,7 @@
         "type": "function",
         "z": "6560bab65fc2abf1",
         "name": "Get order logic",
-        "func": "// Recupera tutti gli ordini dell'utente\nlet orders = global.get(\"orders\") || [];\n\n// Filtra per utente se necessario (per ora restituisce tutti)\n// In futuro qui puoi aggiungere filtro per userId\nmsg.payload = orders;\nreturn msg;\n",
+        "func": "// Nel nodo Function di Node-RED, metti:\nmsg.payload = [\n    {\n        id: 1,\n        userId: 1,\n        items: [{\n            productId: 1,\n            productName: \"Test Product\",\n            productImage: \"test.jpg\",\n            price: 99.99,\n            quantity: 1,\n            categoryName: \"Test\"\n        }],\n        total: 99.99,\n        status: \"delivered\",\n        paymentMethod: \"PayPal\",\n        shippingAddress: {\n            name: \"Test User\",\n            address: \"Test Address\",\n            city: \"Test City\",\n            zipCode: \"12345\",\n            country: \"Italia\"\n        },\n        orderDate: \"2024-09-18\"\n    }\n];\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -1226,10 +1226,194 @@
         "type": "http response",
         "z": "6560bab65fc2abf1",
         "name": "Response",
-        "statusCode": "",
+        "statusCode": "200",
         "headers": {},
         "x": 1180,
         "y": 2200,
+        "wires": []
+    },
+    {
+        "id": "ae0b20f240a72cd8",
+        "type": "http in",
+        "z": "6560bab65fc2abf1",
+        "name": "Payment Stats",
+        "url": "/api/payment-stats",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 220,
+        "y": 2560,
+        "wires": [
+            [
+                "19a9d850ae3e5774",
+                "33cc6c29488e6a2e"
+            ]
+        ]
+    },
+    {
+        "id": "19a9d850ae3e5774",
+        "type": "function",
+        "z": "6560bab65fc2abf1",
+        "name": "Generate Stats",
+        "func": " const stats = {\n       totalPayments: Math.floor(Math.random() * 200) + 100,\n       totalRevenue: Math.floor(Math.random() * 15000) + 10000,\n       paymentsToday: Math.floor(Math.random() * 20) + 5,\n       revenueToday: Math.floor(Math.random() * 500) + 200,\n       paymentsThisMonth: Math.floor(Math.random() * 100) + 50,\n       revenueThisMonth: Math.floor(Math.random() * 8000) + 5000,\n       paymentsLastMonth: Math.floor(Math.random() * 80) + 40,\n       averageOrderValue: Math.floor(Math.random() * 50) + 70\n   };\n\n   msg.payload = stats;\n   return msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 2560,
+        "wires": [
+            [
+                "2d66db054c534de6"
+            ]
+        ]
+    },
+    {
+        "id": "f80fb21d99e23ac9",
+        "type": "function",
+        "z": "6560bab65fc2abf1",
+        "name": "Generate Chart Data",
+        "func": "// Genera dati per i grafici degli ultimi 30 giorni\nconst dailyRevenue = [];\nfor (let i = 29; i >= 0; i--) {\n    const date = new Date();\n    date.setDate(date.getDate() - i);\n    dailyRevenue.push({\n        date: date.toISOString().split('T')[0],\n        revenue: Math.floor(Math.random() * 500) + 100,\n        orders: Math.floor(Math.random() * 15) + 2\n    });\n}\n\nconst monthlyComparison = [\n    { month: 'Apr 2025', revenue: 8543, orders: 89 },\n    { month: 'Mag 2025', revenue: 9234, orders: 102 },\n    { month: 'Giu 2025', revenue: 7891, orders: 87 },\n    { month: 'Lug 2025', revenue: 10456, orders: 115 },\n    { month: 'Ago 2025', revenue: 11234, orders: 128 },\n    { month: 'Set 2025', revenue: 12543, orders: 147 }\n];\n\n// Debug per verificare\nnode.warn(\"dailyRevenue length: \" + dailyRevenue.length);\n\nmsg.payload = {\n    dailyRevenue: dailyRevenue,\n    monthlyComparison: monthlyComparison\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 2720,
+        "wires": [
+            [
+                "b23e2b90533fbf81"
+            ]
+        ]
+    },
+    {
+        "id": "49e6ea819b254636",
+        "type": "http response",
+        "z": "6560bab65fc2abf1",
+        "name": "Response",
+        "statusCode": "200",
+        "headers": {},
+        "x": 1120,
+        "y": 2560,
+        "wires": []
+    },
+    {
+        "id": "51e46d846b09f7d8",
+        "type": "http in",
+        "z": "6560bab65fc2abf1",
+        "name": "Data Stats",
+        "url": "/api/chart-data",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 200,
+        "y": 2720,
+        "wires": [
+            [
+                "8cce730bf9340fe0",
+                "f80fb21d99e23ac9"
+            ]
+        ]
+    },
+    {
+        "id": "9e192e2c99ad32d1",
+        "type": "comment",
+        "z": "6560bab65fc2abf1",
+        "name": "Statistiche e chart",
+        "info": "",
+        "x": 550,
+        "y": 2420,
+        "wires": []
+    },
+    {
+        "id": "72a19887c3253222",
+        "type": "http response",
+        "z": "6560bab65fc2abf1",
+        "name": "Response",
+        "statusCode": "200",
+        "headers": {},
+        "x": 1140,
+        "y": 2720,
+        "wires": []
+    },
+    {
+        "id": "2d66db054c534de6",
+        "type": "function",
+        "z": "6560bab65fc2abf1",
+        "name": "CORS",
+        "func": "msg.headers = {\n    \"Access-Control-Allow-Origin\": \"*\",\n    \"Access-Control-Allow-Methods\": \"GET, POST, PUT, DELETE\", \n    \"Access-Control-Allow-Headers\": \"Content-Type\"\n};\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 2560,
+        "wires": [
+            [
+                "49e6ea819b254636"
+            ]
+        ]
+    },
+    {
+        "id": "b23e2b90533fbf81",
+        "type": "function",
+        "z": "6560bab65fc2abf1",
+        "name": "CORS Headers",
+        "func": "msg.headers = {\n    \"Access-Control-Allow-Origin\": \"*\",\n    \"Access-Control-Allow-Methods\": \"GET, POST, PUT, DELETE\",\n    \"Access-Control-Allow-Headers\": \"Content-Type\"\n};\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 2720,
+        "wires": [
+            [
+                "72a19887c3253222"
+            ]
+        ]
+    },
+    {
+        "id": "33cc6c29488e6a2e",
+        "type": "debug",
+        "z": "6560bab65fc2abf1",
+        "name": "Debug Stats Data",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 450,
+        "y": 2500,
+        "wires": []
+    },
+    {
+        "id": "8cce730bf9340fe0",
+        "type": "debug",
+        "z": "6560bab65fc2abf1",
+        "name": "Debug Chart Data",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 430,
+        "y": 2660,
         "wires": []
     }
 ]
