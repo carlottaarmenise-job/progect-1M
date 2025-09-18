@@ -17,7 +17,7 @@ export default function Login() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // URL di redirect dopo il login (se specificato)
+  // URL di redirect dopo il login
   const from = (location.state as any)?.from?.pathname || '/';
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {

@@ -50,7 +50,7 @@ const UserDashboard: React.FC = () => {
     confirmPassword: ''
   });
 
-  // Carica ordini solo quando l'utente va nella tab ordini o overview
+  // Carica ordini
   const loadOrders = async () => {
     if (!ordersInitialized) {
       try {
@@ -62,7 +62,7 @@ const UserDashboard: React.FC = () => {
     }
   };
 
-  // Carica ordini quando si entra in overview o orders tab
+  // Carica ordini 
   useEffect(() => {
     if (activeTab === 'overview' || activeTab === 'orders') {
       loadOrders();
@@ -112,7 +112,7 @@ const UserDashboard: React.FC = () => {
     }
 
     try {
-      // Chiamata API per cambiare password
+      // cambio password
       const response = await fetch('/api/user/change-password', {
         method: 'PUT',
         headers: { 
@@ -210,7 +210,7 @@ const UserDashboard: React.FC = () => {
                 </div>
               </div>
               <h5 className="mb-1">{user?.firstName} {user?.lastName}</h5>
-              <p className="text-muted mb-0">{user?.email}</p>
+              <p className="text-white mb-0">{user?.email}</p>
             </Card.Body>
           </Card>
 
@@ -382,9 +382,9 @@ const UserDashboard: React.FC = () => {
               ) : orders.length === 0 ? (
                 <Card>
                   <Card.Body className="text-center py-5">
-                    <Package size={48} className="text-muted mb-3" />
+                    <Package size={48} className="text-muted mb-3 text-white" />
                     <h5>Nessun ordine trovato</h5>
-                    <p className="text-muted mb-3">Non hai ancora effettuato nessun ordine.</p>
+                    <p className="text-muted mb-3 text-white">Non hai ancora effettuato nessun ordine.</p>
                     <Button variant="outline-primary" onClick={loadOrders}>
                       Carica ordini
                     </Button>
@@ -399,7 +399,7 @@ const UserDashboard: React.FC = () => {
                           <Col md={2}>
                             <strong>#{order.id}</strong>
                             <br />
-                            <small className="text-muted">
+                            <small className="text-white">
                               {new Date(order.orderDate).toLocaleDateString('it-IT')}
                             </small>
                           </Col>
@@ -409,7 +409,7 @@ const UserDashboard: React.FC = () => {
                               <span>{getStatusText(order.status)}</span>
                             </div>
                             {order.trackingNumber && (
-                              <small className="text-muted">
+                              <small className="text-white">
                                 Tracking: {order.trackingNumber}
                               </small>
                             )}
@@ -417,12 +417,12 @@ const UserDashboard: React.FC = () => {
                           <Col md={2}>
                             <strong>€{order.total.toFixed(2)}</strong>
                             <br />
-                            <small className="text-muted">
+                            <small className="text-white">
                               {order.items.length} prodotti
                             </small>
                           </Col>
                           <Col md={3}>
-                            <small className="text-muted">
+                            <small className="tetx-white">
                               {order.paymentMethod}
                             </small>
                           </Col>
@@ -594,7 +594,7 @@ const UserDashboard: React.FC = () => {
                       <h5 className="mb-0">Sicurezza</h5>
                     </Card.Header>
                     <Card.Body>
-                      <p className="text-muted mb-3">
+                      <p className="text-white mb-3">
                         Mantieni sicuro il tuo account cambiando regolarmente la password.
                       </p>
                       <Button 

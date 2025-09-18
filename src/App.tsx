@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Navbar, Nav, Badge, Dropdown } from 'react-bootstrap';
 import { Routes, Route, NavLink, Link, useLocation } from 'react-router-dom';
-import { User, LogOut, Shield, Settings } from 'lucide-react';
+import { User, LogOut, Shield, Settings, BarChart3 } from 'lucide-react';
 
 import { useCart } from './context/CartContext';
 import { useAuth } from './context/AuthContext';
@@ -13,10 +13,12 @@ import Checkout from './pages/Checkout';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import UserDashboard from './pages/UserDashboard';
+import OrderSuccess from './pages/OrderSuccess';
 
 import MiniCart from './components/MiniCart';
 import Footer from './components/Footer';
 import AdminPanel from './pages/AdminPanel';
+import AdminDashboard from './components/AdminDashboard';
 import ProtectedRoute from './components/ProtectedRoute';
 
 export default function App() {
@@ -64,15 +66,36 @@ export default function App() {
                                     Checkout
                                 </NavLink>
 
-                                {/* Admin link per admin */}
+                                {/* Admin dropdown per admin */}
                                 {isAuthenticated && isAdmin && (
-                                    <NavLink
-                                        to="/admin"
-                                        className={({ isActive }) => 'nav-link d-flex align-items-center gap-1' + (isActive ? ' active' : '')}
-                                    >
-                                        <Shield size={16} />
-                                        Admin
-                                    </NavLink>
+                                    <Dropdown align="end">
+                                        <Dropdown.Toggle
+                                            variant="outline-warning"
+                                            id="admin-dropdown"
+                                            className="d-flex align-items-center gap-2"
+                                        >
+                                            <Shield size={16} />
+                                            <span className="d-none d-md-inline">Admin</span>
+                                        </Dropdown.Toggle>
+
+                                        <Dropdown.Menu>
+                                            <Dropdown.Header>
+                                                <div className="fw-semibold text-warning">
+                                                    <Shield size={14} className="me-1" />
+                                                    Area Admin
+                                                </div>
+                                            </Dropdown.Header>
+                                            <Dropdown.Divider />
+                                            <Dropdown.Item as={Link} to="/admin">
+                                                <Settings size={16} className="me-2" />
+                                                Pannello Admin
+                                            </Dropdown.Item>
+                                            <Dropdown.Item as={Link} to="/admin/dashboard">
+                                                <BarChart3 size={16} className="me-2" />
+                                                Dashboard & Statistiche
+                                            </Dropdown.Item>
+                                        </Dropdown.Menu>
+                                    </Dropdown>
                                 )}
 
                                 {/* User menu */}
@@ -152,6 +175,13 @@ export default function App() {
                                 <AdminPanel />
                             </ProtectedRoute>
                         } />
+                        {/* Nuove route aggiunte */}
+                        <Route path="/admin/dashboard" element={
+                            <ProtectedRoute requireAdmin>
+                                <AdminDashboard />
+                            </ProtectedRoute>
+                        } />
+                        <Route path="/order-success/:orderId" element={<OrderSuccess />} />
                     </Routes>
                 </Container>}
 

@@ -12,7 +12,7 @@ export default function ProtectedRoute({ children, requireAdmin = false }: Prote
   const { isAuthenticated, isAdmin, loading } = useAuth();
   const location = useLocation();
 
-  // Mostra loader durante il caricamento
+  // Mostra loader
   if (loading) {
     return (
       <div className="d-flex justify-content-center align-items-center min-vh-100">

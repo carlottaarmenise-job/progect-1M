@@ -159,3 +159,193 @@ textarea.form-control {
     background: rgba(255, 255, 255, 0.08);
     border-color: rgba(255, 255, 255, 0.35);
 }
+
+/*  Navbar dropdwon */
+
+/* Test per forzare il dropdown e la z-index  */
+.navbar-dark .dropdown-menu {
+    z-index: 1050 !important;
+    position: absolute !important;
+}
+
+.navbar .dropdown.show .dropdown-menu {
+    z-index: 1050 !important;
+    display: block !important;
+    position: absolute !important;
+}
+
+.navbar .dropdown {
+    position: relative;
+    z-index: 1050;
+}
+
+.navbar .dropdown-toggle {
+    position: relative;
+    z-index: 1051;
+}
+
+/* Bootstrap  per dropdown attivo */
+.dropdown-menu.show {
+    z-index: 1050 !important;
+    position: absolute !important;
+    transform: translate3d(0, 0, 0) !important;
+}
+
+/* Stile dropdown per visibilità */
+.navbar .dropdown-menu {
+    background: rgba(33, 37, 41, 0.95) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(8px);
+}
+
+.navbar .dropdown-item {
+    color: #e6e8ee !important;
+}
+
+.navbar .dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
+}
+
+/* Order success*/
+
+.order-timeline {
+    position: relative;
+    padding-left: 20px;
+}
+
+.order-timeline::before {
+    content: '';
+    position: absolute;
+    left: 9px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.order-timeline-item {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.order-timeline-marker {
+    position: absolute;
+    left: -15px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.04);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
+}
+
+.order-timeline-item.completed .order-timeline-marker {
+    box-shadow: 0 0 0 3px #28a745;
+}
+
+.order-timeline-content {
+    margin-left: 15px;
+}
+
+.order-timeline-title {
+    margin-bottom: 5px;
+    font-size: 1rem;
+    color: #e6e8ee;
+}
+
+.order-timeline-text {
+    margin-bottom: 5px;
+    color: #adb5bd;
+}
+
+.order-timeline-item.completed .order-timeline-title {
+    color: #28a745;
+    font-weight: 600;
+}
+
+/* Colori testo OrderSuccess */
+.order-success-title {
+    color: #28a745 !important;
+    font-weight: 500;
+}
+
+.order-details-header {
+    color: #e6e8ee;
+}
+
+.order-product-name {
+    color: #e6e8ee;
+}
+
+.order-product-sku {
+    color: #adb5bd;
+}
+
+.order-price-main {
+    color: #e6e8ee;
+}
+
+.order-price-unit {
+    color: #adb5bd;
+}
+
+.order-total-label {
+    color: #adb5bd;
+}
+
+.order-total-value {
+    color: #e6e8ee;
+}
+
+.order-section-title {
+    color: #e6e8ee;
+}
+
+.order-section-subtitle {
+    color: #adb5bd;
+}
+
+.order-address-text {
+    color: #e6e8ee;
+}
+
+.order-payment-completed {
+    color: #28a745 !important;
+    font-weight: 600;
+}
+
+.order-transaction-id {
+    color: #adb5bd;
+}
+
+.order-payment-amount-label {
+    color: #adb5bd;
+}
+
+.order-payment-method {
+    color: #adb5bd;
+}
+
+.order-next-step-text {
+    color: #adb5bd;
+}
+
+.order-final-title {
+    color: #e6e8ee;
+    font-weight: 600;
+}
+
+.order-final-text {
+    color: #adb5bd;
+}
+
+/* Media queries per stampa */
+@media print {
+
+    .btn,
+    .card-header,
+    .order-timeline::before,
+    .order-timeline-marker {
+        display: none !important;
+    }
+}

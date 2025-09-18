@@ -10,7 +10,7 @@ export default function Home() {
     const [data, setData] = useState<Product[]>([]);
     const [loading, setLoading] = useState(true);
 
-    // Usa il CategoryContext per le categorie dinamiche
+    // Usa il CategoryContext 
     const { categories: dynamicCategories, fetchCategories } = useCategories();
 
     const [searchParams, setSearchParams] = useSearchParams();
@@ -70,7 +70,7 @@ export default function Home() {
         );
 
         if (category !== 'all') {
-            // Trova la categoria  corrispondente
+            
             const selectedCategory = dynamicCategories.find(cat => cat.slug === category);
             if (selectedCategory) {
                 list = list.filter(p =>
